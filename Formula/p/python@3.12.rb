@@ -1,10 +1,9 @@
 class PythonAT312 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.12.10/Python-3.12.10.tgz"
-  sha256 "15d9c623abfd2165fe816ea1fb385d6ed8cf3c664661ab357f1782e3036a6dac"
+  url "https://www.python.org/ftp/python/3.12.11/Python-3.12.11.tgz"
+  sha256 "7b8d59af8216044d2313de8120bfc2cc00a9bd2e542f15795e1d616c51faf3d6"
   license "Python-2.0"
-  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -62,8 +61,8 @@ class PythonAT312 < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
-    sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
+    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
   resource "wheel" do
