@@ -1,8 +1,8 @@
 class Sesh < Formula
   desc "Smart session manager for the terminal"
   homepage "https://github.com/joshmedeski/sesh"
-  url "https://github.com/joshmedeski/sesh/archive/refs/tags/v2.14.0.tar.gz"
-  sha256 "7629869620aa2b496262c51511be20660579ae94baf1e2ea82af8dcbde3ab4db"
+  url "https://github.com/joshmedeski/sesh/archive/refs/tags/v2.15.0.tar.gz"
+  sha256 "bd74d4ef697fd186ee74b76f2100b16cb5ed2eb43d5e478c4c5481b659196d4d"
   license "MIT"
   head "https://github.com/joshmedeski/sesh.git", branch: "main"
 
