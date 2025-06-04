@@ -14,6 +14,9 @@ class JettyRunner < Formula
     sha256 cellar: :any_skip_relocation, all: "15aef216430d1b1c1a0d7823e12102cf7a8d5b1974bb8611ee6bbc3363394844"
   end
 
+  # See: https://github.com/jetty/jetty.project/issues/1905#issuecomment-409662335
+  deprecate! date: "2018-08-02", because: :deprecated_upstream
+
   depends_on "openjdk"
 
   def install
