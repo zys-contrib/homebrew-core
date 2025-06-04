@@ -4,16 +4,17 @@ class Malcontent < Formula
   url "https://github.com/chainguard-dev/malcontent/archive/refs/tags/v1.11.3.tar.gz"
   sha256 "57c2c875522306776fdf4a39bffd778c56a97d0d0f30c6d3299414f88fb9af77"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/chainguard-dev/malcontent.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0a53d4a0682a245bca8b523a4664955ce8c61367820fca87e3b3dcb001b9236b"
-    sha256 cellar: :any,                 arm64_sonoma:  "282be6c5ca79065ac90ebeac13e9bf567653337d444a9fd556da6c8c99e3cd96"
-    sha256 cellar: :any,                 arm64_ventura: "7a9b3dea823f3b8e0154709453a5dceca87fd1cb479db880a8c0b9ae94444738"
-    sha256 cellar: :any,                 sonoma:        "cf138476725e22233d412a0f33e2f8bd97e7e2412c913cf751a26f31cf6911c1"
-    sha256 cellar: :any,                 ventura:       "0b3fb42c912b3d72b6903e9438da947957efbea58688d22942db8adafb6a23b1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "65b1c9e4d22ef7ccf84ab9cfd29587899a84a7aabec6af01a576afa30c7b92db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "60479f86d5a158a7b9b3746b37abd3f264dc6781d5086a7d1b71aab3554c5a03"
+    sha256 cellar: :any,                 arm64_sequoia: "7d66397fef1567264822b45b0103a879f768699316f81412467ba1cd24482a54"
+    sha256 cellar: :any,                 arm64_sonoma:  "46dcef392b48cbb9323e28fd5f17cadd423795843d063e6fb0e9a64cb382a55b"
+    sha256 cellar: :any,                 arm64_ventura: "6b7e0d5d07c18a9c357ee57a6e3bc61b309a0faca039f650c9e776a5474a929d"
+    sha256 cellar: :any,                 sonoma:        "62fd216fd39a008d28d17f39fc3f555653c3b00c72c1c8f1e3c803de82b2c47e"
+    sha256 cellar: :any,                 ventura:       "0fc0338934dab10df2e6dec657acbbc2c326a5ce22b2936d1b386afe0f2a6dcd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c18f0935906885e8c882a15ddfe65b8890e42d8caa97d1e7add37bb24e930216"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd95e2fbec34d546908a9960779c50c3d4ba493b2be0be70512c76dbf0d2e953"
   end
 
   depends_on "go" => :build
