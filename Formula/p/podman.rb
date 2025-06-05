@@ -1,19 +1,10 @@
 class Podman < Formula
   desc "Tool for managing OCI containers and pods"
   homepage "https://podman.io/"
+  url "https://github.com/containers/podman/archive/refs/tags/v5.5.1.tar.gz"
+  sha256 "00d02f85ad27a46e77456fef1be81865a43147544ed2487e6c4c8decd0e3748f"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
   head "https://github.com/containers/podman.git", branch: "main"
-
-  stable do
-    url "https://github.com/containers/podman/archive/refs/tags/v5.5.0.tar.gz"
-    sha256 "a4abfc72ef9a59ba80d081ea604ad2976ff967ae526e50e234edc1d2481bd9d1"
-
-    # build patch for go1.24.3, upstream pr ref, https://github.com/containers/podman/pull/26137
-    patch do
-      url "https://github.com/containers/podman/commit/db65baaa215b68d73996ca17dd8c596901ab8bdb.patch?full_index=1"
-      sha256 "b9e8ca69b6c9d4bf99307f0afca96c4c9c6d39674628d88358e5df56b1cac839"
-    end
-  end
 
   # There can be a notable gap between when a version is tagged and a
   # corresponding release is created and upstream uses GitHub releases to
@@ -87,8 +78,8 @@ class Podman < Formula
 
   resource "netavark" do
     on_linux do
-      url "https://github.com/containers/netavark/archive/refs/tags/v1.15.0.tar.gz"
-      sha256 "efda776e538ce33050b1f6ce58c5070efeb45653d48fe4d17a47524c8fc17cf1"
+      url "https://github.com/containers/netavark/archive/refs/tags/v1.15.2.tar.gz"
+      sha256 "84325e03aa0a2818aef9fb57b62cda8e9472584744d91ce5e5b191098f9e6d6a"
     end
   end
 
