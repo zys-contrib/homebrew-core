@@ -1,8 +1,8 @@
 class NetlifyCli < Formula
   desc "Netlify command-line tool"
   homepage "https://www.netlify.com/docs/cli"
-  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-21.5.0.tgz"
-  sha256 "79d55a6b8633f0dc9da32ada9a0d48db6582b7805fa5a38d002fac3e05300033"
+  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-22.1.2.tgz"
+  sha256 "6e09f7ad4ca677ab44dae5a00721291d9a37b44e5128a65f7625562962c47dcd"
   license "MIT"
 
   bottle do
@@ -15,10 +15,16 @@ class NetlifyCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "3c0cd3806d9795a24e620a4609fea84cfbdc9719694f18062a1c064cb112722f"
   end
 
+  depends_on "pkgconf" => :build
+  depends_on "glib"
   depends_on "node"
+  depends_on "vips"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   on_linux do
-    depends_on "glib"
     depends_on "gmp"
     depends_on "vips"
     depends_on "xsel"
