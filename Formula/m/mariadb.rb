@@ -1,8 +1,8 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://archive.mariadb.org/mariadb-11.7.2/source/mariadb-11.7.2.tar.gz"
-  sha256 "557a89f08e74015d1d6909595e003dca75d4df21ed1ef8180d63cdd74e5e71b3"
+  url "https://archive.mariadb.org/mariadb-11.8.2/source/mariadb-11.8.2.tar.gz"
+  sha256 "b2162cdf5e9317d8a8621cbeda83999324fc0ac8944210e14abb5fe0a9fea3ef"
   license "GPL-2.0-only"
 
   livecheck do
@@ -56,25 +56,8 @@ class Mariadb < Formula
 
   conflicts_with "mysql", "percona-server", because: "mariadb, mysql, and percona install the same binaries"
 
-  # system libfmt patch, upstream pr ref, https://github.com/MariaDB/server/pull/3786
-  patch do
-    url "https://github.com/MariaDB/server/commit/b6a924b8478d2fab5d51245ff6719b365d7db7f4.patch?full_index=1"
-    sha256 "77b65b35cf0166b8bb576254ac289845db5a8e64e03b41f1bf4b2045ac1cd2d1"
-  end
-
-  # Backport fix for CMake 4.0
-  patch do
-    url "https://github.com/codership/wsrep-lib/commit/324b01e4315623ce026688dd9da1a5f921ce7084.patch?full_index=1"
-    sha256 "eaa0c3b648b712b3dbab3d37dfca7fef8a072908dc28f2ed383fbe8d217be421"
-    directory "wsrep-lib"
-  end
-
   def install
     ENV.runtime_cpu_detection
-
-    # Backport fix for CMake 4.0
-    # https://github.com/MariaDB/server/commit/cacaaebf01939d387645fb850ceeec5392496171
-    inreplace "storage/mroonga/CMakeLists.txt", "cmake_minimum_required(VERSION 2.8.12)", ""
 
     # Set basedir and ldata so that mysql_install_db can find the server
     # without needing an explicit path to be set. This can still
