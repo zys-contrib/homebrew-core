@@ -7,13 +7,13 @@ class Jj < Formula
   head "https://github.com/jj-vcs/jj.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "50c511670ee40fa1da2d8b18029bad69223ee3d8e50a3009d4607ac94390fc48"
-    sha256 cellar: :any,                 arm64_sonoma:  "5d6c168d37c55fdfcaaa4c95b3e380cc859296ef9d114ff5830ff8aa2291bbae"
-    sha256 cellar: :any,                 arm64_ventura: "48f0c95193b1714f59799528db6ae6069148fdc21963dcf76c205f9b5b377579"
-    sha256 cellar: :any,                 sonoma:        "33a01d5e4b4cd52ae2dcb1830288cbde9a9560f56c2205fb267140797ffa2d42"
-    sha256 cellar: :any,                 ventura:       "62b3be14fd3c750708c27a70c1edea19c893a67cdd45154ea259583661459970"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "439cd35809f8b0eb10150b5598be56d1afbfa9aa5a2c26aecbd1dcaad1414a46"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2140f62549e58a6938ee9d265d926223bdfca139485464958e89340279f3af47"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "833b9681b5f65fd35fa365fd0638d047bbb25e776163499b7f43f65ed238e44c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "67ea879212c9ec6115a610c438a40854baf7d2f3a7a433d0816dd97b9437e739"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b60adff4aa38dda9c9f05880d9fa13c8e906193eaa283c032be1e3e4081e2489"
+    sha256 cellar: :any_skip_relocation, sonoma:        "20557d44e25fcd36dd5a66399aa0e36b54b77b7fde91548cedeba36dd2263887"
+    sha256 cellar: :any_skip_relocation, ventura:       "b6fed70088fe219ed523d9e877310c7951b554a87e2f528ca8b218eb993ba3ae"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d8b0eaa58ce0ebb2a5f9b59db8e931f36a210f0e4cd8dc48e8c7cc1382941d95"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "35ef27032c768550d2613536adf6d449054844d98402fb1a628fccf530b0580c"
   end
 
   depends_on "rust" => :build
