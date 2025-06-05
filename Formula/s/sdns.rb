@@ -1,8 +1,8 @@
 class Sdns < Formula
   desc "Privacy important, fast, recursive dns resolver server with dnssec support"
   homepage "https://sdns.dev/"
-  url "https://github.com/semihalev/sdns/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "0ab9d6a7ad3ae13688a10bae0b0738ca0089c81c1c7af9febcb3335f9d0aeadc"
+  url "https://github.com/semihalev/sdns/archive/refs/tags/v1.5.0.tar.gz"
+  sha256 "948320bcd562f696efc38a7ec30897a36c27e31aeedff6fd227bd853fdf537ba"
   license "MIT"
   head "https://github.com/semihalev/sdns.git", branch: "master"
 
@@ -24,7 +24,7 @@ class Sdns < Formula
   end
 
   service do
-    run [opt_bin/"sdns", "-config", etc/"sdns.conf"]
+    run [opt_bin/"sdns", "--config", etc/"sdns.conf"]
     keep_alive true
     require_root true
     error_log_path var/"log/sdns.log"
@@ -33,10 +33,8 @@ class Sdns < Formula
   end
 
   test do
-    fork do
-      exec bin/"sdns", "-config", testpath/"sdns.conf"
-    end
-    sleep(2)
+    spawn bin/"sdns", "--config", testpath/"sdns.conf"
+    sleep 2
     assert_path_exists testpath/"sdns.conf"
   end
 end
