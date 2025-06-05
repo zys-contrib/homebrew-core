@@ -3,8 +3,8 @@ class Locust < Formula
 
   desc "Scalable user load testing tool written in Python"
   homepage "https://locust.io/"
-  url "https://files.pythonhosted.org/packages/7a/53/09abcf585c001deec3d6c2ccf13ca5d2b59645da6c9458fe830189e1bfe3/locust-2.37.7.tar.gz"
-  sha256 "9421ff51ce023a5ddff74f2544a13310f7929ca02452be2663130ffab26585a1"
+  url "https://files.pythonhosted.org/packages/66/18/7b79da791bd5f292f7ba163e085fe975be275b976da223367138ac785123/locust-2.37.8.tar.gz"
+  sha256 "72461c0060028d7e0673b3c54d7e4a4136887d7aa168c21cd54a7a7a05a387b1"
   license "MIT"
 
   bottle do
@@ -69,8 +69,8 @@ class Locust < Formula
   end
 
   resource "gevent" do
-    url "https://files.pythonhosted.org/packages/ab/75/a53f1cb732420f5e5d79b2563fc3504d22115e7ecfe7966e5cf9b3582ae7/gevent-24.11.1.tar.gz"
-    sha256 "8bd1419114e9e4a3ed33a5bad766afff9a3cf765cb440a582a1b3a9bc80c1aca"
+    url "https://files.pythonhosted.org/packages/f1/58/267e8160aea00ab00acd2de97197eecfe307064a376fb5c892870a8a6159/gevent-25.5.1.tar.gz"
+    sha256 "582c948fa9a23188b890d0bc130734a506d039a2e5ad87dae276a456cc683e61"
   end
 
   resource "geventhttpclient" do
@@ -104,8 +104,8 @@ class Locust < Formula
   end
 
   resource "locust-cloud" do
-    url "https://files.pythonhosted.org/packages/69/cb/db2d9dd27317d22d98f7a4a0eebbe4dc6ff24e44c0ae509118370e605c3b/locust_cloud-1.23.0.tar.gz"
-    sha256 "4038a09eda858b483ced20f5cb82caf3f866244c2c7864e0da5c32722b97f532"
+    url "https://files.pythonhosted.org/packages/bd/7c/d9cbbd051490aeedfbd6ddda8ad48f77dd848ee490f6ebd166d20db5911e/locust_cloud-1.23.1.tar.gz"
+    sha256 "a09161752b8c9a9205e97cef5223ee3ad967bc2d91c52d61952aaa3da6802a55"
   end
 
   resource "markupsafe" do
@@ -129,8 +129,8 @@ class Locust < Formula
   end
 
   resource "python-engineio" do
-    url "https://files.pythonhosted.org/packages/3c/9d/8492fbde3d4cb0e052de8a91a09754f222b5093f0342ef2dac92d60c751f/python_engineio-4.12.1.tar.gz"
-    sha256 "9f2b5a645c416208a9c727254316d487252493de52bee0ff70dc29ca9210397e"
+    url "https://files.pythonhosted.org/packages/ba/0b/67295279b66835f9fa7a491650efcd78b20321c127036eef62c11a31e028/python_engineio-4.12.2.tar.gz"
+    sha256 "e7e712ffe1be1f6a05ee5f951e72d434854a32fcfc7f6e4d9d3cae24ec70defa"
   end
 
   resource "python-socketio" do
