@@ -1,8 +1,8 @@
 class PythonTkAT39 < Formula
   desc "Python interface to Tcl/Tk"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.9.22/Python-3.9.22.tar.xz"
-  sha256 "8c136d199d3637a1fce98a16adc809c1d83c922d02d41f3614b34f8b6e7d38ec"
+  url "https://www.python.org/ftp/python/3.9.23/Python-3.9.23.tar.xz"
+  sha256 "61a42919e13d539f7673cf11d1c404380e28e540510860b9d242196e165709c9"
   license "Python-2.0"
 
   livecheck do
