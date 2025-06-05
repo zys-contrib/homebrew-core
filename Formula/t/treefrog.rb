@@ -22,7 +22,7 @@ class Treefrog < Formula
   depends_on "pkgconf" => :build
   depends_on "glog"
   depends_on "lz4"
-  depends_on "mongo-c-driver"
+  depends_on "mongo-c-driver@1"
   depends_on "qt"
 
   def install
