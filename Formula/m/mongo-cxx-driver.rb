@@ -23,7 +23,7 @@ class MongoCxxDriver < Formula
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :test
-  depends_on "mongo-c-driver"
+  depends_on "mongo-c-driver@1"
 
   def install
     # We want to avoid shims referencing in examples,
@@ -31,7 +31,7 @@ class MongoCxxDriver < Formula
     pkgshare.install "examples"
     (buildpath / "examples/CMakeLists.txt").write ""
 
-    mongo_c_prefix = Formula["mongo-c-driver"].opt_prefix
+    mongo_c_prefix = Formula["mongo-c-driver@1"].opt_prefix
     args = %W[
       -DBUILD_VERSION=#{version}
       -DLIBBSON_DIR=#{mongo_c_prefix}
