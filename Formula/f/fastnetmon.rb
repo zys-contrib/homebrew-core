@@ -24,7 +24,7 @@ class Fastnetmon < Formula
   depends_on "hiredis"
   depends_on "log4cpp"
   depends_on macos: :big_sur # We need C++ 20 available for build which is available from Big Sur
-  depends_on "mongo-c-driver"
+  depends_on "mongo-c-driver@1"
   depends_on "openssl@3"
   depends_on "protobuf"
 
