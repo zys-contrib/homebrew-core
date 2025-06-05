@@ -3,8 +3,8 @@ class Aider < Formula
 
   desc "AI pair programming in your terminal"
   homepage "https://aider.chat/"
-  url "https://files.pythonhosted.org/packages/1b/76/5621ce9d7e3a4fa2b7015a422023a238089a2628bc522762b2193cc6e8c0/aider_chat-0.83.2.tar.gz"
-  sha256 "b3b1d8d532313d22cec3f418773f2c7623e21c09fd6ae2bcaeba9726b73b0022"
+  url "https://files.pythonhosted.org/packages/76/94/8cbf0e10a01bd24c68a0b14e256b75abaa4bae662f955669e14fc5902b0e/aider_chat-0.84.0.tar.gz"
+  sha256 "b5001eaae8741816c28fa7a06adb616f2ba5293553de94ee123b99038c98fae0"
   license "Apache-2.0"
   head "https://github.com/paul-gauthier/aider.git", branch: "main"
 
@@ -182,13 +182,13 @@ class Aider < Formula
   end
 
   resource "grpcio" do
-    url "https://files.pythonhosted.org/packages/d1/33/bf7bf9188cfce1c626e4c5d55523fec7f2f1d905e003df5da025f532916e/grpcio-1.72.0rc1.tar.gz"
-    sha256 "221793dccd3332060f426975a041d319d6d57323d857d4afc25257ec4a5a67f3"
+    url "https://files.pythonhosted.org/packages/fe/45/ff8c80a5a2e7e520d9c4d3c41484a11d33508253f6f4dd06d2c4b4158999/grpcio-1.72.1.tar.gz"
+    sha256 "87f62c94a40947cec1a0f91f95f5ba0aa8f799f23a1d42ae5be667b6b27b959c"
   end
 
   resource "grpcio-status" do
-    url "https://files.pythonhosted.org/packages/5b/b2/f5caba63bb0c1637f468d820c46756b8bae28187928ffbe097157f478429/grpcio_status-1.72.0rc1.tar.gz"
-    sha256 "20b9cabe989824eeb5d8322189fdc084dfc69bb9fff7cb165cd28340cdbc73e1"
+    url "https://files.pythonhosted.org/packages/50/b8/e563262a30065d3b52b61ca92c427fe2a1b04ba5dfca0415ae0df8ecdac8/grpcio_status-1.72.1.tar.gz"
+    sha256 "627111a87afa920eafb42cc6c50db209d263e07fa51fbb084981ef636566be7b"
   end
 
   resource "h11" do
@@ -591,7 +591,13 @@ class Aider < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_install_with_resources without: "tree-sitter-language-pack"
+
+    # Remove prebuilt bindings: https://github.com/Goldziher/tree-sitter-language-pack/issues/46
+    resource("tree-sitter-language-pack").stage do
+      Pathname.pwd.glob("tree_sitter_language_pack/bindings/*").map(&:unlink)
+      venv.pip_install Pathname.pwd
+    end
   end
 
   test do
