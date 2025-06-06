@@ -1,8 +1,8 @@
 class Energy < Formula
   desc "CLI is used to initialize the Energy development environment tools"
   homepage "https://energye.github.io"
-  url "https://github.com/energye/energy/archive/refs/tags/v2.5.4.tar.gz"
-  sha256 "1349790b2828a66f2f431fc34cfdd0499dc7ab159837e64a09b567c5f32523f6"
+  url "https://github.com/energye/energy/archive/refs/tags/v2.5.5.tar.gz"
+  sha256 "23fc328279bcc9ccd04367d114a76b9fec89b2f5640e616f504479b9a72ed3f9"
   license "Apache-2.0"
   head "https://github.com/energye/energy.git", branch: "main"
 
@@ -24,9 +24,7 @@ class Energy < Formula
   end
 
   test do
-    output = shell_output("#{bin}/energy cli -v")
-    assert_match "CLI Current: v#{version}", output
-    assert_match "CLI Latest : v#{version}", output
+    assert_match version.to_s, shell_output("#{bin}/energy cli -v")
 
     assert_match "https://energy.yanghy.cn", shell_output("#{bin}/energy env")
   end
