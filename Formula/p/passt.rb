@@ -1,9 +1,9 @@
 class Passt < Formula
   desc "User-mode networking daemons for virtual machines and namespaces"
   homepage "https://passt.top/passt/about/"
-  url "https://passt.top/passt/snapshot/passt-2025_05_12.8ec1341.tar.xz"
-  version "2025_05_12.8ec1341"
-  sha256 "0e2f72073a2ab8c9a4dbb604d18b7f3c0c3bd37106453fbf22d1e4f410d0f7df"
+  url "https://passt.top/passt/snapshot/passt-2025_06_06.754c6d7.tar.xz"
+  version "2025_06_06.754c6d7"
+  sha256 "01a511c8450c12133c59813e3b23943f67676945f7dbdcc562973b45de2461b8"
   license all_of: ["GPL-2.0-or-later", "BSD-3-Clause"]
   head "git://passt.top/passt", branch: "master"
 
