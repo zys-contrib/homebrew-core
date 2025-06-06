@@ -928,6 +928,7 @@ duplicity
 duply
 dust
 dvc
+dvisvgm
 dwarfs
 dwarfutils
 dwm
