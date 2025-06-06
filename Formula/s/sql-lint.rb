@@ -1,8 +1,8 @@
 class SqlLint < Formula
   desc "SQL linter to do sanity checks on your queries and bring errors back from the DB"
   homepage "https://github.com/joereynolds/sql-lint"
-  url "https://registry.npmjs.org/sql-lint/-/sql-lint-1.0.0.tgz"
-  sha256 "0ee3b71d812af3cc809829b663d9cd747996ec76e2b3e49fd3b7a5969398190e"
+  url "https://registry.npmjs.org/sql-lint/-/sql-lint-1.0.2.tgz"
+  sha256 "17575266273fe3f762595fe404f49ff5fbd4c360f605cda0718cb62d65ad82b8"
   license "MIT"
 
   bottle do

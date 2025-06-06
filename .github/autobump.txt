@@ -3476,6 +3476,7 @@ spr
 spytrap-adb
 sq
 sql-formatter
+sql-lint
 sql-migrate
 sqlancer
 sqlboiler
