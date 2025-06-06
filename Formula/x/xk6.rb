@@ -23,11 +23,11 @@ class Xk6 < Formula
   depends_on "go"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/xk6"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X go.k6.io/xk6/internal/cmd.version=#{version}")
   end
 
   test do
-    str_build = shell_output("#{bin}/xk6 build")
-    assert_match "xk6 has now produced a new k6 binary", str_build
+    assert_match "xk6 version #{version}", shell_output("#{bin}/xk6 version")
+    assert_match "xk6 has now produced a new k6 binary", shell_output("#{bin}/xk6 build")
   end
 end
