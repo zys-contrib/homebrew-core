@@ -1,8 +1,8 @@
 class VulkanProfiles < Formula
   desc "Tools for Vulkan profiles"
   homepage "https://github.com/KhronosGroup/Vulkan-Profiles"
-  url "https://github.com/KhronosGroup/Vulkan-Profiles/archive/refs/tags/v1.4.316.tar.gz"
-  sha256 "ad790b4545183d0725e3b3fe32ff0084571b62dcc7566cd9dffdc6f391d4aafa"
+  url "https://github.com/KhronosGroup/Vulkan-Profiles/archive/refs/tags/v1.4.317.tar.gz"
+  sha256 "5b33d1402e1cf35448438f6a57f4ea78c11b152b20183e2db3065a74298b7545"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/Vulkan-Profiles.git", branch: "main"
 
