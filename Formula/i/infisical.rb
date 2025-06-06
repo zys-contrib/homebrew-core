@@ -1,8 +1,8 @@
 class Infisical < Formula
   desc "CLI for Infisical"
   homepage "https://infisical.com/docs/cli/overview"
-  url "https://github.com/Infisical/infisical/archive/refs/tags/infisical-cli/v0.41.8.tar.gz"
-  sha256 "37a498160e5086bba645059296e28990a780ac848988d0b78d3e2546583f6040"
+  url "https://github.com/Infisical/infisical/archive/refs/tags/infisical-cli/v0.41.81.tar.gz"
+  sha256 "006e6124ebd707662d083a2d18552270a5122307f0abcb57bd000a63472c9a99"
   license "MIT"
   head "https://github.com/Infisical/infisical.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Infisical < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7b033879c5a4e63e5ad13d39d0d64b1e2fa62d2ee56e19d0dfe7f6d48fec4275"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7b033879c5a4e63e5ad13d39d0d64b1e2fa62d2ee56e19d0dfe7f6d48fec4275"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7b033879c5a4e63e5ad13d39d0d64b1e2fa62d2ee56e19d0dfe7f6d48fec4275"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ad15e11120548df2b5fdd0a312562e462d144e80e38042ed7e015b18c2eb0c7a"
-    sha256 cellar: :any_skip_relocation, ventura:       "ad15e11120548df2b5fdd0a312562e462d144e80e38042ed7e015b18c2eb0c7a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b32a8aa3a33235b8ac1c49f306a37d70371ccff8a45353c9ebb995647e9eacf6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "361d9c188aa0aeced55be61c1970b97364c6bbc260802d3ee55f35063c67453c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "361d9c188aa0aeced55be61c1970b97364c6bbc260802d3ee55f35063c67453c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "361d9c188aa0aeced55be61c1970b97364c6bbc260802d3ee55f35063c67453c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bc250448429b7cffa09ccb553e5bc5e07417aa844338f5fb8206ed4f9558f883"
+    sha256 cellar: :any_skip_relocation, ventura:       "bc250448429b7cffa09ccb553e5bc5e07417aa844338f5fb8206ed4f9558f883"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a4890412b785d5b71d8f1d1af801fcfb87b124f863b42e85a233a9b6f728d22"
   end
 
   depends_on "go" => :build
