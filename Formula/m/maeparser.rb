@@ -1,10 +1,9 @@
 class Maeparser < Formula
   desc "Maestro file parser"
   homepage "https://github.com/schrodinger/maeparser"
-  url "https://github.com/schrodinger/maeparser/archive/refs/tags/v1.3.2.tar.gz"
-  sha256 "431ae029957534324b59eb3974486f3cad97d06e9bacd88ec94dc598046dfcd3"
+  url "https://github.com/schrodinger/maeparser/archive/refs/tags/v1.3.3.tar.gz"
+  sha256 "78e7571a779ea4952e752ecef57c62fb26463947e29ef7f4b31b11988d88ca07"
   license "MIT"
-  revision 1
   head "https://github.com/schrodinger/maeparser.git", branch: "master"
 
   bottle do

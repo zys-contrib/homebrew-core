@@ -2264,6 +2264,7 @@ macchina
 mackup
 macmon
 mactop
+maeparser
 mafft
 mage
 magic_enum
