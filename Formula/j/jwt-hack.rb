@@ -12,6 +12,7 @@ class JwtHack < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0e8a8e363356cbe92fb51fe20f0a2421ad1bd68109152e6d249adfe274b42008"
     sha256 cellar: :any_skip_relocation, sonoma:        "5dbe60466f3be0d379c5a049637831e97dcdeebe0b88c4ef7dbbd5be57ef8492"
     sha256 cellar: :any_skip_relocation, ventura:       "ee3e1ba9b675a289aa00161021d983c400a48a2295844a23be993044697afe59"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e34b61261e53f5e829b005578523736b7849f33e5de0d3e6c0fbcbc3b9d8146"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a76d31e93d7bd5557503096ba4e09c2add33e4ce688b98fad157956d88c0264"
   end
 
