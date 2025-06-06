@@ -17,6 +17,7 @@ class Samply < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a64f2cb47e7a97c363081d9a4bd532601bd08683cc32e3d60106396e20835d6b"
     sha256 cellar: :any_skip_relocation, sonoma:        "21667380c1fd74f7b166beb990228af8d6344ccfa33139c8abbc4601afbce857"
     sha256 cellar: :any_skip_relocation, ventura:       "f7759fa82b95fedd7b9007a4d78d7650bb6f3fb128d142245d73a240e8cbf017"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "919b8b8f007bc8f801f81dbc4ccdd51fb8ab4c3570bbfffa2c7436ac5409e4a4"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a6eef40b7f6a26e0013ddb66b430bb2bb2c252f568aca126398b31e0e32467e"
   end
 
