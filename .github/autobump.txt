@@ -281,6 +281,7 @@ bedops
 bee
 behaviortree.cpp
 bench
+benchi
 bender
 benthos
 berglas
