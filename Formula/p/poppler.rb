@@ -1,8 +1,8 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-25.05.0.tar.xz"
-  sha256 "9b1627c5b76816ac5e4052a03f5b605ba40b45cf06b02cadd0479620b499ab38"
+  url "https://poppler.freedesktop.org/poppler-25.06.0.tar.xz"
+  sha256 "8199532d38984fab46dbd0020ec9c40f20e928e33e9b4cc6043572603a821d83"
   license "GPL-2.0-only"
   head "https://gitlab.freedesktop.org/poppler/poppler.git", branch: "master"
 
@@ -53,6 +53,11 @@ class Poppler < Formula
   resource "font-data" do
     url "https://poppler.freedesktop.org/poppler-data-0.4.12.tar.gz"
     sha256 "c835b640a40ce357e1b83666aabd95edffa24ddddd49b8daff63adb851cdab74"
+
+    livecheck do
+      url "https://poppler.freedesktop.org/"
+      regex(/href=.*?poppler-data[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    end
   end
 
   def install
