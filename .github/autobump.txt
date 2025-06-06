@@ -3253,6 +3253,7 @@ safety
 sagittarius-scheme
 samba
 saml2aws
+samply
 samtools
 sbcl
 sbom-tool
