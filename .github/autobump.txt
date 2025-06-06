@@ -1566,6 +1566,7 @@ hsd
 html-xml-utils
 html2markdown
 htmldoc
+htmlhint
 htmlq
 htmltest
 htop
