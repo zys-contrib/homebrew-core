@@ -1,10 +1,9 @@
 class Mint < Formula
   desc "Dependency manager that installs and runs Swift command-line tool packages"
   homepage "https://github.com/yonaskolb/Mint"
-  url "https://github.com/yonaskolb/Mint/archive/refs/tags/0.17.5.tar.gz"
-  sha256 "f55350f7778c4ccd38311ed36f39287ff74bb63eb230f6d448e35e7f934c489c"
+  url "https://github.com/yonaskolb/Mint/archive/refs/tags/0.18.0.tar.gz"
+  sha256 "e99c0a351cf7452451d72180c8ccd18e1da710dc55d036502809a0db52779a99"
   license "MIT"
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3fc482e70ccaeccba4657dd863bb31d30be2875e8352ba4be2b72e8f57f8ff68"

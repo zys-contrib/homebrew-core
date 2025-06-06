@@ -2388,6 +2388,7 @@ miniupnpc
 minizinc
 minizip
 minizip-ng
+mint
 mintoolkit
 minuit2
 mise
