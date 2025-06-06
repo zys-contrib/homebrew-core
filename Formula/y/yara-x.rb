@@ -1,8 +1,8 @@
 class YaraX < Formula
   desc "Tool to do pattern matching for malware research"
   homepage "https://virustotal.github.io/yara-x/"
-  url "https://github.com/VirusTotal/yara-x/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "b6d06bbee0c11c403f535f8352f4d86ee2d505a51634a88414fa6dba1aae14f5"
+  url "https://github.com/VirusTotal/yara-x/archive/refs/tags/v1.0.1.tar.gz"
+  sha256 "6898edc7e42681191ef84df9f910e3c1761cc446c0e9dc026a340f6f1e888f5d"
   license "BSD-3-Clause"
   head "https://github.com/VirusTotal/yara-x.git", branch: "main"
 
