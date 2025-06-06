@@ -7,12 +7,12 @@ class Energy < Formula
   head "https://github.com/energye/energy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b8afbd8ee572eae65d3e17f96eaa191710809f7cd67d0dad4cc82f0d8aa22ab4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b8afbd8ee572eae65d3e17f96eaa191710809f7cd67d0dad4cc82f0d8aa22ab4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b8afbd8ee572eae65d3e17f96eaa191710809f7cd67d0dad4cc82f0d8aa22ab4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5731e827ecafd078095c83de6d2dd740ef05b7985dc47c489071dd2b9e030248"
-    sha256 cellar: :any_skip_relocation, ventura:       "5731e827ecafd078095c83de6d2dd740ef05b7985dc47c489071dd2b9e030248"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d984b4063f24bb65944a069730f0925aa56be4d992a8043488e983418cfc9846"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "88509bc73059ad17112c392e2f40a79ecd5801ab18efb9adc26f85f1c2be6a82"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "88509bc73059ad17112c392e2f40a79ecd5801ab18efb9adc26f85f1c2be6a82"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "88509bc73059ad17112c392e2f40a79ecd5801ab18efb9adc26f85f1c2be6a82"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cd8f3711a3f025f135b07a2ee18eb85b5cfab2fea279447c322159c89f6286b7"
+    sha256 cellar: :any_skip_relocation, ventura:       "cd8f3711a3f025f135b07a2ee18eb85b5cfab2fea279447c322159c89f6286b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8c8c333664e7ea4e61893d95f521897c2f63bdffcf6d93b7d1668f2d712acdf"
   end
 
   depends_on "go" => :build
