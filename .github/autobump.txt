@@ -3500,6 +3500,7 @@ sqlmap
 sqlpage
 sqlparse
 sqlx-cli
+sqruff
 squashfuse
 squealer
 squid
