@@ -3483,6 +3483,7 @@ spot
 spotbugs
 spotify_player
 spr
+sprocket
 spytrap-adb
 sq
 sql-formatter
