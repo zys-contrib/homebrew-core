@@ -1,26 +1,10 @@
 class Ldc < Formula
   desc "Portable D programming language compiler"
   homepage "https://wiki.dlang.org/LDC"
+  url "https://github.com/ldc-developers/ldc/releases/download/v1.41.0/ldc-1.41.0-src.tar.gz"
+  sha256 "af52818b60706106fb8bca2024685c54eddce929edccae718ad9fbcf689f222f"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/ldc-developers/ldc.git", branch: "master"
-
-  stable do
-    url "https://github.com/ldc-developers/ldc/releases/download/v1.40.1/ldc-1.40.1-src.tar.gz"
-    sha256 "b643bee2ee6f9819084ef7468cf739257974a99f3980364d20201bc806a4a454"
-
-    # Backport fix for CMake 4
-    patch do
-      url "https://github.com/ldc-developers/ldc/commit/06b2e42a1b8436faae2b7976a1d41a635df116d5.patch?full_index=1"
-      sha256 "80fd42d77217b16866e262008f283406bb597fee16cb6ade250d6d27f870ce5c"
-    end
-
-    # Backport fix for segmentation fault on macOS 15.4
-    patch do
-      url "https://github.com/ldc-developers/ldc/commit/60079c3b596053b1a70f9f2e0cf38a287089df56.patch?full_index=1"
-      sha256 "44d281573a42e82ecdd48a6381fec4dde7aa6196f314e9eee7b1111ae6c54844"
-    end
-  end
 
   livecheck do
     url :stable
@@ -41,8 +25,8 @@ class Ldc < Formula
   depends_on "cmake" => :build
   depends_on "libconfig" => :build
   depends_on "pkgconf" => :build
-  depends_on "lld@19" => :test
-  depends_on "llvm@19" # LLVM 20 PR: https://github.com/ldc-developers/ldc/pull/4843
+  depends_on "lld" => :test
+  depends_on "llvm"
   depends_on "zstd"
 
   uses_from_macos "libxml2" => :build
