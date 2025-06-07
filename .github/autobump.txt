@@ -2758,6 +2758,7 @@ ospray
 osslsigncode
 osv-scanner
 otel-cli
+oterm
 otf2
 otree
 ots
