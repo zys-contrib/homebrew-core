@@ -1,8 +1,8 @@
 class Objfw < Formula
   desc "Portable, lightweight framework for the Objective-C language"
   homepage "https://objfw.nil.im/"
-  url "https://objfw.nil.im/downloads/objfw-1.3.tar.gz"
-  sha256 "de9e8a84437c01dacb9e83d7de0e3f7add3152165707d51a4caec640e4f56ba6"
+  url "https://objfw.nil.im/downloads/objfw-1.3.1.tar.gz"
+  sha256 "a3bdf28c2e166f97680601c29f204670a8c4c8e43d393321a7d1f64fe1d2f513"
   license "LGPL-3.0-only"
   head "https://objfw.nil.im/", using: :fossil
 
@@ -33,11 +33,6 @@ class Objfw < Formula
   fails_with :gcc
 
   patch :DATA
-  patch do
-    # Fix building for macOS 13 with old SDK, as used by Homebrew.
-    url "https://github.com/ObjFW/ObjFW/commit/2d297b2d3702d24662819016b57f0a67d902990d.patch?full_index=1"
-    sha256 "39ccc15f5f5123dae4c86ce6dfbb21ce08a4b4b600e6d6faa19268657e5cf3e8"
-  end
 
   def install
     ENV.clang if OS.linux?
