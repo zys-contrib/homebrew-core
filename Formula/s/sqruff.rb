@@ -12,6 +12,7 @@ class Sqruff < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "537879681a0399d1fb8ff9c261e87e2e0f62b193e741799a76c64c339fd221a2"
     sha256 cellar: :any_skip_relocation, sonoma:        "9726d2c6b1bab7bf0beb919d514183bd5f6e0f5ae780ed382b16515f80874075"
     sha256 cellar: :any_skip_relocation, ventura:       "a2ae1ed5ad789f3b47c43c540769d369110a8d702b0bad423dde2fbf911b1025"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b9bbd27357d048df4050f2075d4f5fc24af14845d091ccfe7ebc9f03949cc07d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7102fc621958ae4a0270b7acc5ad118b234cea2ee8c21ef2b5130cd4dd8339c"
   end
 
