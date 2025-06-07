@@ -576,6 +576,7 @@ clive
 cljfmt
 cloc
 clojure
+clojure-lsp
 clojurescript
 closure-compiler
 cloud-nuke
