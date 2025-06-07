@@ -8,6 +8,15 @@ class Btcli < Formula
   license "MIT"
   head "https://github.com/opentensor/btcli.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "386ff245a9fb27a35ae8e58f90e4bbbcaf5e6531f0339e1e8b55c0542bddb0b9"
+    sha256 cellar: :any,                 arm64_sonoma:  "82108bb572836cbdf3128877de9ce132d5b458daf5a2b9bcde30408c8374d403"
+    sha256 cellar: :any,                 arm64_ventura: "0214e0965c5a73c0a508de13cb78fbcc4a18a32aa6caf0dff9143842cb0290d9"
+    sha256 cellar: :any,                 sonoma:        "ad029162ac1ea3e900fb1bebbeacfc8c26f262ee3c3c69b1721248ef8f65f8d2"
+    sha256 cellar: :any,                 ventura:       "a7dce35b9024c524878b4f6d6b5ab5acc1d29981ec749cc60825051a5fb97986"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f416d8e8cbbc73c83e1aff30889af6b994ea07913c2e191dca544d2f0cb41ca"
+  end
+
   depends_on "cmake" => :build # for Levenshtein
   depends_on "maturin" => :build
   depends_on "pkgconf" => :build
