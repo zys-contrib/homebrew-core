@@ -16,7 +16,7 @@ class ClojureLsp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "3d619401724cbfdd92f76cd94d934055b4bc3c94878d8f34ada1bb77bef9b649"
+    sha256 cellar: :any_skip_relocation, all: "bb3cb3102608aa2d35dddb86d1bc0abfb2e6eeae3b99af10dd7878a75bc81b03"
   end
 
   depends_on "openjdk"
