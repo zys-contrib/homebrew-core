@@ -3789,6 +3789,7 @@ trojan-go
 trufflehog
 trurl
 tsduck
+tsnet-serve
 tt
 ttdl
 tty-share
