@@ -4,6 +4,7 @@ class MongoCxxDriver < Formula
   url "https://github.com/mongodb/mongo-cxx-driver/releases/download/r4.0.0/mongo-cxx-driver-r4.0.0.tar.gz"
   sha256 "d8a254bde203d0fe2df14243ef2c3bab7f12381dc9206d0c1b450f6ae02da7cf"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/mongodb/mongo-cxx-driver.git", branch: "master"
 
   livecheck do
