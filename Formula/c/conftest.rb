@@ -1,8 +1,8 @@
 class Conftest < Formula
   desc "Test your configuration files using Open Policy Agent"
   homepage "https://www.conftest.dev/"
-  url "https://github.com/open-policy-agent/conftest/archive/refs/tags/v0.61.0.tar.gz"
-  sha256 "c067811e8e74068d6fa6473e2f0b31e5c221e33969e029c0b909ebf47c3bc135"
+  url "https://github.com/open-policy-agent/conftest/archive/refs/tags/v0.61.1.tar.gz"
+  sha256 "9f17da54e2be10a5b181f18f68349a08c4a4e3e37fdf6474436642f56a6d85e8"
   license "Apache-2.0"
   head "https://github.com/open-policy-agent/conftest.git", branch: "master"
 
