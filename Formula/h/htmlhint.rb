@@ -5,6 +5,10 @@ class Htmlhint < Formula
   sha256 "95d1661e07d4abba53792a7957cc2422a3320bae59542af8f0c3daad084c02b6"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "5ddf7caf6361bdd61a17c7d13b0437d659b5ed94f3d31258720189b8e35d9b78"
+  end
+
   depends_on "node"
 
   def install
