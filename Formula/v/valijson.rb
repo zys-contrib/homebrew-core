@@ -1,8 +1,8 @@
 class Valijson < Formula
   desc "Header-only C++ library for JSON Schema validation"
   homepage "https://github.com/tristanpenman/valijson"
-  url "https://github.com/tristanpenman/valijson/archive/refs/tags/v1.0.5.tar.gz"
-  sha256 "1ef7ea6f49f0eb59da131b9148fcb7ebb8f0d4d970bcd80d21c0ad77968eb619"
+  url "https://github.com/tristanpenman/valijson/archive/refs/tags/v1.0.6.tar.gz"
+  sha256 "bf0839de19510ff7792d8a8aca94ea11a288775726b36c4c9a2662651870f8da"
   license "BSD-2-Clause"
 
   bottle do
