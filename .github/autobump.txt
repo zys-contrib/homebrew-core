@@ -2935,6 +2935,8 @@ polkit
 polynote
 ponyc
 popeye
+poppler
+poppler-qt5
 portablegl
 porter
 poselib
