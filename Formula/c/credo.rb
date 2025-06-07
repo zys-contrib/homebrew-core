@@ -11,6 +11,7 @@ class Credo < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "3ec792d16fc50575210d6c39dbd8d8050e5419301d812fa1737296cdbafc9f82"
     sha256 cellar: :any_skip_relocation, sonoma:        "416fb36180b102c060e609abeb34b7f9f32d724f6441f50147349aed5b5c7d40"
     sha256 cellar: :any_skip_relocation, ventura:       "359a109782523caf92cc762c48bed624a5158ae612c069f856c3cfc7856611a4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "34443d33656e3b6e74346cf5ae840ed0daf51f0b896aab37e335debd488dd587"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "440e68f8e561da08116cbc9e2e961f21e459441d65d2ac2bea73c52deca4b5de"
   end
 
