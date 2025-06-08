@@ -13,6 +13,7 @@ class Oterm < Formula
     sha256 cellar: :any,                 arm64_ventura: "89426afa4aa82b3062e4e10be85c7797869b0b0cdd9157ed38b9955d55d17b39"
     sha256 cellar: :any,                 sonoma:        "813fe5c694dc0fbea60980453bb1cc4e5717848d2863f357327d2d99740dbb08"
     sha256 cellar: :any,                 ventura:       "0c88bbe24151cac4abf329855534ad732129b90cc46c0a7474e5de02a6e915e3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "32f0b0ced4878dbaebede3ba439d1e9b5a530ff15939d95511722a26f71d9b4e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "93ab4da9f391817818017a675a1555dec42b32643500a0377660e62c8611f619"
   end
 
