@@ -1,19 +1,10 @@
 class Graphviz < Formula
   desc "Graph visualization software from AT&T and Bell Labs"
   homepage "https://graphviz.org/"
+  url "https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-releases/13.0.0/graphviz-13.0.0.tar.xz"
+  sha256 "cf56059bcdb8df53f3a71e6fcd14167d684dfd2024796f4bedd1265636457bf0"
   license "EPL-1.0"
   version_scheme 1
-
-  stable do
-    url "https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-releases/12.2.1/graphviz-12.2.1.tar.xz"
-    sha256 "85e34b5c982777c30f01dfab9ea7c713b4335a2f584e62c0abb9868413eb915b"
-
-    # Fix -flat_namespace being used on Big Sur and later.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-    end
-  end
 
   livecheck do
     url "https://graphviz.org/download/source/"
