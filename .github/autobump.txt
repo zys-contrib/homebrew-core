@@ -4064,6 +4064,7 @@ xeol
 xerces-c
 xfig
 xgboost
+xgo
 xh
 xinit
 xk6
