@@ -1,8 +1,8 @@
 class Bob < Formula
   desc "Version manager for neovim"
   homepage "https://github.com/MordechaiHadad/bob"
-  url "https://github.com/MordechaiHadad/bob/archive/refs/tags/v4.0.3.tar.gz"
-  sha256 "cb0b084ca0454fc17c387d9662b420764b2aa1152dfe035238b1d08bb7ab34f1"
+  url "https://github.com/MordechaiHadad/bob/archive/refs/tags/v4.1.1.tar.gz"
+  sha256 "2ed43e82505f462bcd8851579b55a5f37089825e1b717b3c928b2bfdbf5eecd0"
   license "MIT"
 
   bottle do
@@ -32,13 +32,16 @@ class Bob < Formula
     JSON
 
     ENV["BOB_CONFIG"] = config_file
-    mkdir_p "#{testpath}/.local/share/bob"
-    mkdir_p "#{testpath}/.local/share/nvim-bin"
+    mkdir_p testpath/".local/share/bob"
+    mkdir_p testpath/".local/share/nvim-bin"
 
     neovim_version = "v0.11.0"
     system bin/"bob", "install", neovim_version
     assert_match neovim_version, shell_output("#{bin}/bob list")
     assert_path_exists testpath/".local/share/bob"/neovim_version
-    system bin/"bob", "erase"
+
+    # failed to run `bob erase` in linux CI
+    # upstream bug report, https://github.com/MordechaiHadad/bob/issues/287
+    system bin/"bob", "erase" unless OS.linux?
   end
 end
