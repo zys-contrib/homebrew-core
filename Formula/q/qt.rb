@@ -3,10 +3,10 @@ class Qt < Formula
 
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.9/6.9.0/single/qt-everywhere-src-6.9.0.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.9/6.9.0/single/qt-everywhere-src-6.9.0.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.9/6.9.0/single/qt-everywhere-src-6.9.0.tar.xz"
-  sha256 "4f61e50551d0004a513fefbdb0a410595d94812a48600646fb7341ea0d17e1cb"
+  url "https://download.qt.io/official_releases/qt/6.9/6.9.1/single/qt-everywhere-src-6.9.1.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.9/6.9.1/single/qt-everywhere-src-6.9.1.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.9/6.9.1/single/qt-everywhere-src-6.9.1.tar.xz"
+  sha256 "364fde2d7fa42dd7c9b2ea6db3d462dd54f3869e9fd0ca0a0ca62f750cd8329b"
   license all_of: [
     "BSD-3-Clause",
     "GFDL-1.3-no-invariants-only",
@@ -14,7 +14,6 @@ class Qt < Formula
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } },
     "LGPL-3.0-only",
   ]
-  revision 1
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
   # The first-party website doesn't make version information readily available,
@@ -23,8 +22,6 @@ class Qt < Formula
     url :head
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any, arm64_sonoma:  "71178e8d39b2d61ecd4077e26997a6ba813d3b0159cdb6e3ca8a1b615d6b1a2f"
@@ -141,8 +138,18 @@ class Qt < Formula
   end
 
   # Fix for `invalid use of attribute 'fallthrough'` with GCC <= 12 and gperf >= 3.2
-  # https://bugreports.qt.io/browse/QTBUG-137278 (fixed in 6.9.2)
-  patch :DATA
+  # upstream bug report, https://bugreports.qt.io/browse/QTBUG-137278 (fixed in 6.9.2)
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/196ba5754b09b668647a772fac2025fbb9c1b859/qt/6.9.0-fallthrough.patch"
+    sha256 "8450a2611badc612ff8da9f116263dea29266a73913922dbc96022be744e9560"
+  end
+
+  # 6.9.1 patch to fix `std::unique_lock` usage
+  # upstream bug report, https://bugreports.qt.io/browse/QTBUG-138060
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e013656cb06ab4a1a54ca6fd9269647d4bf530bc/qt/6.9.1-unique_lock.patch"
+    sha256 "6bca73d693e8fc24a5b30109e8d652f666a7b5b0fe1f5ae76202f14044eda02c"
+  end
 
   def install
     python3 = "python3.13"
@@ -419,22 +426,3 @@ class Qt < Formula
     assert_equal HOMEBREW_PREFIX.to_s, shell_output("#{bin}/qmake -query QT_INSTALL_PREFIX").chomp
   end
 end
-__END__
---- a/qtwebengine/src/3rdparty/chromium/third_party/blink/renderer/build/scripts/gperf.py	2025-05-29 21:23:49.565413007 +0000
-+++ b/qtwebengine/src/3rdparty/chromium/third_party/blink/renderer/build/scripts/gperf.py	2025-05-29 21:24:07.164764001 +0000
-@@ -35,8 +35,11 @@
-         # https://savannah.gnu.org/bugs/index.php?53028
-         gperf_output = re.sub(r'\bregister ', '', gperf_output)
-         # -Wimplicit-fallthrough needs an explicit fallthrough statement,
--        # so replace gperf's /*FALLTHROUGH*/ comment with the statement.
--        # https://savannah.gnu.org/bugs/index.php?53029
--        gperf_output = gperf_output.replace('/*FALLTHROUGH*/',
--                                            '  [[fallthrough]];')
-+        # so replace gperf 3.1's /*FALLTHROUGH*/ comment with the statement.
-+        # https://savannah.gnu.org/bugs/index.php?53029 (fixed in 3.2)
-+        if re.search(
-+                r'/\* C\+\+ code produced by gperf version 3\.[01](\.\d+)? \*/',
-+                gperf_output):
-+            gperf_output = gperf_output.replace('/*FALLTHROUGH*/',
-+                                                '  [[fallthrough]];')
-         # -Wpointer-to-int-cast warns about casting pointers to smaller ints
