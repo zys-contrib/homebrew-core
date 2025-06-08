@@ -3018,6 +3018,7 @@ pueue
 pug
 pugixml
 pulsarctl
+pulumictl
 pumba
 punktf
 pure
