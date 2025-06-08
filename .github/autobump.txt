@@ -3502,6 +3502,7 @@ sqlpage
 sqlparse
 sqlx-cli
 sqruff
+squashfs
 squashfuse
 squealer
 squid
