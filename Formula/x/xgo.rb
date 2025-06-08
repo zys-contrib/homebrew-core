@@ -6,6 +6,15 @@ class Xgo < Formula
   license "Apache-2.0"
   head "https://github.com/goplus/xgo.git", branch: "main"
 
+  bottle do
+    sha256 arm64_sequoia: "101cc1fa5d0656705b04c9f5e88e1af6da48a4dbd7d384dc880d701c543d4b21"
+    sha256 arm64_sonoma:  "bd76f9478420297ec169a0d75826acb1bf5a8cecf2bf979e53f017b268e91ee6"
+    sha256 arm64_ventura: "d349e58a80d2b68909b1df56249fe60a2c9671799ff86a0f77472dd068489aa0"
+    sha256 sonoma:        "7ad337b755d679c94888256bb9806d0cd9f6812b5e0d5d2f07fc445fa8892330"
+    sha256 ventura:       "137aa990c331adc079964f26d1a5e9df8436f02d53b642c79acc632f97d11338"
+    sha256 x86_64_linux:  "024122c68e709ccfe12576d96f148d77cba6c58f5bb91232a3161a8ac94d5900"
+  end
+
   depends_on "go"
 
   def install
