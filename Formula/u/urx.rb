@@ -6,13 +6,13 @@ class Urx < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1e7d16b6b095ddf1d791cb1b3cbd70a116ea955fd36f6f1b37e005e2eccdae7b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "50d3ad17ff9965eae769344e6dab9a0f1e71b628bfe4d627c59e09785a3e3174"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4800fcce0692f4ee1c450570b175142bdcd7d87efd96b64c98f5d3a4495dbf6e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "49f474f76454ecda641f4588ea8c0ffc4474c1c4ea0717c1a6bcb09a3b82b97c"
-    sha256 cellar: :any_skip_relocation, ventura:       "f7ce9cf24c0baa4c21a193121617f84cf60de6cfdae1ccfcc5d18971a43275d9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d73f5bd968a7341a05600a3aa2a1c1170f536053af3b4eff933a94a61788a5d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf3125d4af0355afc037a12d991b9e5fa2b37f5259a342a36bf8e3150a43ac76"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "949b36c006a4c88b7561392129ae672695b18605211d622b2cebe72f74630d35"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e36f20d458d20ad6113bf1fe16fb01a33fdba4c791c6317e6a23ceaa574f468e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "27eea88716e221fb2c1f93d2da038c16e97f4032080177b6ef0af6e4c616a212"
+    sha256 cellar: :any_skip_relocation, sonoma:        "35fa3a01318a11855f673c291ac310f22abe82197997c6255fcffc8ece2525cd"
+    sha256 cellar: :any_skip_relocation, ventura:       "365946aec8f9e136bea0b9a2460dc3959d83f9beaefa7389082c7d62d587f26b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "308c80edc3649d2aff17a156e17c5c829ccfd21d5c7a277f22fb17eb34e50511"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2082d00257f7be453a2c14b3557dea56305c86e10e4daac629adff8798138a08"
   end
 
   depends_on "pkgconf" => :build
