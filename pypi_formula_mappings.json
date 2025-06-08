@@ -636,6 +636,9 @@
   "osc-cli": {
     "exclude_packages": ["certifi"]
   },
+  "oterm": {
+    "exclude_packages": ["certifi"]
+  },
   "otterdog": {
     "exclude_packages": ["certifi", "cryptography"]
   },
