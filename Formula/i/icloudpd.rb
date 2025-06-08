@@ -5,8 +5,8 @@ class Icloudpd < Formula
   homepage "https://github.com/icloud-photos-downloader/icloud_photos_downloader"
   # We use a git checkout as scripts/patch_version runs git commands to update SHA
   url "https://github.com/icloud-photos-downloader/icloud_photos_downloader.git",
-      tag:      "v1.28.0",
-      revision: "22bfb054ef5b63fd6d8462a9ab4cb00a3de89a05"
+      tag:      "v1.28.1",
+      revision: "ad1a381fb24a82154d07c4469d323ad5fb463ffd"
   license "MIT"
   head "https://github.com/icloud-photos-downloader/icloud_photos_downloader.git", branch: "master"
 
