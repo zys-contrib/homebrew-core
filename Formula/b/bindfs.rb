@@ -11,8 +11,8 @@ class Bindfs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "af02d31cc5f0a29f9844104f3862f36d2f9bf8c67fc350ff9023c2079010f819"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "ec8d0ea83f32a075faba5255b6e70d0547f563c24d4a526de403db96f79b7f30"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "89e5bc3a0a9c7b97f1bba452328f3a6dd59e94c3827ac0cbe265a6dabb11ad89"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "1f267a48873db7e3808057219893bcde40b4376ef09595f2604c017e3c80b7cb"
   end
 
   head do
