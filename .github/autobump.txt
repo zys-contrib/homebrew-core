@@ -2354,6 +2354,7 @@ memtester
 menhir
 mercurial
 mergiraf
+mesa
 meson
 meta-package-manager
 metabase
