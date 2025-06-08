@@ -1,8 +1,8 @@
 class Dexter < Formula
   desc "Automatic indexer for Postgres"
   homepage "https://github.com/ankane/dexter"
-  url "https://github.com/ankane/dexter/archive/refs/tags/v0.6.0.tar.gz"
-  sha256 "cd8d08f8a89874c832fc6a53f9020dc9843d0717810870a1b8eecb3246b889bf"
+  url "https://github.com/ankane/dexter/archive/refs/tags/v0.6.1.tar.gz"
+  sha256 "77b9d2b28689dfd3b2a16c94ef8e20bf16cd0bf4dcc62b6d350ee8257d0763db"
   license "MIT"
 
   no_autobump! because: :requires_manual_review
