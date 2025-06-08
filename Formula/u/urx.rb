@@ -11,6 +11,7 @@ class Urx < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4800fcce0692f4ee1c450570b175142bdcd7d87efd96b64c98f5d3a4495dbf6e"
     sha256 cellar: :any_skip_relocation, sonoma:        "49f474f76454ecda641f4588ea8c0ffc4474c1c4ea0717c1a6bcb09a3b82b97c"
     sha256 cellar: :any_skip_relocation, ventura:       "f7ce9cf24c0baa4c21a193121617f84cf60de6cfdae1ccfcc5d18971a43275d9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d73f5bd968a7341a05600a3aa2a1c1170f536053af3b4eff933a94a61788a5d7"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf3125d4af0355afc037a12d991b9e5fa2b37f5259a342a36bf8e3150a43ac76"
   end
 
