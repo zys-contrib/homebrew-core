@@ -3,8 +3,8 @@ class SnowflakeCli < Formula
 
   desc "CLI for snowflake"
   homepage "https://docs.snowflake.com/developer-guide/snowflake-cli/index"
-  url "https://files.pythonhosted.org/packages/18/c2/cbf7ea09f7aba0112407b54db0221d54bc7da8c928f67c96756e3b2a18f6/snowflake_cli-3.9.0.tar.gz"
-  sha256 "422385c6b8d1a7c87a42eed0de4773ed4ca11a23f79aad418429bc522e0c170f"
+  url "https://files.pythonhosted.org/packages/02/3f/6b0f9d91e465a13b2226457a3f29f96dfeeaa4adb1fd264168e232d498a2/snowflake_cli-3.9.1.tar.gz"
+  sha256 "e56b59fde8ae82d460b40e83dee3151e09172406e5fe2f2d7d1a3e811bd75c17"
   license "Apache-2.0"
 
   bottle do
@@ -36,13 +36,13 @@ class SnowflakeCli < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/0d/af/404827da46c67359e6d2a63b0f4fadd5b6150551d25c405b3bd480c19319/boto3-1.38.25.tar.gz"
-    sha256 "85c1556a110896f68de8573a9b4757c81071448dbf6ffc1074941bfc8a43195e"
+    url "https://files.pythonhosted.org/packages/c8/85/abba429fe0fc0b87db20b7b311deec062c613c5e74cfcaab2ad34e864bbf/boto3-1.38.32.tar.gz"
+    sha256 "3faa2c328a61745f3215a63039606a6fcf55d9afe1cc76e3a5e27b9db58cdbf6"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/6b/00/bed5bf325d1fdb98d6212d106bd44cd0bbe65563e3a2c3f87b64cc4d75c2/botocore-1.38.25.tar.gz"
-    sha256 "8c73e97d9662a6c92be33dab66cd1e2b59797154c7ec379ce3bb5d6779d9d78c"
+    url "https://files.pythonhosted.org/packages/9b/c2/c4c23c7ad746aba6edfa93ec9e6e14195efcf786425486f6a1b442734a8d/botocore-1.38.32.tar.gz"
+    sha256 "0899a090e352cb5eeaae2c7bb52a987b469d23912c7ece86664dfb5c2e074978"
   end
 
   resource "charset-normalizer" do
@@ -266,8 +266,8 @@ class SnowflakeCli < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/f6/37/23083fcd6e35492953e8d2aaaa68b860eb422b34627b13f2ce3eb6106061/typing_extensions-4.13.2.tar.gz"
-    sha256 "e6c81219bd689f51865d9e372991c540bda33a0379d5573cddb9a3a23f7caaef"
+    url "https://files.pythonhosted.org/packages/d1/bc/51647cd02527e87d05cb083ccc402f93e441606ff1f01739a62c8ad09ba5/typing_extensions-4.14.0.tar.gz"
+    sha256 "8676b788e32f02ab42d9e7c61324048ae4c6d844a399eebace3d4979d75ceef4"
   end
 
   resource "typing-inspection" do
