@@ -11,6 +11,7 @@ class Dvisvgm < Formula
     sha256 cellar: :any,                 arm64_ventura: "15665722543df62fb0e593000e78a16c63c2c26f0bc0256f7e31e2b29857e65c"
     sha256 cellar: :any,                 sonoma:        "f59943aa1aed3a13091ba46e2d6de274e591326c5f5e2f70e0dfef05a278de7f"
     sha256 cellar: :any,                 ventura:       "e0891fceaacc7fe276d342d700bab6286a1fe1e42298a81bb7c6598402317a3f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b07268ed1e2105fce670746a418acb7604832f963b123acad04f7faae5ffc181"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc45ab10466cf813d4034db865df7d2dcdcb4ec079edcc5b19f21dd478390d69"
   end
 
