@@ -7,12 +7,13 @@ class Xgo < Formula
   head "https://github.com/goplus/xgo.git", branch: "main"
 
   bottle do
-    sha256 arm64_sequoia: "101cc1fa5d0656705b04c9f5e88e1af6da48a4dbd7d384dc880d701c543d4b21"
-    sha256 arm64_sonoma:  "bd76f9478420297ec169a0d75826acb1bf5a8cecf2bf979e53f017b268e91ee6"
-    sha256 arm64_ventura: "d349e58a80d2b68909b1df56249fe60a2c9671799ff86a0f77472dd068489aa0"
-    sha256 sonoma:        "7ad337b755d679c94888256bb9806d0cd9f6812b5e0d5d2f07fc445fa8892330"
-    sha256 ventura:       "137aa990c331adc079964f26d1a5e9df8436f02d53b642c79acc632f97d11338"
-    sha256 x86_64_linux:  "024122c68e709ccfe12576d96f148d77cba6c58f5bb91232a3161a8ac94d5900"
+    rebuild 1
+    sha256 arm64_sequoia: "0723df7efa7eb8b185e22a6f5e9fa64657b7e7a878aa5a711ff7dd520d219729"
+    sha256 arm64_sonoma:  "fa436983786f044a5903a0a60b05a87c58f328e3f1a532d9539c3225f6dfcc76"
+    sha256 arm64_ventura: "dcf3557aed96b516020d24bb12d5a0520a7086ffb117b981692f92e8702e9cbb"
+    sha256 sonoma:        "4cff7a89870c4874107f69583b80962df013db979c66154cf735d1bbd5aea096"
+    sha256 ventura:       "3c597396d5c357fb3f0066c6b9a9ea641cb30a8c3e127f0eae2df4bddb990e08"
+    sha256 x86_64_linux:  "a89f7cd3016928e0c6637257328ef0396c6eb9eec821e232f40dc80d2907de52"
   end
 
   depends_on "go"
