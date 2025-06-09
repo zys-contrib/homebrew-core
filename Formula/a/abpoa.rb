@@ -6,6 +6,15 @@ class Abpoa < Formula
   license "MIT"
   head "https://github.com/yangao07/abPOA.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8d23123224da086f407a2026aed50483642b6cb1cd773a95677e8823a7d203f7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c32ab54105465ce6413049fa3e0b61751b4380ecd7f9cb8e871d7aaa4fd0fefa"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "be037ac65bb330b3c0346a0a73b9a52cd409c5d445bf5ea3b342c75937b6ff70"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d6a18508fc01c5180ba29e543e889bf14572e4c37dee0e3de40936881d6a92d7"
+    sha256 cellar: :any_skip_relocation, ventura:       "7b66dba3e1c7543bd65a85f1190be008acd8dc5246676df09674f3e30a9f890b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea53d24bfe80ecb229b8908a7e4cabbf5724b46e134272b00d776f261080c825"
+  end
+
   uses_from_macos "zlib"
 
   def install
