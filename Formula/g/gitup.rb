@@ -11,8 +11,7 @@ class Gitup < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "e1d094ec14134e880e5058a182f7788d0f46c06c7976226e16ac48709d5a3061"
+    sha256 cellar: :any_skip_relocation, all: "4ef4421a9edad018b76acd44d00dc3bc99a980623ee00deef7a7aa60bce940d3"
   end
 
   depends_on "python@3.13"
