@@ -6,6 +6,7 @@ class Dnsviz < Formula
   url "https://files.pythonhosted.org/packages/59/91/aa152739fea36d4456fbcc71a26333ffef587526d722c10c281ab12a6a35/dnsviz-0.11.1.tar.gz"
   sha256 "203b1aa2e3aa09af415a96a0afc98eef4acf845ab8af57bf9f7569bd13161717"
   license "GPL-2.0-or-later"
+  revision 1
 
   no_autobump! because: :requires_manual_review
 
