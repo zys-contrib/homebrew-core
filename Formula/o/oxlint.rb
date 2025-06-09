@@ -1,8 +1,8 @@
 class Oxlint < Formula
   desc "Suite of high-performance tools for JavaScript and TypeScript written in Rust"
   homepage "https://oxc.rs/"
-  url "https://github.com/oxc-project/oxc/archive/refs/tags/oxlint_v0.18.0.tar.gz"
-  sha256 "9d2f927fc26152b10fdceac426c8ba87ec6bf5d7a958fab9b853886eea916b3a"
+  url "https://github.com/oxc-project/oxc/archive/refs/tags/oxlint_v0.18.1.tar.gz"
+  sha256 "055ffff4bd11e0f134b6dead0a56d8253344a531d0a431fd0967986e33fdafa5"
   license "MIT"
   head "https://github.com/oxc-project/oxc.git", branch: "main"
 
