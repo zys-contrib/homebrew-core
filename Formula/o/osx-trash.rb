@@ -11,6 +11,10 @@ class OsxTrash < Formula
     regex(/^trash[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "1ff2a7e4c4d9e83a5cf38815cbbae8407295d8c830d85211677d6041add46bfa"
+  end
+
   depends_on :macos
 
   def install
