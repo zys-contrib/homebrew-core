@@ -42,12 +42,12 @@ class Kapacitor < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a8247430a0e749413545540c04d418b0adeed5d37d83319e69751596322a1c9d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d56568c7ae7bca2be7324da1c5bdc4fc7f086ff1054a786f0fed2670225ca710"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b5b98fcf4136a43925d791c4c803dbaabd62e5167dca2863343551b6e4a3ac70"
-    sha256 cellar: :any_skip_relocation, sonoma:        "33549402f35a9bb69c36a731c6b24ecf9ac57cec0ecb790a3f8a301b4ced507e"
-    sha256 cellar: :any_skip_relocation, ventura:       "de2e14999f1f6714d3504c183bd35f8b37fed4a4d886b266cf175040fcd37bc0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e963db4b37cde0cba4449f211213422a9ebba18f121a77e2cacfc90e6eb2fc5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "451c6a3aa08d84641cf3dadf1f68d35c52bd7c15d9ca88b2798c2ce77b6b6b45"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6567975ba8a72a373a8268866b2aad44e10865dfb91b7debc62ad8d15cee73cd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "26a545b9888d32bb46390e6038b1e7376158065168f7fe5d5e00633416a24a41"
+    sha256 cellar: :any_skip_relocation, sonoma:        "611ab90e163c42434d7c6689e422fb659ad7c56a346fdc55e1040733a3088e38"
+    sha256 cellar: :any_skip_relocation, ventura:       "4df541aad47ccb1217f61955e2aacbb8669d1b19959222201828b9c67b43765e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "02e1405e7b3de7b5d4d93223800c79cd34247718e8837b68e28e1592b7f6a812"
   end
 
   depends_on "go" => :build
