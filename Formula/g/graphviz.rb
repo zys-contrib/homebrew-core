@@ -12,13 +12,13 @@ class Graphviz < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "1021bca3aee2d641cc8b3741820f4df48c2f53916cfb6cff3ed1fc664ebdf5dd"
-    sha256 arm64_sonoma:  "067aecda0ddbf4b5593f81aaca952ef5d14992f9e0fcff692ba29cc2c868330e"
-    sha256 arm64_ventura: "ce8eaf49349dfd40a47ce364f7b33c94b812e05527ae92be9a58dd9202145734"
-    sha256 sonoma:        "82f8b94e10a0faeffb28cb097ac071707188ea26ab2fc66da607c49c37743d30"
-    sha256 ventura:       "6f35eabfb6acfebcd48ea4d2663307148f7bd8f54fe748dfa33eb173d794aba7"
-    sha256 arm64_linux:   "3121f09ca5ea69be612073ae70261f6303ab78f0337e490f41876ed0b63bfbfc"
-    sha256 x86_64_linux:  "67fab62f20a6882fff2a4863382566cd3e462226f121b6b415a22176e81c518c"
+    sha256 arm64_sequoia: "0504bffeb09f1ca814c2a17662a622a202c75d2a686ba59e46e079dc5e892710"
+    sha256 arm64_sonoma:  "f9362747dde78f31b20943f159a1abbe4b8ab68c5fb79fc36cae30af588ff309"
+    sha256 arm64_ventura: "1cc0f412e9b8ce4b8427b9def0960e23ef11fdf11516dc3441a12639175e75ab"
+    sha256 sonoma:        "8c8bbe253944e0c3967c95ccc7610cff32d0645ec8dfd75499694aefc8eb892d"
+    sha256 ventura:       "f1066a6748a3e099d4823019ff3f276685602f9032fff42957aa15635adf9226"
+    sha256 arm64_linux:   "49855d083644b9ec657e6e9ddd5dd9587e372a3dc0f298557ac1fa70140dfbbe"
+    sha256 x86_64_linux:  "4fa7a552f880d941025f3d354f7720b494be553f28a8c277a2822f35c2b0e7d9"
   end
 
   head do
