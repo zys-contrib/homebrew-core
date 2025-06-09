@@ -6,6 +6,7 @@ class Graphviz2drawio < Formula
   url "https://files.pythonhosted.org/packages/fb/e9/2ba4114579f8e708b6b5d671afe355c9b8cdd52b15a9d126ec188a2bcad6/graphviz2drawio-1.1.0.tar.gz"
   sha256 "8758b9eefbac5d8c03a0358c0158845235c9c3caa99887f0f6026cfecc2895f2"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "d4769c040786fa9ee30174d92bb67b3a953a2f2326246f8b27e654bee67d200b"
