@@ -3,8 +3,8 @@ class Peru < Formula
 
   desc "Dependency retriever for version control and archives"
   homepage "https://github.com/buildinspace/peru"
-  url "https://files.pythonhosted.org/packages/a8/45/cec03aca5ab8a8a1ff8248dcd5c9f17e5a7e9c9e8e9d0b9a135a1c0605e7/peru-1.3.3.tar.gz"
-  sha256 "ac6b0d0e85fbe7d57d4587b4e58551de83fd4af4f8245a0851414898cce3e1b1"
+  url "https://files.pythonhosted.org/packages/0e/96/dc9e467f61327b686b6e775ecf7e365011c44fd25b34114de926dfb54f15/peru-1.3.4.tar.gz"
+  sha256 "2ff19ae8569b783177d5cf9fb6c0e306698f7397603f2fdf4a0672d15f7dbd73"
   license "MIT"
 
   bottle do
