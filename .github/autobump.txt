@@ -2379,6 +2379,7 @@ millet
 mimalloc
 mimirtool
 minder
+mingw-w64
 minica
 minicom
 miniflux
