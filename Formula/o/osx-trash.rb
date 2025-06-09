@@ -15,6 +15,8 @@ class OsxTrash < Formula
     sha256 cellar: :any_skip_relocation, all: "1ff2a7e4c4d9e83a5cf38815cbbae8407295d8c830d85211677d6041add46bfa"
   end
 
+  keg_only :shadowed_by_macos
+
   depends_on :macos
 
   def install
