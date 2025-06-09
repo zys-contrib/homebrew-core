@@ -6,6 +6,7 @@ class Eralchemy < Formula
   url "https://files.pythonhosted.org/packages/19/05/5f69930e83a02360d9ed16660bdd58d9d501bffabd43d7dbbe8c14269143/eralchemy-1.5.0.tar.gz"
   sha256 "fa66a3cd324abd27ad8e65908d7af48d8198c0c185aeb22189cf40516de25941"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     rebuild 1
