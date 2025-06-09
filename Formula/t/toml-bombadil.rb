@@ -23,6 +23,8 @@ class TomlBombadil < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    generate_completions_from_executable(bin/"bombadil", "generate-completions")
   end
 
   test do
