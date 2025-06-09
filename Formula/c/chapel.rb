@@ -3,13 +3,12 @@ class Chapel < Formula
 
   desc "Programming language for productive parallel computing at scale"
   homepage "https://chapel-lang.org/"
-  url "https://github.com/chapel-lang/chapel/releases/download/2.4.0/chapel-2.4.0.tar.gz"
-  sha256 "a51a472488290df12d1657db2e7118ab519743094f33650f910d92b54c56f315"
+  url "https://github.com/chapel-lang/chapel/releases/download/2.5.0/chapel-2.5.0.tar.gz"
+  sha256 "020220ca9bf52b9f416e9a029bdc465bb1f635c1e274c6ca3c18d1f83e41fce1"
   license "Apache-2.0"
-  revision 2
   head "https://github.com/chapel-lang/chapel.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :bumped_by_upstream
 
   bottle do
     sha256 arm64_sequoia: "ae45c935d3a083686ffc20b62e84b0faae9d5a9701322f338ff29bcb6e377c68"
@@ -25,7 +24,7 @@ class Chapel < Formula
   depends_on "gmp"
   depends_on "hwloc"
   depends_on "jemalloc"
-  depends_on "llvm@19"
+  depends_on "llvm"
   depends_on "pkgconf"
   depends_on "python@3.13"
 
