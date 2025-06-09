@@ -19,6 +19,10 @@ class OsxTrash < Formula
 
   depends_on :macos
 
+  conflicts_with "macos-trash", because: "both install a `trash` binary"
+  conflicts_with "trash-cli", because: "both install a `trash` binary"
+  conflicts_with "trash", because: "both install a `trash` binary"
+
   def install
     bin.install "src/trash"
   end
