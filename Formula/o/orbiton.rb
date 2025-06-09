@@ -12,12 +12,12 @@ class Orbiton < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c246e25a7f0c7f226f130b76500913222ad331aec17bcf12617cab6803f4f146"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c246e25a7f0c7f226f130b76500913222ad331aec17bcf12617cab6803f4f146"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c246e25a7f0c7f226f130b76500913222ad331aec17bcf12617cab6803f4f146"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d55a4750c9fad01cad8f136783b0236b57a446fc03ed7764db239e8d449126be"
-    sha256 cellar: :any_skip_relocation, ventura:       "d55a4750c9fad01cad8f136783b0236b57a446fc03ed7764db239e8d449126be"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "909b0a9743154e539333ea0666d55d5b3976373bc2dff363f5a7482abd6f438a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1a82a8f1a94b850d4cf0a5377baa22d91788e15b42b62e7f93c841af1366a50a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1a82a8f1a94b850d4cf0a5377baa22d91788e15b42b62e7f93c841af1366a50a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1a82a8f1a94b850d4cf0a5377baa22d91788e15b42b62e7f93c841af1366a50a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e078c56ab83f6e1f1cf7d01408a7cc9d0e99414e6eb78dc8ad363982f316c44b"
+    sha256 cellar: :any_skip_relocation, ventura:       "e078c56ab83f6e1f1cf7d01408a7cc9d0e99414e6eb78dc8ad363982f316c44b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "86dc3a94ff2a6ccfb2c91f748711bdcdfe02de071f52f96d3c4fb5813d242dd7"
   end
 
   depends_on "go" => :build
