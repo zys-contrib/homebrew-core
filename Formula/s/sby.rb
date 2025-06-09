@@ -9,13 +9,13 @@ class Sby < Formula
   head "https://github.com/YosysHQ/sby.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5d3c4339e64fa6e25c1918d86817ac60e9dc2be7a5e0406b7f08567551672dba"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5d3c4339e64fa6e25c1918d86817ac60e9dc2be7a5e0406b7f08567551672dba"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5d3c4339e64fa6e25c1918d86817ac60e9dc2be7a5e0406b7f08567551672dba"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5d3c4339e64fa6e25c1918d86817ac60e9dc2be7a5e0406b7f08567551672dba"
-    sha256 cellar: :any_skip_relocation, ventura:       "5d3c4339e64fa6e25c1918d86817ac60e9dc2be7a5e0406b7f08567551672dba"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3795e2284954d8980acb800d5ee3831a17fa93893a0ce4ba985fa77323d29f2b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3795e2284954d8980acb800d5ee3831a17fa93893a0ce4ba985fa77323d29f2b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1538ac94e094c01dc3ad4f27632fe344969c12efd6ee479b86668ad61204103f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1538ac94e094c01dc3ad4f27632fe344969c12efd6ee479b86668ad61204103f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1538ac94e094c01dc3ad4f27632fe344969c12efd6ee479b86668ad61204103f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1538ac94e094c01dc3ad4f27632fe344969c12efd6ee479b86668ad61204103f"
+    sha256 cellar: :any_skip_relocation, ventura:       "1538ac94e094c01dc3ad4f27632fe344969c12efd6ee479b86668ad61204103f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2b6ad5de4a617d579d3b240f164864cd303bf4a64e1e6413a0c782450bf2577f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b6ad5de4a617d579d3b240f164864cd303bf4a64e1e6413a0c782450bf2577f"
   end
 
   depends_on "yices2" => :test
