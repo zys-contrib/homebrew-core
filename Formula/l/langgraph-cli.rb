@@ -3,8 +3,8 @@ class LanggraphCli < Formula
 
   desc "Command-line interface for deploying apps to the LangGraph platform"
   homepage "https://www.github.com/langchain-ai/langgraph"
-  url "https://files.pythonhosted.org/packages/39/c1/6afcdf34b9fc3d42680a99a6cc08d3ce5f55a7ab49bebc4d1d0b528f1c50/langgraph_cli-0.2.12.tar.gz"
-  sha256 "1b3ec6017c80bdde833451d4372f5681909f73964f9cf5c84e344099faf0de09"
+  url "https://files.pythonhosted.org/packages/01/a5/ca0680f39e50b6ea8fd42714f082739729f211d71d221c0e585647db9b5a/langgraph_cli-0.3.1.tar.gz"
+  sha256 "4b6a74dd10792ea230d0293cc4faaae92f9f7ed889acb17378f711e9d79a2e14"
   license "MIT"
 
   bottle do
@@ -17,6 +17,7 @@ class LanggraphCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "84f7ce0e64f0caad722b33128a54618be9bae29e2cdc2a5b79a753fde177ebef"
   end
 
+  depends_on "rust" => :build # for orjson
   depends_on "python@3.13"
 
   resource "anyio" do
