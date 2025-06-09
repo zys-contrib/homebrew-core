@@ -6,6 +6,15 @@ class Pulumictl < Formula
   license "Apache-2.0"
   head "https://github.com/pulumi/pulumictl.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2f84623a5d8e33cde3da4a009de0aa603d0c0418e411d04a33f6bee024b3465d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2f84623a5d8e33cde3da4a009de0aa603d0c0418e411d04a33f6bee024b3465d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2f84623a5d8e33cde3da4a009de0aa603d0c0418e411d04a33f6bee024b3465d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "85d43a6077e2debce71dbd7dfcc917768d0d51599f5c528c906070931280fb64"
+    sha256 cellar: :any_skip_relocation, ventura:       "85d43a6077e2debce71dbd7dfcc917768d0d51599f5c528c906070931280fb64"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7aa43bcca9b9a843c80b09f04f0ab34391ca358f036c5649f87e15ce7ff760b8"
+  end
+
   depends_on "go" => :build
 
   def install
