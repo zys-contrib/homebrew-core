@@ -12,6 +12,7 @@ class Abpoa < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "be037ac65bb330b3c0346a0a73b9a52cd409c5d445bf5ea3b342c75937b6ff70"
     sha256 cellar: :any_skip_relocation, sonoma:        "d6a18508fc01c5180ba29e543e889bf14572e4c37dee0e3de40936881d6a92d7"
     sha256 cellar: :any_skip_relocation, ventura:       "7b66dba3e1c7543bd65a85f1190be008acd8dc5246676df09674f3e30a9f890b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0e22b15a4710bd352700931ef827c12fdcf6ba62177f120601dde18e2a6e6ace"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea53d24bfe80ecb229b8908a7e4cabbf5724b46e134272b00d776f261080c825"
   end
 
