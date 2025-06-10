@@ -1,8 +1,8 @@
 class Typeshare < Formula
   desc "Synchronize type definitions between Rust and other languages for seamless FFI"
   homepage "https://github.com/1Password/typeshare"
-  url "https://github.com/1Password/typeshare/archive/refs/tags/v1.13.2.tar.gz"
-  sha256 "7640e70720190576aa82df57561841f33720281e55dc65fedcc0cd89ccc411e2"
+  url "https://github.com/1Password/typeshare/archive/refs/tags/v1.13.3.tar.gz"
+  sha256 "3aa054a8ef566263873a4056be248e6a6790b0815259073ee4a9549229618a09"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/1Password/typeshare.git", branch: "main"
 
