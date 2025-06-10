@@ -9,14 +9,13 @@ class Codelimit < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "f15f4541358fc187914d2f17704fedf18b03d44cc380836352e1adc81fcef479"
-    sha256 cellar: :any,                 arm64_sonoma:  "57e69422339ead6154135d5339bf4aad2ee3d15a8ec3d2cebe7b2e3c3c4396db"
-    sha256 cellar: :any,                 arm64_ventura: "76579687a8003b964e910009b0fce2eaf338162bf831d9f694a48f9a10a839a0"
-    sha256 cellar: :any,                 sonoma:        "903b1fc2e0653ed20f6759c80d41a19e64609b19cf147ee21fc07f9074787a13"
-    sha256 cellar: :any,                 ventura:       "b85f06932dd86d2ebddc8e9d8835a498a6dc9639ad8d605cbceceb333b0a3ecb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "316122c6d5be36441f49438b192c6379ebfff7395991dd1dc353ebbf257f7751"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4fe6160e35e190a9070e3a420e37844eaffeb236689bac619266af1ae96c0766"
+    sha256 cellar: :any,                 arm64_sequoia: "18071157d23bb1d0bb254b13d3eba3f3bdab625e53180e4c245582febe7e8f05"
+    sha256 cellar: :any,                 arm64_sonoma:  "c5cdecb94c66b87c8b4d5807977afb05e470691b4c84e3ee684018485101113e"
+    sha256 cellar: :any,                 arm64_ventura: "58def15d46a033132a428c1b55ea007fe155071742521fb28866228f26183f13"
+    sha256 cellar: :any,                 sonoma:        "880b989a838e0b115b4adf2bae43e024da5d7c792a0e3a3d68033326baac6404"
+    sha256 cellar: :any,                 ventura:       "707acb498655fd56a9e398eb5e6f7c498a68cdc7215b1879e43fa7a4532fa538"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e3cba55a81fc138c4cfae16dfd5daaa244f735d48bdc157a85a2b4c341a8e5ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3c3a9ba5848dfa803f1d7a305a1980d17acc21a0a73b55480c27c4e071c1eae3"
   end
 
   depends_on "certifi"
