@@ -3739,6 +3739,7 @@ tio
 tippecanoe
 titlecase
 tkey-ssh-agent
+tldx
 tlsx
 tmex
 tml
