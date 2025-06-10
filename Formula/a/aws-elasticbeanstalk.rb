@@ -9,13 +9,13 @@ class AwsElasticbeanstalk < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9cd1c6543a333094de24bc9860f0f0ea01b3d75ce016356d01bf3255179c2e14"
-    sha256 cellar: :any,                 arm64_sonoma:  "7e0ba2e0554ea54275b91da71c798feedb55d4198e7619ff1cea1f39d70f4523"
-    sha256 cellar: :any,                 arm64_ventura: "e60885264763af055818e3cc14fd3a3caa057c1e7f2be0464649504a917c3512"
-    sha256 cellar: :any,                 sonoma:        "c07ba7380d5da7a0d4cde291d55af9cf2926d4f3beed84bc9f12f9b3ae7b9b57"
-    sha256 cellar: :any,                 ventura:       "94d7a0742d967305372c2584323f4a65d8a484aa79928c185a916214b0f3c009"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6c02efed3c333c14fc1a2a8f5d1c5fc92daf80ce0010feee6dc1fe97ef7294de"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b06abba5fb89b47af3a2ee4268c514573cddf8fb19c6c6754d3e7f66690bc36e"
+    sha256 cellar: :any,                 arm64_sequoia: "5c6dc9d27783dfd47007559d612c4ae04b86f51547b260fd4ed4a9aa454a4039"
+    sha256 cellar: :any,                 arm64_sonoma:  "91f1549ca22cc59759a2647a6b732241b2c5ed2f51fcc72be0a3bbcefcc74673"
+    sha256 cellar: :any,                 arm64_ventura: "29a14e7199535fb9ffde85b85c4cab190f19c82cfc3cb4dc1f51fbef6fba24c8"
+    sha256 cellar: :any,                 sonoma:        "e4ec9ef3a1db1875fc582e027c0ab8688e1bb19c7175ca1a819d539d2b5421c5"
+    sha256 cellar: :any,                 ventura:       "d189e9589a8f3bbb358a8f3f684847effef5c2e61e79d0a4ec4803cd2df7199e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4ba320974d5c47b1161a794377f466d9443e152fddb701e2af105e1fdc1360ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2cc1e7e325f6fb73c9f10d7efcad5f06d28fa351652d1d00aa9a336070ab292"
   end
 
   depends_on "rust" => :build # for bcrypt
