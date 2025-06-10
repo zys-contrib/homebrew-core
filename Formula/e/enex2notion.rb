@@ -11,13 +11,13 @@ class Enex2notion < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e1036ffce6c0ebdb81569abeb64f6a583cbe884b59d388d7eb3c4ff461e243d7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "227a54c02debc4bf89c84f92edead0ad87981de179a4a34383f6eb05d6a24d75"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "682c4d4cc5a2efb3dd5ad50b3cadca10765c9625959e5f8a0e1292f11dbd86a0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1f4d2e88b55e5d21b9ba5d153293bc024d2d50a12ec0089d42c40a6dbe35ffdc"
-    sha256 cellar: :any_skip_relocation, ventura:       "f3a215fa05298db89b3e31aee8def51ee33ff7325d2b70aa9c4bcc01a2c314df"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b15dffa9e9bd24e8bdfcd4f69e78f706d766fad635ca8dd0c5e67acebb7f749b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9b1f04b627e7d051ecf15cf7f87e15878e4bcf5355af89c48667029a1d712bb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eda6f72227a63f019da0f86b2457f6b28dde7bb742cdd935cd92e8558f6a7816"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3db8e5a90b0cafbd60ddcbd49e92db335313aebc4d7ee80e74ed09fa789f4426"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3c4644b2590b8615fe6cccf2cea791363dc5a8e4fe3aeaf05d6198aa1037583f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "271223bd5e902e6b2fac79c0481e42f19323773d6d74ee3768bba51687c56a6f"
+    sha256 cellar: :any_skip_relocation, ventura:       "96d410591e183f9c4f6004520773d2d6fefbe058fcd783070e3bf82bdf2a8f82"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c3b6076e61c285f35c553d8c1b250a843453e63044be17c4a0200883add608c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0dd40b4f50d82fb395982611a2751493f13df5fe17afabf677898d10dcde4a5"
   end
 
   depends_on "certifi"
