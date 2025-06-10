@@ -12,13 +12,13 @@ class Bpython < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "06bf6629f26910b0566487146288f2bfb1a22f2d4475fd8edfa40b846f999a70"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c859efd5a00b94aa9a44b5220ef48454b6f8ec2144334f56c04613bac6ad5471"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "40ded59a27e86ff42fe70298d5c2599ac2a87fcfa9f816e1bcbad96371c2e91f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "688b211f53cd9632034f46c4337bc1840c15e38c14ea430027e80e53204e36e5"
-    sha256 cellar: :any_skip_relocation, ventura:       "c9d34b976f66b6d5519f209703ac1248a16136db2a644f6ffca3485019784f26"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ed3ce49336e167299dd2f293d67a290fc4054cca82bcc4f0dff25460e0416240"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7632a46277b96ead7b36d94f1b19d43cd05d96c1e7e5c6f8230f126c436343e9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2d60da6cf634294cda7f89a9d197be247defda0d7ba77c496a63bf5dacd22432"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3a98ae347f658f3e58fcbbb30f04979b88825759baad584c43436e792e485c81"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "16cb7d1a3c0d87fba4a1f7ae50ee5fa75354d4d0541d385ef1c5ee8000642a3f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3e8907e65b0fe7c9e5dbb6affb9f23be5bba9f83f613b908c269fc109ab5205a"
+    sha256 cellar: :any_skip_relocation, ventura:       "6e1dcdc560f76f6b0ec201364bc18dce2a20db4aaa6685c019cb81cfb21a4bfa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ec77b4e9f45e004fbac154adfeda3e88fe968101e598ae2aea1b5a74f4a8ec21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b637086839e8ef3b5e8f289854a3ca524029a1c426ff74d7053af65b34cf3cb5"
   end
 
   depends_on "certifi"
