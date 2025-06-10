@@ -12,6 +12,7 @@ class Sprocket < Formula
     sha256 cellar: :any,                 arm64_ventura: "90974677931267583f965dd5a7b2f772c8bbef398c619f45cb816152434f91eb"
     sha256 cellar: :any,                 sonoma:        "3caf0f88b2abae6ab506527a7d9b520dd853a128e0810db7676854decaeb4878"
     sha256 cellar: :any,                 ventura:       "aaa8fbb13dc34176c80acb78ec4b0e106ce211b1349236fb9b2d91774405bb29"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c9b7d6624a47fb8045126b5c978949dab8fec1de28136c327e8fcb8b1df7f3ec"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0bf77fdc5153e3d1505fc267da7a686687323d77f384647fff55708f2c4152d9"
   end
 
