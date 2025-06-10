@@ -9,13 +9,13 @@ class Cycode < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "ccdf2ac8b9cbc779478d440af41b2d68621fbc4fec8b8f6843c6ed980d4c7558"
-    sha256 cellar: :any,                 arm64_sonoma:  "ca44ac6a45cf7a1f4a93a71fb386db72c187dcde171d3f5f0318bb9fba4bac40"
-    sha256 cellar: :any,                 arm64_ventura: "11ef35c19cd66c7dfedfce79899f18d8e7b90de3d72ebb2705b0edf8cf47897a"
-    sha256 cellar: :any,                 sonoma:        "034dc7c513cf3e4f9311bcb2223e05ed6eda4993bd839efce74b83961ea5a958"
-    sha256 cellar: :any,                 ventura:       "08d72c480d918a3e1f79eb7178ebf3aaa345aaf3d40ec2fdd178d68bdff88dc8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "96788e34ecc42425c2092e2da0a67d5f70aae52bf9629bb77bc358721703ff3f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b11fb900d0debb317a6e10ec4d88024fa814e53efb4959e878a3450aac826113"
+    sha256 cellar: :any,                 arm64_sequoia: "d8256c7cad464c9dcf03709ffe984ceeb49d5457e20ef83ccd360dd21ab1c328"
+    sha256 cellar: :any,                 arm64_sonoma:  "120feb325d4f26cf9044be31f676df468bdc5b0315c2a1210677a3aa00b65231"
+    sha256 cellar: :any,                 arm64_ventura: "f7625b6f93d23574b55583fbcfb8f2fd50efaa92bf6cb18968f94100618e14d2"
+    sha256 cellar: :any,                 sonoma:        "c38883e8a4ea5cd80e390950f6ba4ed896c24ed69290fb57aad23c29dc814cdf"
+    sha256 cellar: :any,                 ventura:       "f3e700e27dd382bfa91aba28afdc319834f0a1becb557893896e04f0512f553f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e3662b040eccb1c3a378c7bcda31d5468e48391cf8fafad09036dafd9744b36d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "940b0749abc389d80a83c75fb6458fd12492e25d4103742b1b7ebc75be3eb551"
   end
 
   depends_on "certifi"
