@@ -6,6 +6,7 @@ class Datalad < Formula
   url "https://files.pythonhosted.org/packages/06/09/1cafa5d584ca92fe9e9381282103e2d92944aae2997085ca1aee111c5c1c/datalad-1.2.0.tar.gz"
   sha256 "4ea32977ee8dabc277fb08bdee375885427177768330b4e2f51c0c1502400a80"
   license "MIT"
+  revision 1
   head "https://github.com/datalad/datalad.git", branch: "maint"
 
   bottle do
@@ -35,13 +36,13 @@ class Datalad < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/b8/38/27f7e3944daa6c8f4422e412ebf7073cbe9e59e14e7f3219a89b6c752837/boto3-1.38.20.tar.gz"
-    sha256 "aa1424213678a249fe828fb9345deac5e33f9a2266fd1b23ec72e02857b018a2"
+    url "https://files.pythonhosted.org/packages/ad/95/99046c55799732d97b0f9a0bb99b64760f07dd55ac793393a6c4e847d8d6/boto3-1.38.33.tar.gz"
+    sha256 "6467909c1ae01ff67981f021bb2568592211765ec8a9a1d2c4529191e46c3541"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/87/c6/61fa4699aa7f6230cf018d110849388904493b4e179050b6f0fc20a0f353/botocore-1.38.20.tar.gz"
-    sha256 "03a5027a207fc66cd0bf8cd1abb98db41fd4d23e6bd5f43f68586af9736240fc"
+    url "https://files.pythonhosted.org/packages/9d/aa/1521d7e1dcb76af8dca81539eec141ee3581a32e0dc1f31d092b59feb06a/botocore-1.38.33.tar.gz"
+    sha256 "dbe8fea9d0426c644c89ef2018ead886ccbcc22901a02b377b4e65ce1cb69a2b"
   end
 
   resource "chardet" do
@@ -155,13 +156,13 @@ class Datalad < Formula
   end
 
   resource "python-gitlab" do
-    url "https://files.pythonhosted.org/packages/d6/08/d35d0f28549c43611e942f39b6321a7b35c02189d5badceefe601c0207ce/python_gitlab-5.6.0.tar.gz"
-    sha256 "bc531e8ba3e5641b60409445d4919ace68a2c18cb0ec6d48fbced6616b954166"
+    url "https://files.pythonhosted.org/packages/3b/ba/3ee473d71e32d60c8d6ef7b914f5f3df64a067b816499aa8a6083a397d4f/python_gitlab-6.0.0.tar.gz"
+    sha256 "704bf548c258f1cfe2f09b8ece9af1cc8fa6ae828ac6fe6a1cbe957c98431414"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
-    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
+    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
   end
 
   resource "requests-toolbelt" do
@@ -170,8 +171,8 @@ class Datalad < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/fc/9e/73b14aed38ee1f62cd30ab93cd0072dec7fb01f3033d116875ae3e7b8b44/s3transfer-0.12.0.tar.gz"
-    sha256 "8ac58bc1989a3fdb7c7f3ee0918a66b160d038a147c7b5db1500930a607e9a1c"
+    url "https://files.pythonhosted.org/packages/ed/5d/9dcc100abc6711e8247af5aa561fc07c4a046f72f659c3adea9a449e191a/s3transfer-0.13.0.tar.gz"
+    sha256 "f5e6db74eb7776a37208001113ea7aa97695368242b364d73e91c981ac522177"
   end
 
   resource "secretstorage" do
