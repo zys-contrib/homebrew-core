@@ -1,8 +1,8 @@
 class Xray < Formula
   desc "Platform for building proxies to bypass network restrictions"
   homepage "https://xtls.github.io/"
-  url "https://github.com/XTLS/Xray-core/archive/refs/tags/v25.5.16.tar.gz"
-  sha256 "c856cd9abed7d28d3c7b856c0661cec5c85ba0669affa740c979cf40c2f73ee4"
+  url "https://github.com/XTLS/Xray-core/archive/refs/tags/v25.6.8.tar.gz"
+  sha256 "e1975e7543da7374ce314debf1afb6e4f6795f97539c290f54fb343cfb354408"
   license all_of: ["MPL-2.0", "CC-BY-SA-4.0"]
   head "https://github.com/XTLS/Xray-core.git", branch: "main"
 
@@ -23,18 +23,18 @@ class Xray < Formula
   depends_on "go" => :build
 
   resource "geoip" do
-    url "https://github.com/v2fly/geoip/releases/download/202505050146/geoip.dat"
-    sha256 "8023379316bca4713dcfa5ba4ea2fe7f4c127fff64a0cb7859d4756142b2c4dc"
+    url "https://github.com/v2fly/geoip/releases/download/202506050146/geoip.dat"
+    sha256 "58bf8f086473cad7df77f032815eb8d96bbd4a1aaef84c4f7da18cf1a3bb947a"
   end
 
   resource "geosite" do
-    url "https://github.com/v2fly/domain-list-community/releases/download/20250508005311/dlc.dat"
-    sha256 "ff833c7e95d0dadb97ba7d96598563d159fabb0b774dcebea15f335797259f42"
+    url "https://github.com/v2fly/domain-list-community/releases/download/20250608120644/dlc.dat"
+    sha256 "67ededbc0cb18f93415e2e003cb45cb04fc32ba4a829f7d18074d3bdd88ab629"
   end
 
   resource "example_config" do
     # borrow v2ray example config
-    url "https://raw.githubusercontent.com/v2fly/v2ray-core/v5.31.0/release/config/config.json"
+    url "https://raw.githubusercontent.com/v2fly/v2ray-core/v5.33.0/release/config/config.json"
     sha256 "15a66415d72df4cd77fcd037121f36604db244dcfa7d45d82a0c33de065c6a87"
 
     livecheck do
