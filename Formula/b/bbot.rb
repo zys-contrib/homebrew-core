@@ -6,6 +6,7 @@ class Bbot < Formula
   url "https://files.pythonhosted.org/packages/11/0c/c5553229baf664055d1b9204e334d2c93001e08604dc18c0f6ecd272bcf9/bbot-2.5.0.tar.gz"
   sha256 "4481b9db248387ffb3cfd0fc9369dc5580bc8f810aa793f2b3bd5bf9fb1e2b16"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "9e6f0059118ed2a6080f183be67bbac3862b1dc2d32629ba000905be689136eb"
@@ -223,8 +224,8 @@ class Bbot < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
-    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
+    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
   end
 
   resource "requests-file" do
