@@ -12,13 +12,13 @@ class Cruft < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e5e41d578ada45a0151ce9c8e2b738bca0676d5a2ae8a9b59a385c67b7a5a182"
-    sha256 cellar: :any,                 arm64_sonoma:  "d35f7ca0f3a67330cde228787fcfd800089ba5bae39aed787f83f7f658ee9998"
-    sha256 cellar: :any,                 arm64_ventura: "10c160818ff74b45cc399ddeaba42392dd85dde57392de6600a8edc18da2ff13"
-    sha256 cellar: :any,                 sonoma:        "a0fc82754d9cf9daa2073f7a669b5fe206be2cddd782c5c0500f58938990409c"
-    sha256 cellar: :any,                 ventura:       "33d3b41b97eec435a95c44e3f12b607422be96ceefce86b9c011c75189db1714"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "877a6b776387bb82f712f4debc0c68aa741e322b3b01c594ae226e0ace770392"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "92fd31d81091b01cd9e9055482ff0e97f6af8bbb9ecbc9b137c8874e9b2e84a1"
+    sha256 cellar: :any,                 arm64_sequoia: "ad39579e5cf67e9d038dcbb90428a2c3e2d570d70c6245138cb1876ba5136ea0"
+    sha256 cellar: :any,                 arm64_sonoma:  "190c707c426a09da51c614293b3ce5045864b492227e7cfcc82d48271e7314ea"
+    sha256 cellar: :any,                 arm64_ventura: "b3b1e6260b9008152344573405a8a5330371c3e164d52735ee3c6d3762e7a584"
+    sha256 cellar: :any,                 sonoma:        "0fcdf19675bf13a33bbed2a19ab926173ddfad61cb070002f34478b58f92767e"
+    sha256 cellar: :any,                 ventura:       "1dd9db1dec2951bb2182ed9d179a17152bba07870d6fcb8bda4f32e6345f77dc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7a4f67fafa0a04fd79a855ceb3cdb127c09f9cc8d28cda246461eaea7e714692"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2703585445ce3628a1a6b51bcbf85ccd381cc24f2ca822384976803e8f6e4816"
   end
 
   depends_on "certifi"
