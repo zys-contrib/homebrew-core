@@ -11,6 +11,15 @@ class Tun2proxy < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "195b50697e8e92c435c08da66593f6e18777f601f248051e335ba76fbe7cffbe"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "53efedae49319528165c679f3329d350b261cfbc6ed51e42161a82d8ff63e54e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "afee4c3fa6f79f052a595e4c5807eb7cb8820c649486e8a0c3cbe5e88a24fa73"
+    sha256 cellar: :any_skip_relocation, sonoma:        "44429ff24fef093ebd55d1883664fb089d3a1e5e7e980e886cce095dee628eb2"
+    sha256 cellar: :any_skip_relocation, ventura:       "ab638df3db3eb0e6fab929d9264395b9b5aa21101777852cddd9800e11ede89a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "86ddcfa36fcc088f7f369f402cf46d43f1a4387dc62ef0fa69513c6728ca5992"
+  end
+
   depends_on "rust" => :build
 
   def install
