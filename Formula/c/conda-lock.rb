@@ -3,19 +3,18 @@ class CondaLock < Formula
 
   desc "Lightweight lockfile for conda environments"
   homepage "https://github.com/conda/conda-lock"
-  url "https://files.pythonhosted.org/packages/6c/80/a876bda810274e927b90c01e66ac3cc47737084514f5d5c020b4e4f5dec3/conda_lock-3.0.2.tar.gz"
-  sha256 "d6a668c4d7a627f6d234dc155ada292cc26e119b5b4b8f53787478d90ee1a3b2"
+  url "https://files.pythonhosted.org/packages/f4/f6/6fe5e9cfe57e9c12bf2a724f6fcc8775afbc164c88f35224a3714ac79518/conda_lock-3.0.3.tar.gz"
+  sha256 "00d0771a08414759551b6a3a1e5a2ea47bcec21736047e346da90c29124d3928"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "65009682973fe809ca72ce12c63514f8a187e2d39917160219ba835c5a47b1a9"
-    sha256 cellar: :any,                 arm64_sonoma:  "319c72dca86c782c81745d290bee90482cd9523079fb9db4e233e6de239ba8be"
-    sha256 cellar: :any,                 arm64_ventura: "da0a521c7564b7431b4191b778a6149f7690805aebb455d0aa761cc71a377a37"
-    sha256 cellar: :any,                 sonoma:        "ac97eac9d69ade5808bfa21da60009d40b281bca0634490b9e0618c4efdf0b4f"
-    sha256 cellar: :any,                 ventura:       "5cffafae4a7204fa684431c65f95552d3064eb22ccacc9c1b32e776b759b8d29"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "317f03023fe8e7bf3386bb01581e27e7e34b5468c85eeec37c575fb3d35b4dd0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6cad5fd4408c92c29c16c9f26d85b0c099a40dc4f70fbc1035350f0ebc2386ef"
+    sha256 cellar: :any,                 arm64_sequoia: "d3a84dd165c9d072795e2e6c3cf161753dd53bb2e07d46569ea91292ed7fa080"
+    sha256 cellar: :any,                 arm64_sonoma:  "0c19281444dca0cc2971e11ac506c1bac3aa186c47cb6d9e36e86b552a5ffb89"
+    sha256 cellar: :any,                 arm64_ventura: "1ba2481afabecaf64394823f5ff98c3a2d5c5656f9290df6106abe81c3c7d51f"
+    sha256 cellar: :any,                 sonoma:        "e3b85c07c3fe97210058eefb83a9dc4bde7faa1bae6233a352970012cbe3c3ed"
+    sha256 cellar: :any,                 ventura:       "2387decb992d7a3edb4bd7bc2dd9d1037f777e2d9971b045b72a93a4d224f633"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "efd1c894b58b399c6d41dc238ec973038fb7861596733ec2a4fde8f70fb321fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8436acb87edb58c84296a7a25868e6f882ad02339f5b0853c3eb5e23461b604e"
   end
 
   depends_on "rust" => :build # for pydantic
@@ -268,11 +267,6 @@ class CondaLock < Formula
   resource "virtualenv" do
     url "https://files.pythonhosted.org/packages/56/2c/444f465fb2c65f40c3a104fd0c495184c4f2336d65baf398e3c75d72ea94/virtualenv-20.31.2.tar.gz"
     sha256 "e10c0a9d02835e592521be48b332b6caee6887f332c111aa79a09b9e79efc2af"
-  end
-
-  resource "xattr" do
-    url "https://files.pythonhosted.org/packages/62/bf/8b98081f9f8fd56d67b9478ff1e0f8c337cde08bcb92f0d592f0a7958983/xattr-1.1.4.tar.gz"
-    sha256 "b7b02ecb2270da5b7e7deaeea8f8b528c17368401c2b9d5f63e91f545b45d372"
   end
 
   resource "zstandard" do
