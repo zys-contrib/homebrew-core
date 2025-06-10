@@ -1,9 +1,9 @@
 class GccAT14 < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-14.2.0/gcc-14.2.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-14.2.0/gcc-14.2.0.tar.xz"
-  sha256 "a7b39bc69cbf9e25826c5a60ab26477001f7c08d85cec04bc0e29cabed6f3cc9"
+  url "https://ftp.gnu.org/gnu/gcc/gcc-14.3.0/gcc-14.3.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-14.3.0/gcc-14.3.0.tar.xz"
+  sha256 "e0dc77297625631ac8e50fa92fffefe899a4eb702592da5c32ef04e2293aca3a"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
   livecheck do
@@ -54,16 +54,8 @@ class GccAT14 < Formula
   # Apple Silicon support, located at https://github.com/iains/gcc-14-branch
   patch do
     on_macos do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/f30c309442a60cfb926e780eae5d70571f8ab2cb/gcc/gcc-14.2.0-r2.diff"
-      sha256 "6c0a4708f35ccf2275e6401197a491e3ad77f9f0f9ef5761860768fa6da14d3d"
-    end
-  end
-
-  # Fix for macOS 15.4 SDK issue https://gcc.gnu.org/bugzilla/show_bug.cgi?id=119590
-  patch do
-    on_macos do
-      url "https://github.com/iains/gcc-14-branch/commit/efb88ebe0a6886f816c0d037df33df6556544ad6.patch?full_index=1"
-      sha256 "4077af416eaf40a968e4b9d382aeb6470c2b79f09a52da2dd6aa91ace7af5c87"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/473d292cbbdfd318341cb6d4bcdf8de47879bab7/gcc/gcc-14.3.0.diff"
+      sha256 "b8611362ae43a5644ab908d6e4d9bfc90346a914c3ba851197086d54148b1289"
     end
   end
 
