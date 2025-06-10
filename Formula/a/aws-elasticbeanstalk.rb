@@ -6,6 +6,7 @@ class AwsElasticbeanstalk < Formula
   url "https://files.pythonhosted.org/packages/d8/70/e6910c4d2e18e39b577219533fd25941ce34aea64845c9df5cea6955e8fb/awsebcli-3.24.1.tar.gz"
   sha256 "72242ff65890d8193483c24463430ed05137f88cd597d5ab302d16c32958deaf"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "9cd1c6543a333094de24bc9860f0f0ea01b3d75ce016356d01bf3255179c2e14"
@@ -37,8 +38,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/7f/78/c1b2fa6a267018062a66470e6e779366b4e64ab1178de8870ccc3a393cac/botocore-1.38.19.tar.gz"
-    sha256 "796b948c05017eb33385b798990cd91ed4af0e881eb9eb1ee6e17666be02abc9"
+    url "https://files.pythonhosted.org/packages/9d/aa/1521d7e1dcb76af8dca81539eec141ee3581a32e0dc1f31d092b59feb06a/botocore-1.38.33.tar.gz"
+    sha256 "dbe8fea9d0426c644c89ef2018ead886ccbcc22901a02b377b4e65ce1cb69a2b"
   end
 
   resource "cement" do
@@ -117,8 +118,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
-    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
+    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
   end
 
   resource "semantic-version" do
@@ -127,8 +128,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/8d/d2/ec1acaaff45caed5c2dedb33b67055ba9d4e96b091094df90762e60135fe/setuptools-80.8.0.tar.gz"
-    sha256 "49f7af965996f26d43c8ae34539c8d99c5042fbff34302ea151eaa9c207cd257"
+    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
   resource "six" do
