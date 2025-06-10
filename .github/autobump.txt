@@ -3808,6 +3808,7 @@ tty-solitaire
 ttyd
 ttyplot
 tuisky
+tun2proxy
 tup
 twine
 twitch-cli
