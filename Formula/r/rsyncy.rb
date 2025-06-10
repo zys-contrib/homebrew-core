@@ -3,8 +3,8 @@ class Rsyncy < Formula
 
   desc "Status/progress bar for rsync"
   homepage "https://github.com/laktak/rsyncy"
-  url "https://github.com/laktak/rsyncy/archive/refs/tags/v0.2.0-1.tar.gz"
-  sha256 "b2f1c0e49f63266b3a81b0c7925592a405770a3e1296040a106b503a85024b00"
+  url "https://github.com/laktak/rsyncy/archive/refs/tags/v0.2.1.tar.gz"
+  sha256 "3832f71fbdfb3fbc3d135da91864abab44f16a9e9918d46389604a463bbf840f"
   license "MIT"
   head "https://github.com/laktak/rsyncy.git", branch: "master"
 
