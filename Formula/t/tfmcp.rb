@@ -6,6 +6,15 @@ class Tfmcp < Formula
   license "MIT"
   head "https://github.com/nwiizo/tfmcp.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "931642d7a76e3b6941c38a5691a96ded7ab51a889a0fa03955a384a9a4f1a953"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b738136715521cffb5aa68fae65d696f32a2f36a46372103961faa995a16aa70"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "42aa5bfef250c2bc3e94e2aac5bce1df8a0f85f74f9443fad21f53be2546a2ca"
+    sha256 cellar: :any_skip_relocation, sonoma:        "80277c181cb63ff113891a872df6a621eb48fb301625ccd24862f1a786bd9be1"
+    sha256 cellar: :any_skip_relocation, ventura:       "ae4bf79299b8a6b074a5d45bd0901134b0d0b4595e1229c2ac48ce58cc668960"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "208ec88b705eb8d5515ed9076f0c5f2c67a8411ff7decb49c16f062a2f616e41"
+  end
+
   depends_on "rust" => :build
   depends_on "opentofu" => :test
 
