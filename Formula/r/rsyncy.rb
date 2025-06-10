@@ -9,8 +9,7 @@ class Rsyncy < Formula
   head "https://github.com/laktak/rsyncy.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "c9f3bf3e3e2b3b67497decbe21a1accbc9e18b1a020fcd7c696bc3eb768396b1"
+    sha256 cellar: :any_skip_relocation, all: "a67e111ca3ef8b9e2b4fd568b818e79fbb3ca6a8f1310d8707c2d79beb69e681"
   end
 
   depends_on "python@3.13"
