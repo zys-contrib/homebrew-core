@@ -30,6 +30,12 @@ class MenderArtifact < Formula
   def install
     ldflags = "-s -w -X github.com/mendersoftware/mender-artifact/cli.Version=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags)
+
+    # mender-artifact doesn't support autocomplete generation so we have to
+    # install the individual files instead of using
+    # generate_completions_from_executable()
+    zsh_completion.install "autocomplete/zsh_autocomplete" => "_mender-artifact"
+    bash_completion.install "autocomplete/bash_autocomplete" => "mender-artifact"
   end
 
   test do
