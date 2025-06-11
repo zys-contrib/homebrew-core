@@ -1,8 +1,8 @@
 class G3log < Formula
   desc "Asynchronous, 'crash safe', logger that is easy to use"
   homepage "https://github.com/KjellKod/g3log"
-  url "https://github.com/KjellKod/g3log/archive/refs/tags/2.5.tar.gz"
-  sha256 "04925eeed93668e4ad354f2f4b4b5e16e2d7b16ea42ab977409be4a96d64303b"
+  url "https://github.com/KjellKod/g3log/archive/refs/tags/2.6.tar.gz"
+  sha256 "afd3d3d8de29825de408e1227be72f3bef8a01c2c0180c46271b4da9bb4fa509"
   license "Unlicense"
 
   no_autobump! because: :requires_manual_review
@@ -18,12 +18,6 @@ class G3log < Formula
   end
 
   depends_on "cmake" => :build
-
-  # Fix CMake 4.0 build
-  patch do
-    url "https://github.com/KjellKod/g3log/commit/1894b060b91fe5b43e3d5eb42f5395448e4a0e4a.patch?full_index=1"
-    sha256 "4c513e8e1a0b809080d71d5087a4f7fcf18440d6a6623f254f7f76d2ae045df5"
-  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", "-DADD_G3LOG_UNIT_TEST=OFF", *std_cmake_args
