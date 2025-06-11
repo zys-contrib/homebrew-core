@@ -1318,6 +1318,7 @@ gitql
 gitsign
 gittuf
 gitu
+gitwatch
 giza
 gjs
 gkrellm
