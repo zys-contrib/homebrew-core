@@ -12,13 +12,13 @@ class HttpPrompt < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "fd295f3f14ca5b3d24e898df9a74df05c1af6a0de036ff3fdf980bedbef23b97"
-    sha256 cellar: :any,                 arm64_sonoma:  "89411f03cdec958f4a7a236e46e3b3053a478d5b5cbeddc9c10984ff14fa534f"
-    sha256 cellar: :any,                 arm64_ventura: "aee5fbb79424b195520ed856fb47d7bbc17dd0c325b78a606a94e848300b81a6"
-    sha256 cellar: :any,                 sonoma:        "cd3306efda78d3dced41c5588729a5c58ddcb9566a93cde6e076fa1b47eb339f"
-    sha256 cellar: :any,                 ventura:       "8688f75cb0fcaaa93757888726dd8292555bca09bd4fdd8475cf9c71b8143185"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "eb1877919f314c291146702e149dcb1a24fa9353f6dde77f0d5e172c122dac71"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "09dd6eaef91d26e1e22121a84d930854cca79626f22505fb13714058e90ed76a"
+    sha256 cellar: :any,                 arm64_sequoia: "46c04a51a98a30cf89419af3cb9451e8e77fc07c7073ba55fbe4eb97cf189b9a"
+    sha256 cellar: :any,                 arm64_sonoma:  "81f84f831dc105e50f1f728ac75295d4d7578c3548e273b0ff5d383ca67ea519"
+    sha256 cellar: :any,                 arm64_ventura: "b16ff6d6a0e929e06e7b313e31d76bdb5b3deed58fe0789bffff804d5c369076"
+    sha256 cellar: :any,                 sonoma:        "83bb2b5e2f453636747c09a9685f5fff1e602d6784927e4af7b32f4ccfae4dc7"
+    sha256 cellar: :any,                 ventura:       "0138720ad89613031315237d087bb659ddd6c8cbd6a4a855d5b59dc40df26b4c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a1aaabc4d6a32d2bf63453ca1ab1a8a6f4dfbbc5368f1f9be6685f82a0b588a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bdc91e5f1f00b48530a123c24d565108f1e48cee2da7d715147d3cb585c0c067"
   end
 
   depends_on "certifi"
