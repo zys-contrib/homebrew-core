@@ -1,18 +1,18 @@
 class Rsyncy < Formula
   desc "Status/progress bar for rsync"
   homepage "https://github.com/laktak/rsyncy"
-  url "https://github.com/laktak/rsyncy/archive/refs/tags/v2.0.0.tar.gz"
-  sha256 "a19136713aee2242bf702dbd9be7a2deb6a94a001910b9a297e236bb00ccac5e"
+  url "https://github.com/laktak/rsyncy/archive/refs/tags/v2.1.0.tar.gz"
+  sha256 "d2b88602cd911d66a21750bec32a40fdfb3769a63b529bc0805d22c7a3b87ba2"
   license "MIT"
   head "https://github.com/laktak/rsyncy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ce8bfe4b5cf09f2cce0c7a2fe54caf1ebe24918cff5576e512767e100b54f647"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ce8bfe4b5cf09f2cce0c7a2fe54caf1ebe24918cff5576e512767e100b54f647"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ce8bfe4b5cf09f2cce0c7a2fe54caf1ebe24918cff5576e512767e100b54f647"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2a58b48e86714bfa7e0bd72616aa49f3ef084090a1f1f61da9eba3c65dc466cb"
-    sha256 cellar: :any_skip_relocation, ventura:       "2a58b48e86714bfa7e0bd72616aa49f3ef084090a1f1f61da9eba3c65dc466cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "280965bc23031ff27e7a031a6234ac15a0e9634de66420c3404d149b3ca45fc9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d497726367711d8d1a895ead4a6fa888e797a523c027cbc4f4934173803c8c7e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d497726367711d8d1a895ead4a6fa888e797a523c027cbc4f4934173803c8c7e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d497726367711d8d1a895ead4a6fa888e797a523c027cbc4f4934173803c8c7e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f55977e00c3f3332fff7a5c1e1496772a029495d444f864e0d2eb4f9e21119ff"
+    sha256 cellar: :any_skip_relocation, ventura:       "f55977e00c3f3332fff7a5c1e1496772a029495d444f864e0d2eb4f9e21119ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b7ff0ec6c2c7e4564370e7ede4c760136fae508f3a9312b9ebacb4f0a0f1ef3"
   end
 
   depends_on "go" => :build
