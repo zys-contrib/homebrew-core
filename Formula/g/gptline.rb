@@ -12,13 +12,13 @@ class Gptline < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "cbef12dac5db64be969f4ea0f09eddb1bc71dadcf30bd995f65020420aa312da"
-    sha256 cellar: :any,                 arm64_sonoma:  "b71669d19c26beb9fb83ef2cba3fd43d11b50d523cad19617689ba4da93711e5"
-    sha256 cellar: :any,                 arm64_ventura: "69af18870730a34cd38773c44df50252a2700b6a3dd7e12e2d6e4ec203dabfea"
-    sha256 cellar: :any,                 sonoma:        "a994da47fe5558560bf809798e39972c2205b6ed43af22deca1ceee8472eb5d3"
-    sha256 cellar: :any,                 ventura:       "2ba695a0d8cb422127ebd97ee10e44f8532ef6a77e81dfd5b7d966dfcbd4eff7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "10669d52ad6d169f4b9a778bf583497f8b7333e6fc635a8aea605905e599e222"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b43dd9be108a9211ee465e5f43f41d3df3e41f14806809f9f6142868057d145"
+    sha256 cellar: :any,                 arm64_sequoia: "df4b1fd81621704cef1c93da0efc651a7ac3f58d7763baed637394aa368e175d"
+    sha256 cellar: :any,                 arm64_sonoma:  "c0ec2004d53817d97123bfed5842e6d5b470651b936c1549264b4a7a5a1f63bc"
+    sha256 cellar: :any,                 arm64_ventura: "b8389d1dae6bfc6b7b0090f81c6958d266825de79c994f4707d76c4c2931b301"
+    sha256 cellar: :any,                 sonoma:        "8cd8ee615a5520d84c2fe27e733137151198011ca1b388e02cdab6a96fb12ff1"
+    sha256 cellar: :any,                 ventura:       "3bec3cdaf42465e1be7ad3a032ae2d87c2371ae12f99c1f5664c6db50fae1891"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8f778de29854b28ca360c0b46e0feb553e6ecbb76658a90215bc2d21d4b925c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3262297984ad022d04e236d7b32dc58fab4742a3250656dc609a695e853c3968"
   end
 
   depends_on "pkgconf" => :build
