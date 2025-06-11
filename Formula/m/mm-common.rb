@@ -1,8 +1,8 @@
 class MmCommon < Formula
   desc "Build utilities for C++ interfaces of GTK+ and GNOME packages"
   homepage "https://www.gtkmm.org/"
-  url "https://download.gnome.org/sources/mm-common/1.0/mm-common-1.0.6.tar.xz"
-  sha256 "b55c46037dbcdabc5cee3b389ea11cc3910adb68ebe883e9477847aa660862e7"
+  url "https://download.gnome.org/sources/mm-common/1.0/mm-common-1.0.7.tar.xz"
+  sha256 "494abfce781418259b1e9d8888c73af4de4b6f3be36cc75d9baa8baa0f2a7a39"
   license "GPL-2.0-or-later"
 
   no_autobump! because: :requires_manual_review
