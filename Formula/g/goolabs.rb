@@ -11,8 +11,7 @@ class Goolabs < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "4e66fc7b3ab4145371793377910c4410cc8ad73e428019417dbdaf4c15e45db8"
+    sha256 cellar: :any_skip_relocation, all: "867db6169181acdabe1e9aa89ffe6b0b86af6465c9f3cb2690ca89b1b69dd713"
   end
 
   depends_on "certifi"
