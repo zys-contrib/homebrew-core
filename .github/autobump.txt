@@ -2123,6 +2123,7 @@ libtommath
 libtool
 libtorrent-rakshasa
 libtorrent-rasterbar
+libtpms
 libtrace
 libtrng
 libucl
