@@ -11,13 +11,13 @@ class Instalooter < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "94426ba0b3b5a40609a0f9473fe0b0382cb4dfe97acccdd637563ec3e993134f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "94426ba0b3b5a40609a0f9473fe0b0382cb4dfe97acccdd637563ec3e993134f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "94426ba0b3b5a40609a0f9473fe0b0382cb4dfe97acccdd637563ec3e993134f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4d00ae9f509773e37ccd8d5c2b5d721bcd63dc8cd6ed824e875be45e7d86b5c9"
-    sha256 cellar: :any_skip_relocation, ventura:       "4d00ae9f509773e37ccd8d5c2b5d721bcd63dc8cd6ed824e875be45e7d86b5c9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6279654d6f601a86decff3bf38565a14e52d2a94457139466634ec0aa20d0ede"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6279654d6f601a86decff3bf38565a14e52d2a94457139466634ec0aa20d0ede"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fbcdd03359d428f9f574c73757483c0b36ec4d45c5967c9b58b62decef063143"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fbcdd03359d428f9f574c73757483c0b36ec4d45c5967c9b58b62decef063143"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "fbcdd03359d428f9f574c73757483c0b36ec4d45c5967c9b58b62decef063143"
+    sha256 cellar: :any_skip_relocation, sonoma:        "aeeb5713a27c20566e52a9046067e2d793c5af4371e84d8c95d8d873afaa6335"
+    sha256 cellar: :any_skip_relocation, ventura:       "aeeb5713a27c20566e52a9046067e2d793c5af4371e84d8c95d8d873afaa6335"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "24630854e7e3b29b8c556988f86bf9879f34a0dc8a9b19449df7aae90944c1bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "24630854e7e3b29b8c556988f86bf9879f34a0dc8a9b19449df7aae90944c1bd"
   end
 
   depends_on "certifi"
