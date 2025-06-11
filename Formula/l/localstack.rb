@@ -6,6 +6,7 @@ class Localstack < Formula
   url "https://files.pythonhosted.org/packages/11/7a/6030f1bfebf4cbef70d01fec2b76653a363da10d5ae30ee60487fa81e040/localstack-4.5.0.tar.gz"
   sha256 "f8ebf3a9af1826c595cfe4196c6d52792152db374e437e1a574ac52aedc53a18"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "3e155db3147456b4be7dc72f6c544c9d9e4fd425d3689de227e127df3c40d442"
@@ -133,8 +134,8 @@ class Localstack < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
-    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
+    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
   end
 
   resource "rich" do
