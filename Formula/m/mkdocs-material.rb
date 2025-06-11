@@ -5,6 +5,7 @@ class MkdocsMaterial < Formula
   url "https://files.pythonhosted.org/packages/b3/fa/0101de32af88f87cf5cc23ad5f2e2030d00995f74e616306513431b8ab4b/mkdocs_material-9.6.14.tar.gz"
   sha256 "39d795e90dce6b531387c255bd07e866e027828b7346d3eba5ac3de265053754"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "0e91741378cbf7f59a15a2b44c34cde15c7a6a5c55025e432084da8c700fe026"
@@ -42,8 +43,8 @@ class MkdocsMaterial < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/cd/0f/62ca20172d4f87d93cf89665fbaedcd560ac48b465bd1d92bfc7ea6b0a41/click-8.2.0.tar.gz"
-    sha256 "f5452aeddd9988eefa20f90f05ab66f17fce1ee2a36907fd30b05bbb5953814d"
+    url "https://files.pythonhosted.org/packages/60/6c/8ca2efa64cf75a977a0d7fac081354553ebe483345c734fb6b6515d96bbc/click-8.2.1.tar.gz"
+    sha256 "27c491cc05d968d271d5a1db13e3b5a184636d9d930f148c50b038f0d0646202"
   end
 
   resource "colorama" do
@@ -137,13 +138,13 @@ class MkdocsMaterial < Formula
   end
 
   resource "pyyaml-env-tag" do
-    url "https://files.pythonhosted.org/packages/c2/95/32c8c79d784552ed687c676924381c0dc88b2a0248b50a32f4b5ac0ba03c/pyyaml_env_tag-1.0.tar.gz"
-    sha256 "bc952534a872b583f66f916e2dd83e7a7b9087847f4afca6d9c957c48b258ed2"
+    url "https://files.pythonhosted.org/packages/eb/2e/79c822141bfd05a853236b504869ebc6b70159afc570e1d5a20641782eaa/pyyaml_env_tag-1.1.tar.gz"
+    sha256 "2eb38b75a2d21ee0475d6d97ec19c63287a7e140231e4214969d0eac923cd7ff"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
-    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
+    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
   end
 
   resource "six" do
