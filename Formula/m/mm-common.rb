@@ -8,8 +8,7 @@ class MmCommon < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "51e28647cb23b6c7259a8487adf36301731684c5d12bdccba36247ef0603312f"
+    sha256 cellar: :any_skip_relocation, all: "9b105ad896eeb16cfc9f158c87db7c4a63b03b3d58ae50fae9984b00feb02c24"
   end
 
   depends_on "meson" => :build
