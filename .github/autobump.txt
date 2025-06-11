@@ -3647,6 +3647,7 @@ tcpreplay
 tcpsplit
 tcsh
 tdb
+tea
 tealdeer
 tectonic
 teensy_loader_cli
