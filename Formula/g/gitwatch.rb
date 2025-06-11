@@ -7,8 +7,7 @@ class Gitwatch < Formula
   head "https://github.com/gitwatch/gitwatch.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "1e9e09c605119ebd8b800d20fd044357916da5e458c5624fa83cfeac13971b72"
+    sha256 cellar: :any_skip_relocation, all: "821b4ce8427cf9b42eefdd04e17cfd7b28a6212c14b3f00ad6d5da33dcc2adf1"
   end
 
   depends_on "coreutils"
