@@ -1,8 +1,8 @@
 class Appwrite < Formula
   desc "Command-line tool for Appwrite"
   homepage "https://appwrite.io"
-  url "https://registry.npmjs.org/appwrite-cli/-/appwrite-cli-7.0.0.tgz"
-  sha256 "9056ace48bf565a5d931dcaaaf9591953c5b4dd31fdb2ac42e8e7be0088e3981"
+  url "https://registry.npmjs.org/appwrite-cli/-/appwrite-cli-8.0.0.tgz"
+  sha256 "1cd271e7d8494d47f83262472b932142574aff14c33c8df02ac78c672b8ebe50"
   license "BSD-3-Clause"
 
   bottle do
@@ -13,9 +13,14 @@ class Appwrite < Formula
 
   def install
     system "npm", "install", *std_npm_args
-    inreplace libexec/"lib/node_modules/appwrite-cli/install.sh", "/usr/local", "@@HOMEBREW_PREFIX@@"
-    inreplace libexec/"lib/node_modules/appwrite-cli/ldid/Makefile", "/usr/local", "@@HOMEBREW_PREFIX@@"
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    bin.install_symlink libexec.glob("bin/*")
+
+    # Ensure uniform bottles
+    inreplace [
+      libexec/"lib/node_modules/appwrite-cli/install.sh",
+      libexec/"lib/node_modules/appwrite-cli/ldid/Makefile",
+      libexec/"lib/node_modules/appwrite-cli/node_modules/jake/Makefile",
+    ], "/usr/local", HOMEBREW_PREFIX
   end
 
   test do
