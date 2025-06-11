@@ -3,17 +3,17 @@ class HuggingfaceCli < Formula
 
   desc "Client library for huggingface.co hub"
   homepage "https://huggingface.co/docs/huggingface_hub/index"
-  url "https://files.pythonhosted.org/packages/f5/96/179f323578414b6fcc6aa254ecc4d27dc87ded90a271b147c634cf860784/huggingface_hub-0.32.5.tar.gz"
-  sha256 "8328f848218e3212647cec77eab9fdfc2590e8117d979b925439bc01042a20de"
+  url "https://files.pythonhosted.org/packages/8f/fb/7fcbafabdf470ffb5457b756cc1f659b4e88a9ff37c108e6c7a5ab5e781e/huggingface_hub-0.32.6.tar.gz"
+  sha256 "8e960f23dc57519c6c2a0bbc7e9bc030eaa14e7f2d61f8e68fd3d025dabed2fa"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f6f27630c7ca94045cc6c0e8cf79d3958b628bd32ba99d03850eb348171acff2"
-    sha256 cellar: :any,                 arm64_sonoma:  "0e4c4e7a2fd4eb93628f360c5c487ec6f8b8d3fee050ed7c84368261a0d229f6"
-    sha256 cellar: :any,                 arm64_ventura: "6f4c10c3ebcda0c5a501ff08b6650cc078841a13aec14c9ea142598a683d57a2"
-    sha256 cellar: :any,                 sonoma:        "5fac29bd42587234ac3e727a21901f2ea60b772258e1849963d596efce86fa3d"
-    sha256 cellar: :any,                 ventura:       "6db0273f3f9df43c22bfad1286aa5f59537cccb5fb19f1b17374f8c8c74d05bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "636725c8dca4ee965a497fb0a5812b3a0aeab6c7f85172cb68382866c7b05324"
+    sha256 cellar: :any,                 arm64_sequoia: "a4e5d403aa48bbb0e5c56c49ece1359f826396951f9ecbeb22d6de5b75775084"
+    sha256 cellar: :any,                 arm64_sonoma:  "aaa4839748a62877af2b085f4aed1d764f287a6e214375ef30bb8c1d752ad205"
+    sha256 cellar: :any,                 arm64_ventura: "d53eb7372edcd4733849d469b4d25b88780db2a78917d09b3e4331e0deb4cbf0"
+    sha256 cellar: :any,                 sonoma:        "13954482514dcf89f131f327e9540e23bb2f017a6c11834d74b72105a79139aa"
+    sha256 cellar: :any,                 ventura:       "6396ba9a212f9821b81a8cfed66a9b0858b11853e87c0b7c432f66cef73b00d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4ee7e2c7c964e532e45467b414557300d3bae82a2b8523eefc1533ba56dd239"
   end
 
   depends_on "maturin" => :build # for `hf-xet`
