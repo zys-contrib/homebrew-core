@@ -1,8 +1,8 @@
 class Tldx < Formula
   desc "Domain Availability Research Tool"
   homepage "https://brandonyoung.dev/blog/introducing-tldx/"
-  url "https://github.com/brandonyoungdev/tldx/archive/refs/tags/v1.2.2.tar.gz"
-  sha256 "10de9a5d1d65f29d639abeb030c15eeb7cc23784dc00d3c68f8aa397c299ca3a"
+  url "https://github.com/brandonyoungdev/tldx/archive/refs/tags/v1.2.3.tar.gz"
+  sha256 "e4bc51c3b698d2fe52570aff891e6631c43d3a5afea66675abfbd6079183fcd9"
   license "Apache-2.0"
 
   bottle do
