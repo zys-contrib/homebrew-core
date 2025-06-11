@@ -11,13 +11,13 @@ class Grip < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "66d5d0214f6aed545df1c8a30f0cda61d11b00d246b2001bcca3867b4ac35fbc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5f8889412e6e2fd8169fa43dafaa97caf7898e91c1efad0d0f3e57e44bb87523"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d8d871d6deb9ce3acfa4302e18671693863b972712ff3b57d62ca83c9292d10d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f7514a79dfc3884a5c1f77fff515987c7b99caf3469b1c45acfa5ae6e3b4606d"
-    sha256 cellar: :any_skip_relocation, ventura:       "4cc545f701e2768bc50953e9c38c3c54ff055c9443669ec1a5358abd2b1e7779"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0d524e79f2f126a26aa3fb7995841cf280ec4608aa29e2e553f45f7ee3f1c661"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a3e683817fe957d930643481aadc2e8a39ff7e6de3f5a1e0f087df15c2ae5c9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7431d3f00e4d7464fd4aa8ce79661ca750ce7fe17676d6badb2996a195302bb3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bf20a2d5e9ff2f7fc2866a18cbab1ba0397c4088e67f5f01a727ca56ac77139d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f4f14fcb207c7c4036af417e4bb01aadcf47b69a14277791583373c51db54573"
+    sha256 cellar: :any_skip_relocation, sonoma:        "90d0bae6c4f7d8a59564fa35e42e62807dcea1f2385286c84404f626ff12d1ef"
+    sha256 cellar: :any_skip_relocation, ventura:       "e1ecea1ed896aded7fe8f322b2a32c88e9ca9ec4b98c5e19842f563e5730868a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a738ca73123bf780638aeb1f82c665a7196901a0ee1ae63cf9df3b20bdfb6aff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7cc67fb02edae6f02de193abc95a92d37c6e55f1d7546831ab9613ac5b0400b4"
   end
 
   depends_on "certifi"
