@@ -9,8 +9,7 @@ class GorillaCli < Formula
   revision 3
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "57ca6180e312d9d22460b8647d9bced414cd9a24fd234cdf33beb614bf9e3bf1"
+    sha256 cellar: :any_skip_relocation, all: "13c6b4c8f4293e105f99bfcc56e39dbd2134aec665131deaa08ff12a4d9f9b20"
   end
 
   depends_on "certifi"
