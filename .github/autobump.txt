@@ -4145,6 +4145,7 @@ zabbix
 zabbix-cli
 zbctl
 zchunk
+zebra
 zeek
 zellij
 zenith
