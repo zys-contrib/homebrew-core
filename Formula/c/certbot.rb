@@ -11,13 +11,13 @@ class Certbot < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9a5bee505f0ec3ce36398fdd3a1d151089d3df415e6fa63edf1402eb9a0bc2bb"
-    sha256 cellar: :any,                 arm64_sonoma:  "a84be3256c9e6b28acb1ba451e279185d01a7f4a6ce1fb4c5a6584681907cd11"
-    sha256 cellar: :any,                 arm64_ventura: "e3b868dd1e5aa9975cce33c88a235668114b1e5cae070eefc4baaf84c373dbf1"
-    sha256 cellar: :any,                 sonoma:        "ac17b5eabeaf245ff7e00185233dec5aa9cc50f421a92a673c6f2540c7018a30"
-    sha256 cellar: :any,                 ventura:       "e10c0adb851a2c02483d7ff7fc93235ab25d6113023f04adfa4356506c0c847f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "51821681784f58d59594a15f24b46b47c0e4a9716943f8257e7118bb29c2a460"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2123a85ea6041c24be1382f33a2f1a18f6b77f98b04a0740d0c2a99b00596804"
+    sha256 cellar: :any,                 arm64_sequoia: "994e6c8f599b959724625ba47f1edf0fafdd3858be1a6df5499e1ab483cedb35"
+    sha256 cellar: :any,                 arm64_sonoma:  "d1b091cefbb79b6df1e3a1524b6e6d064fb39a2478c1302ae3b36d1e17f3cce6"
+    sha256 cellar: :any,                 arm64_ventura: "88640c6e74d4d7a480254567b5eb036fcc121146e5c161c5460e046bbf8dd6f7"
+    sha256 cellar: :any,                 sonoma:        "b536d642243f988fdaa4e4518e13082f5d9aebc17b770204e3b7b5a9cb5b6584"
+    sha256 cellar: :any,                 ventura:       "023b41347a24fbe0b370dc414ef171a212f6c1662a2fe5b943210928ef1b6904"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9d1e5e28fa2a80048d8c1c77fe1e2a40f433036c8c9dd5fb96e9445b76265324"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "91031e5e933de06bf5341d23d32dbc5227a9be48a3d5fb7c3a3e083cacf91411"
   end
 
   depends_on "augeas"
