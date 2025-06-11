@@ -3,10 +3,9 @@ class Dstack < Formula
 
   desc "ML workflow orchestration system designed for reproducibility and collaboration"
   homepage "https://dstack.ai/"
-  url "https://files.pythonhosted.org/packages/7f/06/0a2a8149e5549588c743596389edbd3278afd7bf03a52e3ea9ad02239835/dstack-0.19.12.tar.gz"
-  sha256 "092e23dd4907e388bead63f6b1f3d4136d604f0ae9c38a423b5dacde8f0a1a44"
+  url "https://files.pythonhosted.org/packages/cd/db/e2ca1c6ada04926341067acb21240c727d8418bf729df823814bce8ad4c4/dstack-0.19.13.tar.gz"
+  sha256 "6924855443822206122ee119f9360589d94da07f476d1abc104e27d169c6e10b"
   license "MPL-2.0"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "70a1102ddb4dc1bb124c05a8f8d32c391b866ffd7537fce294c800d2d59446d6"
@@ -138,13 +137,13 @@ class Dstack < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/ad/95/99046c55799732d97b0f9a0bb99b64760f07dd55ac793393a6c4e847d8d6/boto3-1.38.33.tar.gz"
-    sha256 "6467909c1ae01ff67981f021bb2568592211765ec8a9a1d2c4529191e46c3541"
+    url "https://files.pythonhosted.org/packages/cb/2f/4547f4b3cc7b63ec1266edaf923a675f3eae2057299aba8ecfe46f013c1a/boto3-1.38.34.tar.gz"
+    sha256 "25e76b9fec8db8e21adaf84df0de5c58fa779be121bc327e07e920c7c0870394"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/9d/aa/1521d7e1dcb76af8dca81539eec141ee3581a32e0dc1f31d092b59feb06a/botocore-1.38.33.tar.gz"
-    sha256 "dbe8fea9d0426c644c89ef2018ead886ccbcc22901a02b377b4e65ce1cb69a2b"
+    url "https://files.pythonhosted.org/packages/08/27/34dfe90dd51d16473985198e056b82d74afd355dc47daa10af2a4f117072/botocore-1.38.34.tar.gz"
+    sha256 "a105f4d941f329aa72c43ddf42371ec4bee50ab3619fc1ef35d0005520219612"
   end
 
   resource "cached-classproperty" do
