@@ -9,7 +9,7 @@ class Internetarchive < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a7feafb9d101db4510db863e10a3ddd4df58ab290b18555d46e9541ab6747a98"
+    sha256 cellar: :any_skip_relocation, all: "bae0d5d6b23d088f521738574c7e597e2578fcb0966e7528cb84218def47d0df"
   end
 
   depends_on "certifi"
