@@ -10,7 +10,7 @@ class GitReview < Formula
   head "https://opendev.org/opendev/git-review.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "da26337e70cdd57dd7c0de2d2fdf9f3d2ab8cd16101418e73826da5cb3167271"
+    sha256 cellar: :any_skip_relocation, all: "1848e410460ae0a20ba65e6dea9357907a5cd38b5f7afcf235702cf36b44c6fb"
   end
 
   depends_on "certifi"
