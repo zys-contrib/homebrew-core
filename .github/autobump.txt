@@ -1915,6 +1915,7 @@ lcm
 lcov
 ld-find-code-refs
 ldc
+ldcli
 ldns
 leaf-proxy
 leakcanary-shark
