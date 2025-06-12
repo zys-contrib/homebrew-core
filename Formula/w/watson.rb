@@ -12,14 +12,13 @@ class Watson < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "479ecc469da915b26139b32fed053e032430f9c0116f47caeb7091984f091f4b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c036a73c69622ce25a9d2146211fba738857e43d619f959adff7912e686016d1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f7e35a6890a1a5578f1f4359e60f76c66af23c753a63270a7e1cd932114d7176"
-    sha256 cellar: :any_skip_relocation, sonoma:        "887e4dbd5b24eb0f0f405a6bd0cdc032443cfe1a2ed4dea860283f1050e9165c"
-    sha256 cellar: :any_skip_relocation, ventura:       "a4c97c4889759dcda9394c15f596b92a5678f9967f70ec3910dc75ccd1e8e5e8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "74abc5e4e2f86ff0cb80b8cafca9d78543595311048949bb66fafd97cf401c88"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5eb01d458e69203120a5050be8056035f7a2b9473c5b2a57725d084e75f77d4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3e33ed3431baa054240b534f21ab3769efc330be8cb2374dcdfa821f0e388ab0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6d63fd445c1f36a5b393f3fdd4d41311d4da25bc08b19ba1352ae5677000b3f5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "39acaa22fdc5b6f0bcf5a662b07c1bd5aa138b0a71dd0d5406e5e54c6f06485b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7af3baf89a228b574cb153eabea6ac2bbffeefc900c7a40201f32d5161407ee9"
+    sha256 cellar: :any_skip_relocation, ventura:       "9958984b3f44a94d90b5e6eac05b5c84566699ce60e4560b0f5a821d82fd53df"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "63635ebe34f1f48ca8800004e0338ec425c64cdbaa20066813fd9a34ecedba82"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ef1c2533ef8c6c5d6c47ac05e5b1caa3059ae57bcc44021e115ca3dd0a31380"
   end
 
   depends_on "certifi"
