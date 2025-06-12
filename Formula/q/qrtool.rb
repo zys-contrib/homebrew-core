@@ -1,8 +1,8 @@
 class Qrtool < Formula
   desc "Utility for encoding or decoding QR code"
   homepage "https://sorairolake.github.io/qrtool/book/index.html"
-  url "https://github.com/sorairolake/qrtool/archive/refs/tags/v0.11.8.tar.gz"
-  sha256 "873e9324720bc0d526ca233db31c952902294f72a3b5265bef8333605e31f75c"
+  url "https://github.com/sorairolake/qrtool/archive/refs/tags/v0.12.0.tar.gz"
+  sha256 "351ba9fe32ccf4dfa51902443f8459c9f5efc645f0b40523cb9c10f38d5fd18a"
   license all_of: [
     "CC-BY-4.0",
     any_of: ["Apache-2.0", "MIT"],
@@ -25,7 +25,7 @@ class Qrtool < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    generate_completions_from_executable(bin/"qrtool", "--generate-completion")
+    generate_completions_from_executable(bin/"qrtool", "completion", shells: [:bash, :zsh, :fish, :pwsh])
 
     outdir = Dir["target/release/build/qrtool-*/out"].first
     man1.install Dir["#{outdir}/*.1"]
