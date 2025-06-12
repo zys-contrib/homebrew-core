@@ -3,10 +3,9 @@ class Dvc < Formula
 
   desc "Git for data science projects"
   homepage "https://dvc.org"
-  url "https://files.pythonhosted.org/packages/db/6d/0cf6feca9d2100d470ab8d276961a96eb7fe462a47e46e1a69e8697ccaa0/dvc-3.60.0.tar.gz"
-  sha256 "b334bad4301c69f59dd4ad036df76bc84eff6be63e621ed3cc9b3c6bbf92a2eb"
+  url "https://files.pythonhosted.org/packages/4a/9c/15060558c132a05d973fc8cb94a31eabb319c43d050945f2917c75ede3e1/dvc-3.60.1.tar.gz"
+  sha256 "fe126823d22d0e51115ba695ccbbfac66a4163ff582a2541d7f4599464056ece"
   license "Apache-2.0"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "6c3a46439ea572c12876d49eedc6ecc383ce81ba0a4b0369aeeb3fe039888dde"
