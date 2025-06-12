@@ -1,8 +1,8 @@
 class Xclogparser < Formula
   desc "Tool to parse the SLF serialization format used by Xcode"
   homepage "https://github.com/MobileNativeFoundation/XCLogParser"
-  url "https://github.com/MobileNativeFoundation/XCLogParser/archive/refs/tags/v0.2.41.tar.gz"
-  sha256 "03e0c257f202b50620b340f460504dfe3d5f6dfc725723618bf6ff98b167d9da"
+  url "https://github.com/MobileNativeFoundation/XCLogParser/archive/refs/tags/v0.2.42.tar.gz"
+  sha256 "38f02fc3359b557b4eddb1bd0c12e063858bad19f65171a50c61d7b393b9ec17"
   license "Apache-2.0"
 
   bottle do
@@ -23,12 +23,6 @@ class Xclogparser < Formula
   # patch to use linuxbrew zlib, upstream pr ref, https://github.com/1024jp/GzipSwift/pull/71
   on_linux do
     patch :DATA
-  end
-
-  # version patch, upstream pr ref, https://github.com/MobileNativeFoundation/XCLogParser/pull/223
-  patch do
-    url "https://github.com/MobileNativeFoundation/XCLogParser/commit/78b330a67b4e3c916f5ad0c68e61ba4bb163cc2a.patch?full_index=1"
-    sha256 "61269c6a851c7880d88dbdd76dd41dc02505521015c415ea35b99ceea2791837"
   end
 
   def install
