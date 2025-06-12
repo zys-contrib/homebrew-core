@@ -6,6 +6,7 @@ class Streamlink < Formula
   url "https://files.pythonhosted.org/packages/07/83/8779287122de41b79763810204ce52bf644542396dd0273ad2fa177db80d/streamlink-7.4.0.tar.gz"
   sha256 "2cc90e5a978800c9e5b113d0b26db1079451f43441a0476255c2e99fd65e60bb"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/streamlink/streamlink.git", branch: "master"
 
   bottle do
@@ -77,8 +78,8 @@ class Streamlink < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
-    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
+    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
   end
 
   resource "sniffio" do
