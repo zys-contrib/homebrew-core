@@ -9,13 +9,13 @@ class Streamrip < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b89f47880d731ba9be311bc15dc854f4d22fb4e07dc70d5013d64a9147e42690"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dfe0bcd9118f58d6b377d2eea6fa87ccfbd5c450322305e8815e8dbb23c54979"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "65cdb9c66cf1cba0f43d803c6528b23820c5a6f84579f84bbf0d63677dca7729"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c21cb2ddf71eeeb687a0654b95a84c39408115364acf288f087ba4a5dcff6545"
-    sha256 cellar: :any_skip_relocation, ventura:       "6b8eec41a964e5205609053b4beac6b0b97e49d98fc849a3e279e7b6d1ef4d98"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e67abb035e652d4c37a2069bef79d607a71ee18d3b1abd344762500ec80f16ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "249bcfb1dafa43ba6f3c753c43a2209653583c997b48e48ee8214f60692f80f0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fc43b88cf3e6fab16674a3157386e59054916ebeb3291af3549558989ff1e0ad"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e9adb78ebddc9db5f53686d1332ca5c470159dcef0e902750d311ee4d26463cb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9e8b3dd41ee4b7246f56c4a3b1202aae48c0a11ffaee002b55af489bfa7544dc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f1ce4a6941424de9d6be471066d6c8f86bb5e7176a566da47a383db10e7f6cb2"
+    sha256 cellar: :any_skip_relocation, ventura:       "4d589f63d64adf41bbc0598ce57c191680685e047bc0b5d88a456505ef0d1211"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "51b54fdaeedffa13d71fd0f32bb5b854ef94bfc8d7baa45ffe6761d17dd97620"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bb7e08e0592589b8e3cb18f94e5010f894d49a48894da027a35e851c8e780086"
   end
 
   depends_on "certifi"
