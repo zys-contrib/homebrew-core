@@ -6,6 +6,15 @@ class Desed < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/SoptikHa2/desed.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a633dbad86f2cacfe936a808372d3259ecbde4fcbb100d444d4dfe04b846c848"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8f2a66cf69929b5532c8a46f34b39bb89edde7339f0e60523f613af7443e9b84"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c94d25fc45f6e6e18e492b7a1b0a99bc050010ef581964235718147f41a8721d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2160dd4cfb4d6c16d5563112a6871a012c2968e2313514c48cf7323fa2d1e714"
+    sha256 cellar: :any_skip_relocation, ventura:       "8d561d9e6c8f3d55f5a708ce24cc786b2975f227ec86414cf312409adc5130c7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "74c7143b9c97e0dfa4bd338b665434834ffd17d5c1cd3582f346ae7498b5f2ad"
+  end
+
   depends_on "rust" => :build
   depends_on "gnu-sed" => :test
 
