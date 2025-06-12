@@ -11,13 +11,13 @@ class Sgr < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "db20ed00c7f28d1884e5532dc0438ca59540790898fdbaf1c58c1eef36bd632d"
-    sha256 cellar: :any,                 arm64_sonoma:  "628f8550d5cc8827feaf871741a8deee69da3e65417cbea153bbc527f9c46515"
-    sha256 cellar: :any,                 arm64_ventura: "f2c5752758f3ce00735b23615e30592e2a82eee38852b20f51b39272c54f4d1e"
-    sha256 cellar: :any,                 sonoma:        "05ddb46cbe9fda4c3e515a497bf94a80217e3b2fdc9a23831840ba2f89c2d718"
-    sha256 cellar: :any,                 ventura:       "5ffa755152d082223726bcd875552ba15fa6bff72c39f9c9b79e6040c5f00878"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1ddd6bf34a9d009f71f6bf92e2954356e82b94e803c217e0e1dd85d8f36f3d43"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c32a6bd8f4646c852a5155ba5609308687042831becd2410595e598604c9d303"
+    sha256 cellar: :any,                 arm64_sequoia: "7485b10c51cb90010959f17809af83e7674462b8a1d84a5606bd5a0181c27629"
+    sha256 cellar: :any,                 arm64_sonoma:  "932b534c9740339132f1fa769236206a753ba9a8d2aa4a128145c82f289fbe86"
+    sha256 cellar: :any,                 arm64_ventura: "808887ba8146bc6104a500749553d38a0cc097731a0fb7424de40a02aab937c3"
+    sha256 cellar: :any,                 sonoma:        "84c0b5fb6184feaa0b8b515bd3c45fc8f993f2f9eb5bb0ed2dbbda267117674a"
+    sha256 cellar: :any,                 ventura:       "21deb66a3b70da99d0a48f5e306956df5a77a98ea0ff4dbe35145a27e1fa36f9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a386be11602cdf781dcc8f6b512937545cbd60e60b980bc664a5690840c4b32d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1f7e6a756e02126681cd5d007315ce6e669769b187d6fa0c03e1d7db835d484"
   end
 
   depends_on "rust" => :build # for pydantic
