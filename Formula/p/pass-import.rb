@@ -12,14 +12,13 @@ class PassImport < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "e2263e0d94a2fd744c5748f9cd6a3966fc11ae33deca1ffb34e5997b47c2dafc"
-    sha256 cellar: :any,                 arm64_sonoma:  "bf43aba56684c5ae1ff7be2b57090632c4a0a14dc7ae95223dbc89fe3e87b6e5"
-    sha256 cellar: :any,                 arm64_ventura: "590406753c0fe6cb030055867702051112366e5f7d199f9341f860222b544513"
-    sha256 cellar: :any,                 sonoma:        "175a6f288828c380052249095a738b05c5e81741ab3061ba975494433827aee1"
-    sha256 cellar: :any,                 ventura:       "475bc32225a5f5b3edc4339b83e0a69b68a4156ea3e3bf7f2c994249a40fd817"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7bf7123a1879198f333664b612cb03ea9c7620ca00f41961b2fe6bb42b59127a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "27a3f4f49b185cb3996cf80ee3026d58dec59e21da067caddf3832189d31c39f"
+    sha256 cellar: :any,                 arm64_sequoia: "db18ad714373d6ea334b5c030d8854f69ae5e2d4cbce1a55366fbf788001386c"
+    sha256 cellar: :any,                 arm64_sonoma:  "2ecbea7df07231767591b191ab87d5e2adb3dbd072213c656ad53ef9c2f22dc3"
+    sha256 cellar: :any,                 arm64_ventura: "f084d9c0dff2280645aa06b71b8c3143dbfa19d1821f9f7710e02aa88048c55b"
+    sha256 cellar: :any,                 sonoma:        "dec4ea452903371dbfe29baee36e7cea3cb881a3c6727ace07ab4cf4c0da36a7"
+    sha256 cellar: :any,                 ventura:       "940425c033875623552ae751a1e1a80af81e49a0ed9cdbb6b8193839f4ecb7bf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "607eb970dc38629e48c517360413de962f13c0605cb8273f131cf13290a69c9f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c85d9db2b932d531631b838650455d9004fd86d21e71879a88c06e1b0b3567e5"
   end
 
   depends_on "certifi"
