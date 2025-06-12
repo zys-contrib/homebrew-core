@@ -11,13 +11,13 @@ class Sickchill < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "15de2198f2d82629cde9cdf25a3cff55c3955dff88f7e6a34b0e0485d73088e7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9bb860c05fa1f4b084dbd66059b976963d638d325868d48dbd3f587957756998"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a314d60d04005efa77afd082a7c13351b80f48e673a19d3d4d390c72ff7fbb30"
-    sha256 cellar: :any_skip_relocation, sonoma:        "aeb4238707fa6bf49940aaed4ad6ec295d6a144c2451fd5f80e2cad86753639b"
-    sha256 cellar: :any_skip_relocation, ventura:       "ad08e03489c8dace930c3bbaac77818bb99aa37a6bbf65d622847f7fefdcd6ab"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6e217e48d35ff0086616ad8e0da64b4a4170c80ec3bd0e49d9049083a9ff0481"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f1b4bcebd3499daaad1fa4e2d62b61b66236bdb14ecb72c7629c48f19504be02"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "923f0b8e0551c75c73f30ef2b3982df74b276f5cd8235ec728dd9d59e8efbd46"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "71bb986c915a95b3dd4b7776a5d4d87b4d7d62e7daed7c64684fb06096d9ed98"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4cb2d6f581f37ccfa1d912190fedcb982d8164166b24e2d570e344004eb9e1e4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8eb3ecd9cd5d433057e12aad4132c57b3d1350e225b427c7d34b303c82b6b200"
+    sha256 cellar: :any_skip_relocation, ventura:       "4b44710ffcfcf49708c8e81be56120e0cb86cab069b0d4d8b4b8bf502b3726f8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4a96a798d1257022177afa041deb15c8fe117ad6fdd8c4b9e3b7c7d75787d293"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd1b44cc1e432e5015d7471a36cc3d39a6acb1b8fdaf7ef99911544c6d713d6e"
   end
 
   depends_on "certifi"
