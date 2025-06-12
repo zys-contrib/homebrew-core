@@ -6,6 +6,7 @@ class Sigstore < Formula
   url "https://files.pythonhosted.org/packages/10/dc/fb0306a86bd1bc79f99f2f53b2421a11c42d2bbd106f7ccf0acfb460b5db/sigstore-3.6.3.tar.gz"
   sha256 "9f957ef239b77695992b62823f79fc9554a589572dcc7bc0c1566a31b4bafc10"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "eddd5ef5f1ce37c44a16118af838d751f58c7cf3b565ad5ee125b53e08ead54f"
@@ -136,8 +137,8 @@ class Sigstore < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
-    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
+    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
   end
 
   resource "rfc3161-client" do
