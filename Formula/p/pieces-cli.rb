@@ -16,13 +16,13 @@ class PiecesCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4d9815455763b274a4d08e888875257af71212813fc7d0e492b3e06b79993231"
-    sha256 cellar: :any,                 arm64_sonoma:  "88922a51c7c77e7bacf9eedcb4853105d13825d245eb0bb12821fe3c23a610b2"
-    sha256 cellar: :any,                 arm64_ventura: "093dff983a32c3a28d2d5602396222f2a373aa195fe647f281822f8b76c73c21"
-    sha256 cellar: :any,                 sonoma:        "4a7f8b42c8f1cd1c9dbc5478aec25d9daeec2527a42f0a6def51805a49fd4655"
-    sha256 cellar: :any,                 ventura:       "1d751ae27246eeacc08b539951dffb077c72f9eabbd8476139bb475ede98ebf5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e95c04f61413041db78d96bb5420d465119792587fcd625d7a3882755b45e32e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9ee24ddbabab556682a2c0068b146f156ef3b7d25ad67946bcc5fb2ce0780f4d"
+    sha256 cellar: :any,                 arm64_sequoia: "91f3d70a93809e32437a44aaa8802e153567461e05bc1459842562a3f860768b"
+    sha256 cellar: :any,                 arm64_sonoma:  "fde55127d49fa2c7b9de290e872989ba6b37374f3d77b54ffbb04e2b5c1965e6"
+    sha256 cellar: :any,                 arm64_ventura: "1dbbf4c084b4f9c5b4ecf0fa5c5c85ce610274b8a96bd7542c19022a1d5861c8"
+    sha256 cellar: :any,                 sonoma:        "169296970fb6869cf69467302642f81ce5f3cd476f03db23b1b6ff524305d87d"
+    sha256 cellar: :any,                 ventura:       "e54e8d1c6726c805e05ce3da16d8f40a77eef2041f56b26ee0be531bc8e2a17c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "08d2b5479fda93596b0bc5dd7d2f817aa9ed448b4671d0ef360403f99624de68"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5837cc8ed0dd324545a035792ceed9a4856dd0e5a73be685054ee01103c1397"
   end
 
   depends_on "rust" => :build
