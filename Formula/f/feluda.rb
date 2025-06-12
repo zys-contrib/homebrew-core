@@ -1,8 +1,8 @@
 class Feluda < Formula
   desc "Detect license usage restrictions in your project"
   homepage "https://github.com/anistark/feluda"
-  url "https://github.com/anistark/feluda/archive/refs/tags/1.7.0.tar.gz"
-  sha256 "6f0fadf5133ddd0d7090d5cca85fbee742335942798a5d836e47f81cb41aa34a"
+  url "https://github.com/anistark/feluda/archive/refs/tags/1.8.5.tar.gz"
+  sha256 "9e86ac73fe7aaada534992523b4f0a2ea7bbe44d5e89d0eec9dd898f77101bb4"
   license "MIT"
   head "https://github.com/anistark/feluda.git", branch: "main"
 
@@ -26,10 +26,9 @@ class Feluda < Formula
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
+  depends_on "openssl@3"
 
-  on_linux do
-    depends_on "openssl@3"
-  end
+  uses_from_macos "zlib"
 
   def install
     system "cargo", "install", *std_cargo_args
