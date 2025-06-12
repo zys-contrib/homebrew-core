@@ -12,13 +12,13 @@ class SlitherAnalyzer < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0afe1fd5ed9b06cdae9ef4d95862b6352f9aeb989b7af4da6e7bc21c462d74fc"
-    sha256 cellar: :any,                 arm64_sonoma:  "3abb429be05a04b5088233cc8453d8f99141194c82d127eed626bd92a4daabb3"
-    sha256 cellar: :any,                 arm64_ventura: "14dcb64ecc28000eda093d1ee3422bc00cc3c5bfc46e2247d21b7134b05d91d8"
-    sha256 cellar: :any,                 sonoma:        "7dc1a1078ff8bd0712b9eeb1202a97ada12925021654f18efd106656910e1f65"
-    sha256 cellar: :any,                 ventura:       "8d2b4e62cc8c11bcc82c66ee747d5ea6ae5e18340116c3c4f324eeee54802222"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c9fb40a44171d73c0eb7be48afef96cc905a5da01f1767ca74b1cd48e6584aa7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08e87de14d19dc594a7f1600840d7f46d4b3bef7543efa59774c6da07debe7eb"
+    sha256 cellar: :any,                 arm64_sequoia: "ee9382ada729a8d7d2d1786c60147b11ca685d7075dabbd4c5626a2f2e1cfe58"
+    sha256 cellar: :any,                 arm64_sonoma:  "1bf2461cb516386b97e246bf94e0c9299d9251a6e034e2446615c805babba946"
+    sha256 cellar: :any,                 arm64_ventura: "04bd39d51cc46f7e47a66828274afe00c735d049bf37f360d46cb9a8d50b99e3"
+    sha256 cellar: :any,                 sonoma:        "97b945b157dd6a37961820bc278bc36697db48e3d28ac50284095c41c4149ae6"
+    sha256 cellar: :any,                 ventura:       "d83c951f5968f42c06021a77c98b3aa62dc5c24d14ed70cceb46c440cf018b37"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "79a4fb3e9bdfd48357b4d626fddeabff3c4046488a317b0e325cbc7568164bdf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "889efa3d882133a296d3c39a740a32c8a826bb506b7b7ac7b68a2a5d5165054a"
   end
 
   depends_on "rust" => :build # for rpds-py
