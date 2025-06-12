@@ -664,6 +664,9 @@
   "pferd": {
     "exclude_packages": ["certifi", "cryptography"]
   },
+  "pieces-cli": {
+    "exclude_packages": ["certifi"]
+  },
   "pip-audit": {
     "exclude_packages": ["certifi"]
   },
