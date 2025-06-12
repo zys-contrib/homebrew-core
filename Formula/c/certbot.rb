@@ -3,12 +3,10 @@ class Certbot < Formula
 
   desc "Tool to obtain certs from Let's Encrypt and autoenable HTTPS"
   homepage "https://certbot.eff.org/"
-  url "https://files.pythonhosted.org/packages/2a/2b/906dc5af6f30d5e10195f5209d426eb32fb372496bcf0bb300f6ae5c738d/certbot-4.1.0.tar.gz"
-  sha256 "d88617101b514f77ac9117452db2754dac446d8dc5a958210dbfc3279b34472e"
+  url "https://files.pythonhosted.org/packages/de/d7/6dbaabb3dd61a3a86cad455c65befa7512f1f8c60231f99ed1f2b576770f/certbot-4.1.1.tar.gz"
+  sha256 "d1fdde3174bcf1d68f7a8dca070341acec28b78ef92ad2dd18b8d49959e96779"
   license "Apache-2.0"
   head "https://github.com/certbot/certbot.git", branch: "master"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "994e6c8f599b959724625ba47f1edf0fafdd3858be1a6df5499e1ab483cedb35"
@@ -29,18 +27,18 @@ class Certbot < Formula
   uses_from_macos "libffi"
 
   resource "acme" do
-    url "https://files.pythonhosted.org/packages/e5/e5/8b3fa5f7f013c652f778a312353fb79cc145d8b5730ce784ed7be25b2e27/acme-4.1.0.tar.gz"
-    sha256 "dec2f26378b26e57ce41f081b3a8814d89593a5f3d500fdb4acb1ccc23aaf60f"
+    url "https://files.pythonhosted.org/packages/30/ca/ac80099cdcce9486f5c74220dac53e8b35c46afc27288881f4700adfe7f1/acme-4.1.1.tar.gz"
+    sha256 "0ffaaf6d3f41ff05772fd2b6170cf0b2b139f5134d7a70ee49f6e63ca20e8f9a"
   end
 
   resource "certbot-apache" do
-    url "https://files.pythonhosted.org/packages/7d/80/cbf18cea401cb39c5ce07ecf44cfba26b29d3c454ac69f68e6ead23af36d/certbot_apache-4.1.0.tar.gz"
-    sha256 "5db56945da6df727ea3b8b6115e9a974956090c1bdd1a3d027cebf6424e2361c"
+    url "https://files.pythonhosted.org/packages/22/32/890b80ee38496583b72cf507ee197af930d8806c27692b08d554a2ff7524/certbot_apache-4.1.1.tar.gz"
+    sha256 "8b43f9f4b3cb504109cae58b7b8edbadb62bd3fbb1e796fe17ea426a7195b41f"
   end
 
   resource "certbot-nginx" do
-    url "https://files.pythonhosted.org/packages/86/2c/e0b11b399e4a2ccb91c03b37a039978ae044d6d9879a1c04fdc8e23ac65c/certbot_nginx-4.1.0.tar.gz"
-    sha256 "0416b84f2a129163ce169bcf46908dd085a1cf53fb52199c2e771b68a757da8c"
+    url "https://files.pythonhosted.org/packages/24/47/3cd74f17c57377b89acedb7babecb9eb23da234c56f50aadf4892105921e/certbot_nginx-4.1.1.tar.gz"
+    sha256 "9b03a0c877d8004bc8b077d6aa8419257300a23c7d72f9d8fe268a0a3bb859f2"
   end
 
   resource "charset-normalizer" do
