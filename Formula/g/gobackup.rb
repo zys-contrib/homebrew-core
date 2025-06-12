@@ -9,12 +9,12 @@ class Gobackup < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "255bb91d56da8122c45a264d26252e20fb49d8c6a8da83555ff6443f581f3e30"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "255bb91d56da8122c45a264d26252e20fb49d8c6a8da83555ff6443f581f3e30"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "255bb91d56da8122c45a264d26252e20fb49d8c6a8da83555ff6443f581f3e30"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c1b81dbdc423bc6f1c97a50d60b4a58578523536bb1bb77f4b05a53c0d04e86c"
-    sha256 cellar: :any_skip_relocation, ventura:       "c1b81dbdc423bc6f1c97a50d60b4a58578523536bb1bb77f4b05a53c0d04e86c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f76c6e3b9b79efb176b3c9a76d2b9ef20dc764217fbfa5b78d143b038a8af8e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d243bfd20d216240ac0fa2d2ecb4f6974f484cbdcb60b465c2d9442055271a02"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d243bfd20d216240ac0fa2d2ecb4f6974f484cbdcb60b465c2d9442055271a02"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d243bfd20d216240ac0fa2d2ecb4f6974f484cbdcb60b465c2d9442055271a02"
+    sha256 cellar: :any_skip_relocation, sonoma:        "287526b952fe7df30ec856351d57051390502a478d95063eb289d438787e6721"
+    sha256 cellar: :any_skip_relocation, ventura:       "287526b952fe7df30ec856351d57051390502a478d95063eb289d438787e6721"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "350e540e9cc5c9f72c2ab051a58173d021eb4e8574b304f215b7e2a4fd7700db"
   end
 
   depends_on "go" => :build
