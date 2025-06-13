@@ -3,19 +3,19 @@ class Fonttools < Formula
 
   desc "Library for manipulating fonts"
   homepage "https://github.com/fonttools/fonttools"
-  url "https://files.pythonhosted.org/packages/f1/6f/1d84f8a2765bed80d7229b3734dc402372838be6025ed44010ffd1a84607/fonttools-4.58.3.tar.gz"
-  sha256 "de9df7a2a16c9df518be8a5dcf2afd6feac63e26c6d44b29d34c4b697ac09e0e"
+  url "https://files.pythonhosted.org/packages/2e/5a/1124b2c8cb3a8015faf552e92714040bcdbc145dfa29928891b02d147a18/fonttools-4.58.4.tar.gz"
+  sha256 "928a8009b9884ed3aae17724b960987575155ca23c6f0b8146e400cc9e0d44ba"
   license "MIT"
   head "https://github.com/fonttools/fonttools.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bc27f5d9b747c19f7ec7f2a1d7ee9e19a08b13216db75f9c6e6fcc92e0b898f2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "45d3df36ea594f41f09891ac503b957106a1a523da13aa7acd090de10447c4a9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8fcde00381ecdfa4bbca1a9bfe8c559594a47cc8cdb85ab854ff03deb786b36a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "85dc0510fed6048aa7add0a526b5e8006290c336e5a8733129573758f8c6617d"
-    sha256 cellar: :any_skip_relocation, ventura:       "8b571bf397433e0b9f598176af26dfb6eada4b4834ef7ea63a5c12a8db04076f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c37810251712008faf9a621276402ad1943bdc56609137da6bfe95484bbad93c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "790d18ea939dd2291866b0d679a72a9fdc5fdf116ce3a1e03a0850b6219a9a36"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "913dc4d1814468097c71160790d242d3bf92032cbe9209cbb31484d2cb16c9fb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5289c760f408a539132a031cd30a7602d7e097d3dbab7874c0fc932454c4d48e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6509b1ababd09f09dc685c64c55621995da27f581726091f206ec13c1d836547"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d76f262cfc527af47eb98ad820fe0c4582f1a9bfdb93f6d10e4cf5941d628b1b"
+    sha256 cellar: :any_skip_relocation, ventura:       "48541c30ae606dddc53cc20a1d1a2b33bdccb4714694a8b09a1a6d82a5d4ac67"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6db31cc9c66af48c7bb4cd2170f6cfb76828410c6b27c3d7e383a08d43821356"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "836f3baa6adadaf8446045936cb268dce81497e45ae4a8211fa91980dbdc7a36"
   end
 
   depends_on "python@3.13"
