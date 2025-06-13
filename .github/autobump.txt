@@ -1008,6 +1008,7 @@ erlang
 erlang_ls
 erlang@25
 erlang@26
+erlfmt
 erofs-utils
 esbuild
 eslint

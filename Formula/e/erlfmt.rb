@@ -1,11 +1,9 @@
 class Erlfmt < Formula
   desc "Automated code formatter for Erlang"
   homepage "https://github.com/WhatsApp/erlfmt"
-  url "https://github.com/WhatsApp/erlfmt/archive/refs/tags/v1.6.2.tar.gz"
-  sha256 "e3643d8833c3a9170d695fd6c44914342240bd8bd10cfacaeac2633ee0561709"
+  url "https://github.com/WhatsApp/erlfmt/archive/refs/tags/v1.7.0.tar.gz"
+  sha256 "7d566b5f012ce4e2db74e18edb7da4cf69fd49a2f80effdddf989f5f0051db5f"
   license "Apache-2.0"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "721b5216c77bfdcd0e63cf7e4eb40b335d1cbf7840b0ff94505c5ca232cac095"
