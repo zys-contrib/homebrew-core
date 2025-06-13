@@ -3,10 +3,9 @@ class Bagit < Formula
 
   desc "Library for creation, manipulation, and validation of bags"
   homepage "https://libraryofcongress.github.io/bagit-python/"
-  url "https://files.pythonhosted.org/packages/e5/99/927b704237a1286f1022ea02a2fdfd82d5567cfbca97a4c343e2de7e37c4/bagit-1.8.1.tar.gz"
-  sha256 "37df1330d2e8640c8dee8ab6d0073ac701f0614d25f5252f9e05263409cee60c"
+  url "https://files.pythonhosted.org/packages/a1/a0/8866b4c6f894af0eb10e4964157f3241dd4117700fc010e7825471d51a13/bagit-1.9.0.tar.gz"
+  sha256 "9455006c2d1df88be95ec1fccabc5ea623389589ea4c85b3d85bd256f29d7656"
   license "CC0-1.0"
-  revision 1
   version_scheme 1
   head "https://github.com/LibraryOfCongress/bagit-python.git", branch: "master"
 
@@ -16,13 +15,6 @@ class Bagit < Formula
   end
 
   depends_on "python@3.13"
-
-  # Replace pkg_resources with importlib
-  # https://github.com/LibraryOfCongress/bagit-python/pull/170
-  patch do
-    url "https://github.com/LibraryOfCongress/bagit-python/commit/de842aad182c74de21d09d108050740affb94f2e.patch?full_index=1"
-    sha256 "f7fab3dead0089f44e6e65930a267f6d69f2589845e9ea4c1d6bbb3847f5ff3a"
-  end
 
   def install
     virtualenv_install_with_resources
