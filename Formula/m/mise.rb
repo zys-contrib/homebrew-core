@@ -14,13 +14,13 @@ class Mise < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1418f612b9a1f76defa8ec2291f7b84aec7182ab7ee0b90e1bb7dd827cdde032"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0e1273fe5705e4bdfa1205c006a3dda5650874c2c4cd4d91601f0a72f175953e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8f920c7adc2030742d6c27bce3860e695827d7d4674d2288466c9c5307dc6714"
-    sha256 cellar: :any_skip_relocation, sonoma:        "39b9ff953bc2d2510f80facb9e465932df9e85b1fd29ca4a66f1c3521d133c2b"
-    sha256 cellar: :any_skip_relocation, ventura:       "499957f487083d336ca9b87b4a2e089e8d6f4aa4cbb0f30aebbbc189b3dd512d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8f586dd85a11c351d9c5907e113a137c3acbcb38fc98a8b158b7902a4cd05a14"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "89b5700dd2dc1ea30b4994c09dcb138d84d5f1aef9dfd1edfc5e5b1e28fcbf06"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6f24cac260da6e5bf0996b2499d5d1985c35745dea58e101faf561b61b869896"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1cf0b2c6ab236d6e5a395c74d36e33fa320310eb438a8e1628553deb6d49508d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7df83c9060b4c1ae0f03492c8ecf1e86a1bed4d21b841a0a56162f0313514471"
+    sha256 cellar: :any_skip_relocation, sonoma:        "eb16bc2cd53234fdd0b514d8084473f0a4f51e4ece1c4fc748bcbb979d7f81f7"
+    sha256 cellar: :any_skip_relocation, ventura:       "92d0ddfccac63e79623da12c592fa7a2dd4608c442f5dc7a915e773dff713ad3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "99f94f8258fc7d6fe5bac8a370e5367775e7907aea4820c8c617e7a81ae87efc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b90c0e90c4ebe8fb2c257fbd3840c16ed1e02dd680dd31d590390dac977933d"
   end
 
   depends_on "pkgconf" => :build
