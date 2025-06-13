@@ -1,8 +1,8 @@
 class Mydumper < Formula
   desc "MySQL logical backup tool"
   homepage "https://github.com/mydumper/mydumper"
-  url "https://github.com/mydumper/mydumper/archive/refs/tags/v0.19.1-3.tar.gz"
-  sha256 "e7feab21b8073a5a7809cf7cc56a08ae0f93313dfe3f6f1fe5c96eec12f09f9d"
+  url "https://github.com/mydumper/mydumper/archive/refs/tags/v0.19.3-1.tar.gz"
+  sha256 "e78c2b02b33d5d1092c4782e4841bbba5c0531b024b63038524a3ab25606e2fa"
   license "GPL-3.0-or-later"
   head "https://github.com/mydumper/mydumper.git", branch: "master"
 
