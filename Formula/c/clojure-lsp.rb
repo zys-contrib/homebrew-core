@@ -1,9 +1,9 @@
 class ClojureLsp < Formula
   desc "Language Server (LSP) for Clojure"
   homepage "https://github.com/clojure-lsp/clojure-lsp"
-  url "https://github.com/clojure-lsp/clojure-lsp/releases/download/2025.06.06-19.04.49/clojure-lsp-standalone.jar"
-  version "2025.06.06-19.04.49"
-  sha256 "3220b0aa582f03dbbae05b3892426d6b7e20b6c6a9c9e95b5346deffd50126c9"
+  url "https://github.com/clojure-lsp/clojure-lsp/releases/download/2025.06.13-20.45.44/clojure-lsp-standalone.jar"
+  version "2025.06.13-20.45.44"
+  sha256 "11e28abda97f57dfc0cee3e4015b40ef98c6d9ee633a4583b3aa1957cba5211d"
   license "MIT"
   version_scheme 1
   head "https://github.com/clojure-lsp/clojure-lsp.git", branch: "master"
