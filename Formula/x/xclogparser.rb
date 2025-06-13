@@ -6,13 +6,13 @@ class Xclogparser < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0506dd7d0fd34cf648007ebaa19c22ee4a7950d621d0a81ecc0de1c4ab72e36f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f12a935ef504acb540d3e894cb29f4178b78e78cab47992801cc934edb22f82a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "325dca4b969addb194bc8be42bdfdda4b61cc6549d186f1372cd7e781e03db96"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3ecb9ea804d75559570439b988c2f75310052ac31362d5c39e0e58f66ed0b177"
-    sha256 cellar: :any_skip_relocation, ventura:       "ce099c27e0ee07214729ee9578472919bafc72056c80e5560293715fb45701ef"
-    sha256                               arm64_linux:   "5aa0b09e87329be677f7fa43e12e52e7bad79315697294d730dceeb8b06ce3c5"
-    sha256                               x86_64_linux:  "3a456db1fd20985ed03089f28e6256f7c0b4441cf70ad4d4c87f12cf021cc7db"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "24152e756e0accf02e58b2e8a27340c7928c108c178a918b94a16b14c83ce7b1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "84acb208ae9ea2ffc3bd28bf830a43ec4f32f449b455915dfb82fa4489afcac0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6564c2ee06346f8cb6a708dc6c6927796f83919798403f2235ef1c6671bdfcc4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "522f1c32a5a4a269a5f530b976648f8485c19c38b8184e13a18e14245f12593a"
+    sha256 cellar: :any_skip_relocation, ventura:       "8a05a80f163e1342eeef5fb1228dd7b10d2f29b5a83c4fd3573a01342999db04"
+    sha256                               arm64_linux:   "d94b3f9875e169fa0cceb79bc62043903fd671778a9e8cf374e678369e625356"
+    sha256                               x86_64_linux:  "4926c5d871fd3162290869816066e8e28f03275240e99b69cb20ec31330fb755"
   end
 
   depends_on xcode: "13.0"
