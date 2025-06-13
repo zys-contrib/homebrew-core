@@ -2,12 +2,15 @@ class Swiftly < Formula
   desc "Swift toolchain installer and manager"
   homepage "https://github.com/swiftlang/swiftly"
   url "https://github.com/swiftlang/swiftly.git",
-      tag:      "1.0.0",
-      revision: "a9eecca341e6d5047c744a165bfe5bbf239987f5"
+      tag:      "1.0.1",
+      revision: "c14ee6e9fc94988e04b164b457a3b4afa800f68c"
   license "Apache-2.0"
   head "https://github.com/swiftlang/swiftly.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
+  livecheck do
+    url :stable
+    strategy :github_releases
+  end
 
   bottle do
     rebuild 2
