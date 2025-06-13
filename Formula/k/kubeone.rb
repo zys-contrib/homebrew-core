@@ -7,13 +7,13 @@ class Kubeone < Formula
   head "https://github.com/kubermatic/kubeone.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "36f5d2aad6e3b0c41ecf17d806add66c5ab018f73537263671bf93ed78ccb386"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2ae5ecb59f8747d30d9567a4675e8c4a35c0ac9cf44bb33d4e4e6a0738327943"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "385191f7d3f8776ff6d5c864c438581ffd954b4a07f6eba06021bbf681d81c9f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d6033965e81705d23de2b464206a48845fcdc1e07a66ffe06f9a0a971510dabe"
-    sha256 cellar: :any_skip_relocation, ventura:       "aa43641df3b8e5bbb025ee6cff6a45d70ce5b994aa4e8a0a69d4e13d5a318df7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fa2f8360539d850334fd9b14fe28a29aad16704da5a41c6c8b3ea245ee536682"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e20f15b4ea34552ce781b8dc04c8139c46de03e9a2cf79c0859f2bbc4a025c6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "73fa578be67ce154828226aaf4846bc86d8cc5fa259b58a088aebc89a01792c2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0b471cddc40c8871a259d58be2eabeff40649d1d0ae748d297397400eefdebc9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c72faf8b39531f3136b8fe2530161a006413f78d4c33f3fc59596ba3709eb557"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8cf6d2f4bfa753f76e4a8bbdd6ed4bf9c5d8495b41a9c0ad63e1c54653a6a4cf"
+    sha256 cellar: :any_skip_relocation, ventura:       "22dfcac2561277a23a8b2c2ad9b1cb6dde060a17c094b93232fa5c4bf25bbf50"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d7865441f2950c0b04fdbb3b004d9af2a9fbb08cd6ed272959b9942c0df51dc2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6397c4cdf96eddbd6f43e88ffb50d7fbefd7a5ac85b1c77a067ca611a634ccc6"
   end
 
   depends_on "go" => :build
