@@ -14,12 +14,12 @@ class Terragrunt < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f2eae8bd66c2f35f3ad77d38655e26bbbe615fda74b7716675376284abdb219a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f2eae8bd66c2f35f3ad77d38655e26bbbe615fda74b7716675376284abdb219a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f2eae8bd66c2f35f3ad77d38655e26bbbe615fda74b7716675376284abdb219a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8056d16e1c7d38356f60fe8a2503dcac7cebc4cf3a474501082a075e4f5d2985"
-    sha256 cellar: :any_skip_relocation, ventura:       "8056d16e1c7d38356f60fe8a2503dcac7cebc4cf3a474501082a075e4f5d2985"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "314605c08d90916f5094e7fc2e27b9ff400ea4bcb9db9d2e3b108447a416d2bd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "37bee1a66056fad861ab40bb03509a444ab11e88875dea61c9462e3a52a4a51d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "37bee1a66056fad861ab40bb03509a444ab11e88875dea61c9462e3a52a4a51d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "37bee1a66056fad861ab40bb03509a444ab11e88875dea61c9462e3a52a4a51d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "511e12516397f95c617d8a2ac4ef5ffadb3ffd8440e3b665845a2add82c93385"
+    sha256 cellar: :any_skip_relocation, ventura:       "511e12516397f95c617d8a2ac4ef5ffadb3ffd8440e3b665845a2add82c93385"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c8c5b823f6fc0f9ff87770a90f088969f8adb2ff393049b8abe42fe805c1108"
   end
 
   depends_on "go" => :build
