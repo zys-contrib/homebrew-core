@@ -2,8 +2,8 @@ class Sourcekitten < Formula
   desc "Framework and command-line tool for interacting with SourceKit"
   homepage "https://github.com/jpsim/SourceKitten"
   url "https://github.com/jpsim/SourceKitten.git",
-      tag:      "0.37.0",
-      revision: "eb6656ed26bdef967ad8d07c27e2eab34dc582f2"
+      tag:      "0.37.1",
+      revision: "453f75b8a3bb2c3596c0d2dd422c289788233a22"
   license "MIT"
   head "https://github.com/jpsim/SourceKitten.git", branch: "main"
 
