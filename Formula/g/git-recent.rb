@@ -6,7 +6,7 @@ class GitRecent < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ca4cc371dd0b4803702c639e6685352b028f2275a1c0115299c12c6a85430cf3"
+    sha256 cellar: :any_skip_relocation, all: "f57a03f6950455f989457135a7a7106c7a2c8cd108872ada2f0fd6a2fdebebe6"
   end
 
   depends_on "fzf"
