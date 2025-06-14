@@ -4,6 +4,7 @@ class Qemu < Formula
   url "https://download.qemu.org/qemu-10.0.2.tar.xz"
   sha256 "ef786f2398cb5184600f69aef4d5d691efd44576a3cff4126d38d4c6fec87759"
   license "GPL-2.0-only"
+  revision 1
   head "https://gitlab.com/qemu-project/qemu.git", branch: "master"
 
   livecheck do
@@ -42,15 +43,19 @@ class Qemu < Formula
   depends_on "nettle"
   depends_on "pixman"
   depends_on "snappy"
+  depends_on "spice-server"
   depends_on "vde"
   depends_on "zstd"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "bzip2"
+  uses_from_macos "curl"
+  uses_from_macos "cyrus-sasl"
   uses_from_macos "zlib"
 
   on_linux do
+    depends_on "alsa-lib"
     depends_on "attr"
     depends_on "cairo"
     depends_on "elfutils"
@@ -61,6 +66,7 @@ class Qemu < Formula
     depends_on "libx11"
     depends_on "libxkbcommon"
     depends_on "mesa"
+    depends_on "pulseaudio"
     depends_on "systemd"
   end
 
@@ -84,6 +90,7 @@ class Qemu < Formula
       --enable-curses
       --enable-fdt=system
       --enable-libssh
+      --enable-spice
       --enable-vde
       --enable-virtfs
       --enable-zstd
