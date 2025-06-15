@@ -3184,6 +3184,7 @@ restish
 restview
 resvg
 retire
+retry
 reuse
 reveal-md
 revive

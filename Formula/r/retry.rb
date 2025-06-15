@@ -1,11 +1,9 @@
 class Retry < Formula
   desc "Repeat a command until the command succeeds"
   homepage "https://github.com/minfrin/retry"
-  url "https://github.com/minfrin/retry/releases/download/retry-1.0.5/retry-1.0.5.tar.bz2"
-  sha256 "68e241d10f0e2d784a165634bb2eb12b7baf0a9fd9d27c4d54315382597d892e"
+  url "https://github.com/minfrin/retry/releases/download/retry-1.0.6/retry-1.0.6.tar.bz2"
+  sha256 "b5bbdaee16436fabae608fbc58f47df9726b87b945c9eca1524648500b9afdf3"
   license "Apache-2.0"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ba9aabeed58659b5bb810b2cc266bcce7b9bdafa7767bd553b362e1add65e062"
