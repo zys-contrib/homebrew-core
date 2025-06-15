@@ -1,8 +1,8 @@
 class Asm6809 < Formula
   desc "Cross assembler targeting the Motorola 6809 and Hitachi 6309"
   homepage "https://www.6809.org.uk/asm6809/"
-  url "https://www.6809.org.uk/asm6809/dl/asm6809-2.16.tar.gz"
-  sha256 "6051624597d94d69a68a08e194cfe18cbdb12f829c80d92b84f641794b8b09bb"
+  url "https://www.6809.org.uk/asm6809/dl/asm6809-2.17.tar.gz"
+  sha256 "a6d36dd29cb3b26505c46595c1f0f1c4d7e66d3838f6347ce33ce27f4b35cffa"
   license "GPL-3.0-or-later"
 
   livecheck do
