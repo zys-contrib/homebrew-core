@@ -1266,6 +1266,7 @@ gf
 gfold
 ggshield
 gh-ost
+ghalint
 ghcup
 ghex
 ghorg
