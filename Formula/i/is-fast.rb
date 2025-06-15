@@ -1,8 +1,8 @@
 class IsFast < Formula
   desc "Check the internet as fast as possible"
   homepage "https://github.com/Magic-JD/is-fast"
-  url "https://github.com/Magic-JD/is-fast/archive/refs/tags/v0.16.2.tar.gz"
-  sha256 "d818a8c20cc5591c0966e2d59c9f239c8a347dcef9f0f1804b64c15147130f1e"
+  url "https://github.com/Magic-JD/is-fast/archive/refs/tags/v0.17.0.tar.gz"
+  sha256 "5abda366510e19852e22f4e233e38979a4ae4838515c300d73ae88e68756d002"
   license "MIT"
   head "https://github.com/Magic-JD/is-fast.git", branch: "main"
 
