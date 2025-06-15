@@ -7,6 +7,10 @@ class Mpremote < Formula
   sha256 "d0dcd8ab364d87270e1766308882e536e541052efd64aadaac83bc7ebbea2815"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "e0a64c3be9447ab462935ea95ed2d722264aadb1bd24146710393b5a6ef81d19"
+  end
+
   depends_on "python@3.13"
 
   resource "pyserial" do
