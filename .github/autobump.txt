@@ -478,6 +478,7 @@ cdxgen
 cekit
 censys
 cern-ndiff
+certbot
 certifi
 certigo
 cf
@@ -600,6 +601,8 @@ clp
 clusterawsadm
 clusterctl
 clzip
+cmake
+cmake-docs
 cmake-language-server
 cmake-lint
 cmark
@@ -813,6 +816,7 @@ dhall-lsp-server
 dhall-toml
 dhall-yaml
 di
+diagram
 dialog
 diamond
 dicebear
@@ -1007,6 +1011,7 @@ erlang
 erlang_ls
 erlang@25
 erlang@26
+erlfmt
 erofs-utils
 esbuild
 eslint
@@ -1262,6 +1267,7 @@ gf
 gfold
 ggshield
 gh-ost
+ghalint
 ghcup
 ghex
 ghorg
@@ -1379,6 +1385,7 @@ gocloc
 gocryptfs
 goctl
 godap
+goenv
 goffice
 gofumpt
 goimports
@@ -2459,6 +2466,7 @@ mpg123
 mpi4py
 mpich
 mpop
+mpremote
 mprocs
 mpv
 mqttui
@@ -3604,6 +3612,7 @@ swift-format
 swift-protobuf
 swift-sh
 swiftformat
+swiftly
 swiftplantuml
 swig
 swtpm
