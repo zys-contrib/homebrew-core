@@ -5,6 +5,15 @@ class ActRunner < Formula
   sha256 "8b317700d1f3344d8664be9edb004914723a4aacc8f8b1b3719ca2260a5866b6"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7c8cccc7006059e30358e42621f03a27ce5628ff74456e3f81f7a02bf2922f5e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7c8cccc7006059e30358e42621f03a27ce5628ff74456e3f81f7a02bf2922f5e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7c8cccc7006059e30358e42621f03a27ce5628ff74456e3f81f7a02bf2922f5e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b8f417027f7afc1f87ea9fd1bb9f39f415e54ae5cc97f7ed640e0ed1ad61c1a8"
+    sha256 cellar: :any_skip_relocation, ventura:       "b8f417027f7afc1f87ea9fd1bb9f39f415e54ae5cc97f7ed640e0ed1ad61c1a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "06c6359d52d40562379404d8479db1ed2a8825c85cad93350e25be4968997048"
+  end
+
   depends_on "go" => :build
 
   def install
