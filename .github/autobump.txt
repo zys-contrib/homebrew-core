@@ -816,6 +816,7 @@ dhall-lsp-server
 dhall-toml
 dhall-yaml
 di
+diagram
 dialog
 diamond
 dicebear
