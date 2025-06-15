@@ -2466,6 +2466,7 @@ mpg123
 mpi4py
 mpich
 mpop
+mpremote
 mprocs
 mpv
 mqttui
