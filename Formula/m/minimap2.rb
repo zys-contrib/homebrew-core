@@ -1,8 +1,8 @@
 class Minimap2 < Formula
   desc "Versatile pairwise aligner for genomic and spliced nucleotide sequences"
   homepage "https://lh3.github.io/minimap2"
-  url "https://github.com/lh3/minimap2/archive/refs/tags/v2.29.tar.gz"
-  sha256 "008d5e9848b918e4eb09d054aa3d6c272d50e92b8fc8537abf5081a507019718"
+  url "https://github.com/lh3/minimap2/archive/refs/tags/v2.30.tar.gz"
+  sha256 "4e5cd621be2b2685c5c88d9b9b169c7e036ab9fff2f3afe1a1d4091ae3176380"
   license "MIT"
 
   livecheck do
