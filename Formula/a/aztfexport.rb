@@ -2,8 +2,8 @@ class Aztfexport < Formula
   desc "Bring your existing Azure resources under the management of Terraform"
   homepage "https://azure.github.io/aztfexport/"
   url "https://github.com/Azure/aztfexport.git",
-      tag:      "v0.17.1",
-      revision: "aa75416cc3159a277f2e54cc2044ddea7122bc98"
+      tag:      "v0.18.0",
+      revision: "c787766b069dc1cee0cd9d50801847d230a0d264"
   license "MPL-2.0"
   head "https://github.com/Azure/aztfexport.git", branch: "main"
 
