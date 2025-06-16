@@ -8,7 +8,6 @@ class Snapcraft < Formula
       tag:      "8.9.4",
       revision: "b701455c788486936c1c59b47f1a72653dc59f9a"
   license "GPL-3.0-only"
-  revision 1
   head "https://github.com/canonical/snapcraft.git", branch: "main"
 
   livecheck do
