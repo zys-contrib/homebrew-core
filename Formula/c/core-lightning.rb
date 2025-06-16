@@ -3,8 +3,8 @@ class CoreLightning < Formula
 
   desc "Lightning Network implementation focusing on spec compliance and performance"
   homepage "https://github.com/ElementsProject/lightning"
-  url "https://github.com/ElementsProject/lightning/releases/download/v25.02.2/clightning-v25.02.2.zip"
-  sha256 "db0a7da35a5a58959fc48be6f410e7b0a5f718351729a3e4a41f3d7306fa3a3f"
+  url "https://github.com/ElementsProject/lightning/releases/download/v25.05/clightning-v25.05.zip"
+  sha256 "00d633a63570f6419db0dbd75b503bb04ba0f6eb469894da6fced2a8949d8007"
   license "MIT"
   head "https://github.com/ElementsProject/lightning.git", branch: "master"
 
@@ -56,8 +56,8 @@ class CoreLightning < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
-    sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
+    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
   # Configure script overwrites `PKG_CONFIG_PATH` on macOS
