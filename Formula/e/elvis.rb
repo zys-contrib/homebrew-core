@@ -1,8 +1,8 @@
 class Elvis < Formula
   desc "Erlang Style Reviewer"
   homepage "https://github.com/inaka/elvis"
-  url "https://github.com/inaka/elvis/archive/refs/tags/4.1.0.tar.gz"
-  sha256 "a4b0eef813cf78a01c42fc35c2b92823827bdb08f7d25a0501d47851e20feac2"
+  url "https://github.com/inaka/elvis/archive/refs/tags/4.1.1.tar.gz"
+  sha256 "82a42102734285d0e39a8b55bc2195752f44347b6f2ef0962834e49579d067c8"
   license "Apache-2.0"
   head "https://github.com/inaka/elvis.git", branch: "master"
 
