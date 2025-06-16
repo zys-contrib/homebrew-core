@@ -2405,6 +2405,7 @@ minio
 minio-mc
 minio-warp
 minipro
+miniprot
 miniserve
 minisign
 miniupnpc
