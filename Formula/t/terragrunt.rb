@@ -1,8 +1,8 @@
 class Terragrunt < Formula
   desc "Thin wrapper for Terraform e.g. for locking state"
   homepage "https://terragrunt.gruntwork.io/"
-  url "https://github.com/gruntwork-io/terragrunt/archive/refs/tags/v0.81.6.tar.gz"
-  sha256 "b271e5b681296f18ba4dd6adb3ee51a463fc1aca2c931f0633006382337f5a59"
+  url "https://github.com/gruntwork-io/terragrunt/archive/refs/tags/v0.81.7.tar.gz"
+  sha256 "44702caebb7984e077b5126326956b0c11b100f0215661c34fa4c3ae88527f23"
   license "MIT"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
