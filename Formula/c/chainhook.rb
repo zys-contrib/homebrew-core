@@ -1,8 +1,8 @@
 class Chainhook < Formula
   desc "Reorg-aware indexing engine for the Stacks & Bitcoin blockchains"
   homepage "https://github.com/hirosystems/chainhook"
-  url "https://github.com/hirosystems/chainhook/archive/refs/tags/v1.8.0.tar.gz"
-  sha256 "5d1ea1ad91585d440cf56d0293541593294b70cbf59172957ff53b5598be874d"
+  url "https://github.com/hirosystems/chainhook/archive/refs/tags/v1.9.0.tar.gz"
+  sha256 "fea917fcd18032a280a965bd84b57894008110ec15191f4efca6aaab26011443"
   license "GPL-3.0-only"
   head "https://github.com/hirosystems/chainhook.git", branch: "develop"
 
@@ -26,12 +26,6 @@ class Chainhook < Formula
   depends_on "rust" => :build
 
   uses_from_macos "llvm" => :build # for libclang
-
-  # rust 1.80 build patch, upstream pr ref, https://github.com/hirosystems/chainhook/pull/631
-  patch do
-    url "https://github.com/hirosystems/chainhook/commit/e98fc6093e30c41aec55a3391b917ff92de6df1f.patch?full_index=1"
-    sha256 "9b1b48a9a5be5ae0ceb3661c7e61f08ca6806ee49fd684dd1dc29cc3a3abb242"
-  end
 
   def install
     system "cargo", "install", "--features", "cli,debug", "--no-default-features",
