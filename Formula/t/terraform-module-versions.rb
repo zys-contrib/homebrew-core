@@ -7,12 +7,12 @@ class TerraformModuleVersions < Formula
   head "https://github.com/keilerkonzept/terraform-module-versions.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "30efd3f974b11b2a2485bd27ff1d84e022df9e9186436600d3ff3f1d1cf6c050"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "30efd3f974b11b2a2485bd27ff1d84e022df9e9186436600d3ff3f1d1cf6c050"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "30efd3f974b11b2a2485bd27ff1d84e022df9e9186436600d3ff3f1d1cf6c050"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f4457aa6a640b738a5c3ac987822c98ff9011c9bb9a2db105ae8bd39b9d0e57c"
-    sha256 cellar: :any_skip_relocation, ventura:       "f4457aa6a640b738a5c3ac987822c98ff9011c9bb9a2db105ae8bd39b9d0e57c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d22cd7b027f23b40571fcb3f2828270a6ad31c52f6342fd75bbbb63dd5984f35"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c4617f15006d80c603e3b3b57e6f5dcce8b19b8cda78a10b6709cfa5290a2f1b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c4617f15006d80c603e3b3b57e6f5dcce8b19b8cda78a10b6709cfa5290a2f1b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c4617f15006d80c603e3b3b57e6f5dcce8b19b8cda78a10b6709cfa5290a2f1b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "186a2d05ddcf4a40a294bd76ca5fd3b9b9da60e39fd16a4d337d23e690b2d30b"
+    sha256 cellar: :any_skip_relocation, ventura:       "186a2d05ddcf4a40a294bd76ca5fd3b9b9da60e39fd16a4d337d23e690b2d30b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "024bf6479175a7694bd93cd0ef7a118167f63b2377dc6a4cd1534d2c30e75311"
   end
 
   depends_on "go" => :build
