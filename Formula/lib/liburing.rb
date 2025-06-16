@@ -2,8 +2,8 @@ class Liburing < Formula
   desc "Helpers to setup and teardown io_uring instances"
   homepage "https://github.com/axboe/liburing"
   # not need to check github releases, as tags are sufficient, see https://github.com/axboe/liburing/issues/1008
-  url "https://github.com/axboe/liburing/archive/refs/tags/liburing-2.10.tar.gz"
-  sha256 "0a687616a6886cd82b746b79c4e33dc40b8d7c0c6e24d0f6f3fd7cf41886bf53"
+  url "https://github.com/axboe/liburing/archive/refs/tags/liburing-2.11.tar.gz"
+  sha256 "462c35ef21d67e50490f8684c76641ee2c7796e83d43de796852ef4e40662e33"
   license any_of: ["MIT", "LGPL-2.1-only"]
   head "https://github.com/axboe/liburing.git", branch: "master"
 
