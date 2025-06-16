@@ -1281,6 +1281,7 @@ gifski
 gimme
 ginac
 gismo
+git
 git-absorb
 git-annex
 git-bug
@@ -1288,12 +1289,14 @@ git-cinnabar
 git-cliff
 git-codereview
 git-cola
+git-credential-libsecret
 git-credential-oauth
 git-delete-merged-branches
 git-delta
 git-extras
 git-filter-repo
 git-grab
+git-gui
 git-ignore
 git-interactive-rebase-tool
 git-lfs
@@ -1304,6 +1307,7 @@ git-remote-hg
 git-review
 git-split-diffs
 git-subrepo
+git-svn
 git-sync
 git-town
 git-who
