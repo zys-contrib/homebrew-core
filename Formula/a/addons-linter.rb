@@ -6,13 +6,13 @@ class AddonsLinter < Formula
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "181824134a21c3ee0a752121341004e28b82ce7e335ad3371046f024e99d23c7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "181824134a21c3ee0a752121341004e28b82ce7e335ad3371046f024e99d23c7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "181824134a21c3ee0a752121341004e28b82ce7e335ad3371046f024e99d23c7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ba44725088f0528ce75f87e7a3227363b4f0b228983f0b2425fb7b86723cb218"
-    sha256 cellar: :any_skip_relocation, ventura:       "ba44725088f0528ce75f87e7a3227363b4f0b228983f0b2425fb7b86723cb218"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "181824134a21c3ee0a752121341004e28b82ce7e335ad3371046f024e99d23c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "181824134a21c3ee0a752121341004e28b82ce7e335ad3371046f024e99d23c7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ef75198a14864c28a6e0acab3967aa0c380c261174bf6e821e5185bc27a7551f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ef75198a14864c28a6e0acab3967aa0c380c261174bf6e821e5185bc27a7551f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ef75198a14864c28a6e0acab3967aa0c380c261174bf6e821e5185bc27a7551f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7681f1bae238e71b92e1684b42e53dd6b7ce609a318c63518566be79035c8365"
+    sha256 cellar: :any_skip_relocation, ventura:       "7681f1bae238e71b92e1684b42e53dd6b7ce609a318c63518566be79035c8365"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ef75198a14864c28a6e0acab3967aa0c380c261174bf6e821e5185bc27a7551f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef75198a14864c28a6e0acab3967aa0c380c261174bf6e821e5185bc27a7551f"
   end
 
   depends_on "node"
