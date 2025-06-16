@@ -2340,6 +2340,7 @@ mbedtls
 mbt
 mcap
 mcfly
+mcp-inspector
 mcpm
 md2pdf
 md4c
@@ -2405,6 +2406,7 @@ minio
 minio-mc
 minio-warp
 minipro
+miniprot
 miniserve
 minisign
 miniupnpc
@@ -3184,6 +3186,7 @@ restish
 restview
 resvg
 retire
+retry
 reuse
 reveal-md
 revive
@@ -4093,6 +4096,7 @@ xkbcomp
 xkeyboard-config
 xlsxio
 xmake
+xml2rfc
 xmlrpc-c
 xmlsectool
 xmount
