@@ -4094,6 +4094,7 @@ xkbcomp
 xkeyboard-config
 xlsxio
 xmake
+xml2rfc
 xmlrpc-c
 xmlsectool
 xmount
