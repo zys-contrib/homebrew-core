@@ -8,12 +8,12 @@ class Jjui < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8fb30b1f45d96ffd713e24aaf4c8d6ccd228a0f4b5ec9d58eea1d14e6622b85d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8fb30b1f45d96ffd713e24aaf4c8d6ccd228a0f4b5ec9d58eea1d14e6622b85d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8fb30b1f45d96ffd713e24aaf4c8d6ccd228a0f4b5ec9d58eea1d14e6622b85d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e224661471591698b689897369fe054e9fade427b1931b05af178d9f3fe375cc"
-    sha256 cellar: :any_skip_relocation, ventura:       "e224661471591698b689897369fe054e9fade427b1931b05af178d9f3fe375cc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4b6537ef1509cc9f68c8987564cfdc949c8d14f3da2299eaa5390672e7ec33d3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "15d3818ae4e3194d2668a942727922d8e185f10f8d8a61121af3e3c0b9e85c3e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "15d3818ae4e3194d2668a942727922d8e185f10f8d8a61121af3e3c0b9e85c3e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "15d3818ae4e3194d2668a942727922d8e185f10f8d8a61121af3e3c0b9e85c3e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4ed49e70def12ee3105a89f81a446c606d9ed333d4a3d04caf82425e35029cc5"
+    sha256 cellar: :any_skip_relocation, ventura:       "4ed49e70def12ee3105a89f81a446c606d9ed333d4a3d04caf82425e35029cc5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "52489ca4f1473988ead5d2b5be2f5e157216ffe2012975153ef76925cceb27c2"
   end
 
   depends_on "go" => :build
