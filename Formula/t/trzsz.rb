@@ -11,14 +11,13 @@ class Trzsz < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "069b5e2e21ca4ee881b66892d88f678d5239cd0d17de98560b483bdc4e361e97"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "34b1462777caa9dad8e2b457f0ac821c3fd74dff173f32f6d6dca728b4123cdf"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "327fbdc12feae3e8d94c081d2918e5ac31bbe85d9d894106ef59b43ffec19cdd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cb036cbea4083fda7d9169854ba154c8aa7c09593cb46935c9a5d93190fe3af4"
-    sha256 cellar: :any_skip_relocation, ventura:       "d23b42eed99c1ff1ff1ef5ee4bb9a5e093d60f3680ac2e6bf834559b8cc8309c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9352e42e41666d7842af49aa3100bc328c44c384e3b4689c35e7391438c4a7b6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4fb0a8bab1c0def85b2e0d11e37d9e96d1c397485b5231fe9d3f952a6e5f9fe4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2ae631d662b7807bc3be9aa38befc2e2659e9ce869945a911572c409329a93c0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "40a22d7d73f5af874c041823e8e26f1ddbd2e52f18067efc9fe1284af2b972f0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e3073d8234be392605f574e0242d7d6afb99da2ba75a6489e9f77f1d4dae962b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a1a27587ecc16a7f5b473f5662e28359055be3a77001ac9077fd4113a19b1d8d"
+    sha256 cellar: :any_skip_relocation, ventura:       "421fa223a87dfb4577ba9eac3fe88b616eaa620f4e98335aad72d1abeaf3fd02"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f7ea98196e40ccc5c7a932383bdd9851c62d55b1ec2b6a483be691804314c36c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9410ef829e189c035a0bec3e9bd8dad0ee5c106d0b3da9ae48fb8dbb7a27f820"
   end
 
   depends_on "python@3.13"
