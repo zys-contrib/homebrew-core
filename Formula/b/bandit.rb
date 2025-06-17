@@ -3,10 +3,9 @@ class Bandit < Formula
 
   desc "Security-oriented static analyser for Python code"
   homepage "https://github.com/PyCQA/bandit"
-  url "https://files.pythonhosted.org/packages/1a/a5/144a45f8e67df9d66c3bc3f7e69a39537db8bff1189ab7cff4e9459215da/bandit-1.8.3.tar.gz"
-  sha256 "f5847beb654d309422985c36644649924e0ea4425c76dec2e89110b87506193a"
+  url "https://files.pythonhosted.org/packages/4e/01/b2ce2f54db060ed7b25960892b275ad8238ca15f5a8821b09f8e7f75870d/bandit-1.8.5.tar.gz"
+  sha256 "db812e9c39b8868c0fed5278b77fffbbaba828b4891bc80e34b9c50373201cfd"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/PyCQA/bandit.git", branch: "main"
 
   bottle do
@@ -53,8 +52,8 @@ class Bandit < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
-    sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
+    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
   resource "stevedore" do
