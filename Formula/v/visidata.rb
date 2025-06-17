@@ -8,13 +8,13 @@ class Visidata < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c59340511e66537da6a9d30fc32913ab638cde115e0f9ebcf39c3a60e9251734"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c59340511e66537da6a9d30fc32913ab638cde115e0f9ebcf39c3a60e9251734"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c59340511e66537da6a9d30fc32913ab638cde115e0f9ebcf39c3a60e9251734"
-    sha256 cellar: :any_skip_relocation, sonoma:        "386ca2b4afbaf1f0e79ee848379fd2d11b023134dcb58e2dd95d259e62b02706"
-    sha256 cellar: :any_skip_relocation, ventura:       "386ca2b4afbaf1f0e79ee848379fd2d11b023134dcb58e2dd95d259e62b02706"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d9c7de494b7a6b175f136c3b3bfc99a7eeb57b5cedd8be75f87f8df1c44004db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c59340511e66537da6a9d30fc32913ab638cde115e0f9ebcf39c3a60e9251734"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "65e10f52017aa69ff7852f4a1d6f4457574af0fb95432fd5663bc0fb6d13d4d9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "65e10f52017aa69ff7852f4a1d6f4457574af0fb95432fd5663bc0fb6d13d4d9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "65e10f52017aa69ff7852f4a1d6f4457574af0fb95432fd5663bc0fb6d13d4d9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c9838d4f2233f38b98ca2e10213a060ba694750d370cb213fcc6f9e6b83e7609"
+    sha256 cellar: :any_skip_relocation, ventura:       "c9838d4f2233f38b98ca2e10213a060ba694750d370cb213fcc6f9e6b83e7609"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "65e10f52017aa69ff7852f4a1d6f4457574af0fb95432fd5663bc0fb6d13d4d9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65e10f52017aa69ff7852f4a1d6f4457574af0fb95432fd5663bc0fb6d13d4d9"
   end
 
   depends_on "python@3.13"
