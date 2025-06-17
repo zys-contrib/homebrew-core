@@ -1,8 +1,8 @@
 class Orientdb < Formula
   desc "Graph database"
   homepage "https://github.com/orientechnologies/orientdb/"
-  url "https://search.maven.org/remotecontent?filepath=com/orientechnologies/orientdb-community/3.2.40/orientdb-community-3.2.40.zip"
-  sha256 "8fa8d6f60d8e8eee862403356ac905bb363fb74859e74b416bf5374a25578d83"
+  url "https://search.maven.org/remotecontent?filepath=com/orientechnologies/orientdb-community/3.2.41/orientdb-community-3.2.41.zip"
+  sha256 "a62be9f8f277b27347966c754264e40b7f38c83fd5850187c7004fddf88ad780"
   license "Apache-2.0"
 
   # The GitHub release description contains links to files on Maven.
