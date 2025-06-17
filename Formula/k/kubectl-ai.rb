@@ -1,8 +1,8 @@
 class KubectlAi < Formula
   desc "AI powered Kubernetes Assistant"
   homepage "https://github.com/GoogleCloudPlatform/kubectl-ai"
-  url "https://github.com/GoogleCloudPlatform/kubectl-ai/archive/refs/tags/v0.0.13.tar.gz"
-  sha256 "17f77ff940fb234a521c5ed755b547fb9ecbcc815733514a2669e44723319d5a"
+  url "https://github.com/GoogleCloudPlatform/kubectl-ai/archive/refs/tags/v0.0.14.tar.gz"
+  sha256 "e84e7f7d569f2119d359e2cef923a05c7dc4265fb9d7dda8122fe552ff289978"
   license "Apache-2.0"
 
   livecheck do
@@ -22,20 +22,22 @@ class KubectlAi < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd"
+    ldflags = "-s -w -X main.version=#{version} -X main.commit=#{tap.user} -X main.date=#{time.iso8601}"
+    system "go", "build", *std_go_args(ldflags:), "./cmd"
+
+    generate_completions_from_executable(bin/"kubectl-ai", "completion", shells: [:bash, :zsh, :fish, :pwsh])
   end
 
   test do
-    assert_match "kubectl-ai [flags]", shell_output("#{bin}/kubectl-ai --help")
+    assert_match version.to_s, shell_output("#{bin}/kubectl-ai version")
 
     ENV["GEMINI_API_KEY"] = "test"
-
-    PTY.spawn(bin/"kubectl-ai") do |r, w, pid|
+    PTY.spawn(bin/"kubectl-ai", "--llm-provider", "gemini") do |r, w, pid|
       sleep 1
       w.puts "test"
       sleep 1
       output = r.read_nonblock(1024)
-      assert_match "Error 400, Message: API key not valid", output
+      assert_match "Hey there, what can I help you with", output
     rescue Errno::EIO
       # End of input, ignore
     ensure
