@@ -12,6 +12,9 @@ class GorillaCli < Formula
     sha256 cellar: :any_skip_relocation, all: "13c6b4c8f4293e105f99bfcc56e39dbd2134aec665131deaa08ff12a4d9f9b20"
   end
 
+  # service is down: https://github.com/gorilla-llm/gorilla-cli/issues/64
+  deprecate! date: "2025-06-17", because: :unmaintained
+
   depends_on "certifi"
   depends_on "python@3.13"
 
