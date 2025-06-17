@@ -7,12 +7,12 @@ class Nova < Formula
   head "https://github.com/FairwindsOps/nova.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "19ce1ddbf6213ebb146cd2036bebafdea269c333f6292e36f13a22101c9bd5a1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "19ce1ddbf6213ebb146cd2036bebafdea269c333f6292e36f13a22101c9bd5a1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "19ce1ddbf6213ebb146cd2036bebafdea269c333f6292e36f13a22101c9bd5a1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e4fd80c52ad1b119cb9b7e2482217be94e8967c59bc631220d94b96babaf905d"
-    sha256 cellar: :any_skip_relocation, ventura:       "e4fd80c52ad1b119cb9b7e2482217be94e8967c59bc631220d94b96babaf905d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e1784c91e78d8ec6667bbea4bd7bd46c266cdd3415f8b6703b1d3cdba697e30"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c174a2a5eb9356b05a26436bccfe364e69cb5d72e6595f347431eee8cdb186ca"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c174a2a5eb9356b05a26436bccfe364e69cb5d72e6595f347431eee8cdb186ca"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c174a2a5eb9356b05a26436bccfe364e69cb5d72e6595f347431eee8cdb186ca"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8a673713f994a9add1153d1a493b723a840267558442009aa947a93c28cc4de6"
+    sha256 cellar: :any_skip_relocation, ventura:       "8a673713f994a9add1153d1a493b723a840267558442009aa947a93c28cc4de6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "331adffe27708f500644c742da1a3b7f6ff119aeaac9e3fe8b298440d098bbd1"
   end
 
   depends_on "go" => :build
