@@ -570,6 +570,9 @@
   "mongo-orchestration": {
     "exclude_packages": ["certifi"]
   },
+  "moodle-dl": {
+    "exclude_packages": ["certifi"]
+  },
   "moto": {
     "package_name": "moto[all,server]",
     "exclude_packages": ["certifi", "cryptography"]
