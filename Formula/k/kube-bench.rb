@@ -1,8 +1,8 @@
 class KubeBench < Formula
   desc "Checks Kubernetes deployment against security best practices (CIS Benchmark)"
   homepage "https://github.com/aquasecurity/kube-bench"
-  url "https://github.com/aquasecurity/kube-bench/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "0113a22ef39ac2f4d7d0fa4b2871e41b4ba5ebae59c012b3ab8349117b67cbe1"
+  url "https://github.com/aquasecurity/kube-bench/archive/refs/tags/v0.11.1.tar.gz"
+  sha256 "7e37ae9a0a6d08851ab02a72bd42f212d9f2f2128b4d379cea2dfca64dbffab5"
   license "Apache-2.0"
   head "https://github.com/aquasecurity/kube-bench.git", branch: "main"
 
