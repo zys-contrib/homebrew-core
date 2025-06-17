@@ -2065,6 +2065,7 @@ libnghttp3
 libnotify
 libntlm
 libobjc2
+libogg
 libomemo-c
 libomp
 libopenmpt
