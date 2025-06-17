@@ -7,6 +7,15 @@ class MoodleDl < Formula
   sha256 "7a6d813b3241497fb79a34a428aa266b2d2d3c175e05d46752e0a8040adaddce"
   license "GPL-3.0-or-later"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4edaba781d9d735a2716e1eb87a7453754556d33293d0dd002840dedaac4f1c9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "62550b7e608fc4dad74af47a99eae725913d28850f12a781ba2d166fafb9a2af"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6c5967df3f89b9ab620d22f60f2b3bfcb6bb927bc503166000962bd0efcd8953"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9f42ac47c652fb79c1c8142b2e4ae703d2bcfdb32563e6b83720e6fa98e1c247"
+    sha256 cellar: :any_skip_relocation, ventura:       "e6d57095cf2fe5267bd38c73e43bfb6523a2923ac27c558ca4dc6de94fab8169"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17f020ecba04b74fe8bd814888ae07379275625fea606e4a9f5f36b450bc0e10"
+  end
+
   depends_on "certifi"
   depends_on "ffmpeg"
   depends_on "python@3.13"
