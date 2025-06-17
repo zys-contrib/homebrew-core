@@ -516,6 +516,7 @@ chars
 chart-releaser
 chart-testing
 chatblade
+chawan
 chdig
 cheat
 check-jsonschema
