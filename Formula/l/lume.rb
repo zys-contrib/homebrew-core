@@ -1,8 +1,8 @@
 class Lume < Formula
   desc "Create and manage Apple Silicon-native virtual machines"
   homepage "https://github.com/trycua/cua"
-  url "https://github.com/trycua/cua/archive/refs/tags/lume-v0.2.16.tar.gz"
-  sha256 "ec8e97e7bc882b75c1b5583c8b63249260ba56675aa636b86d82d69cedbb11f9"
+  url "https://github.com/trycua/cua/archive/refs/tags/lume-v0.2.22.tar.gz"
+  sha256 "39a401f59a51d404db2458907af6786a2e625d542d36339f15c9358b1e1f9b6e"
   license "MIT"
   head "https://github.com/trycua/cua.git", branch: "main"
 
