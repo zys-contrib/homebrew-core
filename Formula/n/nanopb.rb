@@ -15,13 +15,13 @@ class Nanopb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7d76fc86d847a068c45c8a5ba8a0b3b11b8de23f227d093cdb285e15cd982e8a"
-    sha256 cellar: :any,                 arm64_sonoma:  "f9d5864283a0d79f5aaeffac33c215d12d244e821e5f9955dcb4e20fb7d6e92e"
-    sha256 cellar: :any,                 arm64_ventura: "7e75a8d1f9e8f2f2c9d497b4fe414bf5f88421d5c35abd960893fb89b081f716"
-    sha256 cellar: :any,                 sonoma:        "88dd38904d068f44085a8f267038c76957c9f8c6ae37981bf20ddc0db6c37262"
-    sha256 cellar: :any,                 ventura:       "ee8ee09d5e0e937e5bebc576cb5ba7db3833ae7ac0367a43a0326d83900ed669"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0892cc465d41cb9eeca87e20de7758d1dedb166471b79ed3d48a1b2746f3e9a1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "794045035602e33641f7e4b9fcf1e2d1ec010d5ccfcb5645c2fc25e1ac544309"
+    sha256 cellar: :any,                 arm64_sequoia: "48c0e851922d2dc09a363496b62f994801fae203a54ddf5b1b05db29f548f62f"
+    sha256 cellar: :any,                 arm64_sonoma:  "67695bb4d38d03aa42a096bd4bb305f26a895f0de73d1bcd9cd6da6e05559a23"
+    sha256 cellar: :any,                 arm64_ventura: "cedc6958a61637ca250dd07266e565be80b0229967598ac9a9643dc467de71f8"
+    sha256 cellar: :any,                 sonoma:        "9e1f5e2f2138b529c910edcf3564f29ef868378e65258566f2c0b85bb4621cf8"
+    sha256 cellar: :any,                 ventura:       "2f0bca06374f860e344cc7e9feff526d0dba6068f06c6a8eb5331138fd7d0237"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b131ea76894ac511c4e4260769cabee26741c1acf53210777e8d04dfcc9ef87f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6822c95d98040f3f845347cbe416bcc4da77cce6cfce82020bcec48caaae463c"
   end
 
   depends_on "cmake" => :build
