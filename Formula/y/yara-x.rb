@@ -1,16 +1,10 @@
 class YaraX < Formula
   desc "Tool to do pattern matching for malware research"
   homepage "https://virustotal.github.io/yara-x/"
+  url "https://github.com/VirusTotal/yara-x/archive/refs/tags/v1.2.1.tar.gz"
+  sha256 "e0457c0cd4f6a7a1c4c0e5df7453af49f3d8027453fd1fc053a1491ca1823122"
   license "BSD-3-Clause"
   head "https://github.com/VirusTotal/yara-x.git", branch: "main"
-
-  stable do
-    url "https://github.com/VirusTotal/yara-x/archive/refs/tags/v1.2.0.tar.gz"
-    sha256 "f825a24bb2132d284fc9b2bdde1440f6a1f55d699388fee15f859b535e8074e3"
-
-    # patch to fix `elf` module error, upstream commit ref, https://github.com/VirusTotal/yara-x/commit/ae9a6323ff5e6725fac69b76997db82aa53e713a
-    patch :DATA
-  end
 
   livecheck do
     url :stable
@@ -63,44 +57,3 @@ class YaraX < Formula
     assert_match version.to_s, shell_output("#{bin}/yr --version")
   end
 end
-
-__END__
-diff --git a/lib/src/modules/elf/mod.rs b/lib/src/modules/elf/mod.rs
-index 5384fcea7..7a38dc4de 100644
---- a/lib/src/modules/elf/mod.rs
-+++ b/lib/src/modules/elf/mod.rs
-@@ -30,9 +30,11 @@ thread_local!(
- fn main(data: &[u8], _meta: Option<&[u8]>) -> Result<ELF, ModuleError> {
-     IMPORT_MD5_CACHE.with(|cache| *cache.borrow_mut() = None);
-     TLSH_CACHE.with(|cache| *cache.borrow_mut() = None);
--    parser::ElfParser::new()
--        .parse(data)
--        .map_err(|e| ModuleError::InternalError { err: e.to_string() })
-+
-+    match parser::ElfParser::new().parse(data) {
-+        Ok(elf) => Ok(elf),
-+        Err(_) => Ok(ELF::new()),
-+    }
- }
-
- #[module_export]
-diff --git a/lib/src/modules/lnk/mod.rs b/lib/src/modules/lnk/mod.rs
-index 22f06a3a1..fd73767fe 100644
---- a/lib/src/modules/lnk/mod.rs
-+++ b/lib/src/modules/lnk/mod.rs
-@@ -18,7 +18,12 @@ pub mod parser;
-
- #[module_main]
- fn main(data: &[u8], _meta: Option<&[u8]>) -> Result<Lnk, ModuleError> {
--    parser::LnkParser::new()
--        .parse(data)
--        .map_err(|e| ModuleError::InternalError { err: e.to_string() })
-+    match parser::LnkParser::new().parse(data) {
-+        Ok(lnk) => Ok(lnk),
-+        Err(_) => {
-+            let mut lnk = Lnk::new();
-+            lnk.is_lnk = Some(false);
-+            Ok(lnk)
-+        }
-+    }
- }
