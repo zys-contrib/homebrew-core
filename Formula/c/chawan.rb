@@ -12,6 +12,7 @@ class Chawan < Formula
     sha256 cellar: :any,                 arm64_ventura: "819d155a57265cad1ffe38e7b15e0f42dddf09ef98a3893f80c95ea8bb73fd3b"
     sha256 cellar: :any,                 sonoma:        "a6a6e1e9e86de56ce0f189cae9244fca36f7cdd09431a1eb3b0b3cb47cb1a08f"
     sha256 cellar: :any,                 ventura:       "588dcc354363e1e7ce54d1ec7171bbadacfba7f08822e15d623fda1dc82a0d64"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9dcab93cc7449e5970674f10d9de472e2a97ef23476738cef37ff47b66be952a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7e131a7b8240c9a62f98092b27c4a14d51d60122dc3c9d116a76f4bda9930d9"
   end
 
