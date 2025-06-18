@@ -9,7 +9,7 @@ class PythonMarkdown < Formula
   head "https://github.com/Python-Markdown/markdown.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "9236e8371fe094ff61d9d5de0ea231a1078e39757016b2d484b232d621f8985e"
+    sha256 cellar: :any_skip_relocation, all: "44ba2477ecc491890eeb41eee3099102b2be362489654e649545c058942e932a"
   end
 
   depends_on "python@3.13"
