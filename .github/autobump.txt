@@ -285,6 +285,7 @@ bench
 benchi
 bender
 benthos
+bento
 berglas
 bettercap
 bfs
