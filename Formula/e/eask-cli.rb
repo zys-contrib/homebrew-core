@@ -5,6 +5,10 @@ class EaskCli < Formula
   sha256 "66faf98d76e6c6ca9b38f7721ef4aeba251181bc0aef4c692cf6d09a8988c896"
   license "GPL-3.0-or-later"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "9676d69666ce4d2791896e92953bf91abe142a61584515b227fca15ef0111026"
+  end
+
   depends_on "node"
 
   def install
