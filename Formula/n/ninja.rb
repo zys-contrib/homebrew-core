@@ -1,8 +1,8 @@
 class Ninja < Formula
   desc "Small build system for use with gyp or CMake"
   homepage "https://ninja-build.org/"
-  url "https://github.com/ninja-build/ninja/archive/refs/tags/v1.12.1.tar.gz"
-  sha256 "821bdff48a3f683bc4bb3b6f0b5fe7b2d647cf65d52aeb63328c91a6c6df285a"
+  url "https://github.com/ninja-build/ninja/archive/refs/tags/v1.13.0.tar.gz"
+  sha256 "f08641d00099a9e40d44ec0146f841c472ae58b7e6dd517bee3945cfd923cedf"
   license "Apache-2.0"
   head "https://github.com/ninja-build/ninja.git", branch: "master"
 
@@ -31,7 +31,6 @@ class Ninja < Formula
     bash_completion.install "misc/bash-completion" => "ninja"
     zsh_completion.install "misc/zsh-completion" => "_ninja"
     doc.install "doc/manual.asciidoc"
-    elisp.install "misc/ninja-mode.el"
     (share/"vim/vimfiles/syntax").install "misc/ninja.vim"
   end
 
