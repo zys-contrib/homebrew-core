@@ -6,6 +6,15 @@ class Chawan < Formula
   license "Unlicense"
   head "https://git.sr.ht/~bptato/chawan", branch: "master"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "947cea8a8995e723b23a1356a4124de83458d07e85ec0aa8e53429a8860c0cb7"
+    sha256 cellar: :any,                 arm64_sonoma:  "dc1da334eaf9da2251992bd143b4867b7675712226c369bfecfba500963f5732"
+    sha256 cellar: :any,                 arm64_ventura: "819d155a57265cad1ffe38e7b15e0f42dddf09ef98a3893f80c95ea8bb73fd3b"
+    sha256 cellar: :any,                 sonoma:        "a6a6e1e9e86de56ce0f189cae9244fca36f7cdd09431a1eb3b0b3cb47cb1a08f"
+    sha256 cellar: :any,                 ventura:       "588dcc354363e1e7ce54d1ec7171bbadacfba7f08822e15d623fda1dc82a0d64"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7e131a7b8240c9a62f98092b27c4a14d51d60122dc3c9d116a76f4bda9930d9"
+  end
+
   depends_on "nim" => :build
   depends_on "pkgconf" => :build
 
