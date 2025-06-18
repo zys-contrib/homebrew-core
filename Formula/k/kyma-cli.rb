@@ -1,8 +1,8 @@
 class KymaCli < Formula
   desc "Kyma command-line interface"
   homepage "https://kyma-project.io"
-  url "https://github.com/kyma-project/cli/archive/refs/tags/3.0.0.tar.gz"
-  sha256 "b92eb18d96d4a47e581dde9fca3fc084c5d52af342a8dc6eb682a09b3e5b12ef"
+  url "https://github.com/kyma-project/cli/archive/refs/tags/3.0.1.tar.gz"
+  sha256 "503a7a248e6c5bca55ddaf2366203c7e6f161335bcce9dc253d88e381c48732b"
   license "Apache-2.0"
   head "https://github.com/kyma-project/cli.git", branch: "main"
 
