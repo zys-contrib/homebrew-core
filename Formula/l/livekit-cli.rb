@@ -1,8 +1,8 @@
 class LivekitCli < Formula
   desc "Command-line interface to LiveKit"
   homepage "https://livekit.io"
-  url "https://github.com/livekit/livekit-cli/archive/refs/tags/v2.4.11.tar.gz"
-  sha256 "b09134d4cc908c7a7d5aed8e7b46ad016c606b11caf6b9d19ec33a139fac190d"
+  url "https://github.com/livekit/livekit-cli/archive/refs/tags/v2.4.12.tar.gz"
+  sha256 "9f0c6c6cff2e9293ff346b73ec20c2043c74d0c4c01664b77a94fb783b52ed28"
   license "Apache-2.0"
   head "https://github.com/livekit/livekit-cli.git", branch: "main"
 
@@ -16,12 +16,6 @@ class LivekitCli < Formula
   end
 
   depends_on "go" => :build
-
-  # version patch, upstream pr ref, https://github.com/livekit/livekit-cli/pull/596
-  patch do
-    url "https://github.com/livekit/livekit-cli/commit/8e7e8070891df936b93a9fe2be65d0b3006ec76a.patch?full_index=1"
-    sha256 "df5c8bb76e062ac7b7102419033ea4f38a4b897db64dfe8fc84acc2023b1682d"
-  end
 
   def install
     ldflags = "-s -w"
