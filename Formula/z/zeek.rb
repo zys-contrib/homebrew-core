@@ -47,26 +47,28 @@ class Zeek < Formula
     # Avoid references to the Homebrew shims directory
     inreplace "auxil/spicy/hilti/toolchain/src/config.cc.in", "${CMAKE_CXX_COMPILER}", ENV.cxx
 
-    # Benchmarks are not installed, but building them on Linux breaks in the
-    # bundled google-benchmark dependency. Exclude the benchmark targets and
-    # their library dependencies.
-    #
-    # TODO: Revisit this for the next release including
-    # https://github.com/zeek/spicy/pull/2068. With that patch we should be
-    # able to disable test and benchmark binaries with a CMake flag.
-    inreplace "auxil/spicy/hilti/runtime/CMakeLists.txt",
-      "add_executable(hilti-rt-fiber-benchmark src/benchmarks/fiber.cc)",
-      "add_executable(hilti-rt-fiber-benchmark EXCLUDE_FROM_ALL src/benchmarks/fiber.cc)"
-    inreplace "auxil/spicy/spicy/runtime/tests/benchmarks/CMakeLists.txt",
-      "add_executable(spicy-rt-parsing-benchmark parsing.cc ${_generated_sources})",
-      "add_executable(spicy-rt-parsing-benchmark EXCLUDE_FROM_ALL parsing.cc ${_generated_sources})"
-    inreplace "auxil/spicy/3rdparty/justrx/src/tests/CMakeLists.txt",
-      "add_executable(bench benchmark.cc)",
-      "add_executable(bench EXCLUDE_FROM_ALL benchmark.cc)"
-    (buildpath/"auxil/spicy/3rdparty/CMakeLists.txt").append_lines <<~CMAKE
-      set_target_properties(benchmark PROPERTIES EXCLUDE_FROM_ALL ON)
-      set_target_properties(benchmark_main PROPERTIES EXCLUDE_FROM_ALL ON)
-    CMAKE
+    unless build.head?
+      # Benchmarks are not installed, but building them on Linux breaks in the
+      # bundled google-benchmark dependency. Exclude the benchmark targets and
+      # their library dependencies.
+      #
+      # This is fixed on Zeek's `master` branch and will be available with
+      # zeek-8.0. There there is a CMake variable `SPICY_ENABLE_TESTS` which
+      # defaults to `OFF`.
+      inreplace "auxil/spicy/hilti/runtime/CMakeLists.txt",
+        "add_executable(hilti-rt-fiber-benchmark src/benchmarks/fiber.cc)",
+        "add_executable(hilti-rt-fiber-benchmark EXCLUDE_FROM_ALL src/benchmarks/fiber.cc)"
+      inreplace "auxil/spicy/spicy/runtime/tests/benchmarks/CMakeLists.txt",
+        "add_executable(spicy-rt-parsing-benchmark parsing.cc ${_generated_sources})",
+        "add_executable(spicy-rt-parsing-benchmark EXCLUDE_FROM_ALL parsing.cc ${_generated_sources})"
+      inreplace "auxil/spicy/3rdparty/justrx/src/tests/CMakeLists.txt",
+        "add_executable(bench benchmark.cc)",
+        "add_executable(bench EXCLUDE_FROM_ALL benchmark.cc)"
+      (buildpath/"auxil/spicy/3rdparty/CMakeLists.txt").append_lines <<~CMAKE
+        set_target_properties(benchmark PROPERTIES EXCLUDE_FROM_ALL ON)
+        set_target_properties(benchmark_main PROPERTIES EXCLUDE_FROM_ALL ON)
+      CMAKE
+    end
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DBROKER_DISABLE_TESTS=on",
