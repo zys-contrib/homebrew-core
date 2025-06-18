@@ -11,13 +11,13 @@ class Btcli < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7a855c3b77bc12b92d18e3bb279885368adbc44d137109d0e7cb7289a926197b"
-    sha256 cellar: :any,                 arm64_sonoma:  "c2a6d8207d25da2ea01199c9b2772bc0c1e130eccf3513c3f464e70280c715dd"
-    sha256 cellar: :any,                 arm64_ventura: "9f5187a2f102d812739f1660610bc0ca4a2e20316c139b2765ee23cf9e8c6fb4"
-    sha256 cellar: :any,                 sonoma:        "50e99fac804d53b59676963cfdb999b15a72fb048e8e95da99a9055f2aaf72a0"
-    sha256 cellar: :any,                 ventura:       "c95abb5c50538b523f1d808f2f10bf712209703a3e25efbcbb2d21cfe7c4ea55"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6fa7eabc4a7d131ff0d2652e92ad796e3faffccd923674e38b143f5ccddcd64b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f6a2a5fe0b58e2d402e67e3d3b75a5cf2e9fef272e5314c27b1f1c609d686304"
+    sha256 cellar: :any,                 arm64_sequoia: "e844c6d1a3c7bb3b9ff5af4fca25f5438b71839c3a84f78ed58c5a617d912db0"
+    sha256 cellar: :any,                 arm64_sonoma:  "c5eed24e4219bcc2adf70ff68e0e1eec0e75acce55136c1fc63b41e7a14ffc49"
+    sha256 cellar: :any,                 arm64_ventura: "113c276a6bbe8d4626f6904f0f771d5edae4a200639fc5e81d4a4ea844aab692"
+    sha256 cellar: :any,                 sonoma:        "d4b6bbd4e954200a6479a630b8e6066d33b11b98d7b7b0382a7711026169d5da"
+    sha256 cellar: :any,                 ventura:       "a7cb57fe1b9871c97fa5c9b7304377a76c6d09765bc0cc51fa41f4778cc85d14"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1a826f142833ea0404d54e01fbc9475f6bd39311d55208cc0f4b7219e55a7155"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d2ce3b582f41045e786208e70027d684b63673d2799a9bfa4a615eb1643a7d39"
   end
 
   depends_on "cmake" => :build # for Levenshtein
