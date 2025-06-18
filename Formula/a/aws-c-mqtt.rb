@@ -1,8 +1,8 @@
 class AwsCMqtt < Formula
   desc "C99 implementation of the MQTT 3.1.1 specification"
   homepage "https://github.com/awslabs/aws-c-mqtt"
-  url "https://github.com/awslabs/aws-c-mqtt/archive/refs/tags/v0.13.1.tar.gz"
-  sha256 "c54d02c1e46f55bae8d5e6f9c4b0d78d84c1c9d9ac16ba8d78c3361edcd8b5bb"
+  url "https://github.com/awslabs/aws-c-mqtt/archive/refs/tags/v0.13.2.tar.gz"
+  sha256 "8d22b181e4c90f5c683e786aadb9fb59a30a699c332e96e16595216ef9058c2f"
   license "Apache-2.0"
 
   bottle do
