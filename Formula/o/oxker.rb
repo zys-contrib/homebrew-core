@@ -1,8 +1,8 @@
 class Oxker < Formula
   desc "Terminal User Interface (TUI) to view & control docker containers"
   homepage "https://github.com/mrjackwills/oxker"
-  url "https://github.com/mrjackwills/oxker/archive/refs/tags/v0.10.3.tar.gz"
-  sha256 "6d27d6e9dfbe38270560751f932cd72659b73d4891117042aa21eba800f2ad9e"
+  url "https://github.com/mrjackwills/oxker/archive/refs/tags/v0.10.4.tar.gz"
+  sha256 "97c124e29b8ee3e92162c23f34aca78f585fed1a49727d865f06d5c02348805c"
   license "MIT"
   head "https://github.com/mrjackwills/oxker.git", branch: "main"
 
