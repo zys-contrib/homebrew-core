@@ -6,7 +6,7 @@ class Htmlhint < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "3f5ebb82dd16fe33087e689cb0c3f2dd80b23a6f6d3c036680abe4d86bd09669"
+    sha256 cellar: :any_skip_relocation, all: "dfa94b36bec4e6b9609447ea44b30462fc1d1e8d2a190ead942e156b1cb30762"
   end
 
   depends_on "node"
