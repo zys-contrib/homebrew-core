@@ -8,8 +8,8 @@ class Bind < Formula
   # "version_scheme" because someone upgraded to 9.15.0, and required a
   # downgrade.
 
-  url "https://downloads.isc.org/isc/bind9/9.20.9/bind-9.20.9.tar.xz"
-  sha256 "3d26900ed9c9a859073ffea9b97e292c1248dad18279b17b05fcb23c3091f86d"
+  url "https://downloads.isc.org/isc/bind9/9.20.10/bind-9.20.10.tar.xz"
+  sha256 "0fb3ba2c337bb488ca68f5df296c435cd255058fb63d0822e91db0235c905716"
   license "MPL-2.0"
   version_scheme 1
   head "https://gitlab.isc.org/isc-projects/bind9.git", branch: "main"
