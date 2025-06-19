@@ -1,8 +1,8 @@
 class Tevent < Formula
   desc "Event system based on the talloc memory management library"
   homepage "https://tevent.samba.org"
-  url "https://www.samba.org/ftp/tevent/tevent-0.16.2.tar.gz"
-  sha256 "f0bbd29dfabbcbbce9f4718fc165410cdd4f7d8ee1f3dfc54618d4c03199cea3"
+  url "https://www.samba.org/ftp/tevent/tevent-0.17.0.tar.gz"
+  sha256 "7702fb373b69da2960b86134b6a9ec6fa0b949a01756fec00a4a6a43575c8361"
   license "LGPL-3.0-or-later"
 
   livecheck do
