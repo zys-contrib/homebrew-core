@@ -6,7 +6,7 @@ class Kaskade < Formula
   url "https://files.pythonhosted.org/packages/b5/6a/4a51af28c5537eb45ab7199a3220e25385171767e86ffabfb908ced2635e/kaskade-4.0.5.tar.gz"
   sha256 "7eedc2040f8c32a1870dcd1018ac0e20e4feab3b9a45a8152764dcc11a6e860e"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/sauljabin/kaskade.git", branch: "main"
 
   bottle do
@@ -46,8 +46,8 @@ class Kaskade < Formula
   end
 
   resource "cachetools" do
-    url "https://files.pythonhosted.org/packages/c0/b0/f539a1ddff36644c28a61490056e5bae43bd7386d9f9c69beae2d7e7d6d1/cachetools-6.0.0.tar.gz"
-    sha256 "f225782b84438f828328fc2ad74346522f27e5b1440f4e9fd18b20ebfd1aa2cf"
+    url "https://files.pythonhosted.org/packages/8a/89/817ad5d0411f136c484d535952aef74af9b25e0d99e90cdffbe121e6d628/cachetools-6.1.0.tar.gz"
+    sha256 "b4c4f404392848db3ce7aac34950d17be4d864da4b8b66911008e430bc544587"
   end
 
   resource "charset-normalizer" do
@@ -66,8 +66,8 @@ class Kaskade < Formula
   end
 
   resource "confluent-kafka" do
-    url "https://files.pythonhosted.org/packages/a0/c5/22087627478d2cc97b864dd1774c1e2d4007acc22b8f78aec5a7a41f6436/confluent_kafka-2.10.0.tar.gz"
-    sha256 "30a346908f3ad49c4bc1cb5557e7a8ce484190f8633aa18f9b87b2620809ac13"
+    url "https://files.pythonhosted.org/packages/97/0e/8a2e69d0d7fd4f00488856fc6ffa2b525233fba559885daf9c808514ba11/confluent_kafka-2.10.1.tar.gz"
+    sha256 "536c76f6c39a93c367a70016781cf7e73808300228b8e33b444c846fdef801e4"
   end
 
   resource "fastavro" do
@@ -176,8 +176,8 @@ class Kaskade < Formula
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/6d/96/02751746cf6950e9e8968186cb42eed1e52d91e2c80cc52bb19589e25900/textual-3.3.0.tar.gz"
-    sha256 "aa162b92dde93c5231e3689cdf26b141e86a77ac0a5ba96069bc9547e44119ae"
+    url "https://files.pythonhosted.org/packages/1b/cf/b4a02ae702ccb3ba0e5de0aaf3197f95585f480ce9f6ed0a5936f6eb2609/textual-3.4.0.tar.gz"
+    sha256 "f697c3b9371bbc30c11453a094d700e95cf7c2115f68bad35f0249de67996c99"
   end
 
   resource "typing-extensions" do
@@ -191,8 +191,8 @@ class Kaskade < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
-    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   def install
