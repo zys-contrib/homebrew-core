@@ -11,13 +11,13 @@ class MetaPackageManager < Formula
   head "https://github.com/kdeldycke/meta-package-manager.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "91dec132db597dcfe52a5c044ea80525e088eb5e1fd4401dab94c50f81aee33a"
-    sha256 cellar: :any,                 arm64_sonoma:  "ccd913205ae3b36d475e17fef41013c2b5b307c963b635f6a614fbdc7b1db1b3"
-    sha256 cellar: :any,                 arm64_ventura: "f35566bd8fece7883d78d17515ff34eb2ca57f76ecd9142b18ad40c5530cbb39"
-    sha256 cellar: :any,                 sonoma:        "f52e6fe74c5e50a1034316e2164a798888321624b0e1c5eb5c8a83bb97451143"
-    sha256 cellar: :any,                 ventura:       "117d4c29f673a86e0424afac3f3c2731a09a7a1e0ec3e2088780d2a942534c5d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9de9fbdb0ad16ad6a6fa7365bd7d3e7b43599ad6071eba452aeb4b3d6ad53a62"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6236e4c92aa2ab3772ab121659249a47e513025066e99e982ed9a995e142180b"
+    sha256 cellar: :any,                 arm64_sequoia: "3b76194c131eec7f94c39eb56af545aca112f7a2abab10b190f2473d161f8716"
+    sha256 cellar: :any,                 arm64_sonoma:  "b8dd2d1ee0388db84b26a3b1ec2ea0d37eee72f5ce50ce2821d4c4a145fbec60"
+    sha256 cellar: :any,                 arm64_ventura: "3c09ac51da7a00f7b733440d9d7630226cf68a45d85ef8ba27aa371f2e76f565"
+    sha256 cellar: :any,                 sonoma:        "fb3b8eee8b71b57c7164d96c1efcf01df3fcd8d486a42839f3c64f5b9fcfd6e5"
+    sha256 cellar: :any,                 ventura:       "2c811dd3897778fb90dce7a74a6f31907bd945592a637b80a0bc55f9c45f4b09"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "55a2543423f626da0297a66a9cc64fec0f4e8c1faaa853a01e149136e6a33d86"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bb0f47a483a944b6baab6f6f0c2c981217f5d73c627ca95330c67e7433196b43"
   end
 
   depends_on "rust" => :build # for rpds-py
