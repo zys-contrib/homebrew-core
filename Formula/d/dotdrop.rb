@@ -11,13 +11,13 @@ class Dotdrop < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "08042de4c0ede1385937c384ac1dc5067625578ae65745918fb7237feca8ec16"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "71bfc7f0ccd8ed7ce1dc24505318774d419358c327fd0b0bc83fd98a3aa753d3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1dd6d5567d3c558ca5fe42d9f5e562f89988ef9049026722d13f287f2db7a9a7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2c364ed720da7502a081e25e938b6d0302560bb5be8279a546c7ecb1de5a5657"
-    sha256 cellar: :any_skip_relocation, ventura:       "c31b3366cdf96a7e99502a6b01a7d1605c83adcfbe7b97a773c6a2fc4b9cf133"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e937e2842688cbff6b5006a770b2170f1b2bcef9441a5cbe4c297dedc66ed5e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "04313eb9e1ef4f2470c84515f97c919142e020b7799b2a8ea2ed9b61dfd3f3af"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "599f338d0d361a3062194e842c1c361fc7c9424379a4bd8b515ba86a918046c7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "25a0505ab974e9bb7239bd52903a3b1c5bfe4f3280ac1427707491b83798e694"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "60161674d744173b618ee9344e8fa0e96372de9b8a5da0578f29c6ff6c352bda"
+    sha256 cellar: :any_skip_relocation, sonoma:        "311b8482ac961cd84a4844f1630b045d5c2795e9f7e41a57070b80912657b068"
+    sha256 cellar: :any_skip_relocation, ventura:       "51ae972a4796c694a380f2c596330554d2d160c010aad0b633c382c8c6ddfdb3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4c46f020d352431bd1dd2d12e24fb6cc4f46489588737bc397b4b7357ceea925"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "959f783fa9de2bc361999c65733ee7408726d468dec4dbe51051f671c2c7af83"
   end
 
   depends_on "certifi"
