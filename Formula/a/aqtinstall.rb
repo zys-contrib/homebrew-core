@@ -9,13 +9,13 @@ class Aqtinstall < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1800c98a44ca9f747a7cf2ce8e02ac2d59ce2942bf6af9ccf64a295061eee450"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d13e0b5e6231b627572bdadb2aa9dd21efd21f5ba3c60871331af940dc1217f6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3fef848cbf9f5fb81f2af90c70d283dc7c46afd272d0d797a227701f4025c9e5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4ddfe08ab2fc3f6f10a5e6158cb9a7b1cf4f75ab5dd1bad37901b22ebcca4f27"
-    sha256 cellar: :any_skip_relocation, ventura:       "8fc3dd98f7fc6a4a6b9bf7be0eef1966aaff6b5aa6d8d82eafe4bfb6f3231a82"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "70568ba0757903863362359b25482e4a0d5a797146eb869dd55230c3417ed089"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07aa400bab836bf643bb068bc9c530ce337485553321ee1433f1911769a97287"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d607df4d563b4832c9543c3b857326d1c1f6aefa08f5d4b7832545c1dad463bf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "84379db7347c71f2dfce9c28fd417c94af3dbc7054d7c5b5ae29cb56b3817120"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c3e05c8ae9d66a3230add1eaffab7c7b1f35482910b86e5e8f45c7e0d960a8e8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "12fd27eb1bbfaf24af4d9568bb6469765ed1a0bc250631fbffe1c90357ea338c"
+    sha256 cellar: :any_skip_relocation, ventura:       "c28fe34be333e0146003283deb7665df49c46c417b07c0aa0806a425b19a7f4f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "06bad6f0be45f822558d0322cc1fc16ed27f9435914d0d0abf3643f517ea179d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65edf6bbb4646c2c54f254e8889c3fbaf7ccb889e84699f5292f14b0edf867c9"
   end
 
   depends_on "python@3.13"
