@@ -11,13 +11,13 @@ class Airshare < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d38659e242909f9b0c97ec3e5ccb37597b0df71068facdef398d7f3d89c2b68b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7b0b915618d820866bc4d1f4f159a278df6ee3eddc933d37c1b569c7138b2833"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6516cb932a1f57aca5fbd37a0cf5df33de5c76c959d23ddd809913fc1b119a54"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5551b05af92257ae7ddf8eb285a336dcea9cca186643afd63c12c93b9a299c61"
-    sha256 cellar: :any_skip_relocation, ventura:       "ce720d0756d630ac0e926c39ae2685e13deb1dfb3eb2aaf5bbd3d90e7629e213"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c769f20c08acbeef2fe4e811fc36a7050d6d2ccacb023b6b8d5034ed8050be8a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "177b713cb8748755563c838899c055434d0685769481c8554b354886fd72fc4b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "943a48469f97b9e9edaad7520cab605f75ad91078f81a1406c5f8a36a2dcf18f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "410fda2633833000989fa212adde23b7f904683a66279eeb959fbe712659495e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e6a8eba479fcadfee6bb0e2b7c9a02d4a9531861980fdae0858c59cca578245a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5d6d1530a125d3839e0e9b101122c420d86fb564d43a38c8f81f5970c772e60e"
+    sha256 cellar: :any_skip_relocation, ventura:       "dbfaa54f18f9fb3c08a6f5d07b7d5c0cacccbbf6d1f6324294f797e1e4b18dae"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ca8dbfe91e37a9287a804622a1392dc25eaf20256b03506b3172704f15cf221b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f6a842d22dd74de4a9b4c5038607e8f94479f14bb0c762dd2d824699f8ced6ee"
   end
 
   depends_on "python@3.13"
