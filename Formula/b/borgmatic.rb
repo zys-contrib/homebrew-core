@@ -6,7 +6,7 @@ class Borgmatic < Formula
   url "https://files.pythonhosted.org/packages/86/8c/0a80f219d9ca4c70cf345489b55a9c3e5c859c4d7bc99675ac1bc09eadb7/borgmatic-2.0.6.tar.gz"
   sha256 "cb102d0fbb0a3a8d2fa04f01bdf2f41c6b273f42f6b1cd5fd1481704db7f6905"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "e98c544410321956a6a96762731331a60983cda901db405a87547fe7d5441e8c"
@@ -78,8 +78,8 @@ class Borgmatic < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
-    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   def install
