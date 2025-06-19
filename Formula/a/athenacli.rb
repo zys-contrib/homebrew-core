@@ -11,8 +11,7 @@ class Athenacli < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "24bd2caf184bd92d6750107fd8e234adf75aa78bedc755972c488ba76f8daae4"
+    sha256 cellar: :any_skip_relocation, all: "5a240ff69a31aa6396802d1e0722e4d86073261d0b61105fb1dbb3a2d9ac94ee"
   end
 
   depends_on "python@3.13"
