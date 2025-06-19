@@ -3,8 +3,8 @@ class Localai < Formula
 
   desc "OpenAI alternative"
   homepage "https://localai.io"
-  url "https://github.com/mudler/LocalAI/archive/refs/tags/v2.28.0.tar.gz"
-  sha256 "b75f7cffb3b105c1f5e7cd4aa2d5c18cf461b6af0977d150d654d596f1dc8d79"
+  url "https://github.com/mudler/LocalAI/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "dfe1cc4fee4f7116b2a40300e2c3b31c0244a91ef42b8af625bcc79b49f59172"
   license "MIT"
   head "https://github.com/mudler/LocalAI.git", branch: "master"
 
@@ -20,6 +20,7 @@ class Localai < Formula
   depends_on "abseil" => :build
   depends_on "cmake" => :build
   depends_on "go" => :build
+  depends_on "go-rice" => :build
   depends_on "grpc" => :build
   depends_on "protobuf" => :build
   depends_on "protoc-gen-go" => :build
@@ -27,8 +28,8 @@ class Localai < Formula
   depends_on "python@3.13" => :build
 
   resource "grpcio-tools" do
-    url "https://files.pythonhosted.org/packages/05/d2/c0866a48c355a6a4daa1f7e27e210c7fa561b1f3b7c0bce2671e89cfa31e/grpcio_tools-1.71.0.tar.gz"
-    sha256 "38dba8e0d5e0fb23a034e09644fdc6ed862be2371887eee54901999e8f6792a8"
+    url "https://files.pythonhosted.org/packages/0b/62/5f7d3a6d394a7d0cf94abaa93e8224b7cdbc0677bdf2caabd20a62d4f5cb/grpcio_tools-1.73.0.tar.gz"
+    sha256 "69e2da77e7d52c7ea3e60047ba7d704d242b55c6c0ffb1a6147ace1b37ce881b"
   end
 
   def python3
