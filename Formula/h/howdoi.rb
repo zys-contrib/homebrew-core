@@ -11,13 +11,13 @@ class Howdoi < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5556eff975c34c0df9feaf9ecd8c2cebc6f68666d5368c14a8c2c99f949d128e"
-    sha256 cellar: :any,                 arm64_sonoma:  "04ac64e8f96b0eb00d9b97ba0be6a68e584c28c0363afb6b748e9b029a941c84"
-    sha256 cellar: :any,                 arm64_ventura: "d2daf2734d312911569a0c7916c3a074d047fec78fefcfd84cd0fd2a6e0c30cb"
-    sha256 cellar: :any,                 sonoma:        "07593689cedf57ce83e4d31c21e2bc76ded669e5fb26b3cf9ad5b511a4fefe8c"
-    sha256 cellar: :any,                 ventura:       "72953deabb173697a99b74b5351e25aba5a32434e69cca3925dd06eef9cf4113"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d5b9dd665be4baeca5dc9f852ad536d5f055cbec092dc401e17abb3f8b8d595d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eef43b32e1bf231d4c9fe1829e847134caaa71b80b4011da3622e961ac56d392"
+    sha256 cellar: :any,                 arm64_sequoia: "a54cdb278b5e996d327c50f5014f1d92382e45950a5e9f9ee4d30a6ac9ee4bfd"
+    sha256 cellar: :any,                 arm64_sonoma:  "0e05063e5a28811e3d295ee5ef59e6d7aa3a4a93f9a87d42beb020a3929e3017"
+    sha256 cellar: :any,                 arm64_ventura: "02bde8e2e75760ef734b43af77b712c762297dd166d739181e2058536afe79b9"
+    sha256 cellar: :any,                 sonoma:        "44dd7e7ca1493f4440892896fc2db11d69d1a08315a3897b3713ddb49e4f9c4f"
+    sha256 cellar: :any,                 ventura:       "f1caca3bed29d1126017419143394f358418f08cf1987ade4162f01806a358c8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c572ed8ff55309757e6ffa02d7c77dc6c01c8745157831d6ebbfcb03c88a41fb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4044b26cd5dc33232f489a21510012e386391d3697b97de414ff1c77aaa2b309"
   end
 
   depends_on "certifi"
