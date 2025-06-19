@@ -11,13 +11,12 @@ class AwscliLocal < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b5809a256a92eec1365a7c9f071656a6893295fccf3160a00b29b284bd58b27b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b5809a256a92eec1365a7c9f071656a6893295fccf3160a00b29b284bd58b27b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b5809a256a92eec1365a7c9f071656a6893295fccf3160a00b29b284bd58b27b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7c1b34601976db26914738467119a50373a1d81f13eb915c4ec9364b95223ef2"
-    sha256 cellar: :any_skip_relocation, ventura:       "7c1b34601976db26914738467119a50373a1d81f13eb915c4ec9364b95223ef2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5809a256a92eec1365a7c9f071656a6893295fccf3160a00b29b284bd58b27b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d74091e363168f1b2e59db8592248b9cafe5512270e7ce82053c3869a962ef54"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d74091e363168f1b2e59db8592248b9cafe5512270e7ce82053c3869a962ef54"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d74091e363168f1b2e59db8592248b9cafe5512270e7ce82053c3869a962ef54"
+    sha256 cellar: :any_skip_relocation, sonoma:        "57413987d73cbf61c0d836dde0d775941ba1dc784473ef102b21b3f078cf7207"
+    sha256 cellar: :any_skip_relocation, ventura:       "57413987d73cbf61c0d836dde0d775941ba1dc784473ef102b21b3f078cf7207"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d74091e363168f1b2e59db8592248b9cafe5512270e7ce82053c3869a962ef54"
   end
 
   depends_on "awscli" => :test # awscli-local can work with any version of awscli
