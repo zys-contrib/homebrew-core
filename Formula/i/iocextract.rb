@@ -12,13 +12,13 @@ class Iocextract < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "10e966846d98d6ed172406aef7361d6133a6294e8a85ba9e208439a6b20324fc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "24264d9de289813a4ff0ba5f2c13a627406865c6a132cd32299c2f9ff926bab6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "cb402c4aab73475a1b010a7c79afba3a072bd64673c95e577cdfae06741e8ac9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "24fb0c25b6e82a36ffc21f8cfbdd808d9edb77b3c732f8901e3af963b9a8abd1"
-    sha256 cellar: :any_skip_relocation, ventura:       "10ad09f738cc9a67c86bc2bd24457676292ead6073a1013407793e4f55910026"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9f0b19b12d2dae8bec0f80bd5b0d597c68ba4eea0acad10b2e0c0d228d7c5b76"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1ad5406107eceaf48f7a92b5125b0a631ee2e63fc0e33f693f03d30778a3e8ef"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9201c8ee75261633b76636bb1e7d051d8c71ea2d2910d681ece7bceccad75f3a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7b3831b339d144ed98f9c483a690db69433fc95a26672d8c3db0054b6d5ad5b9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "525e6ee333e21f8017f19e516de4a0e18bcccf85f014dee030806917f0464c2e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fcfdc5526ade0f51277f83ae66ab64bf0c9ce843e576e28aef18bfdd78433e2c"
+    sha256 cellar: :any_skip_relocation, ventura:       "a87de6601c6811989dec795aff47c6669848e79374cfdd93d7d2e15a39cc59a7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ce5d3655d0e9883a3b9e66133cfc06478e12564524a3dc15e58389523b34582f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc7d6d5e1a009d6971338f0890ed8c36474aa646d1c292820bd02735895313a7"
   end
 
   depends_on "certifi"
