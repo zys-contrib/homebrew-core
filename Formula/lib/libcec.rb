@@ -1,8 +1,8 @@
 class Libcec < Formula
   desc "Control devices with TV remote control and HDMI cabling"
   homepage "https://libcec.pulse-eight.com/"
-  url "https://github.com/Pulse-Eight/libcec/archive/refs/tags/libcec-7.0.0.tar.gz"
-  sha256 "7f9e57ae9fad37649adb6749b8f1310a71ccf3e92ae8b2d1cc9e8ae2d1da83f8"
+  url "https://github.com/Pulse-Eight/libcec/archive/refs/tags/libcec-7.1.0.tar.gz"
+  sha256 "7fd60dfd25b0b116c58439bb70158c1d5fd8fd492ad2a1a3b39b826bb50b54f6"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -22,6 +22,11 @@ class Libcec < Formula
   resource "p8-platform" do
     url "https://github.com/Pulse-Eight/platform/archive/refs/tags/p8-platform-2.1.0.1.tar.gz"
     sha256 "064f8d2c358895c7e0bea9ae956f8d46f3f057772cb97f2743a11d478a0f68a0"
+
+    livecheck do
+      url "https://github.com/Pulse-Eight/platform.git"
+      regex(/^p8-platform[._-]v?(\d+(?:\.\d+)+)$/i)
+    end
   end
 
   def install
@@ -37,6 +42,10 @@ class Libcec < Formula
     end
 
     resource("p8-platform").stage do
+      # upstream commit, https://github.com/Pulse-Eight/platform/commit/d7faed1c696b1a6a67f114a63a0f4c085f0f9195
+      ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+      odie "remove CMAKE_POLICY_VERSION_MINIMUM env" if resource("p8-platform").version > "2.1.0.1"
+
       system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *cmake_args
       system "cmake", "--build", "build"
       system "cmake", "--install", "build"
