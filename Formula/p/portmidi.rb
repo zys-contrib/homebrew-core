@@ -1,13 +1,10 @@
 class Portmidi < Formula
   desc "Cross-platform library for real-time MIDI I/O"
   homepage "https://github.com/PortMidi/portmidi"
-  url "https://github.com/PortMidi/portmidi/archive/refs/tags/v2.0.4.tar.gz"
-  sha256 "64893e823ae146cabd3ad7f9a9a9c5332746abe7847c557b99b2577afa8a607c"
+  url "https://github.com/PortMidi/portmidi/archive/refs/tags/v2.0.6.tar.gz"
+  sha256 "81d22b34051621cd56c8d5ef12908ef2a59764c9cdfba6dae47aabddb71ac914"
   license "MIT"
-  revision 1
   version_scheme 1
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "a02a8f130081aeda7fd82a826b510f4b2afdcf7af21cffe1d22963fcd3560065"
@@ -27,16 +24,6 @@ class Portmidi < Formula
 
   on_linux do
     depends_on "alsa-lib"
-  end
-
-  # Upstream patch, should be included in 2.0.5
-  # Fixes the following CMake error:
-  # The link interface of target "PortMidi::portmidi" contains:
-  #  Threads::Threads
-  # but the target was not found.
-  patch do
-    url "https://github.com/PortMidi/portmidi/commit/a47be8c58b25e2c122588e0b56306c0cfdce756c.patch?full_index=1"
-    sha256 "aeeb22a3809fb79d370003936a6d5b110d33cfc88b39fc0f83d060e1b79dab4c"
   end
 
   def install
