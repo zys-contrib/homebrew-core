@@ -10,13 +10,13 @@ class Duplicity < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5543e32ce82fd7bbbf389565c00a7159f3cf303d5eb047da47f1679e942d903e"
-    sha256 cellar: :any,                 arm64_sonoma:  "adcad19340f8e1d64f54aa06e1152887bb5282373759ebe5badef8f0888ac930"
-    sha256 cellar: :any,                 arm64_ventura: "79d395b5b738c27844033f2b1341af9c8ce312042b550f19b33a59328255cc20"
-    sha256 cellar: :any,                 sonoma:        "7a3e34120d8ab314a1d1f57de15ad8653f4ac5b2d485cc69acc81a66daf26841"
-    sha256 cellar: :any,                 ventura:       "df1c485d16b843b9994bc4bdc9c25a3e5a2c18ef0fca6c0abe8d6b619365f437"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fa06657ba417eb8695b14d4d431bb22e368ccbe3c2883b05112f5816273b03a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dfc471b4aa51144d2f326b8b680d981aad058b38963541e406171defba64e906"
+    sha256 cellar: :any,                 arm64_sequoia: "791b48b07441ac3e8b2bd10b189d48db40b550c3fe4bd3862aa8a636d2a2c528"
+    sha256 cellar: :any,                 arm64_sonoma:  "44c985dd6751c26db2e76db0c40e22d35000fe5a172a8cc3f5d4d1889c463cab"
+    sha256 cellar: :any,                 arm64_ventura: "4d123387b82d5531c61ce0b7d45600fd1b5ec7e8648caebff3e98f596ae114fb"
+    sha256 cellar: :any,                 sonoma:        "487b5e658c92137f06165d6f419c4b449d573785409e8ca09a24b5bf27738c07"
+    sha256 cellar: :any,                 ventura:       "19d77f566bcc82f0dec0d005d4999639d7be4017c38dcdc9712bccbe41cbb9ca"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "de14cc7d9b5e5f6d2edc17d211ba658776a65ba3bdfcd3d3009fa20d0bc9bd69"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "779292e42fc42bd46834974991b19d8df2f75796fbb7cd51acf65c576881f969"
   end
 
   depends_on "gettext" => :build # for msgfmt
