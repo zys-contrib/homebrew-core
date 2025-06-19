@@ -3392,6 +3392,7 @@ shellcheck
 shellharden
 shellz
 shepherd
+sherif
 sherlock
 shfmt
 showcert
