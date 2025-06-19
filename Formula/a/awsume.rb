@@ -12,14 +12,13 @@ class Awsume < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "ab01aea5f6d99ac21764de55e673902787fc14ec96fada280a0c360bec574d4a"
-    sha256 cellar: :any,                 arm64_sonoma:  "b06023bea38dacbd5357be513bd216f43f4d5fe3972f024cd8d51761553032eb"
-    sha256 cellar: :any,                 arm64_ventura: "8d9db8a716aabe192870e491a0d94225231bbb1ab4a5093bd5462f7e60c8c036"
-    sha256 cellar: :any,                 sonoma:        "2bf690210a7c40da2e7106dfcb689afee281bcf26b1e40339d75f749dd227364"
-    sha256 cellar: :any,                 ventura:       "8fc54d5c65ee7e395dd2769036940187e04725c46ae89f010bec64c6537f6595"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "46de6558e11715bea82a933bc59b3cdce76b5a726aee4faf239688b0ea04c7d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2fbc4bce74d218a3e42fa282d7b7e5d1033b47bac6c16f4c97bedf24469cfa0"
+    sha256 cellar: :any,                 arm64_sequoia: "030e2f49997fed0235ca111b48944bd6f855eaa2d2c59cabd9ba247e22e5ef7c"
+    sha256 cellar: :any,                 arm64_sonoma:  "2ecc4d5fd1c6db43db69f746d3f6f1a9da807eda6514bb3c2769977ae2d9fb1b"
+    sha256 cellar: :any,                 arm64_ventura: "c85b9414c5695f72832ac4256ccf1b84b9bb6346b2956d7103a6c00307d4a036"
+    sha256 cellar: :any,                 sonoma:        "57080492ae76c7fc09457d829fb89b8f3e9df1301d3e3c0f9b461cbe4f8b2963"
+    sha256 cellar: :any,                 ventura:       "960c12f1976a0958516ae73e64c0f89bc3ab63f22f6e67caa136d525bce02101"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2b8581a1660f15ae4e36d19f4ff5d538ff1bead94da63d30f6fc1fd4c092bbeb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c69010da69cd156f883b7d9cacfce823861227c0a66f34fcac65ea38bf971aad"
   end
 
   depends_on "libyaml"
