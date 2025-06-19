@@ -12,13 +12,13 @@ class CodecovCli < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5b5bd1526ecfb25b6d23954b95b21a56e15a8a9b972b731c3ea5aa051e2295c3"
-    sha256 cellar: :any,                 arm64_sonoma:  "fec967ee3ef0c8462db33a408060fe24fe2312348983bfd3b3974e092dce7453"
-    sha256 cellar: :any,                 arm64_ventura: "daeb99e7b149654e093c60e84ef205918d968376b620aba659f3e442818d3a84"
-    sha256 cellar: :any,                 sonoma:        "6c1e4bac47549d7d297ae3a34a5368604c25d987be28300239e4c9c2b5df5b83"
-    sha256 cellar: :any,                 ventura:       "bed3efb52068ac475f9f089a1edded15ad185d3dc64fbc169f5b2552e6b61828"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a6b2732d5753b0ea53e465fce020c1f38517cd127cf657650e8802fa00ffa0f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c5266e46169fa78c2190466589d7d455d69824320153d9f7e29672409e459373"
+    sha256 cellar: :any,                 arm64_sequoia: "ec5fafb332973aa8663135efabd0d6091e9293faa713635ea4c5d850d4938bab"
+    sha256 cellar: :any,                 arm64_sonoma:  "c5f5670939d0b311cbc377dc8b953ffc02847d3bc1d69140f7a66a6aeff50415"
+    sha256 cellar: :any,                 arm64_ventura: "037551e31a523c03eb00779d6894bc1ce53c5a0702966903792c7832d4519a25"
+    sha256 cellar: :any,                 sonoma:        "9598ff14e6f0b89c651d1c6a2c25738ad07983ea20a9b8228a5b9ec6f3195e6e"
+    sha256 cellar: :any,                 ventura:       "cf57b5b73b4e64a01ee1c07531d3b5928e0ab118326fac7050806f41a9d98504"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a9bfd2caec063ad05d8b405dbb5f61dc93f0d8012e548e0d62e7da3dffea90d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45124a3898a9ff63ecf1e7919fd2ef88ea9b122a4e32d1262406cd8e2a509021"
   end
 
   depends_on "rust" => :build
