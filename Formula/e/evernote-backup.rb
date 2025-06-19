@@ -11,13 +11,13 @@ class EvernoteBackup < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c75cc66e5a495fe611aa9dbf89c88164fcdafb8f871a01c5b114447465f9b15b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aeddac93f09fe8b65c6f3b3623b137e587c432e82190d55281ab0c8eb4e4ec7a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a6a5ec3b0e34b9e4fb5ba960b4393e370ea75ef0489fa9ad9b2d6656acb122b7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "75aa26f205a78318ef8caee2a92b9bbe3efa3ac1e1cae2aa0d99573ceaca4372"
-    sha256 cellar: :any_skip_relocation, ventura:       "2089a26a8a7d9f47eb92c7ac2fa7a21c70bec848decbd1185dba2f7c97d5f446"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b95f6cde456462a8331c8063ab13f30ba9b93da131f27d2b4cc89ac0612193c8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aab8ed22b2174b9435f3986a14cd6e78003d98077c81701105fb62d8bf699fd4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7060917b0212fc5c5973287ee48ac45ca0eebcea78f76b5f001f5e40f078b78c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d672368149ed96daffbd216bb666d00226273d7d5e488504a19a13934f2e5084"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2eb9f36dc86fdd93876b0086f7a20117b71f6391bc155a8998c7e99766031b47"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4e775c13acf5894978f9078d754be052ee8fd2fb8d4520857bc266919167030e"
+    sha256 cellar: :any_skip_relocation, ventura:       "6f3124baa58fd60064dd9eca526b05d472ebb30f2ce7867d494e81c7b7b65f99"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4ea886c7450874e65a8463a7c64d71cdcc00c151cd2c32c62ed6b57a5c5d43a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bb860c214d98a8d6561649c738533bd2c3841812d7f18baf0b16661029427c40"
   end
 
   depends_on "certifi"
