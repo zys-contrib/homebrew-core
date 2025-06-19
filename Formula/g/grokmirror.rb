@@ -10,7 +10,7 @@ class Grokmirror < Formula
   head "https://github.com/mricon/grokmirror.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "7b8bbf3ab40f5d64b3cba22f26f4dc20a85b5fbb77a0113237447ee999e3e072"
+    sha256 cellar: :any_skip_relocation, all: "4de1569ba23de28ebadb9ef38e82f7f68fe3c60877fa522c68e106a0c18cc231"
   end
 
   depends_on "certifi"
