@@ -12,8 +12,7 @@ class GitRemoteCodecommit < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "57289c92fc9b5e8f368be1df7f694b0e14fbe801ead3a9818f8e9cbeba416cad"
+    sha256 cellar: :any_skip_relocation, all: "6403e992fba39a49e3faa313955b9066ec7459930147d24d3ba1e325de4d4855"
   end
 
   depends_on "python@3.13"
