@@ -1,9 +1,9 @@
 class Pkgconf < Formula
   desc "Package compiler and linker metadata toolkit"
   homepage "https://github.com/pkgconf/pkgconf"
-  url "https://distfiles.ariadne.space/pkgconf/pkgconf-2.4.3.tar.xz"
-  mirror "http://distfiles.ariadne.space/pkgconf/pkgconf-2.4.3.tar.xz"
-  sha256 "51203d99ed573fa7344bf07ca626f10c7cc094e0846ac4aa0023bd0c83c25a41"
+  url "https://distfiles.ariadne.space/pkgconf/pkgconf-2.5.0.tar.xz"
+  mirror "http://distfiles.ariadne.space/pkgconf/pkgconf-2.5.0.tar.xz"
+  sha256 "9f5f5f2d067b1c668d6cfd662791d8aae3ef06c670125601e39f1156bd3f409f"
   license "ISC"
 
   livecheck do
