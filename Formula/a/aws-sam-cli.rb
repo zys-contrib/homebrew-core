@@ -9,13 +9,13 @@ class AwsSamCli < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "74dc91e166893aad6fdf4eb351b7239a1e44a55f1f711c432c8c5d47ce55682f"
-    sha256 cellar: :any,                 arm64_sonoma:  "6d652c341e2f8e6b3f3b9400023988307ef3e5fd332934679cfa47559ec14e94"
-    sha256 cellar: :any,                 arm64_ventura: "e2baa2cc6ebc55eeb5e4c58fd4152e98a22b879fb1a92a3dfc99913668968367"
-    sha256 cellar: :any,                 sonoma:        "1fe36f8abc3d5eb8fdb8cf1829a2bd62f8224ba07acb816983248858b5b5b5be"
-    sha256 cellar: :any,                 ventura:       "cd1632ff68c47d2acf2db80fbfdd96c0a17bc20e6f08536616a663de26bee028"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4875a410c05864f5ddd3516d3bd62f4b7608faf6daf848afd83df421332fc201"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db96a7435e4ebc052da2ff5023158290155eb37fd1e63e918aa6cff8ccf35015"
+    sha256 cellar: :any,                 arm64_sequoia: "ab5da610edd0d49b3d03fda08da8c513f59267aca60ec0eb04b90577d80c2eb1"
+    sha256 cellar: :any,                 arm64_sonoma:  "ee2ab2edce10b1b533da8352e0ba842993417dddde84c0524bcbd086fca5ee26"
+    sha256 cellar: :any,                 arm64_ventura: "9738c80778e9ee00e7cfe939fd36826e2fee75cd1561ef4620df553bc02069ba"
+    sha256 cellar: :any,                 sonoma:        "8c6aafed7b35ce9a456e6fcb47de41eef06410cd3fe6b3a2d2eb2c377b9c913a"
+    sha256 cellar: :any,                 ventura:       "54d5fa09dfecc2afc713e875726f237ea6a7c65906924a28e4e9c80f509d54fd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e2eef2cdd433f3200ad9508d419873e99954e9c1a4e0b635a7eb8030fd8a115b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b948eb0ade353d5d63cbb22119f7e0e2f60f428a6e5cb1e3066bc2f66eb76275"
   end
 
   depends_on "pkgconf" => :build
