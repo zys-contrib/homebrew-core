@@ -80,20 +80,19 @@ class Openconnect < Formula
     system "make", "install"
   end
 
-  def caveats
-    s = <<~EOS
-      A `vpnc-script` has been installed at #{etc}/vpnc/vpnc-script.
-    EOS
-
-    s += if (etc/"vpnc/vpnc-script.default").exist?
-      <<~EOS
-
-        To avoid destroying any local changes you have made, a newer version of this script has
+  def post_install
+    if (etc/"vpnc/vpnc-script.default").exist?
+      opoo <<~EOS
+        To avoid destroying any local changes you have made, a newer version of `vpnc-script` has
         been installed as `vpnc-script.default`.
       EOS
-    end.to_s
+    end
+  end
 
-    s
+  def caveats
+    <<~EOS
+      A `vpnc-script` has been installed at #{etc}/vpnc/vpnc-script.
+    EOS
   end
 
   test do
