@@ -11,6 +11,7 @@ class Kingfisher < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "6a3ef8a03d5fade6934c8e6d7dcfc9c8ad08cd1c39650fda4a75f45f0d7768a5"
     sha256 cellar: :any_skip_relocation, sonoma:        "276fbd7389fcf55c5b628cc1fcb92b944d6d54d16274aadc9f5d115c6cc7380c"
     sha256 cellar: :any_skip_relocation, ventura:       "8c194d7846d281bee9ad974f41e9628d55637bd2f2ede1a157019b0dd3833ceb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7ddea66796e4dbfcb952c4fb5dd34663622d68e807ee260a527bb041a0a26c35"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b23f276ef14ea3c135027104c67b74d0fe54781d38e82cb49e413f0d08b3e07"
   end
 
