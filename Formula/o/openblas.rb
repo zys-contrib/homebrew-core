@@ -1,8 +1,8 @@
 class Openblas < Formula
   desc "Optimized BLAS library"
   homepage "https://www.openblas.net/"
-  url "https://github.com/OpenMathLib/OpenBLAS/archive/refs/tags/v0.3.29.tar.gz"
-  sha256 "38240eee1b29e2bde47ebb5d61160207dc68668a54cac62c076bb5032013b1eb"
+  url "https://github.com/OpenMathLib/OpenBLAS/archive/refs/tags/v0.3.30.tar.gz"
+  sha256 "27342cff518646afb4c2b976d809102e368957974c250a25ccc965e53063c95d"
   # The main license is BSD-3-Clause. Additionally,
   # 1. OpenBLAS is based on GotoBLAS2 so some code is under original BSD-2-Clause-Views
   # 2. lapack-netlib/ is a bundled LAPACK so it is BSD-3-Clause-Open-MPI
