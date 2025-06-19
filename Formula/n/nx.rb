@@ -1,11 +1,9 @@
 class Nx < Formula
   desc "Smart, Fast and Extensible Build System"
   homepage "https://nx.dev"
-  url "https://registry.npmjs.org/nx/-/nx-21.2.0.tgz"
-  sha256 "187250adb2505d659caebf8644e9c47b185a4f7efba508d75b97ce0e515e2cca"
+  url "https://registry.npmjs.org/nx/-/nx-21.2.1.tgz"
+  sha256 "6b07809bf959112ad9c6764e6366a8d13bb445dc7674239381249cd2fd6901d1"
   license "MIT"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "3d69ab9b9ca6e037ee3cd91b7ac7105fa4b706b2301b38d48d5cd120186b1de8"
