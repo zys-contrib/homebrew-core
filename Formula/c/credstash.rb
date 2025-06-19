@@ -12,8 +12,7 @@ class Credstash < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "7e6b3ebdf98c6b6b822df0535c9c2b88f6aa118a4a431373eb49818705b72298"
+    sha256 cellar: :any_skip_relocation, all: "4e56325504c62536d06570183ad8d7251a003c40685ad6196ffed97f02276958"
   end
 
   depends_on "cryptography"
