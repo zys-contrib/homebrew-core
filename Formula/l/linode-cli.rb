@@ -6,7 +6,7 @@ class LinodeCli < Formula
   url "https://files.pythonhosted.org/packages/77/37/d83ddb34bebeb42a2586b281a6bbb3c63e18d82a6521564ff10d5c686c08/linode_cli-5.59.0.tar.gz"
   sha256 "82749f54390d215947d0396b147c3f1131cc172cfad81bc86487b7f5bc56607d"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/linode/linode-cli.git", branch: "main"
 
   bottle do
@@ -104,8 +104,8 @@ class LinodeCli < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
-    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   def install
