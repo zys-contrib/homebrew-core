@@ -10,13 +10,13 @@ class AwsSsoUtil < Formula
   head "https://github.com/benkehoe/aws-sso-util.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "68d18487c975bbc47e8f0eb4d0170bc7c60884b31918c145ea111d0659f1b41e"
-    sha256 cellar: :any,                 arm64_sonoma:  "92904df19f2fc1c977af4b59799571cbced6fae71452545f327a2e9a3e047b85"
-    sha256 cellar: :any,                 arm64_ventura: "809ed01bb4972d16c37117227be92a6a4e9d443b978891f8c2ff4c5a29c3fb87"
-    sha256 cellar: :any,                 sonoma:        "43d39bcdf25ec278797fc9e5f6847021b5ae7c1a2b56ca74c0560233d505033b"
-    sha256 cellar: :any,                 ventura:       "03bbb571d7242982898f2fc063181d52af0f7f621cf399aee6bb22189c4abe32"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "34057a787c1d2778eeaa9fe79a9ec69a9a3c32ccac0719927b590460f22776fa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f11cac4e63da93ddd604ccbc9505332a6cc89ea2dcba317b8f5d98d0b5e5872a"
+    sha256 cellar: :any,                 arm64_sequoia: "9b0de72d218774baa7fe3fc5cd7952945080f10f41360c5ac644ec727a718b22"
+    sha256 cellar: :any,                 arm64_sonoma:  "6fd418debe55255e4d7bf2b619251d1a383f44f931e223d4bc1d6231a5147ad1"
+    sha256 cellar: :any,                 arm64_ventura: "3cf8890dc4fb3370a3813e86161ac6da5253798932c5b9de701cd1bd50810674"
+    sha256 cellar: :any,                 sonoma:        "54bc1cef47b78f23d4cf3bbe9c14f94f094c40def535268ff85fc1fa506ca81d"
+    sha256 cellar: :any,                 ventura:       "1fd983273a29a581c6aba4dc47af4346eadff4468ae7f9969c6dad086ebbfa71"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3444c15cb7f0fe88a3cd70ab244b13bca55ca1fd509ca7bd453b13762e1e83ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "53134b0ef76fa56c95fa1ba0ee9cc989a987c0040d87256cae1621d745407a3d"
   end
 
   depends_on "rust" => :build # for rpds-py
