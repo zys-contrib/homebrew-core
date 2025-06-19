@@ -9,13 +9,13 @@ class Cfripper < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b6315e804b913dde40a39f1457bccab096ffe93c3b306ab8441e5025b8478026"
-    sha256 cellar: :any,                 arm64_sonoma:  "8d13f9f5c5ce466ab9ddc4a4b8ec5856c5f26c6aa04441657ffd723d142cdcc8"
-    sha256 cellar: :any,                 arm64_ventura: "32d1aac0572458428097ce30330d030f60d8963c16c4176aff29bae57142e15d"
-    sha256 cellar: :any,                 sonoma:        "9272f2be2b198dd61f4218df52ac6f5c5fcc32548a0becbba8a728ac9496d3ba"
-    sha256 cellar: :any,                 ventura:       "1309b356f3523067219f5217dcc88a4d0f33042fa27adc1c0425497334b81fee"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "89f2d638ff2cc3a84af7c8ad91ad66ecaa99e661ae47a4993185a5be477391ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13edb3cc6a89ad2e5f56b8b33d2b85d931b451b03bbc6c3cc5c7ea19f41bf169"
+    sha256 cellar: :any,                 arm64_sequoia: "76f97ce48cb4bae745690b1c4fa9e81524ef68f9dd68d0909e57ef9cce2c83b0"
+    sha256 cellar: :any,                 arm64_sonoma:  "4ebb06545d68a22c69887de7c175312aa86a98350c8a10fe90169ed0aae5a630"
+    sha256 cellar: :any,                 arm64_ventura: "f814179940427dd853e8176e1c133336512e22027caa47ea42008b8f23fca28e"
+    sha256 cellar: :any,                 sonoma:        "20f9ed527e4763bf502a9d2ddce42f89496cf4387d499f97e559fadc3648f18b"
+    sha256 cellar: :any,                 ventura:       "107cc0a2b02af1e767c0003a792a880965ec0ba945b1aa319079921fca04fe66"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0db7c32c89bd9ecd43f8d83aef120cb334ffd2de5f96e0104a89b6bf3f30ef53"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "433fa7dcf4d67ae46f879c34af86bed45c678be2f52e0c3ac56c3d01ab5866e6"
   end
 
   depends_on "rust" => :build # for pydantic_core
