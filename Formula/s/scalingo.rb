@@ -1,8 +1,8 @@
 class Scalingo < Formula
   desc "CLI for working with Scalingo's PaaS"
   homepage "https://doc.scalingo.com/cli"
-  url "https://github.com/Scalingo/cli/archive/refs/tags/1.34.0.tar.gz"
-  sha256 "76120c14d13065df48ddfb628aab0b59d9f32be43516607c1ecf3d258bc692f9"
+  url "https://github.com/Scalingo/cli/archive/refs/tags/1.35.0.tar.gz"
+  sha256 "3a7fe40b7419fac312631f8c8898437bfea0a3a14f47cc1afbba47184dd66177"
   license "BSD-4-Clause"
 
   bottle do
@@ -25,11 +25,11 @@ class Scalingo < Formula
 
   test do
     expected = <<~END
-      +-------------------+-------+
-      | CONFIGURATION KEY | VALUE |
-      +-------------------+-------+
-      | region            |       |
-      +-------------------+-------+
+      ┌───────────────────┬───────┐
+      │ CONFIGURATION KEY │ VALUE │
+      ├───────────────────┼───────┤
+      │ region            │       │
+      └───────────────────┴───────┘
     END
     assert_equal expected, shell_output("#{bin}/scalingo config")
   end
