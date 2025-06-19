@@ -7,13 +7,12 @@ class Qshell < Formula
   head "https://github.com/qiniu/qshell.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "54e0895a04e25a5389bf6581c15655c9c494752ffd0633ec34ed5f387343284f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "73ff629197d9611911b20554fc6d8facdf740ec4349509e77eaf8b4b7fb99af9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "fafa0f83b863d64973e22fe5a4e16567874938e51024be431ffc64701f740f5b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3c4ca827c917019ca343b5a50eb83023ce09ddd04967a9296e4a5fd9f303e0c4"
-    sha256 cellar: :any_skip_relocation, ventura:       "e445640b9b3068b67019755a83247d9650527bdf6282e2535b93d6ff612ffa54"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5149b877deb02d7f1ac5559d7d6b98c247208ffc30d3b84c14228261945caa90"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d40bdded5fa597ae35519b8c1d130d9fdd2ba831b8b7607ca3c892a4d98df63a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d40bdded5fa597ae35519b8c1d130d9fdd2ba831b8b7607ca3c892a4d98df63a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d40bdded5fa597ae35519b8c1d130d9fdd2ba831b8b7607ca3c892a4d98df63a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fb202dbbeefd821950a549a7bfa5f60e90ff33795752d426ed063f98fe2242a9"
+    sha256 cellar: :any_skip_relocation, ventura:       "fb202dbbeefd821950a549a7bfa5f60e90ff33795752d426ed063f98fe2242a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7c7b373ea3d5ca50d4e48d844aebece5ea22a4d959a02833822e1a14915d17c"
   end
 
   depends_on "go" => :build
