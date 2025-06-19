@@ -12,7 +12,7 @@ class BandcampDl < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "0211c0e1d2b149b2ee8b7cfb62498a5e95d73f42e5054b54f82ec5e17d13dfb7"
+    sha256 cellar: :any_skip_relocation, all: "1f4c34ed1a9ae0ce495cee8d829d6661a48f3bbfa1ede20dc5ea54b726ef5abd"
   end
 
   depends_on "certifi"
