@@ -9,13 +9,13 @@ class Fred < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fcb2199459dbbeae33578b27e4328ac2514c4aecd434e3b1c5c664137e5d9a18"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fcb2199459dbbeae33578b27e4328ac2514c4aecd434e3b1c5c664137e5d9a18"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "fcb2199459dbbeae33578b27e4328ac2514c4aecd434e3b1c5c664137e5d9a18"
-    sha256 cellar: :any_skip_relocation, sonoma:        "12895b8db5c519c9ef051229b13b8bf10a2bb87650a1dcaec0cb87acfec73cbc"
-    sha256 cellar: :any_skip_relocation, ventura:       "12895b8db5c519c9ef051229b13b8bf10a2bb87650a1dcaec0cb87acfec73cbc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fcb2199459dbbeae33578b27e4328ac2514c4aecd434e3b1c5c664137e5d9a18"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fcb2199459dbbeae33578b27e4328ac2514c4aecd434e3b1c5c664137e5d9a18"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5196561738312e479a8c55346ff7b2e62b67c3188920d5ec2e891758001de2e3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5196561738312e479a8c55346ff7b2e62b67c3188920d5ec2e891758001de2e3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5196561738312e479a8c55346ff7b2e62b67c3188920d5ec2e891758001de2e3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1359952e7fc17c1541a7e84499ea9188701efd79e38139a2ec4bdf54d16358c3"
+    sha256 cellar: :any_skip_relocation, ventura:       "1359952e7fc17c1541a7e84499ea9188701efd79e38139a2ec4bdf54d16358c3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5196561738312e479a8c55346ff7b2e62b67c3188920d5ec2e891758001de2e3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5196561738312e479a8c55346ff7b2e62b67c3188920d5ec2e891758001de2e3"
   end
 
   depends_on "certifi"
