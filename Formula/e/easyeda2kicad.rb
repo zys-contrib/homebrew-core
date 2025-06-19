@@ -12,13 +12,13 @@ class Easyeda2kicad < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b7633baccb1d349a9033a5087e89e62a46c5868867a6a0bd848771793f87a0e7"
-    sha256 cellar: :any,                 arm64_sonoma:  "8b4ef42257e4e4b65b310937bf8be924d32b783f74861d8079b333191b0395a6"
-    sha256 cellar: :any,                 arm64_ventura: "04618b2f9c21f68c67e50e32c9e320964a7fbabaa87feafb44247eb8c6eb03c8"
-    sha256 cellar: :any,                 sonoma:        "3be194ac4a6a38447dbaadbb45e754725170173ea435d23f94e76c1b234c37a5"
-    sha256 cellar: :any,                 ventura:       "30c09fef7e23b436b8d1f9ff76fdbcbdf67aaa5a373386d202e84cb07a0b6dc3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9f1bb0696e102a011ab2e77892fe7fd651890cac8ea4b3a383fbd09dca845dfc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1dca63ab329b72627e5c6d87ace9536aee6b4b940b25982f8d960948b42c9f64"
+    sha256 cellar: :any,                 arm64_sequoia: "ca4a1da140fed0775fce219fdc949815dbc2f40caeb84265e2a68b630ad79a9c"
+    sha256 cellar: :any,                 arm64_sonoma:  "0e4978fcf4183050761e4b428e20c5458aaa9f1985a75fa8705b30691e62c18f"
+    sha256 cellar: :any,                 arm64_ventura: "77002318fed574154a9d70f276b74ed051c394b6f10b534ec7229ebec4136a40"
+    sha256 cellar: :any,                 sonoma:        "eba8a9cac3e6abf87eca3821848aebff82f63f189689fdc4f38c5a167b241fc8"
+    sha256 cellar: :any,                 ventura:       "097bbdd985c8b6c1a6f6f40b060b45edf4d92b2551b7acb4dd815559d2e15e02"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b0c1e471d05a94eb20b07b1ed2c49689f07c48fd48642652f7c2a8b78d96724a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a821a9287213946bbe364302f95659ab250a1aea2a69a1a661d9398d0efd9e40"
   end
 
   depends_on "rust" => :build
