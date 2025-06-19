@@ -6,7 +6,7 @@ class Fdroidserver < Formula
   url "https://files.pythonhosted.org/packages/bd/81/728a7426ef7db26bee1a1737dbafe48f4253b249155ec1d6910ecad0c30c/fdroidserver-2.4.0.tar.gz"
   sha256 "15d91bb8ca0fbc81a346ec222d910af064670c51f20a2b649ef2834c0555d19c"
   license "AGPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "94d05bd59d72e0430cf7f8ec19c66e56f4c436cfef6dabd41186e0123fee0be5"
@@ -135,8 +135,8 @@ class Fdroidserver < Formula
   end
 
   resource "fonttools" do
-    url "https://files.pythonhosted.org/packages/b6/a9/3319c6ae07fd9dde51064ddc6d82a2b707efad8ed407d700a01091121bbc/fonttools-4.58.2.tar.gz"
-    sha256 "4b491ddbfd50b856e84b0648b5f7941af918f6d32f938f18e62b58426a8d50e2"
+    url "https://files.pythonhosted.org/packages/2e/5a/1124b2c8cb3a8015faf552e92714040bcdbc145dfa29928891b02d147a18/fonttools-4.58.4.tar.gz"
+    sha256 "928a8009b9884ed3aae17724b960987575155ca23c6f0b8146e400cc9e0d44ba"
   end
 
   resource "future" do
@@ -260,8 +260,8 @@ class Fdroidserver < Formula
   end
 
   resource "pydot" do
-    url "https://files.pythonhosted.org/packages/d1/c3/6034ed1ebf2e3ba95a0e35fa7c43104e40444c0ed2b5325702c63e824dbf/pydot-4.0.0.tar.gz"
-    sha256 "12f16493337cade2f7631b87c8ccd299ba2e251f3ee5d0732a058df2887afe97"
+    url "https://files.pythonhosted.org/packages/50/35/b17cb89ff865484c6a20ef46bf9d95a5f07328292578de0b295f4a6beec2/pydot-4.0.1.tar.gz"
+    sha256 "c2148f681c4a33e08bf0e26a9e5f8e4099a82e0e2a068098f32ce86577364ad5"
   end
 
   resource "pygments" do
@@ -340,8 +340,8 @@ class Fdroidserver < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
-    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   resource "wcwidth" do
