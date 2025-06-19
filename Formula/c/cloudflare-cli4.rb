@@ -9,13 +9,13 @@ class CloudflareCli4 < Formula
   revision 4
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a5af04e49d3f9da5cb3777b40cf430cee2ee79c80f72c8db44897731abc124f7"
-    sha256 cellar: :any,                 arm64_sonoma:  "20cfd36aa45bef723d27ca30e728b9876109e8a9ebdc580b999a343395fa259f"
-    sha256 cellar: :any,                 arm64_ventura: "9d33a02ccf8e04b6f18b9868efa2f2958c1556ddb1f973edf05179dbaae961e8"
-    sha256 cellar: :any,                 sonoma:        "e52ce4d74b12ffd1dc804d350bd65c65a2e4cd5ba9675cdcf3a608ae96965b17"
-    sha256 cellar: :any,                 ventura:       "f72281daadc4b6298186e6bd4741c2496c39b5d844bf219e6ff07622117873d9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0072275bd71000978f837e4455077dd120b622a30c2b3c4522d985c69d335eea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dde8e52d0ba02a7588abc5a38c548d2d090999b14c146ad037b3b69cbe00ed1e"
+    sha256 cellar: :any,                 arm64_sequoia: "4e99d97a47fb49afe45a6fd735a925e194e343e21891d0bfd9cbf0fdf5ccb838"
+    sha256 cellar: :any,                 arm64_sonoma:  "969f4fd193ad16b357fe7735b8c7b57ee30f73fcb72e589b3ddb3cea49306638"
+    sha256 cellar: :any,                 arm64_ventura: "3c950067b3eb8e30490517c2a9748efc70268a684a8d06076afbf55510f0b1bf"
+    sha256 cellar: :any,                 sonoma:        "0f2cb4d70b64dd89b87a3e7f790832947469c4fb57499370bfbc7f2e74c1358a"
+    sha256 cellar: :any,                 ventura:       "f7e35e54ef1a37338e06ff732ac3bb2c210d81d55599d51d1c59a503ecc3cc19"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "715ebdabb650dcbb0bd8d3de3699df7b28ee21296263996a6616c7b892b300bf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "850653460cd609ad8f95815c088bf75010007cc5339ca9d5bdc8e039deed9795"
   end
 
   depends_on "libyaml"
