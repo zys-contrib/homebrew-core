@@ -1,8 +1,8 @@
 class Libblastrampoline < Formula
   desc "Using PLT trampolines to provide a BLAS and LAPACK demuxing library"
   homepage "https://github.com/JuliaLinearAlgebra/libblastrampoline"
-  url "https://github.com/JuliaLinearAlgebra/libblastrampoline/archive/refs/tags/v5.13.0.tar.gz"
-  sha256 "45a73ab0e112df142d37117cd78a53c5d9b3ffd86a5f151d3103ec2274600364"
+  url "https://github.com/JuliaLinearAlgebra/libblastrampoline/archive/refs/tags/v5.13.1.tar.gz"
+  sha256 "6df0eddd846db56b885056641cf02304862411bd0e641d444acf8f4eb2e33327"
   license all_of: [
     "MIT",
     "BSD-2-Clause-Views", # include/common/f77blas.h
@@ -20,13 +20,6 @@ class Libblastrampoline < Formula
   end
 
   depends_on "openblas" => :test
-
-  # Apply commit from open PR to fix build with Xcode 16+ / LLVM 17+
-  # PR ref: https://github.com/JuliaLinearAlgebra/libblastrampoline/pull/148
-  patch do
-    url "https://github.com/JuliaLinearAlgebra/libblastrampoline/commit/c7e71924f47f4d016afe7ef994e30b46080ac918.patch?full_index=1"
-    sha256 "320360db93fe46e52ee21e8b817752ec3b1717b64a0f33b45617bcc6dfa206ae"
-  end
 
   def install
     system "make", "-C", "src", "install", "prefix=#{prefix}"
