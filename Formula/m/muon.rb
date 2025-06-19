@@ -4,7 +4,7 @@ class Muon < Formula
   url "https://git.sr.ht/~lattis/muon/archive/0.4.0.tar.gz"
   sha256 "c2ce8302e886b2d3534ec38896a824dc83f43698d085d57bb19a751611d94e86"
   license "GPL-3.0-only"
-  revision 1
+  revision 2
   head "https://git.sr.ht/~lattis/muon", branch: "master"
 
   bottle do
