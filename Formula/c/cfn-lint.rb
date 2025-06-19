@@ -6,6 +6,7 @@ class CfnLint < Formula
   url "https://files.pythonhosted.org/packages/ca/4c/298568c3192763d8c6ebaef8c76d69d7154c362066a84c9cd4b64dc61c89/cfn_lint-1.36.0.tar.gz"
   sha256 "47721fe23755663e69b7d84fec61b1c15fab4e7d8c75ab624e738913bcb59489"
   license "MIT-0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "edf75b24542915056686298e1e9007b2f85b00ace959092657726771f3afed48"
@@ -37,13 +38,13 @@ class CfnLint < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/f1/ca/e7c1b5f7118fa3520f70ca11082472b64e2ffc4d81e7a4373339e4770f3a/boto3-1.38.35.tar.gz"
-    sha256 "38a407e467b24914ce24e5816f53305288ea44072778f88d2b4b6a2cffbcb220"
+    url "https://files.pythonhosted.org/packages/70/b0/a35b320e5084821de69a66962513dcc8aa37b7a5bc80e761685533e97be9/boto3-1.38.39.tar.gz"
+    sha256 "22cca12cfe1b24670de53e3b8f4c69bdf34a2bd3e3363f72393b6b03bb0d78bc"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/cd/2e/763918cd2b5af0345a38181bc5f16d1f6c32aad2a03b7738274cf068d864/botocore-1.38.35.tar.gz"
-    sha256 "3c7032948e066eed5f91d64cd51ee9664d1db9beaf3279ac27da608176bb3d54"
+    url "https://files.pythonhosted.org/packages/09/61/20eceeccdce79ca238453389e9a8a9147a79417a07e22fa6715f1abd6421/botocore-1.38.39.tar.gz"
+    sha256 "2305f688e9328af473a504197584112f228513e06412038d83205ce8d1456f40"
   end
 
   resource "jmespath" do
@@ -82,8 +83,8 @@ class CfnLint < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/f0/86/8ce9040065e8f924d642c58e4a344e33163a07f6b57f836d0d734e0ad3fb/pydantic-2.11.5.tar.gz"
-    sha256 "7f853db3d0ce78ce8bbb148c401c2cdd6431b3473c0cdff2755c7690952a7b7a"
+    url "https://files.pythonhosted.org/packages/00/dd/4325abf92c39ba8623b5af936ddb36ffcfe0beae70405d456ab1fb2f5b8c/pydantic-2.11.7.tar.gz"
+    sha256 "d989c3c6cb79469287b1569f7447a17848c998458d49ebe294e975b9baf0f0db"
   end
 
   resource "pydantic-core" do
@@ -142,8 +143,8 @@ class CfnLint < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
-    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   def install
