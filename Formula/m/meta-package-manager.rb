@@ -7,7 +7,7 @@ class MetaPackageManager < Formula
   url "https://files.pythonhosted.org/packages/5b/49/d4e663f67c2376f4e26864fa10ec78a6047f765d580daa6a510766ef2d2b/meta_package_manager-5.21.0.tar.gz"
   sha256 "9d438f4cf34b2bebbd46525759f6d5305d98e9ff02975be4e1b18befc4fffffa"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/kdeldycke/meta-package-manager.git", branch: "main"
 
   bottle do
@@ -189,8 +189,8 @@ class MetaPackageManager < Formula
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/fb/aa/405082ce2749be5398045152251ac69c0f3578c7077efc53431303af97ce/pytest-8.4.0.tar.gz"
-    sha256 "14d920b48472ea0dbf68e45b96cd1ffda4705f33307dcc86c676c1b5104838a6"
+    url "https://files.pythonhosted.org/packages/08/ba/45911d754e8eba3d5a841a5ce61a65a685ff1798421ac054f85aa8747dfb/pytest-8.4.1.tar.gz"
+    sha256 "7c67fd69174877359ed9371ec3af8a3d2b04741818c51e5e99cc1742251fa93c"
   end
 
   resource "python-dateutil" do
@@ -279,8 +279,8 @@ class MetaPackageManager < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
-    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   resource "wcmatch" do
