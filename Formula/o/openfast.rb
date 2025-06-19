@@ -2,8 +2,8 @@ class Openfast < Formula
   desc "NREL-supported OpenFAST whole-turbine simulation code"
   homepage "https://openfast.readthedocs.io"
   url "https://github.com/openfast/openfast.git",
-      tag:      "v4.0.5",
-      revision: "f4c0b48139479fcfdca10b4dfed6ef86fa1e0d7d"
+      tag:      "v4.1.0",
+      revision: "8d2470b876a5229f9e4adf0391bda32096ed43b2"
   license "Apache-2.0"
 
   bottle do
