@@ -3,19 +3,18 @@ class Dstack < Formula
 
   desc "ML workflow orchestration system designed for reproducibility and collaboration"
   homepage "https://dstack.ai/"
-  url "https://files.pythonhosted.org/packages/cd/db/e2ca1c6ada04926341067acb21240c727d8418bf729df823814bce8ad4c4/dstack-0.19.13.tar.gz"
-  sha256 "6924855443822206122ee119f9360589d94da07f476d1abc104e27d169c6e10b"
+  url "https://files.pythonhosted.org/packages/10/27/6a30aeec0276a512f834c8d6dbcd744d54e81681a3c1c81b8273f266334b/dstack-0.19.15.tar.gz"
+  sha256 "5e7f740265b76070b9b01a2aeae46996e2351bc8fde475a4529d34625e0e8a6c"
   license "MPL-2.0"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "07a10a53cb2db0c035da5b4029feba7b275dc0b1a49df3e925be2b6445d6812f"
-    sha256 cellar: :any,                 arm64_sonoma:  "4700bd5ed281eba090e1c2224542e27b06e75ac2871bfb62f0bd71c1ccea56d6"
-    sha256 cellar: :any,                 arm64_ventura: "188cdf8144ed93c7423f8a2e26b158b2adebab6ae9193e884cbde719efc2a879"
-    sha256 cellar: :any,                 sonoma:        "4741592d7f82643109d654988a019276e777c88eb41a7e8000b45832a280a349"
-    sha256 cellar: :any,                 ventura:       "6f3a1833eea40ddc8a5f9533f1f95bff21832c1b765d9683c5a02bbc9c958f79"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bd73ff4645f0e2ae8232dbd22e55062d79a6c9d78363f3bb1ed73c3f4825054f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f0b5ed08042be72df7824ba2701a582a2e401ab9a4bb62ea6609097c9b08a0b"
+    sha256 cellar: :any,                 arm64_sequoia: "95c8d093da9f863dfadd2d4c09d2b560fc940b69ac2b9efb2c81daddf7b659b6"
+    sha256 cellar: :any,                 arm64_sonoma:  "ea5d6cc5317c678be4e38f3ac21a9155f8c124081c836dae4c11511ddb61b029"
+    sha256 cellar: :any,                 arm64_ventura: "018ccc520df5e94edd0e34f1b33496a8baf1ad9470089201bbf7c3761d7b14f3"
+    sha256 cellar: :any,                 sonoma:        "2e011fcd0633aac0c740d4337de83e7a2a6c399aa8b528953f4c21a666a500ed"
+    sha256 cellar: :any,                 ventura:       "b7edc0fb1110251c5147e61f8f8e99d72d692e71ab2fbc35d739fdfd9dc5b90a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "02f2051432303328ef057f8f7f5210cdefc12bd1173ebd2ce50202629695c932"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5c09d9f86f868e3c53a8391cd57d48e303c3e1705eb0c726946c60b2bcf076c1"
   end
 
   # `pkgconf` and `rust` are for bcrypt.
@@ -138,13 +137,13 @@ class Dstack < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/70/b0/a35b320e5084821de69a66962513dcc8aa37b7a5bc80e761685533e97be9/boto3-1.38.39.tar.gz"
-    sha256 "22cca12cfe1b24670de53e3b8f4c69bdf34a2bd3e3363f72393b6b03bb0d78bc"
+    url "https://files.pythonhosted.org/packages/5a/66/a26e7f20039ae3c57524baf26af43216c3959013f23308458f211cce78a5/boto3-1.38.40.tar.gz"
+    sha256 "fcef3e08513d276c97d72d5e7ab8f3ce9950170784b9b5cf4fab327cdb577503"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/09/61/20eceeccdce79ca238453389e9a8a9147a79417a07e22fa6715f1abd6421/botocore-1.38.39.tar.gz"
-    sha256 "2305f688e9328af473a504197584112f228513e06412038d83205ce8d1456f40"
+    url "https://files.pythonhosted.org/packages/61/23/42cc861466a34e45bd1783c3b3a547d5f723a8d21f6151cd1e3d84adfba6/botocore-1.38.40.tar.gz"
+    sha256 "aefbfe835a7ebe9bbdd88df3999b0f8f484dd025af4ebb3f3387541316ce4349"
   end
 
   resource "cached-classproperty" do
@@ -203,8 +202,8 @@ class Dstack < Formula
   end
 
   resource "google-api-python-client" do
-    url "https://files.pythonhosted.org/packages/02/69/c0cec6be5878d4de161f64096edb3d4a2d1a838f036b8425ea8358d0dfb3/google_api_python_client-2.172.0.tar.gz"
-    sha256 "dcb3b7e067154b2aa41f1776cf86584a5739c0ac74e6ff46fc665790dca0e6a6"
+    url "https://files.pythonhosted.org/packages/8f/7e/7c6e43e54f611f0f97f1678ea567fe06fecd545bd574db05e204e5b136fe/google_api_python_client-2.173.0.tar.gz"
+    sha256 "b537bc689758f4be3e6f40d59a6c0cd305abafdea91af4bc66ec31d40c08c804"
   end
 
   resource "google-auth" do
