@@ -6,7 +6,7 @@ class Sherlock < Formula
   url "https://files.pythonhosted.org/packages/0a/95/b4f7a399c43d1d57a703ddf08513411bbb0bfc6bbaabab7ad4e2c534bba7/sherlock_project-0.15.0.tar.gz"
   sha256 "1ae2ef98a0d482039ff00743e702f28ddf4a0d6260b0fbc2579d680469874910"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/sherlock-project/sherlock.git", branch: "master"
 
   bottle do
@@ -99,8 +99,8 @@ class Sherlock < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
-    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   def install
