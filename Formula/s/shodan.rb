@@ -12,7 +12,7 @@ class Shodan < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "94582064e80fba120a111bfeea00b8a1aaa7b88d1a1c2de1605c8f504c68eb22"
+    sha256 cellar: :any_skip_relocation, all: "3f6b9722526a2e6b4a1efd5f4395b3fc8bbc4c993b692ab5b8115361501378d2"
   end
 
   depends_on "certifi"
