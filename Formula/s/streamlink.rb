@@ -6,7 +6,7 @@ class Streamlink < Formula
   url "https://files.pythonhosted.org/packages/07/83/8779287122de41b79763810204ce52bf644542396dd0273ad2fa177db80d/streamlink-7.4.0.tar.gz"
   sha256 "2cc90e5a978800c9e5b113d0b26db1079451f43441a0476255c2e99fd65e60bb"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
   head "https://github.com/streamlink/streamlink.git", branch: "master"
 
   bottle do
@@ -103,8 +103,8 @@ class Streamlink < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
-    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   resource "websocket-client" do
