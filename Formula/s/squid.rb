@@ -1,8 +1,8 @@
 class Squid < Formula
   desc "Advanced proxy caching server for HTTP, HTTPS, FTP, and Gopher"
   homepage "https://www.squid-cache.org/"
-  url "https://github.com/squid-cache/squid/releases/download/SQUID_6_13/squid-6.13.tar.xz"
-  sha256 "232e0567946ccc0115653c3c18f01e83f2d9cc49c43d9dead8b319af0b35ad52"
+  url "https://github.com/squid-cache/squid/releases/download/SQUID_7_0_2/squid-7.0.2.tar.bz2"
+  sha256 "e34d0759686e4a2baf411801aaf8a4863dc17f32ed4a1d988776110bad36c5ae"
   license "GPL-2.0-or-later"
 
   # The Git repository contains tags for a higher major version that isn't the
@@ -11,6 +11,8 @@ class Squid < Formula
     url :stable
     strategy :github_latest
   end
+
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 arm64_sequoia: "d2cd4e77ccc3da42ec7ded1f1f1a4a2e754734e17bf369b0dd99d542642ac4bd"
@@ -41,15 +43,11 @@ class Squid < Formula
     # For --disable-eui, see:
     # https://www.squid-cache.org/mail-archive/squid-users/201304/0040.html
     args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --prefix=#{prefix}
       --localstatedir=#{var}
       --sysconfdir=#{etc}
       --enable-ssl
       --enable-ssl-crtd
       --disable-eui
-      --enable-pf-transparent
       --with-included-ltdl
       --with-gnutls=no
       --with-nettle=no
@@ -60,8 +58,10 @@ class Squid < Formula
       --enable-storeio=yes
     ]
 
+    args << "--enable-pf-transparent" if OS.mac?
+
     system "./bootstrap.sh" if build.head?
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 
