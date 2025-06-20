@@ -11,7 +11,7 @@ class Waybackpy < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "68e49e8c64baa02d545d06ed73e5c55c3ff160fbccc36d48be032dfe6658122f"
+    sha256 cellar: :any_skip_relocation, all: "0cdd02bf216c002bc9ba5e7f6f21bdfe5fec3594b6432031502eeb916e4fcdce"
   end
 
   depends_on "certifi"
