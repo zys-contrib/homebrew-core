@@ -6,6 +6,7 @@ class Schemathesis < Formula
   url "https://files.pythonhosted.org/packages/50/80/0536e1410009a22bda88a3c32dfa06702fce1a8a5075aa1d76af616a4c95/schemathesis-4.0.2.tar.gz"
   sha256 "5783ee87422281e9414a26babafd7bf47d7f52f465f5801f2e316781026d5a93"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "d376c5bf5b81cc84f6f74d41ef7f7288041df2fcf1dc33d2882d3bd841ea64fe"
@@ -90,8 +91,8 @@ class Schemathesis < Formula
   end
 
   resource "hypothesis" do
-    url "https://files.pythonhosted.org/packages/c8/8e/6176e9b3e51fbab6dab1e572116605dbc54eadda0c60dd45927f601d3c60/hypothesis-6.135.10.tar.gz"
-    sha256 "ce224e310012e40b8e3aa6edba226c032c57bbcbdccad41212ab6d2d74b602cf"
+    url "https://files.pythonhosted.org/packages/63/03/28f2158273fa2119641f793b7a73bbf8b38257800e18c825324cff6c9f8d/hypothesis-6.135.12.tar.gz"
+    sha256 "d2aeed8db7defc368841cbfb021d703cf98102827460bee7ba0d2e2aab6580f6"
   end
 
   resource "hypothesis-graphql" do
@@ -175,8 +176,8 @@ class Schemathesis < Formula
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/fb/aa/405082ce2749be5398045152251ac69c0f3578c7077efc53431303af97ce/pytest-8.4.0.tar.gz"
-    sha256 "14d920b48472ea0dbf68e45b96cd1ffda4705f33307dcc86c676c1b5104838a6"
+    url "https://files.pythonhosted.org/packages/08/ba/45911d754e8eba3d5a841a5ce61a65a685ff1798421ac054f85aa8747dfb/pytest-8.4.1.tar.gz"
+    sha256 "7c67fd69174877359ed9371ec3af8a3d2b04741818c51e5e99cc1742251fa93c"
   end
 
   resource "pytest-subtests" do
@@ -270,8 +271,8 @@ class Schemathesis < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
-    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   resource "webcolors" do
