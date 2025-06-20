@@ -6,7 +6,7 @@ class Subliminal < Formula
   url "https://files.pythonhosted.org/packages/50/fc/24c86cc9bf5ef2543a14cbff1e71a81165e760e2dfc61814ac3d7d9bfa9d/subliminal-2.3.2.tar.gz"
   sha256 "e9adee230b8bf46e27214da71ada18a3a0107d968005a25be3db5bc5855fb433"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/Diaoul/subliminal.git", branch: "main"
 
   bottle do
@@ -184,8 +184,8 @@ class Subliminal < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
-    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   def install
