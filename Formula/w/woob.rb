@@ -6,7 +6,7 @@ class Woob < Formula
   url "https://files.pythonhosted.org/packages/85/f3/a2dc1bb679de004aa1e48c8b77b5d5b9bca3007b2f25e0c39f850a009186/woob-3.7.tar.gz"
   sha256 "b1d7113ba87a9b947c13a1e3b4bb4fa616ba3037092b54912fc3fee2647d1b2f"
   license "LGPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "61d9a4d0ccec4886f29d11c97219a28d3a7798dbc8a747129d16bb608335b359"
@@ -113,8 +113,8 @@ class Woob < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
-    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   def install
