@@ -12,13 +12,13 @@ class Scoutsuite < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "96db74400db7580417bd19dd9171c713dbd1de8a17ac86bb53c13c790cb4126f"
-    sha256 cellar: :any,                 arm64_sonoma:  "b751753b949a7bb1374fa4865e0258c8bf3b0d08cbbeefe55dfc5ce44be27aa4"
-    sha256 cellar: :any,                 arm64_ventura: "dae86dc4b169aa3a2502cd8e0816dc93b4a9a4a224fc512af8860435e6fb6e01"
-    sha256 cellar: :any,                 sonoma:        "8470ae6cafc4fc2f44193fb4bfbbf48d4f24137df80a6ebd9fcd6f318eaf3910"
-    sha256 cellar: :any,                 ventura:       "3f45fc3af5042742176a5538c0b4453a73d88ba4b5a64f6feac91ab332fb89bc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "78c7f5e79b1d2a24f58dfdc0ac626a8a1f4f515462b7601ebd6b01da0bdbb444"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e4070a1c4c7bc420402f89235f0db1163539deb217baf57bb417a44bc90ca743"
+    sha256 cellar: :any,                 arm64_sequoia: "617a6f8b92f076b5eb121d447b2fc5e10451a00e4afe5380b80f56d40f5a09d5"
+    sha256 cellar: :any,                 arm64_sonoma:  "92e3adfb05aa047a2ba078f3c741800c84011d08fb9943cf84fd37065f92fc1c"
+    sha256 cellar: :any,                 arm64_ventura: "527899b1beca122c9fc6404f5d3d9cce2a0e32fab0424b3a33bcd9eca38f81ea"
+    sha256 cellar: :any,                 sonoma:        "0ab89a3891bfa958b2f1bc2cb9af8a6e1c8f9ed5a618f6b660c35fda58903ada"
+    sha256 cellar: :any,                 ventura:       "87e712e1c870051ff1d5bec8079bf35f6e1fc7cef2dce6332ca92ce6ed3be602"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f4c81f66cc8b0aad64d23f40f9775257ab4d5ec09aa6126d0483db6fad9767c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f5f6a303930349211252b646046710ccfdd01d5bfe0adbb8215e67a0948a3ef"
   end
 
   depends_on "rust" => :build # for pydantic-core
