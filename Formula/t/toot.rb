@@ -6,7 +6,7 @@ class Toot < Formula
   url "https://files.pythonhosted.org/packages/e1/5a/8c8c1dfb8188e14f94cda467f03924b23e7f7e1194249bdd1240363873ac/toot-0.48.1.tar.gz"
   sha256 "99629e24bc4ef3fb22162b7742f4053648279f5e7e34b5ad53224b5d3e05a66c"
   license "GPL-3.0-only"
-  revision 1
+  revision 2
   head "https://github.com/ihabunek/toot.git", branch: "master"
 
   bottle do
@@ -73,8 +73,8 @@ class Toot < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
-    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   resource "urwid" do
