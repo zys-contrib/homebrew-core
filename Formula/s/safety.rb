@@ -6,7 +6,7 @@ class Safety < Formula
   url "https://files.pythonhosted.org/packages/33/af/f135abb8d147629e9a27f436db5135314adc864a98b62922b33d6f05c836/safety-3.5.2.tar.gz"
   sha256 "ecbb2e76f9574284f2c0e168e71ec92b39018ae9516b3b00f132de57ecaa09cb"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/pyupio/safety.git", branch: "main"
 
   bottle do
@@ -211,8 +211,8 @@ class Safety < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
-    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   def install
