@@ -11,7 +11,7 @@ class RichCli < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "52c721e712da1c8e97a183ceef13a252d413dc8e33dd7b69616a7271ff086b1a"
+    sha256 cellar: :any_skip_relocation, all: "28895eff8f7b7900e8a29d58013b9c376f510f173e80713b3448b9d8157eebca"
   end
 
   depends_on "certifi"
