@@ -12,12 +12,12 @@ class Aider < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a1245af11a730a757f2a2d28c3ddefd671a813ac28553f850c76cbae14816ff6"
-    sha256 cellar: :any,                 arm64_sonoma:  "aeb08bc4240e4b1d8ca8806d76d04a5210f87fd869c4de5b02e27fbd52213035"
-    sha256 cellar: :any,                 arm64_ventura: "2b64f54cbc1af6ce8c6fbbb9ced3a4904fd158998fdff237d702c1689158c745"
-    sha256 cellar: :any,                 sonoma:        "99409ce0e3b254ba3dc159772c016925def739877680cfb575725cb1f3299f35"
-    sha256 cellar: :any,                 ventura:       "dc8d14216fdcaae9126005b3689ba3a97d0727f5002a019d47e7b8e219c11221"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf816c3bd0f62051a52570a389830a91aaff74b161cfba60fb39037e4a9b8cdc"
+    sha256 cellar: :any,                 arm64_sequoia: "2ebf8800fb5162238196d04b27e099728f2d639cd3517fabb392107fa1c7857e"
+    sha256 cellar: :any,                 arm64_sonoma:  "8e5411c0b630c158398629c0e16ed9a27dfcae7382b3f2d6a7e33a8cfbd5aec2"
+    sha256 cellar: :any,                 arm64_ventura: "1d43691d9dcdb723cea9c6bb711dd8ec2975f8ddaa9d2e02dbdd1b6378153849"
+    sha256 cellar: :any,                 sonoma:        "756bedd14719dec3139f615736ce05867d67352b14e3608e5fd54cc2e2b4f188"
+    sha256 cellar: :any,                 ventura:       "6e5c18bf1cd2fc4fecb86249282573c6333d56df3a3269bdbd3ca83c3a559fe8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a60a91d01195ed0d5334c1eee9624494ee90bda202b4c5e62764a028a94d260"
   end
 
   depends_on "maturin" => :build # for `hf-xet`
