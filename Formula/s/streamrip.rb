@@ -6,7 +6,7 @@ class Streamrip < Formula
   url "https://files.pythonhosted.org/packages/b8/c9/6997772e0217f3081e4e692c7b8b104aaa564c008f2593341e81bbbd2396/streamrip-2.1.0.tar.gz"
   sha256 "e59b4b406f9ac77eb59c927a1a082644e0902152ffeb6212b6b24af7fbef5540"
   license "GPL-3.0-only"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7611859c2d4a04473ba3abbc251c0283c4e575f8c8fd27db56a20bba2dcab9bf"
@@ -126,8 +126,8 @@ class Streamrip < Formula
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/91/2f/a3470242707058fe856fe59241eee5635d79087100b7042a867368863a27/multidict-6.4.4.tar.gz"
-    sha256 "69ee9e6ba214b5245031b76233dd95408a0fd57fdb019ddcc1ead4790932a8e8"
+    url "https://files.pythonhosted.org/packages/46/b5/59f27b4ce9951a4bce56b88ba5ff5159486797ab18863f2b4c1c5e8465bd/multidict-6.5.0.tar.gz"
+    sha256 "942bd8002492ba819426a8d7aefde3189c1b87099cdf18aaaefefcf7f3f7b6d2"
   end
 
   resource "mutagen" do
@@ -176,8 +176,8 @@ class Streamrip < Formula
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/fb/aa/405082ce2749be5398045152251ac69c0f3578c7077efc53431303af97ce/pytest-8.4.0.tar.gz"
-    sha256 "14d920b48472ea0dbf68e45b96cd1ffda4705f33307dcc86c676c1b5104838a6"
+    url "https://files.pythonhosted.org/packages/08/ba/45911d754e8eba3d5a841a5ce61a65a685ff1798421ac054f85aa8747dfb/pytest-8.4.1.tar.gz"
+    sha256 "7c67fd69174877359ed9371ec3af8a3d2b04741818c51e5e99cc1742251fa93c"
   end
 
   resource "pytest-asyncio" do
@@ -211,8 +211,8 @@ class Streamrip < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
-    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   resource "yarl" do
