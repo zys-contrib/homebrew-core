@@ -13,7 +13,7 @@ class VirtManager < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "18246e2d3dc419a6a21247aa0696a9391c29939ecb7197da0845962cf101567a"
+    sha256 cellar: :any_skip_relocation, all: "f205fecc48043b81764267e7c45904768ba5cfea45db5b6baac6fa86aecf8242"
   end
 
   depends_on "docutils" => :build
