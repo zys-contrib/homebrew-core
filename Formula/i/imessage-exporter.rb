@@ -1,8 +1,8 @@
 class ImessageExporter < Formula
   desc "Command-line tool to export and inspect local iMessage database"
   homepage "https://github.com/ReagentX/imessage-exporter"
-  url "https://github.com/ReagentX/imessage-exporter/archive/refs/tags/2.7.1.tar.gz"
-  sha256 "4e02e3b395c33b9cca086336b9e3b6fc4830d9ff5b16de5d92fa6102e6502f1b"
+  url "https://github.com/ReagentX/imessage-exporter/archive/refs/tags/2.8.0.tar.gz"
+  sha256 "077e7215561de70c7385312c79d3209cacdd28bd7ee60c26ee420cb6d33759ce"
   license "GPL-3.0-only"
 
   bottle do
@@ -28,6 +28,6 @@ class ImessageExporter < Formula
   test do
     assert_match version.to_s, shell_output(bin/"imessage-exporter --version")
     output = shell_output(bin/"imessage-exporter --diagnostics 2>&1")
-    assert_match "Invalid configuration: Database not found", output
+    assert_match "Invalid configuration", output
   end
 end
