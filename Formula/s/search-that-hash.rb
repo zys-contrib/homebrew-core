@@ -6,19 +6,19 @@ class SearchThatHash < Formula
   url "https://files.pythonhosted.org/packages/5e/b9/a304a92ba77a9e18b3023b66634e71cded5285cef7e3b56d3c1874e9d84e/search-that-hash-0.2.8.tar.gz"
   sha256 "384498abbb9a611aa173b20d06b135e013674670fecc01b34d456bfe536e0bca"
   license "GPL-3.0-or-later"
-  revision 10
+  revision 11
   head "https://github.com/HashPals/Search-That-Hash.git", branch: "main"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1777e8d1108c556d85f0d9eb612825b14bb233a9606e37f00118090fdb7df578"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1777e8d1108c556d85f0d9eb612825b14bb233a9606e37f00118090fdb7df578"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1777e8d1108c556d85f0d9eb612825b14bb233a9606e37f00118090fdb7df578"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7116ea86cdc52dcc9b0579104e472cddf056c742a33028bfc1bc2879a8bd84a2"
-    sha256 cellar: :any_skip_relocation, ventura:       "7116ea86cdc52dcc9b0579104e472cddf056c742a33028bfc1bc2879a8bd84a2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1777e8d1108c556d85f0d9eb612825b14bb233a9606e37f00118090fdb7df578"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1777e8d1108c556d85f0d9eb612825b14bb233a9606e37f00118090fdb7df578"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b25fd2d7c6f1e07177496073f1aecf468ffbc410a4948c5be859167304655eaf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b25fd2d7c6f1e07177496073f1aecf468ffbc410a4948c5be859167304655eaf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b25fd2d7c6f1e07177496073f1aecf468ffbc410a4948c5be859167304655eaf"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a5dd5d34866b491dc0ed38b5b1e15243bae496473108855637b74fc202fb21af"
+    sha256 cellar: :any_skip_relocation, ventura:       "a5dd5d34866b491dc0ed38b5b1e15243bae496473108855637b74fc202fb21af"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b25fd2d7c6f1e07177496073f1aecf468ffbc410a4948c5be859167304655eaf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b25fd2d7c6f1e07177496073f1aecf468ffbc410a4948c5be859167304655eaf"
   end
 
   depends_on "certifi"
@@ -115,8 +115,8 @@ class SearchThatHash < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
-    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   def install
