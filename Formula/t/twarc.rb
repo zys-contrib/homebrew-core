@@ -11,7 +11,7 @@ class Twarc < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "149044dd0698df45a5474b0d8dea9541aba2701f098c8f321b7e0bc01591f073"
+    sha256 cellar: :any_skip_relocation, all: "615f61acd8924f02a4c8dc0c1f905c59b1f8083afa54c7876490b33ad0cae1d7"
   end
 
   depends_on "certifi"
