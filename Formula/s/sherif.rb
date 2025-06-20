@@ -11,6 +11,7 @@ class Sherif < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b0f5b57ffef3fde2495c113e8b359cd5c9bbba8684b5af005899577003faa887"
     sha256 cellar: :any_skip_relocation, sonoma:        "a138edf56a70d681774c156503f69cb76cb34d37a15e5085da729d44f3f2d771"
     sha256 cellar: :any_skip_relocation, ventura:       "a138edf56a70d681774c156503f69cb76cb34d37a15e5085da729d44f3f2d771"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7d2886489f1f4e7cada411a3a2a7ce3b829678db6dc98c4bf7a93b1ed30fa298"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e316ba6057c8c942c27283006dbffb9858befaf24480f1b66351beb3ed2c3439"
   end
 
