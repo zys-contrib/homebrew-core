@@ -6,6 +6,7 @@ class Xml2rfc < Formula
   url "https://files.pythonhosted.org/packages/94/2a/bbd76ef42f69d07f7d736c113f4bdd050c7a8e7068f0f397d85185912756/xml2rfc-3.29.0.tar.gz"
   sha256 "82a1806095ea9a83caa9ee6923bf50f7b7686325042e3e023e34984a54c822db"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/ietf-tools/xml2rfc.git", branch: "main"
 
   no_autobump! because: :requires_manual_review
@@ -105,8 +106,8 @@ class Xml2rfc < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
-    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   resource "wcwidth" do
