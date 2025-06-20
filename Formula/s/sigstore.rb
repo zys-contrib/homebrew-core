@@ -3,10 +3,9 @@ class Sigstore < Formula
 
   desc "Codesigning tool for Python packages"
   homepage "https://github.com/sigstore/sigstore-python"
-  url "https://files.pythonhosted.org/packages/10/dc/fb0306a86bd1bc79f99f2f53b2421a11c42d2bbd106f7ccf0acfb460b5db/sigstore-3.6.3.tar.gz"
-  sha256 "9f957ef239b77695992b62823f79fc9554a589572dcc7bc0c1566a31b4bafc10"
+  url "https://files.pythonhosted.org/packages/c9/81/dca1dc73d250e9b37b7ba9b5083ba309896e4cffb1ab1800876f1287f3bb/sigstore-3.6.4.tar.gz"
+  sha256 "76f247a86738c9e076a243e0068ac68625848868890ed38491acc159752a46ac"
   license "Apache-2.0"
-  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "2ccc403211b560c03a237571ff609db1bf0c58c4d547d252deee3bd1f78b801a"
