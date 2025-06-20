@@ -9,7 +9,7 @@ class TerraformLocal < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "80f734bb8fb6f72f4807ed7d4bc156895a53176a0a9b2324ed628e4ec8aae351"
+    sha256 cellar: :any_skip_relocation, all: "686b02b4fa4cc2e94292dc2cca950722e7816b467fe055a3b7293ab0cf47d020"
   end
 
   depends_on "localstack"
