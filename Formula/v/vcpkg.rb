@@ -1,9 +1,9 @@
 class Vcpkg < Formula
   desc "C++ Library Manager"
   homepage "https://github.com/microsoft/vcpkg"
-  url "https://github.com/microsoft/vcpkg-tool/archive/refs/tags/2025-06-02.tar.gz"
-  version "2025.06.02"
-  sha256 "eb80f9c56bff1d8349cbdd7804a320d7392a873a4b49c87cf1f378b4cd512c6e"
+  url "https://github.com/microsoft/vcpkg-tool/archive/refs/tags/2025-06-20.tar.gz"
+  version "2025.06.20"
+  sha256 "a5c13011d253db8e885c54d2da6f6460741fec307fe93ee38bf17ab34922a467"
   license "MIT"
   head "https://github.com/microsoft/vcpkg-tool.git", branch: "main"
 
@@ -20,7 +20,7 @@ class Vcpkg < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "e72e89dc6dc6a7ee947a8b9e54efc00f16bf39e3703da4a877f5ba03d5238cbd"
