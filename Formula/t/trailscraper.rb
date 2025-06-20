@@ -12,13 +12,13 @@ class Trailscraper < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1eb0b1bb3d4fdf38360d75c253f1a9ef9dcc0494c2c1df509299d9615b8cd8c1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9bb7042b918ccc0bab783c10dde6f411060cbdda725f7b9b5ffe89890df05b10"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f51485167762fb753ae29bbf3a3fe231ca96a0333337df1f942da109f3251190"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6544e3a074c70f7f77e0d7e535d1f2772df382d8be1a6fabe7176530c8de47e7"
-    sha256 cellar: :any_skip_relocation, ventura:       "5e8ac93ebaea1d1133143bdf17955c9e38a9db34cec52c1bcb0d51fffe30c409"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "adf955e179c0b78720ea1b1c85114068318058255025f1609f151e2d0622030a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "670cf5ae8f3677890633c1b0ea9e39466ea1060d8716353f9ef1a9bbd162fb48"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b4cb81dbd07d5b954c840c77d25d505eb5bbc0fab8a1ba9c46a29665122cf6b6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b0f37017da786d814f17fc2b764664f0d2994c1b30fe3b256c3dd658b7250a26"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "78f1550ff391d81a34ecd071c63fd260644951c2029d5e0f4b53305b373591b7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e4add39e6f156428ac78c1cdc034d26995eefc750070749fcb486f094d8449b5"
+    sha256 cellar: :any_skip_relocation, ventura:       "2ebf657a5c1b51b31e545afc4565d2f18d0fdec4ff7045c0916dc21480e32672"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c2d1f045859402ee432b9237f614e9898d0f1d01b6576182e8c7d3d9c5290005"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a21e764f1726cb448636b2f58f899b15c288abefbf1217d6c011db742add58f1"
   end
 
   depends_on "python@3.13"
