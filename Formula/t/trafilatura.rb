@@ -9,13 +9,13 @@ class Trafilatura < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "505f84b8d24a77ceb6d76724565c4aa15328b1387e0ddfde87a559fe9fe5f3d9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0b3baf89879238df5adad51d5760dffd6d8b2037e46b324b2f16de6d7638c6d3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b553c17f86bafe9f26435dfd8cf62553edcacf246f60f2e3534b06430a519c2f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6afd99392568f511f979a48743edee48540be464fc5e6c08ffd502afdc5bda5e"
-    sha256 cellar: :any_skip_relocation, ventura:       "e01ee817069b9bae6800880153c0c7a9ff25eb02555f9968aa6a9edfc1024ced"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "04e141a2de86a1dddef82a4200fb9388a9357fe8e02290831476ba38a16665f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6410979b76f70b9e8ca8786d708e7713212afb61d59231c497c2d9b97287a254"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2dba5c5d97a84916d481391ceffc678b42466a3829aeafb46bc4eaed0e4adc20"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "537d9dfb34dca073daf17b627497a5f01c3d8c7c649fb3ba4194156750323ec9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "cdd750558e244188d93bc09c5d394e5cfa3041d0628e067d7a83c885e526a936"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7689a1b38175c218e2769291ec522f518b2b486d32297f5e62eca77f4f0efa2f"
+    sha256 cellar: :any_skip_relocation, ventura:       "b594755dc2b8b527781683d7d7ceb8690f4ed948d315f44a3ee4131003be7ff7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "83fb0dc11606bf0500168de65379dd48dff615e82ec37eed935be07f03aa5cda"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed1b1ed709a99b821733cfee07fb052148b9321a3040047b672ef9cebd02a314"
   end
 
   depends_on "certifi"
