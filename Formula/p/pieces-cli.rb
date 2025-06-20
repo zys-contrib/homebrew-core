@@ -19,13 +19,13 @@ class PiecesCli < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "c2b5def802f84cee4acf135b6633cebd0678313eb5806dba168df1008139d46d"
-    sha256 cellar: :any,                 arm64_sonoma:  "9e9959a4091e57bdf5ed0d2cfc7ef24504a799d8f3929bb6820b5839c53b76c0"
-    sha256 cellar: :any,                 arm64_ventura: "90cffff7e94b79916db43354edc3bb4fb36f2359cca5e9ce38b77c7bde994e7e"
-    sha256 cellar: :any,                 sonoma:        "ac7f70cb824a20dc706ce68571f462b82f16672299e19d1654079d1aa90b3e60"
-    sha256 cellar: :any,                 ventura:       "45a464614bfe5dfa7c8ebee68e4653a8c3e51adfb3b2013f30289f4d6212bdff"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1704727be2bdad177c26778c65558d7bed376a893ce1546dd92a84e4e3f4b2dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ee86c58244e330f5f92bd6ad737e205492862398e9df8152892a8d3fa13a0b3"
+    sha256 cellar: :any,                 arm64_sequoia: "da0252c7929a51d81e29b102d0e69f45b3403df80b8388a7bb75f0a7f5c0484d"
+    sha256 cellar: :any,                 arm64_sonoma:  "72b48afbcb9af33e228e75d3ccce8460ce2c1e873b6260f799cf6002a1260acf"
+    sha256 cellar: :any,                 arm64_ventura: "4085abd35af48ad50b57570da1c8529afbcfcfbab6d407eb139987fbfbec1648"
+    sha256 cellar: :any,                 sonoma:        "f9ce2be52f0d32aab4a8c0d4fa3e206eb58cbf2033258e1c98d0f1420c4c9933"
+    sha256 cellar: :any,                 ventura:       "c0537893a413323a7a52baa70c0412d8f6aa5a41d455ec7db0a978bf70c6a4b0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1f9497b4e411330d6781fc88514bac670795998a90cbc558cc57534477690cad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9c062f1bd086f8a620de3ad13eb30a164b1bee9a00f6e43e3baaa3200744537"
   end
 
   depends_on "rust" => :build
