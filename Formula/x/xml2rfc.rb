@@ -12,13 +12,13 @@ class Xml2rfc < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4a9c95af44171456ab840bf3c014d453fa128693a55478f9357575d3b0e80fa0"
-    sha256 cellar: :any,                 arm64_sonoma:  "ae444d4095b03d74295a9f6e5a0ad0d088271a958d514cfc0ff93a7c5aefb9fb"
-    sha256 cellar: :any,                 arm64_ventura: "868ddf48de69a6e6db75f4dca88e54f6aca5b7f35be1b02b791bf32fa678c6fe"
-    sha256 cellar: :any,                 sonoma:        "7bf63bdca955ac300632f400c2747792c87772a7e4315e157c5b101a52ef3f72"
-    sha256 cellar: :any,                 ventura:       "c500ca8e1d688138f3c28a389f75962d28bd48e2022a119a232ba49250471ac3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b54ecb019d0a230368c0a7c3863b96ed8d18b42cc20e591efb2c4d7b466de7f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc568630c6902abd390bbe27e56edf5430e16ccf7a2ff2caa806dfe871617ef1"
+    sha256 cellar: :any,                 arm64_sequoia: "1b58b51ba8053f789dbc61750af7c47eccae45ab496826aadf2ae34d683bb8fa"
+    sha256 cellar: :any,                 arm64_sonoma:  "dfa4382a842b2c2a21d0b55576bc16660143b9015c8a34ed08bee36f6ab95233"
+    sha256 cellar: :any,                 arm64_ventura: "0bd04beeef67919b35edd8ff7181bdc0cca36df3b3dfb74b28b987c1c5f22863"
+    sha256 cellar: :any,                 sonoma:        "b353c80310438079c9b8b5a54648144c9613d50bf6a0f9430583e2d1d2c09b36"
+    sha256 cellar: :any,                 ventura:       "1bbb1720605cc429ddf061800c42ce7966c014ac4b76d8ca1b5ab0d0ba29373b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9f16fef757aab60ab1647f3f5ca2080c548fb6b6251862d220cd59d3e84a13d5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3dd0eb0f94e4dcfc8b51dd45dac3d833bf1d05879bd54588942cc6a3746a5eba"
   end
 
   depends_on "libyaml"
