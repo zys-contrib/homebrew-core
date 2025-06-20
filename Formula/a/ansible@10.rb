@@ -17,13 +17,13 @@ class AnsibleAT10 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "eb35c6587563894c9c47c992eba095fd00c6ce48ff8a55cf21cdfcc24ce36d53"
-    sha256 cellar: :any,                 arm64_sonoma:  "6fc1fd2c5a4873b4c1d235917d476f9fbb1ead387710486389bdf39a4325cbf6"
-    sha256 cellar: :any,                 arm64_ventura: "7dcae55d5cb95c8a65fa6613021032ea72ac9eb4e046c781362d2df62fbf072a"
-    sha256 cellar: :any,                 sonoma:        "666e98a3739b8fdcfb528a5dc00fdbd0bfeaeac66f98f8bfb3b1bfb45f8050fe"
-    sha256 cellar: :any,                 ventura:       "a61275ac9c5607c0d2beed46c00eab2c5f3ddf25336d5d9a055e992a77d083a8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cc37d9aebc2cbdd484c41913f475226c22643a2c31872795f50174b1b39d9ff4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b032d1d41e0e0f5d7e4d2adf57d02b0adc09cf0ea032932fd548620a806e1ac"
+    sha256 cellar: :any,                 arm64_sequoia: "65b73e6066472492def97cbfdf1d290e165a71e4c7116b5d51000cb3a7ba404c"
+    sha256 cellar: :any,                 arm64_sonoma:  "cd8e723dd68a3300c24c168fa580d7235c8f3dc8f2904a2188f870534485c57b"
+    sha256 cellar: :any,                 arm64_ventura: "f66b068dd16ea904cc2fd9fa397e28f4fe9c4d2b799be4b336a985f3beec0f29"
+    sha256 cellar: :any,                 sonoma:        "50cf57a5d21514b3abffce59f8a5ef8256c573949aca8b8d0fbf6ba2295726f5"
+    sha256 cellar: :any,                 ventura:       "8f10ab304505aa7839e5ac4e0bc2c81c5cf6deadf3c8e8f914347dd8943295df"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "14f8c8954c7fed3fdcac40baa04745dc4171f9b1702a301283522c5d3bacef85"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14e8cdfd4ea29228fa9ef36a33d1678e0bf52b0278ec678b209c3796c4ab7776"
   end
 
   keg_only :versioned_formula
