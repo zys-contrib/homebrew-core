@@ -9,13 +9,13 @@ class Moto < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "ec6d1bb819eb3756b96d73d29c7bdbcb93b646207d2451ba9767d06ca3979e80"
-    sha256 cellar: :any,                 arm64_sonoma:  "3a7e22462edbf10103c0110b39904051cd06c3cd2034fbc2e0cac49b84ed4f03"
-    sha256 cellar: :any,                 arm64_ventura: "abb0f9f38e7ce7e5887def7f7a78cc6dc61e17cef74fe6dcd8a22715af40220e"
-    sha256 cellar: :any,                 sonoma:        "063ae460f20bb3ad1d8bb6741553477b649efa40acdecbf8461932e563adacae"
-    sha256 cellar: :any,                 ventura:       "2b9970e751f2f4eb7e29b8ca72d4c3c0d74c3b49ed9b9e002f8b1b43e3f6bb5c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ae93eb5bafc1a3ff26ba63445207de9e02f8b9756f19b7e57501f2a6f5dfc55b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e6ada09c259516550992d1c4e6730ff29bdb75d79cf49d04dbaffee2eaae57ea"
+    sha256 cellar: :any,                 arm64_sequoia: "97d144a7e22e3345d0f30dc63f93ded8fceb5f8bcf6458e88c8f77a838de9102"
+    sha256 cellar: :any,                 arm64_sonoma:  "54203b63bba1685d863cda116fbfcce5cb336b959d0346571261b58487f60fa7"
+    sha256 cellar: :any,                 arm64_ventura: "37e4e5af83792c9481c73cd9c07cd1bc92948c106d3fa92ba630763daf53a9a1"
+    sha256 cellar: :any,                 sonoma:        "334f634dec6061bf08b928d20e0c14e4b8b20a79e2231276ef7c97e2d422bb2c"
+    sha256 cellar: :any,                 ventura:       "a99bbe7c2319fe846ee29c4160fc6127bf9710313e3b41066a81bac021f78cc9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "32759775e3b7e47e50a6625e3752a799df93ef69feb43a864bd4a1ff37e79d8d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b863255c8a0f5e3718dc9e333463e19a1b1db98bcc8e96d747d585fdeb7ab91"
   end
 
   depends_on "rust" => :build # for pydantic_core
