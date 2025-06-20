@@ -9,7 +9,7 @@ class OktaAwscli < Formula
   revision 5
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "5fdbf1d0d36d91b4276cbd3953da14306952ac001ab6894ba7577d7a1241018f"
+    sha256 cellar: :any_skip_relocation, all: "d279e4c3b084f2de087c01d4b05af5da5cc14e52469440f35ae7d74abe676c09"
   end
 
   depends_on "certifi"
