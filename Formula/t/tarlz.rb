@@ -1,9 +1,9 @@
 class Tarlz < Formula
   desc "Data compressor"
   homepage "https://www.nongnu.org/lzip/tarlz.html"
-  url "https://download.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.27.1.tar.lz"
-  mirror "https://download-mirror.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.27.1.tar.lz"
-  sha256 "7091968e8f9b5333730e7a558ebf5aa9089d9f0528e6aea994c6f24a9d46a03f"
+  url "https://download.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.28.tar.lz"
+  mirror "https://download-mirror.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.28.tar.lz"
+  sha256 "ea413f51a9f158cbaaaa27451a2035d2e9322275daacf237f7f684347c09f229"
   license "GPL-2.0-or-later"
 
   livecheck do
