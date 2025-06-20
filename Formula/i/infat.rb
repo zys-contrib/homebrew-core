@@ -6,11 +6,9 @@ class Infat < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d0c6702d59949d4907d64d028e6f905350a3d5651187b5735efc6f4b1ea03be5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2d50bd17575624e9009127232147d00e83d189a90f3d5c0b5b123b5945e14131"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9f3e4319f818872bab982e1d4efafe6ee02a907f960a1b2aa2ca082dcd803924"
-    sha256 cellar: :any_skip_relocation, sonoma:        "55e949bf1cd745eb1cc1737538460ad1230236d09039cfbec30d202067d8109c"
-    sha256 cellar: :any_skip_relocation, ventura:       "587fe0d7f058a82c2f0a6d2e2226c097e0dfe22dad062b0c5770ac3e2bfc967c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6466855e24ccda05194b336d748c1d742e1527f7a6fef67b85b59c93f2fa6c67"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "422b1395feed2b3b4fca3b9b044ba4b3ec6d9109718c1e0cc2a20b27be3a2c26"
+    sha256 cellar: :any_skip_relocation, sonoma:        "38ea665b9aa1e64fa4d066a37c51116204ce3eade08cfdd76406346f703c643b"
   end
 
   depends_on xcode: ["15.2", :build]
