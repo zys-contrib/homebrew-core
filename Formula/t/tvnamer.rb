@@ -12,7 +12,7 @@ class Tvnamer < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "62bc0479abf31707d8f5f8e01c590e23d07d248f3e5dd8abc9475d871d25da3c"
+    sha256 cellar: :any_skip_relocation, all: "c488ea5258a320f51fb970cfb226dceb2ea35bf5c62df325577c4d25df1b5077"
   end
 
   depends_on "certifi"
