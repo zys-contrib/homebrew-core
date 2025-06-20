@@ -11,13 +11,13 @@ class OnlykeyAgent < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "96b32e7cc840fe0bf3bf1436377dac7ff1ade862912b39e9a6d9e181f51aab8a"
-    sha256 cellar: :any,                 arm64_sonoma:  "7974b523c467d1596f4510eee8e28b606c9b0047927f3424690a29e6dd39bafe"
-    sha256 cellar: :any,                 arm64_ventura: "76775fb1b788a3400c2f20f2be653f182ebd7dbf559173bdb49532747f952243"
-    sha256 cellar: :any,                 sonoma:        "afb6da530494e63195026ed3175d0e6d44767385cff7f641126a8bf0ccd3f519"
-    sha256 cellar: :any,                 ventura:       "4bbd217022a81f2c23fa42f33d100013d83a8c869bfd29fc3844198817e55458"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "787ee6247ea864dae1fa303d55457525f17e2b34b3cb73cc422dcf5343cb97d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0d49aa8266003774df76336a85cf8430f1e6faf66fbf90abbb4ae68b9b6a5935"
+    sha256 cellar: :any,                 arm64_sequoia: "eb5300e3bdc15543277592ff0fb8af3b7b30493a7d48ce88e7fcaa3d7479db78"
+    sha256 cellar: :any,                 arm64_sonoma:  "d2f4dc6df76189333ef590b584ffdc4a7f2ade77a11ab412838167c58940f6d5"
+    sha256 cellar: :any,                 arm64_ventura: "cecb79179fc8e733001bddee588fc6647115f3663331eca8b0fc1a7baa198bf0"
+    sha256 cellar: :any,                 sonoma:        "08c3f58b38f58278a1c8400afe910ad7695b59387517abee1f36a2c2508cc0d0"
+    sha256 cellar: :any,                 ventura:       "a79e3827dee4bab6bee361396f7d542a909e98e75218ae46f1bf0fa39fb42704"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "43fe811673319574345e943f66680a221fe53b3dcea9c18416419947f81a51a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4aa0329eb4c8c0f3aa2f8630689ed84f564956afc1d28bb258c9c06f82fb5fb3"
   end
 
   depends_on "pkgconf" => :build
