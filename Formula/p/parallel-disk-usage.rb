@@ -1,8 +1,8 @@
 class ParallelDiskUsage < Formula
   desc "Highly parallelized, blazing fast directory tree analyzer"
   homepage "https://github.com/KSXGitHub/parallel-disk-usage"
-  url "https://github.com/KSXGitHub/parallel-disk-usage/archive/refs/tags/0.11.0.tar.gz"
-  sha256 "a11e19906981c46d5cc694cfc2908163e88d84cd9f4f8b2d516487e5f150d588"
+  url "https://github.com/KSXGitHub/parallel-disk-usage/archive/refs/tags/0.11.1.tar.gz"
+  sha256 "77dc084baff20c5ef647693ab070300d2a873484f5f30ab1e4d7681eeb20fec7"
   license "Apache-2.0"
   head "https://github.com/KSXGitHub/parallel-disk-usage.git", branch: "master"
 
@@ -17,12 +17,6 @@ class ParallelDiskUsage < Formula
   end
 
   depends_on "rust" => :build
-
-  # rust 1.87 build patch, upstream pr ref, https://github.com/KSXGitHub/parallel-disk-usage/pull/276
-  patch do
-    url "https://github.com/KSXGitHub/parallel-disk-usage/commit/20fe7513f96cfbc456b835faf36c003d039500e2.patch?full_index=1"
-    sha256 "cd7555caa0e2f976fe2dfab81be0077ac1b95977accf70a3d6975c86123207d3"
-  end
 
   def install
     system "cargo", "install", "--features", "cli,cli-completions", *std_cargo_args
