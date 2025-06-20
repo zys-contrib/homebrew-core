@@ -1,8 +1,8 @@
 class CodeServer < Formula
   desc "Access VS Code through the browser"
   homepage "https://github.com/coder/code-server"
-  url "https://registry.npmjs.org/code-server/-/code-server-4.100.3.tgz"
-  sha256 "a85138ac3a382a9ba1df652a751901ec598fed24f673b8a8653de7be8335bfaa"
+  url "https://registry.npmjs.org/code-server/-/code-server-4.101.0.tgz"
+  sha256 "8dfbeef284313285e54e2a02608f90d83a35a20fa23120844b3f40c3f944d8d7"
   license "MIT"
 
   bottle do
@@ -16,7 +16,7 @@ class CodeServer < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "node@20"
+  depends_on "node@22"
   uses_from_macos "python" => :build
 
   on_linux do
