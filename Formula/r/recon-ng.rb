@@ -15,14 +15,13 @@ class ReconNg < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 7
-    sha256 cellar: :any,                 arm64_sequoia: "73ef8f988840d76008deb366dcb3540b381b9344ea2dd1633262c2289939771f"
-    sha256 cellar: :any,                 arm64_sonoma:  "9a8cc5fc58f28ddedd395df597f23d970be791a905c91076edeb23d11436f953"
-    sha256 cellar: :any,                 arm64_ventura: "b4f0da3f71e8a0d94b6d493c90c97df2cfb2cfb1b0d49fb33c6339a6fae27078"
-    sha256 cellar: :any,                 sonoma:        "1f46df526536feb03ea35a060473d3c40603a75e144179ae401afec18676e19e"
-    sha256 cellar: :any,                 ventura:       "8bdbc862e712b72ed9c9c57ee97fe633b931978a7fc21aee8a9fc88442d41123"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "77f4480e02a113babc610250e12ba8d5f1a5f773ea1ce0c658ab10c69e368b5b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f0239b38ecb651e92c002fdaaa8c350e55a035eb2b6f5ec595643aff81759b4"
+    sha256 cellar: :any,                 arm64_sequoia: "b3022b72e969dd9c1a810018fb105d5171d27a0a0e0eb5bd4cee62bdade8f4f6"
+    sha256 cellar: :any,                 arm64_sonoma:  "763a7f192d9242141a0e77fe2e778a032b2f0fa09218463efcbad848f0dcacba"
+    sha256 cellar: :any,                 arm64_ventura: "5ea8640077ef223ae502943f6399e9962c753d8578637471b648c6f2c332df64"
+    sha256 cellar: :any,                 sonoma:        "65f4d04ec50b741832ee4fa0717be5f66fe62136a0f687631cafcb9be168939d"
+    sha256 cellar: :any,                 ventura:       "5d817070eeb81592672f521a2b6f9fd74f4a2851a54b7c751239ca825b8c9a9d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ee1e6d9f356669caff93850da5fddf512b8a6c94b2663628766c23ee297ec4a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3cfb871d04bb9a3eccae1f03c452c376d75a05dfe5b22fd1e67eea41f0741ba"
   end
 
   depends_on "rust" => :build # for rpds-py
