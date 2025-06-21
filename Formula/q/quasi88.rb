@@ -1,8 +1,8 @@
 class Quasi88 < Formula
   desc "PC-8801 emulator"
   homepage "https://www.eonet.ne.jp/~showtime/quasi88/"
-  url "https://www.eonet.ne.jp/~showtime/quasi88/release/quasi88-0.7.1.tgz"
-  sha256 "a9e7097e26cee6605ca3a467f6167b624dca4d11e3d99fd5c9886894b42cc05e"
+  url "https://www.eonet.ne.jp/~showtime/quasi88/release/quasi88-0.7.2.tgz"
+  sha256 "e747c1b391349e1dfcea4eb615322c225e0baa642cf6e068ea9ab137b56b0355"
   license "BSD-3-Clause"
 
   livecheck do
