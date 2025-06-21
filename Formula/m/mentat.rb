@@ -12,14 +12,13 @@ class Mentat < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "70908e1d24255383875aa9aa7d8bb2119923a5786f7dfe58ffdbb21548a71160"
-    sha256 cellar: :any,                 arm64_sonoma:  "0e7fd8f07a03e6ceb8776679a14e37c1be7ad10e63b591604ae85ec1ba58e915"
-    sha256 cellar: :any,                 arm64_ventura: "da02fd79ddd6e866f7d9cdc4459548c24eaeb04d9c57fb0c3c4f5756b2a437c2"
-    sha256 cellar: :any,                 sonoma:        "45d47f97037d79f06a20e6b28c43deac9d9cfe0968aca3881a19a0c3c2d95430"
-    sha256 cellar: :any,                 ventura:       "30951808b6bbebe3cd919b11ff7b82fea0b3737773bb684dde2cc1619872c760"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "217d8ab6cc5f2e324ebe8e23f36322e0c6deb979c590dc2d06708895861b270e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc06886c4c5577b995aae0dbcf6d3c34185f477bd51601752a0cc0bc8fbdf69a"
+    sha256 cellar: :any,                 arm64_sequoia: "e50b7be43330309d729ea40eea1e7172222bd6fd9282226e7612a0ba0f55901c"
+    sha256 cellar: :any,                 arm64_sonoma:  "b0f2721975cfb85bfdbdf0e14864fde5813204bfe71cc4665285a3f300b986ed"
+    sha256 cellar: :any,                 arm64_ventura: "fbd9c362f348f654fb3dc2bd87cbf137bfe164e30016f6b0a27f3a4f88d2a3be"
+    sha256 cellar: :any,                 sonoma:        "d7361bb825d6787a943d5d76c7210b182e89f659827f61dd7c68e96b0b4cba18"
+    sha256 cellar: :any,                 ventura:       "3b00fb76bcb391bc612a7dc91dc4ab132b5ddea40048b5f179e8430035cdcb16"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cb19785824f62dd821aeddd5afdc5c924cbfa9ce72585e4feaa371ff89dd0b03"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "952d23319313d27a21f55f7c4d8503a4f0037671283999f5b4ed9b40dee1f66c"
   end
 
   # https://github.com/AbanteAI/archive-old-cli-mentat/commit/901f0726418e9e9a66bec78facecf3a45541002d
