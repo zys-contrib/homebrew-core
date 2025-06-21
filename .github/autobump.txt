@@ -2377,6 +2377,7 @@ memtester
 menhir
 mercurial
 mergiraf
+mermaid-cli
 mesa
 meson
 meta-package-manager
