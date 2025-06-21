@@ -9,14 +9,13 @@ class CoboCli < Formula
   revision 1
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sequoia: "d5a8f6f864bce60e582cb73e9415a23ddbca53b543f29ea33eb67564110bf6cf"
-    sha256 cellar: :any,                 arm64_sonoma:  "652be51343a462a3678ce3c57678694395c37c509a27a35bf1f32609850e8384"
-    sha256 cellar: :any,                 arm64_ventura: "d80cd0db285dc6e99f55079ad565efca256acf5254e893fea2daa8d6cfe83c2b"
-    sha256 cellar: :any,                 sonoma:        "40d4ab83dfbd6ed44d1906c52c45e2b4dab041f6ad20a3eb5fd923a71fb51908"
-    sha256 cellar: :any,                 ventura:       "3dd94d11b64260f1077fa488eb910fca49277a5e9fafb9b20d8f9a8e036a6bc2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0fdfa10d3b87c9f44eebd3c6a3f67b3397849a2a0c49edd255b8f9132dfef43a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1642e5cb6304cbf47ef746d55d38789f67264103b6b0913e2ccf2027a25e6632"
+    sha256 cellar: :any,                 arm64_sequoia: "5d71e97d045b3ff66d8f3d76d9b3cdf80249c5f73bd38670da1a3dc35f7b2b97"
+    sha256 cellar: :any,                 arm64_sonoma:  "af1cf59147a884f17ff75a4879d9101e048ffb8c5912ef8bc459d703241032e3"
+    sha256 cellar: :any,                 arm64_ventura: "0aad1f706006f77cedf8ca699c046473a01e4c0a3b9f36a4289797871e9909f8"
+    sha256 cellar: :any,                 sonoma:        "d1e93f0c3c935a7f919f134260c97b61cc45b1f7133aa71b11c57aeb7a5ad15d"
+    sha256 cellar: :any,                 ventura:       "980768c4b191eefa89282f595560c8a704daceb795b745b45fa9e0005524d149"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "067da74d73c9eb25ea35c89e92bdef7957116df1eee7374cd63ba99e649e770d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f6c822eb111fb809ff649f1fda461b03a2fe678cb8b38356aa1bf10ba720fbee"
   end
 
   depends_on "certifi"
