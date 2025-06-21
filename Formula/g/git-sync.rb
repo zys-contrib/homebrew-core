@@ -7,12 +7,12 @@ class GitSync < Formula
   head "https://github.com/kubernetes/git-sync.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "72b49a898c83aef448141b406ae6e6dad7cb60bd136908cf0af81fccee8e19af"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "72b49a898c83aef448141b406ae6e6dad7cb60bd136908cf0af81fccee8e19af"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "72b49a898c83aef448141b406ae6e6dad7cb60bd136908cf0af81fccee8e19af"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a41d75a5cd5c100074f06b743406fb49f8a4d4685e3ed2fc06e0de58e257c8be"
-    sha256 cellar: :any_skip_relocation, ventura:       "a41d75a5cd5c100074f06b743406fb49f8a4d4685e3ed2fc06e0de58e257c8be"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a51a30d49f6db8d0b5bbdd8e8678188e9fa5765b54d35770db3d31d79a873c0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c5554166349ab5111d40364a9d1af15b6db41e0db28ec1c30a324977dc2010c8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c5554166349ab5111d40364a9d1af15b6db41e0db28ec1c30a324977dc2010c8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c5554166349ab5111d40364a9d1af15b6db41e0db28ec1c30a324977dc2010c8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "00358f17adf3bb83339129bef02f7031c9e1c2a64f043148baf0e329ebe1d6e5"
+    sha256 cellar: :any_skip_relocation, ventura:       "00358f17adf3bb83339129bef02f7031c9e1c2a64f043148baf0e329ebe1d6e5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2802fa19c03b602a9988b64d7339d1046a03548359fd9f92f17f5247912f3d1a"
   end
 
   depends_on "go" => :build
