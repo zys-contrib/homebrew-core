@@ -5,6 +5,15 @@ class MermaidCli < Formula
   sha256 "931a41e109b7d33d0da4881a4cef673f6d77b30219543f7496c5c003c64866df"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "1554c8ebf97a5d2c57a5bfee58f0033bdd376d68fe6f0d75c25471b08dc39edc"
+    sha256 cellar: :any,                 arm64_sonoma:  "1554c8ebf97a5d2c57a5bfee58f0033bdd376d68fe6f0d75c25471b08dc39edc"
+    sha256 cellar: :any,                 arm64_ventura: "1554c8ebf97a5d2c57a5bfee58f0033bdd376d68fe6f0d75c25471b08dc39edc"
+    sha256 cellar: :any,                 sonoma:        "e1c98aa4a1f5a240c0fd1ff09b3a223922f8e7a533e01f83d1a9db2570b00145"
+    sha256 cellar: :any,                 ventura:       "e1c98aa4a1f5a240c0fd1ff09b3a223922f8e7a533e01f83d1a9db2570b00145"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "141bd60ec8618342e391e70117ee014da0fbc36c6c56f26b52aaa9310e0302aa"
+  end
+
   depends_on "node"
 
   def install
