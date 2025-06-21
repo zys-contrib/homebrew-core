@@ -126,6 +126,7 @@ arkade
 arm-none-eabi-gcc
 armadillo
 arp-scan
+arp-scan-rs
 arping
 arrayfire
 artillery
