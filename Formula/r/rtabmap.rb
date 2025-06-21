@@ -1,18 +1,11 @@
 class Rtabmap < Formula
   desc "Visual and LiDAR SLAM library and standalone application"
   homepage "https://introlab.github.io/rtabmap"
+  url "https://github.com/introlab/rtabmap/archive/refs/tags/0.21.4.tar.gz"
+  sha256 "242f8da7c5d20f86a0399d6cfdd1a755e64e9117a9fa250ed591c12f38209157"
   license "BSD-3-Clause"
-  revision 10
+  revision 11
   head "https://github.com/introlab/rtabmap.git", branch: "master"
-
-  stable do
-    url "https://github.com/introlab/rtabmap/archive/refs/tags/0.21.4.tar.gz"
-    sha256 "242f8da7c5d20f86a0399d6cfdd1a755e64e9117a9fa250ed591c12f38209157"
-
-    # Backport support for newer PCL
-    # Ref: https://github.com/introlab/rtabmap/commit/cbd3995b600fc2acc4cb57b81f132288a6c91188
-    patch :DATA
-  end
 
   # Upstream doesn't create releases for all tagged versions, so we use the
   # `GithubLatest` strategy.
@@ -57,6 +50,10 @@ class Rtabmap < Formula
   end
 
   def install
+    # Backport support for newer PCL
+    # Ref: https://github.com/introlab/rtabmap/commit/cbd3995b600fc2acc4cb57b81f132288a6c91188
+    inreplace "corelib/src/CameraThread.cpp", "pcl/io/io.h", "pcl/common/io.h" if build.stable?
+
     system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
@@ -115,18 +112,3 @@ class Rtabmap < Formula
     assert_equal version.to_s, shell_output("./build/test").strip
   end
 end
-
-__END__
-diff --git a/corelib/src/CameraThread.cpp b/corelib/src/CameraThread.cpp
-index a18fc2c1..d1486b20 100644
---- a/corelib/src/CameraThread.cpp
-+++ b/corelib/src/CameraThread.cpp
-@@ -44,7 +44,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- #include <rtabmap/utilite/ULogger.h>
- #include <rtabmap/utilite/UStl.h>
- 
--#include <pcl/io/io.h>
-+#include <pcl/common/io.h>
- 
- namespace rtabmap
- {
