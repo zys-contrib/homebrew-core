@@ -1,8 +1,8 @@
 class Kor < Formula
   desc "CLI tool to discover unused Kubernetes resources"
   homepage "https://github.com/yonahd/kor"
-  url "https://github.com/yonahd/kor/archive/refs/tags/v0.6.1.tar.gz"
-  sha256 "d6c123fbaa0f1ad32e75cb0f33b493672845a4373b3fd116c369a9bcdcdf5940"
+  url "https://github.com/yonahd/kor/archive/refs/tags/v0.6.2.tar.gz"
+  sha256 "949b5857f126b4a237daae3670b115b6671fb8c233fd5569d2897635f867c2cd"
   license "MIT"
   head "https://github.com/yonahd/kor.git", branch: "main"
 
@@ -17,11 +17,17 @@ class Kor < Formula
 
   depends_on "go" => :build
 
+  # skip kubeconfig for utility commands, upstream pr ref, https://github.com/yonahd/kor/pull/457
+  patch do
+    url "https://github.com/yonahd/kor/commit/6c02951894e587c023e57a7ab2654136024bff70.patch?full_index=1"
+    sha256 "98b3dac34c1164831a25502f8c2723d227cdac8ade8e4f68b17b00057e149be4"
+  end
+
   def install
     ldflags = "-s -w -X github.com/yonahd/kor/pkg/utils.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:)
 
-    generate_completions_from_executable(bin/"kor", "completion")
+    generate_completions_from_executable(bin/"kor", "completion", shells: [:bash, :zsh, :fish, :pwsh])
   end
 
   test do
