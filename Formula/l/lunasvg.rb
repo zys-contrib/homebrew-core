@@ -5,6 +5,15 @@ class Lunasvg < Formula
   sha256 "06045afc30dbbdd87e219e0f5bc0526214a9d8059087ac67ce9df193a682c4b3"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "16cfb6298fabbd5b71023ca7879b49bb1ee7bad1d91a540173ff02d3aa841b3f"
+    sha256 cellar: :any,                 arm64_sonoma:  "a00160c03606ff6039d7b12401ce59cbd2fc2a8e63482c81112dec7828f357ab"
+    sha256 cellar: :any,                 arm64_ventura: "d602df1f3d4d246808d22c49ecf81e4a696734811ef4b81b769f0d2c4680eb32"
+    sha256 cellar: :any,                 sonoma:        "c8188f17b54572252d434d3e0bfb837826c355fa6fe141812da2430be501ea1f"
+    sha256 cellar: :any,                 ventura:       "1db019fe6dccb91f02ba0ee9daf2866ea72aa6a86598b8fc83efde71b613ff87"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c9e3d41f146637461633611a259c12cb20ae9715b0c04af654ecf1bc5b34a14"
+  end
+
   depends_on "cmake" => :build
   depends_on "plutovg"
 
