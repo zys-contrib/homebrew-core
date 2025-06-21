@@ -6,6 +6,10 @@ class SwiftSection < Formula
   license "MIT"
   head "https://github.com/MxIris-Reverse-Engineering/MachOSwiftSection.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "edc22b3b35f2d1930d9499123a58f7a2d5d8db43789f9305bc9f4b9c428abcf5"
+  end
+
   # The Package.swift file requires Swift 5.10 or later.
   # But it is actually only builable with Swift 6.1+ due to the usage of trailing commma in comma-separated lists.
   depends_on xcode: ["16.3", :build]
