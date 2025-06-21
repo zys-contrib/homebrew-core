@@ -17,6 +17,7 @@ class Rnp < Formula
     sha256 cellar: :any,                 arm64_ventura: "1793864c5ac801908df2c185aaa75fdf1ec78b589f4d686a50fbc94f6ac2e357"
     sha256 cellar: :any,                 sonoma:        "6bbb2952df99c6b04c3cbc4c4465e6ce0eeebdebde37fe971d55f2f782b7b58b"
     sha256 cellar: :any,                 ventura:       "b1045aedf6befd06a9fc6c2399282298b74d034eb4d01b09eef31bcb94be6dda"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f35c057bf0560cd0621089236490d8f2e1019cddbe6147b37c75324a82a93b99"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "426c2a6c95992b27f8b08631049fac856888caf66ef7bfd6d5c2afd50c9f98a8"
   end
   depends_on "cmake" => :build
