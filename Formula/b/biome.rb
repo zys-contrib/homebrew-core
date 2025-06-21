@@ -1,14 +1,14 @@
 class Biome < Formula
   desc "Toolchain of the web"
   homepage "https://biomejs.dev/"
-  url "https://github.com/biomejs/biome/archive/refs/tags/cli/v1.9.4.tar.gz"
-  sha256 "fc06a89e1b925e8b1dfaca98f7af1d8e04d27acdcaeff786e2806f8bc26283f9"
+  url "https://github.com/biomejs/biome/archive/refs/tags/@biomejs/biome@2.0.4.tar.gz"
+  sha256 "22b0af2a2cd09b5ad68fe28b352657aa29907d60e0119b64712699d49af50f95"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/biomejs/biome.git", branch: "main"
 
   livecheck do
     url :stable
-    regex(%r{^cli/v(\d+(?:\.\d+)+)$}i)
+    regex(%r{^@biomejs/biome@v?(\d+(?:\.\d+)+)$}i)
   end
 
   bottle do
