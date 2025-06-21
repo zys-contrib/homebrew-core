@@ -11,14 +11,13 @@ class Certsync < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8d38c1280c4ffa266263cf6dea0afd81658364172868df8fb342242f9438547c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c0fa23ebc0fc9d92c3583dce167b6620c4560a2c86730debb0d4a69fae60a1d0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e294b4d99fd96c068963d13c0d66891f408c7e10df4a80a2027423338ce14e7f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a2224c46485fc6adec9af07d0170d04185ad3d9cc26a721b3fab445659041007"
-    sha256 cellar: :any_skip_relocation, ventura:       "9d797e826af6d62ae8218f879def10660e59c7edf7083829badcf730694225c5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fa4cd398386f2229ff3b14e4ed8c6a81d2b242dfa7acb450f2ddabb4b3cf9a08"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45804c56f0f9901374f4b4a545706524aa0d0966c003526eba836c4e3f26a169"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ce9f96e07b826ca7f88e7324e519c77895a8067fb7a515467b01b8d340e11916"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "32fc1c809f36a9d0e28157ccf6d00ca9e42deaec653b5da3234daa3eed3add44"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "555abc7e5f9f99cce2a30ee4bdc16f026e88e671493031d131bb927c91aa7f76"
+    sha256 cellar: :any_skip_relocation, sonoma:        "532555d93a5da39106b2f604aa15d2a1747b145c5a536ef2eefbd5581c37e586"
+    sha256 cellar: :any_skip_relocation, ventura:       "998bf723887fe7f207080371812376b60fce993cfbd1f3c2385dd46f246010f2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e8acb4485616f556af6d01c12d11e0d4ba99cc1fc50d5419d31a0745fb7dfe38"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "424a8c8dda9bf9297d5b125aa9ab017bf299c695b8d03836d1109042251fd658"
   end
 
   depends_on "certifi"
