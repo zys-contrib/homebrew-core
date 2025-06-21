@@ -12,6 +12,7 @@ class Lolcrab < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "63346783d7d4451971a0445bb81e8c53ba050c7c0790f2f2f6c9b3a182093c7d"
     sha256 cellar: :any_skip_relocation, sonoma:        "23839485ed95006cb6960ccee0c6b4ddb6c932492f76db97faea6512a70514c7"
     sha256 cellar: :any_skip_relocation, ventura:       "63f96e5f06ba3c43dda97dfe713e90428e981d54fc090173dcf2b6b178ffbf71"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b0970ecc7deade605cac17219372b3d90e9f10cce2814c3a5bb6149e30528ef5"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc1b66f9f87d0c806a6a62aa88e6d91913a6cad76148e13d8938c1fdfc8b7531"
   end
 
