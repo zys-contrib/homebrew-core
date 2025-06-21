@@ -6,8 +6,8 @@ class Pciutils < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_linux:  "a90ffab769185ce520f0252389c17a5c7f74e233d858d4554cf92d0e66282db5"
-    sha256 x86_64_linux: "8642b280a07552b6b9e2d4a887963900158155ea00b5cd85558b0f481e8204a8"
+    sha256 arm64_linux:  "04bcc2da98a252bebdd8b6206957de9b5d4409c58fe2533197fcc6b3a71eed5f"
+    sha256 x86_64_linux: "684b1f7d95352c1d14a3a9431c7cccf4e5326e6e80c517d092afd8bd7d860fdf"
   end
 
   depends_on :linux
