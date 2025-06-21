@@ -12,14 +12,13 @@ class AwsGoogleAuth < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7d83df21489d783dd82daf5a8d34af0e370808d8fc6181850f68b4f518408b19"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1460955a61fb67dce62f5ce57824d605d3fed8d09bdce625d8e566a8d6cf3346"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7cbe808517b2acea5c6687547dec8ff6eb1c3b243d0527d0bf295f2e406d6f5d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "030b5fb22e8e19ba9c92bfa4355d34e3fd4faa44240cb1d41717e16d4a398c95"
-    sha256 cellar: :any_skip_relocation, ventura:       "91450b77c9258af6395013fe8d9dbae84a23e3201264aa2341cf76ff01210865"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8335c8318f352b095f814cd58de9173d60ffb690833edf8dd3ec01d8120952d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d9467bf78368ce2444a0ef687e7e00c765b15b54fa67438e105f394a5c6b46b4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5aa5e663cf4e5543319a0efdc433ce4321fd56fc27d59b1b541818ed2a723364"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1def88f9f052eb6c52333bdb24c0f59689f73fbece78526c1eca0165da0e45c2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8c68cd5fd69fcfec339aca179408621909d881a3e55797ec11c77ac5c9e47d49"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a12f25de391804efe998fa508e9f4dad1e1f8dec0e712b66f69653b2739f7b25"
+    sha256 cellar: :any_skip_relocation, ventura:       "8739dc7f687df29ab90b75e6e952af83981ebec39b8ae7a0a3c69df87842ae8c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6e081cd1ab493a8275dc79fa5dcd9e93418d5389e4f9a4b7a79a7ae44aa712ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fade4b39b0832c04495e6938f5c3c8cef093a959dda4a69eb300c45a1099baf2"
   end
 
   depends_on "certifi"
