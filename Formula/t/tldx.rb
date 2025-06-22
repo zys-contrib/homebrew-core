@@ -17,10 +17,12 @@ class Tldx < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/brandonyoungdev/tldx/cmd.Version=#{version}")
   end
 
   test do
     assert_match "brew.sh is not available", shell_output("#{bin}/tldx brew --tlds sh")
+
+    assert_match version.to_s, shell_output("#{bin}/tldx --version")
   end
 end
