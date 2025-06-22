@@ -1,8 +1,8 @@
 class SwiftSection < Formula
   desc "CLI tool for parsing mach-o files to obtain Swift information"
   homepage "https://github.com/MxIris-Reverse-Engineering/MachOSwiftSection"
-  url "https://github.com/MxIris-Reverse-Engineering/MachOSwiftSection/archive/refs/tags/0.4.1.tar.gz"
-  sha256 "afe48172e28e7ee626edf051d58662b62b63ddb6780e830cafbe886007af8029"
+  url "https://github.com/MxIris-Reverse-Engineering/MachOSwiftSection/archive/refs/tags/0.5.0.tar.gz"
+  sha256 "34de34e7319dbb084236fe48f9e2eee5e4c2698fa261165612721efd10f1cbc0"
   license "MIT"
   head "https://github.com/MxIris-Reverse-Engineering/MachOSwiftSection.git", branch: "main"
 
