@@ -1,7 +1,7 @@
 class Onedpl < Formula
   desc "C++ standard library algorithms with support for execution policies"
-  homepage "https://github.com/oneapi-src/oneDPL"
-  url "https://github.com/oneapi-src/oneDPL/archive/refs/tags/oneDPL-2022.9.0-release.tar.gz"
+  homepage "https://github.com/uxlfoundation/oneDPL"
+  url "https://github.com/uxlfoundation/oneDPL/archive/refs/tags/oneDPL-2022.9.0-release.tar.gz"
   sha256 "b38844878af9ecee07ca719426b90fec77f79a35c7bc55154422cb0d7f654343"
   # Apache License Version 2.0 with LLVM exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
