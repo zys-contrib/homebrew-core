@@ -1,12 +1,10 @@
 class Wtfutil < Formula
   desc "Personal information dashboard for your terminal"
   homepage "https://wtfutil.com"
-  url "https://github.com/wtfutil/wtf/archive/refs/tags/v0.43.0.tar.gz"
-  sha256 "bb48e38e479b26e0b956b163e4804e99cd49545214090c2fdf99e54382b3d651"
+  url "https://github.com/wtfutil/wtf/archive/refs/tags/v0.44.0.tar.gz"
+  sha256 "cadf8183be4b84256c50ed64a1a401890016885e305d2816b4293f8494463c14"
   license "MPL-2.0"
   head "https://github.com/wtfutil/wtf.git", branch: "master"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "03d23e7f87fdcd1c568743ca4bf4261f2d90b8f83932325521f14aee6a683c1d"
