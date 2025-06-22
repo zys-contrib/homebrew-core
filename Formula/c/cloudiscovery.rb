@@ -11,14 +11,13 @@ class Cloudiscovery < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "166757c19b4069447bbb1a41e60be7e734d61f845cb0f951fe7410a099a87e57"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "064a3e7e97a886909f4fb368dcebef7707e3f8ecce081af90e096c01792fd6d1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9bf4aff37f693f03a1c5487cb10091b711d2da575107da81db51d5cafdce814b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "078273ecd102d192d38ded37f8f768467b592302c8b58b7b0d9e5097ee41e158"
-    sha256 cellar: :any_skip_relocation, ventura:       "3e3e859e0ad0cfcf0ce7fa5a0063304194345ecb6c47c03c560b35fddb02c41c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a3895cb0a39abcd9fdf74f527894fbe09dad23464b0356884abee1ff81f146ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9d88b7b392ea5615d256ec973cd48d482570d6a8b6d3fc2f703a72443c042fa3"
+    sha256 cellar: :any,                 arm64_sequoia: "256b308ecc554b73243bb67c3c915c41803a6412945ee1673e8cfbb0458341ba"
+    sha256 cellar: :any,                 arm64_sonoma:  "ce19aa2a03d018c44b919ecc49c54b3d315a768fb316b28fd8184e3f3af79df4"
+    sha256 cellar: :any,                 arm64_ventura: "d59e08945ea884a6d7afbb865d2dfa337d418d067650992dbd4baacbe580c09e"
+    sha256 cellar: :any,                 sonoma:        "92c2c35b1e56b7ff6155b90ba40ba5c532fb1fbe5c93626864b2c9fc48761dd3"
+    sha256 cellar: :any,                 ventura:       "c052b8e19b166db9e82edb7639de2172aa0957104ecac1f3ecc719ffa6a563e5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8593099c3de3b948acb078b4081af7be5fcba58c5cbb2f0ea8b808adf26972f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f6eb22585831e39b87ea1cf6370d5846ba9aa987633425c803ee14d12ec0349"
   end
 
   deprecate! date: "2024-10-11", because: :unmaintained
