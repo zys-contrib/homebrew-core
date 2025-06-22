@@ -1,8 +1,8 @@
 class Newsboat < Formula
   desc "RSS/Atom feed reader for text terminals"
   homepage "https://newsboat.org/"
-  url "https://newsboat.org/releases/2.39/newsboat-2.39.tar.xz"
-  sha256 "62551a7d574d7fb3af7a87f9dbd0795e4d9420ca7136abc2265b4b06663be503"
+  url "https://newsboat.org/releases/2.40/newsboat-2.40.tar.xz"
+  sha256 "1e656636009ffad3aeb87f8d0e4c36d2e913eac155b5f3ec85d00e8287b477c2"
   license "MIT"
   head "https://github.com/newsboat/newsboat.git", branch: "master"
 
@@ -102,7 +102,7 @@ class Newsboat < Formula
   end
 
   test do
-    (testpath/"urls.txt").write "https://github.com/blog/subscribe"
+    (testpath/"urls.txt").write "https://github.blog/subscribe/"
     assert_match "Newsboat - Exported Feeds", shell_output("LC_ALL=C #{bin}/newsboat -e -u urls.txt")
   end
 end
