@@ -9,13 +9,13 @@ class Nghttp2 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_sequoia: "73507c5419805c1f355705a6da6d19675faa7df1db7b094e49147f73c4aca5a9"
-    sha256 arm64_sonoma:  "7061b3fc947b387e23d8c83f037c1f795e9527bb23f68302d8002469a323738f"
-    sha256 arm64_ventura: "21df76f5d99ef51a4e60dc146725c50da4f638aa7e531a164ebb632b7e8162b3"
-    sha256 sonoma:        "87ad83548afab293d8f235b5d7821e77e8cd5a689db449e07ece94cfedaab169"
-    sha256 ventura:       "257ead75ec0f1999cf0c901efd7fdb2ae22942377fe8a806ab93d95b77f059ff"
-    sha256 arm64_linux:   "d79b088b2f12cf0e605864e710100b7901f2333324539b0e313063b0d33de59f"
-    sha256 x86_64_linux:  "1a923f926f8dd37a197164c955270b4a37297711031e6c204d03535aef8ffa12"
+    sha256 cellar: :any,                 arm64_sequoia: "20ea8dcfeed5fde8c9792199c2af43ab04f5d1c88e7a3907f99b9e0b89d23cd0"
+    sha256 cellar: :any,                 arm64_sonoma:  "77896cb1a06e09459c9f8658010cbc63391a83da609ea5d1c02dd253be8d2ba4"
+    sha256 cellar: :any,                 arm64_ventura: "9bb9732aa5e6d6a7f29535c94f851995aeda41917d728e6e60690f0985261bda"
+    sha256 cellar: :any,                 sonoma:        "4c717a81d420ff96dff267fa9ae9384cd4a6528643900843a6a7d8dc9f49c0fb"
+    sha256 cellar: :any,                 ventura:       "f9d36daccc853e2d71d771e6d1d0fe8c71a0bf791a1626fa11723781bbd63ac8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "80bc5f0551dd694b145553635898067a618d7a1c1b27db74fff5af4d278588cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ae3de4374e9293eff1c07cb0fc7ef960cfb7444da930bf0ede9e39c8836a17f"
   end
 
   head do
