@@ -82,7 +82,7 @@ jobs:
         uses: Homebrew/actions/create-pull-request@master
         with:
           token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
-          base: HEAD
+          base: master
           head: ${{env.REMOVAL_BRANCH}}
           title: Remove disabled packages
           labels: CI-no-bottles
