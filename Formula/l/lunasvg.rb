@@ -11,6 +11,7 @@ class Lunasvg < Formula
     sha256 cellar: :any,                 arm64_ventura: "d602df1f3d4d246808d22c49ecf81e4a696734811ef4b81b769f0d2c4680eb32"
     sha256 cellar: :any,                 sonoma:        "c8188f17b54572252d434d3e0bfb837826c355fa6fe141812da2430be501ea1f"
     sha256 cellar: :any,                 ventura:       "1db019fe6dccb91f02ba0ee9daf2866ea72aa6a86598b8fc83efde71b613ff87"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ae455197a5e27b7f38fb4dca0b2f7116966c3bd6df2dd2326e7e6f8d09efdbe6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c9e3d41f146637461633611a259c12cb20ae9715b0c04af654ecf1bc5b34a14"
   end
 
