@@ -1,10 +1,10 @@
 class MacosTermSize < Formula
   desc "Get the terminal window size on macOS"
-  homepage "https://github.com/sindresorhus/macos-term-size"
-  url "https://github.com/sindresorhus/macos-term-size/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "5ec39d49a461e4495f20660609276b0630ef245bf8eb80c8447c090a5fefda3c"
+  homepage "https://github.com/sindresorhus/macos-terminal-size"
+  url "https://github.com/sindresorhus/macos-terminal-size/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "f8e4476549ef4446d979875e87a77365fcfecfe58df7e62a653a402e29c8a0dd"
   license "MIT"
-  head "https://github.com/sindresorhus/macos-term-size.git", branch: "main"
+  head "https://github.com/sindresorhus/macos-terminal-size.git", branch: "main"
 
   no_autobump! because: :requires_manual_review
 
@@ -25,7 +25,7 @@ class MacosTermSize < Formula
   depends_on :macos
 
   def install
-    # https://github.com/sindresorhus/macos-term-size/blob/main/build#L6
+    # https://github.com/sindresorhus/macos-terminal-size/blob/main/build#L6
     system ENV.cc, "-std=c99", "term-size.c", "-o", "term-size"
     bin.install "term-size"
   end
