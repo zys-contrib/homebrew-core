@@ -7,7 +7,7 @@ class SwiftSection < Formula
   head "https://github.com/MxIris-Reverse-Engineering/MachOSwiftSection.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "edc22b3b35f2d1930d9499123a58f7a2d5d8db43789f9305bc9f4b9c428abcf5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "719b59f62cf442d4a49a9917edd1318009c38f2718b1ae951d9454f964aacbcd"
   end
 
   # The Package.swift file requires Swift 5.10 or later.
