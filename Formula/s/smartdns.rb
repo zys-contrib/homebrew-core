@@ -1,8 +1,8 @@
 class Smartdns < Formula
   desc "Rule-based DNS server for fast IP resolution, DoT/DoQ/DoH/DoH3 supported"
   homepage "https://github.com/mokeyish/smartdns-rs"
-  url "https://github.com/mokeyish/smartdns-rs/archive/refs/tags/v0.12.0.tar.gz"
-  sha256 "67adf2fbb005e6f0a1d933b0c115bedc4b5652379c50562808d424ce9b33a1a3"
+  url "https://github.com/mokeyish/smartdns-rs/archive/refs/tags/v0.12.2.tar.gz"
+  sha256 "79f1692d5ee588fb3bfdb7d4af51e4fa3a65f115d1102493e9aa788b3225ca97"
   license "GPL-3.0-only"
   head "https://github.com/mokeyish/smartdns-rs.git", branch: "main"
 
@@ -16,7 +16,6 @@ class Smartdns < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "78ee95d4f63c25abe9e932b1e06d3df17f41f1d52d40ca030ca23a74b379ca2e"
   end
 
-  depends_on "just" => :build
   depends_on "rust" => :build
 
   uses_from_macos "llvm" # for libclang
@@ -28,7 +27,7 @@ class Smartdns < Formula
   end
 
   def install
-    system "just", "install", "--no-default-features", "--features", "homebrew", *std_cargo_args
+    system "cargo", "install", "--no-default-features", "--features", "homebrew", *std_cargo_args
     sbin.install bin/"smartdns"
     pkgetc.install "etc/smartdns/smartdns.conf"
   end
