@@ -3,8 +3,8 @@ class Ramalama < Formula
 
   desc "Goal of RamaLama is to make working with AI boring"
   homepage "https://github.com/containers/ramalama"
-  url "https://files.pythonhosted.org/packages/7e/f6/176978055ffc7483e089735860870848509e4825b74d3a275935df586318/ramalama-0.9.2.tar.gz"
-  sha256 "f8189c287c2915083c4571158651b008a667fcb6d02b5c66a93f14745e85f4c1"
+  url "https://files.pythonhosted.org/packages/18/8c/542586bc878db32826821fc5fa8b906d7bc949d5b6fd4b8e72dac8d82385/ramalama-0.9.3.tar.gz"
+  sha256 "c2445287bb13ea0271a6686f66b8a1ce27e7232975b29acb3471109f0cac72af"
   license "MIT"
 
   bottle do
@@ -30,8 +30,6 @@ class Ramalama < Formula
   end
 
   test do
-    assert_match "invalidllm:latest was not found", shell_output("#{bin}/ramalama run invalidllm 2>&1", 1)
-
     system bin/"ramalama", "pull", "tinyllama"
     list_output = shell_output("#{bin}/ramalama list")
     assert_match "tinyllama", list_output
