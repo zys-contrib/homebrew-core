@@ -26,6 +26,7 @@
   "corepack": "node",
   "cppformat": "fmt",
   "crystal-lang": "crystal",
+  "cutter": "cutter-cli",
   "curl-openssl": "curl",
   "cv": "progress",
   "cyassl": "wolfssl",
