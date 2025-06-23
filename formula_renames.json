@@ -162,6 +162,7 @@
   "sloth": "sloth-cli",
   "speedtest_cli": "speedtest-cli",
   "ssreflect": "math-comp",
+  "squirrel": "squirrel-lang",
   "tachyon": "alluxio",
   "tensorflow": "libtensorflow",
   "tepl": "libgedit-tepl",
