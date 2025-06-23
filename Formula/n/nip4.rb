@@ -1,12 +1,10 @@
 class Nip4 < Formula
   desc "Image processing spreadsheet"
   homepage "https://github.com/jcupitt/nip4"
-  url "https://github.com/jcupitt/nip4/releases/download/v9.0.10/nip4-9.0.10.tar.xz"
-  sha256 "0e50978c042ff6a333fb9ca35ef0ebf6afbf0db43cbc5e122f2ab85cd6343c60"
+  url "https://github.com/jcupitt/nip4/releases/download/v9.0.10-1/nip4-9.0.10-1.tar.xz"
+  sha256 "1439698adb1e4bff149d77c40d180b2b9b03d30283df2f842fbaefc973f8c36c"
   license "GPL-2.0-or-later"
   head "https://github.com/jcupitt/nip4.git", branch: "main"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any, arm64_sequoia: "fd238ac604bf55da890fc707bf1bb80ffadd9dc1ad766b144126c87962cc293b"
