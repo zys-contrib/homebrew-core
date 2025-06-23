@@ -30,6 +30,7 @@
   "curl-openssl": "curl",
   "cv": "progress",
   "cyassl": "wolfssl",
+  "dash": "dash-shell",
   "d-bus": "dbus",
   "docker-slim": "mintoolkit",
   "fbida": "exiftran",
