@@ -3,10 +3,9 @@ class Fdroidserver < Formula
 
   desc "Create and manage Android app repositories for F-Droid"
   homepage "https://f-droid.org"
-  url "https://files.pythonhosted.org/packages/bd/81/728a7426ef7db26bee1a1737dbafe48f4253b249155ec1d6910ecad0c30c/fdroidserver-2.4.0.tar.gz"
-  sha256 "15d91bb8ca0fbc81a346ec222d910af064670c51f20a2b649ef2834c0555d19c"
+  url "https://files.pythonhosted.org/packages/bf/d8/ce1b87f1dc8d4533fed73baa99acfc5e3f713ec40d56ea47e808790f43b4/fdroidserver-2.4.1.tar.gz"
+  sha256 "38de6905f415b36aebad04f6b2f79486091a13e2edd269c8bdca908d94b017cc"
   license "AGPL-3.0-or-later"
-  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "8d6016906c121f0002fae6c469f01c812fbb4518aebc1baaffa81f19f27ed563"
@@ -265,8 +264,8 @@ class Fdroidserver < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/7c/2d/c3338d48ea6cc0feb8446d8e6937e1408088a72a39937982cc6111d17f84/pygments-2.19.1.tar.gz"
-    sha256 "61c16d2a8576dc0649d9f39e089b5f02bcd27fba10d8fb4dcc28173f7a45151f"
+    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
+    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
   end
 
   resource "pynacl" do
