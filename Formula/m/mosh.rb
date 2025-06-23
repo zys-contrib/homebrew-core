@@ -4,7 +4,7 @@ class Mosh < Formula
   url "https://github.com/mobile-shell/mosh/releases/download/mosh-1.4.0/mosh-1.4.0.tar.gz"
   sha256 "872e4b134e5df29c8933dff12350785054d2fd2839b5ae6b5587b14db1465ddd"
   license "GPL-3.0-or-later"
-  revision 27
+  revision 28
 
   no_autobump! because: :requires_manual_review
 
@@ -26,7 +26,7 @@ class Mosh < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "protobuf@29"
+  depends_on "protobuf"
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
