@@ -2,7 +2,7 @@ class CargoShuttle < Formula
   desc "Build & ship backends without writing any infrastructure files"
   homepage "https://shuttle.dev"
   url "https://github.com/shuttle-hq/shuttle/archive/refs/tags/v0.55.0.tar.gz"
-  sha256 "e8a6741ef28375ec2b0839dbe79d8cb7375cd45098e78ca0d28166628df2e795"
+  sha256 "63b49f09d7bf9264ea72276ac6d785f7a7c1d4722734f24c4fcc9ea77fdda59e"
   license "Apache-2.0"
   head "https://github.com/shuttle-hq/shuttle.git", branch: "main"
 
@@ -22,7 +22,7 @@ class CargoShuttle < Formula
 
   uses_from_macos "bzip2"
 
-  conflicts_with "shuttle", because: "both install `shuttle` binaries"
+  conflicts_with "shuttle-cli", because: "both install `shuttle` binaries"
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
