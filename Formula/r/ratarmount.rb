@@ -16,8 +16,8 @@ class Ratarmount < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "71afbf252f7c7f0c94fe39b89175f2abffc5f7ff84b64eaee8e77d0d846e52e8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "9834cce582b558270e76d63e92a7a1aed99e55f43401c46c6d2c2910c7a7b284"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "75c2fb63ec64abd1254c92cd05e4f3f220ff471f2d2f1b0a43f8359c50978b57"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "c658441bdda3c1dfe3a20c01e8215bd5569793320488b65635219e6bb7144a11"
   end
 
   depends_on "libffi"
