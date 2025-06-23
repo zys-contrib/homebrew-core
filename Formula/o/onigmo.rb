@@ -6,6 +6,15 @@ class Onigmo < Formula
   license "BSD-2-Clause"
   head "https://github.com/k-takata/Onigmo.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "7dfc12c6ac3db48e2927137723a4d9ee1cf0b48d3188b142231b87add252e101"
+    sha256 cellar: :any,                 arm64_sonoma:  "3e7750a967115b4f15803abf886f850cb8840f42c67749bb4b5c3bb96861273c"
+    sha256 cellar: :any,                 arm64_ventura: "982e2aa0d17a1a598740ba22040c8a33c37fc8995b75a0b86c5016975cf2aad6"
+    sha256 cellar: :any,                 sonoma:        "7fbf4f9e56dd3c2059a690e45bcc65dc822cb0af307a7786daf9c1bb76ff7af0"
+    sha256 cellar: :any,                 ventura:       "aae7be640b247269995fc92160e4251c47fb3c95302f549e59b8daeebb4074fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f13dd8f0e389c3210abc32b970ab87259f40b37a057bc10a0cd6b4416f4b8fb"
+  end
+
   def install
     system "./configure", *std_configure_args
     system "make", "install"
