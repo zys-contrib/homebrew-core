@@ -1,8 +1,8 @@
 class Srgn < Formula
   desc "Code surgeon for precise text and code transplantation"
   homepage "https://github.com/alexpovel/srgn"
-  url "https://github.com/alexpovel/srgn/archive/refs/tags/srgn-v0.13.7.tar.gz"
-  sha256 "324e31e732646bcc0344ce0ecc684f0d852ee1ce370dae162a9b9544432c133a"
+  url "https://github.com/alexpovel/srgn/archive/refs/tags/srgn-v0.14.0.tar.gz"
+  sha256 "b6219c19214ad932b5df67c8ee00f32755014bf5ea2a1b6b57c6913c3124d202"
   license "MIT"
   head "https://github.com/alexpovel/srgn.git", branch: "main"
 
@@ -25,10 +25,10 @@ class Srgn < Formula
   end
 
   test do
-    assert_match "H____", pipe_output("#{bin}/srgn '[a-z]' '_'", "Hello")
+    assert_match "H____", pipe_output("#{bin}/srgn '[a-z]' -- '_'", "Hello")
 
     test_string = "Hide ghp_th15 and ghp_th4t"
-    assert_match "Hide * and *", pipe_output("#{bin}/srgn '(ghp_[[:alnum:]]+)' '*'", test_string)
+    assert_match "Hide * and *", pipe_output("#{bin}/srgn '(ghp_[[:alnum:]]+)' -- '*'", test_string)
 
     assert_match version.to_s, shell_output("#{bin}/srgn --version")
   end
