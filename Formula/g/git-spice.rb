@@ -1,12 +1,12 @@
 class GitSpice < Formula
   desc "Manage stacked Git branches"
   homepage "https://abhinav.github.io/git-spice/"
-  url "https://github.com/abhinav/git-spice/archive/refs/tags/v0.14.1.tar.gz"
-  sha256 "d03e4d1909ebc2b2c0ab4fb3cfb6248c8209de55eab4f2f564708f9cbd013b8e"
+  url "https://github.com/abhinav/git-spice/archive/refs/tags/v0.15.0.tar.gz"
+  sha256 "445f41bef80212bb198b3d8a6cb4d9138b9c3dfbfb69ab557c2a29e062e1af3d"
   license "GPL-3.0-or-later"
   head "https://github.com/abhinav/git-spice.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :bumped_by_upstream
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3962cd71cccfbcf207a34e553b8b996e4c4690344d62ae5fe88e3820eab9a0b0"
