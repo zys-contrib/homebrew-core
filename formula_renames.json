@@ -19,6 +19,7 @@
   "boot2docker": "docker-machine",
   "bro": "zeek",
   "cdiff": "ydiff",
+  "chipmunk": "chipmunk-physics",
   "cloog018": "cloog",
   "cloudflare-wrangler2": "cloudflare-wrangler",
   "commonmark": "cmark",
