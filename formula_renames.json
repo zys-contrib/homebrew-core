@@ -159,6 +159,7 @@
   "server-go": "openiothub-server",
   "shuttle": "shuttle-cli",
   "singularity": "apptainer",
+  "sloth": "sloth-cli",
   "speedtest_cli": "speedtest-cli",
   "ssreflect": "math-comp",
   "tachyon": "alluxio",
