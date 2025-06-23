@@ -122,6 +122,7 @@
   "nova": "nova-fairwinds",
   "objective-caml": "ocaml",
   "offline-imap": "offlineimap",
+  "onedrive": "onedrive-cli",
   "open-cobol": "gnucobol",
   "opencv3": "opencv",
   "osh": "etsh",
