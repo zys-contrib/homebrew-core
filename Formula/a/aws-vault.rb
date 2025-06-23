@@ -14,13 +14,12 @@ class AwsVault < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d977e625b3ac401635b1d95b4b18e4fc0b058f251f425c102b7b965e08b2ecf6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4e85192e42b17524b0a1321b1d69beebfd2c0a10baf961e514bce2914eace59f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "578a68527779690f0f37b655af958895f8b6d854a34767a263dcf5a7e7a14e1d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "02d404644b13dc1667c7ccf0912be79ea2788cb339773f2e350b0cdda9d1f7d5"
-    sha256 cellar: :any_skip_relocation, ventura:       "a1eb3f660e906283eb1d48d6c96b1f81a10060f7d0367735b219f3c103191921"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "61114565f6c9bf24fb99520e20f46494517ff949805299d178861e8e24b59d58"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "795b4e0fe692a302583766bae8744837dbeda4798a9e04f4f3a8cc4b2a5ac20d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1a14b68a9d51cdd636b80a7f3872045065c10753016189471fe8c4bb56d45ff1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "222ef59f731e75e9adb0d882736f42ed4432764f398384e91de28709822982be"
+    sha256 cellar: :any_skip_relocation, sonoma:        "60d91ad4cc42857e7a83d10fd6586fb5186026ecf4bc0fa3a14e0f88bc6f759d"
+    sha256 cellar: :any_skip_relocation, ventura:       "245dda7e1d4c0cdc6ce0c151895c743a33e739bcd73ab34ca6418fe4e5e3594b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c634aab3ab73dab7675c1b964f8959fd365737a7bab998b3a2f162442de153b"
   end
 
   depends_on "go" => :build
