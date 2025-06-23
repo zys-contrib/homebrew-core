@@ -1,8 +1,8 @@
 class Mise < Formula
   desc "Polyglot runtime manager (asdf rust clone)"
   homepage "https://mise.jdx.dev/"
-  url "https://github.com/jdx/mise/archive/refs/tags/v2025.6.5.tar.gz"
-  sha256 "34d43dd19846caf1bc249b7ef3d8298df48df2b95727a6e9695a2ded33c1c067"
+  url "https://github.com/jdx/mise/archive/refs/tags/v2025.6.7.tar.gz"
+  sha256 "5b1ee17466b158ef1ba1059531c9863fa2122b72bba530b78d0f7bd3c08811c1"
   license "MIT"
   head "https://github.com/jdx/mise.git", branch: "main"
 
@@ -10,8 +10,6 @@ class Mise < Formula
     url :stable
     strategy :github_latest
   end
-
-  no_autobump! because: :bumped_by_upstream
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2e5aea9bc0f0edbba348e2b1d92b1eed4170141023bea7418249f80df2a9508e"
