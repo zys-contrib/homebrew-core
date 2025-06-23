@@ -1,8 +1,8 @@
 class Victoriametrics < Formula
   desc "Cost-effective and scalable monitoring solution and time series database"
   homepage "https://victoriametrics.com/"
-  url "https://github.com/VictoriaMetrics/VictoriaMetrics/archive/refs/tags/v1.119.0.tar.gz"
-  sha256 "df88d2dbece7de3dc95ae20fdd4b172b96776c608eed6d83c3e0fc5dbf3c46ec"
+  url "https://github.com/VictoriaMetrics/VictoriaMetrics/archive/refs/tags/v1.120.0.tar.gz"
+  sha256 "4f62f4b6d423cfd9573aabaea5b720d8cac6b43eceee8cdfaf22f82e270a7003"
   license "Apache-2.0"
 
   # There are tags like `pmm-6401-v1.89.1` in the upstream repo. They don't
