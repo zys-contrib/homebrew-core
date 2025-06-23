@@ -1,8 +1,8 @@
 class Runitor < Formula
   desc "Command runner with healthchecks.io integration"
   homepage "https://github.com/bdd/runitor"
-  url "https://github.com/bdd/runitor/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "7c245db0bbd211a62e8adab1d78ce59ab8cb02147c95d3713508a75cc0f09099"
+  url "https://github.com/bdd/runitor/archive/refs/tags/v1.4.1.tar.gz"
+  sha256 "192665c623bc96ed77f122510510c017197e1673ab92bb84546d652afe4416c0"
   license "0BSD"
   head "https://github.com/bdd/runitor.git", branch: "main"
 
