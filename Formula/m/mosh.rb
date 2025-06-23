@@ -9,13 +9,13 @@ class Mosh < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "332e33cd2cc6b612830b92757cd74fa5371b24518d0cdca5c41da9f342c0fc81"
-    sha256 cellar: :any,                 arm64_sonoma:  "be86e68fe178fd4ec4997f320875438df088428f70e38f640a2c56ae5574d6c6"
-    sha256 cellar: :any,                 arm64_ventura: "c5eb7da2878edc09a82d6f30087bf0b025d2f1ac03a1de4a564bcc5d9d7ae24b"
-    sha256 cellar: :any,                 sonoma:        "d5ba6c67df6d29aa90f5596c9ae613d237e0c448e2ac78f5ee7868d65f7dc748"
-    sha256 cellar: :any,                 ventura:       "9a89c7a0008af27915b35b6e1fd8938ef2e7899484f2d19027836bd630f7f997"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "37c7642af2e149bf8c7a26c72431c8fbe96775bda22d53cd2f2a747cf4f429b9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a8ac06965b89d7cab36d8b3526d781efb09420c9cf6bee7f74b75e740dd93c3"
+    sha256 cellar: :any,                 arm64_sequoia: "d4aa0af31c0309420645ce14b5e1228e7b75e5af15a5ced3dd7e15ba030b3ddc"
+    sha256 cellar: :any,                 arm64_sonoma:  "48aeb25a75fd473537283ae4924c1fa1733414f9f2b53433ebd5a5c8dabcca41"
+    sha256 cellar: :any,                 arm64_ventura: "4d67834901b42ce933206bbc1a46c7c9afff80c547dfad7545d626499da7768c"
+    sha256 cellar: :any,                 sonoma:        "78bc9fa2f01b21dfc8111ef524c139d0bb1305b999650db0d89d5e6608dcc00b"
+    sha256 cellar: :any,                 ventura:       "9ac50b0ab7fa08a4c95f5d8a32294cc2bbf0e1cb0bb4946300e8c890387d0c53"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b24269d0aca0731d271d1c2af41c1a8d9e792efd7cb24fa208df18ec0338dcee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "056c10586c81961324d446365ef61d2d8a4f2f7a84d9ab23e1dd42f611dce7b6"
   end
 
   head do
