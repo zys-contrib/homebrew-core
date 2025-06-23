@@ -14,6 +14,16 @@ class ChipmunkPhysics < Formula
 
   no_autobump! because: :requires_manual_review
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "be1319def436cdfea53765897ce02cb7a223df465dbac30190d605c0d8c20738"
+    sha256 cellar: :any,                 arm64_sonoma:  "4523898ac36348fbfdb179e9ea830cc5eb1ab5bc23ad7d5a12b7a32dc9f4c3dd"
+    sha256 cellar: :any,                 arm64_ventura: "327158f4df3225b40bf01d32424a82ff9a23395e13e403e0d02ba4bd76e04fc0"
+    sha256 cellar: :any,                 sonoma:        "9afdb0a88e02dda8861e5f0e5d19b48f560ffcf85472c686e30106f9821744f6"
+    sha256 cellar: :any,                 ventura:       "0ca08e1d68866462daea6c85370d6178ee49dda831b2cc692275e3bbad9efe33"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9a8d97795143af72a151cef0bd9456aa1dd6d3c64ca9150e23f291ea934b525f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "483b9cbddc9ae341718ffa758968de5bd458be486b2c43e871997eb95db9dd73"
+  end
+
   depends_on "cmake" => :build
 
   def install
