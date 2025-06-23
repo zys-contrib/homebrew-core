@@ -25,6 +25,7 @@
   "minetest": "homebrew/cask/luanti",
   "mitmproxy": "homebrew/cask",
   "openrct2": "homebrew/cask",
+  "openttd": "homebrew/cask",
   "osxfuse": "homebrew/cask",
   "phantomjs": "homebrew/cask",
   "quassel": "homebrew/cask",
