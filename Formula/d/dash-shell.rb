@@ -13,6 +13,16 @@ class DashShell < Formula
 
   no_autobump! because: :requires_manual_review
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3ed8b5c3067b48a7ec6f8a11dbc3b76a48db45212fe136bf8ee921db004cdc6b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "50cacbfd6242b8a779665b21ddaa9f4e97c08eff5e0707d095d89dee599ba676"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "348d2957ace43b03c57eddd6c2697befd3a2afef45e2d9d91deb7833b3930edb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1c383f58c7cc463ca50c897dcedc4eafeea3c819f007b8363e341dd31764e25b"
+    sha256 cellar: :any_skip_relocation, ventura:       "d89ba70e81c7aa2df99f5188ef301aecd5dfa724bc50ab2dd5c3adc610cebcff"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "04cb4135adf52aecc6371de7338eaf3e359ebdf102c4bb0ee4f760cd42bc47fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc253f40ad6f25e27fdb7ea2851c3382336b2ce4b62141bfa223e7aed32355b5"
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
 
