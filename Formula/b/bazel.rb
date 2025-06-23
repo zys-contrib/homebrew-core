@@ -1,8 +1,8 @@
 class Bazel < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  url "https://github.com/bazelbuild/bazel/releases/download/8.2.1/bazel-8.2.1-dist.zip"
-  sha256 "b12b95cc02cc5ee19ff7a6a7f71f9496631f937c8e13a8f53ee0ff7b7700bc16"
+  url "https://github.com/bazelbuild/bazel/releases/download/8.3.0/bazel-8.3.0-dist.zip"
+  sha256 "c81cbf1a4d26cfb283c26c3544d47828679e42476e32e807151b9f647207530c"
   license "Apache-2.0"
 
   livecheck do
@@ -126,7 +126,8 @@ class Bazel < Formula
       )
     STARLARK
 
-    system bin/"bazel", "build", "//:bazel-test"
+    # Explicitly disable repo contents cache
+    system bin/"bazel", "build", "//:bazel-test", "--repo_contents_cache="
     assert_equal "Hi!\n", shell_output("bazel-bin/bazel-test")
 
     # Verify that `bazel` invokes Bazel's wrapper script, which delegates to
