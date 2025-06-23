@@ -1,8 +1,8 @@
 class Maturin < Formula
   desc "Build and publish Rust crates as Python packages"
   homepage "https://github.com/PyO3/maturin"
-  url "https://github.com/PyO3/maturin/archive/refs/tags/v1.8.7.tar.gz"
-  sha256 "7fae57e8f14ea469c904f190774dd3c68a70fbc4c87b6a778b3e950e44cb8c24"
+  url "https://github.com/PyO3/maturin/archive/refs/tags/v1.9.0.tar.gz"
+  sha256 "84a74988960a19f4e6ffa6f3a349803403496ced10dd3ff83baf4feed88c3fd8"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/PyO3/maturin.git", branch: "main"
 
