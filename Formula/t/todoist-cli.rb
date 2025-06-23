@@ -6,6 +6,15 @@ class TodoistCli < Formula
   license "MIT"
   head "https://github.com/sachaos/todoist.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6b565b7bccb371408be79df4a27dd9cdf2d4338543986746de44b3db83f36046"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6b565b7bccb371408be79df4a27dd9cdf2d4338543986746de44b3db83f36046"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6b565b7bccb371408be79df4a27dd9cdf2d4338543986746de44b3db83f36046"
+    sha256 cellar: :any_skip_relocation, sonoma:        "541bfadda568102b4ce50990479db15588312bcf712f507fd8235c989fbb2b5b"
+    sha256 cellar: :any_skip_relocation, ventura:       "541bfadda568102b4ce50990479db15588312bcf712f507fd8235c989fbb2b5b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "751b77cecda38891d3cadd3ffaee3b190f033e337ce1312721a4d4b1cfd4a9fc"
+  end
+
   depends_on "go" => :build
 
   def install
