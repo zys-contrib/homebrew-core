@@ -1,14 +1,24 @@
 class Direwolf < Formula
   desc "Software \"soundcard\" AX.25 packet modem/TNC and APRS encoder/decoder"
   homepage "https://github.com/wb2osz/direwolf"
-  url "https://github.com/wb2osz/direwolf/archive/refs/tags/1.7.tar.gz"
-  sha256 "6301f6a43e5db9ef754765875592a58933f6b78585e9272afc850acf7c5914be"
   license all_of: [
     "GPL-2.0-or-later",
     "ISC", # external/misc/{strlcpy.c,strlcat.c} (Linux)
     :cannot_represent, # external/geotranz, see https://github.com/externpro/geotranz/blob/v2.4.2/readme.txt
   ]
+  revision 1
   head "https://github.com/wb2osz/direwolf.git", branch: "master"
+
+  stable do
+    url "https://github.com/wb2osz/direwolf/archive/refs/tags/1.7.tar.gz"
+    sha256 "6301f6a43e5db9ef754765875592a58933f6b78585e9272afc850acf7c5914be"
+
+    # cmake 4 build patch
+    patch do
+      url "https://github.com/wb2osz/direwolf/commit/c499496bbc237d0efdcacec5786607f5e17c1c7e.patch?full_index=1"
+      sha256 "3b5e2aeecf89284f1684b3e83f4de1bb80dc3bdd5b6ed626856be640718dc8a6"
+    end
+  end
 
   no_autobump! because: :requires_manual_review
 
