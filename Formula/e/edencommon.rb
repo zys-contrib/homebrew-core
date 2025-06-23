@@ -1,10 +1,19 @@
 class Edencommon < Formula
   desc "Shared library for Watchman and Eden projects"
   homepage "https://github.com/facebookexperimental/edencommon"
-  url "https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2025.05.26.00.tar.gz"
-  sha256 "3f769e27646f4ace5a918411b00a24e56505e9508fee7683465615fc5ea55569"
   license "MIT"
   head "https://github.com/facebookexperimental/edencommon.git", branch: "main"
+
+  stable do
+    url "https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2025.06.23.00.tar.gz"
+    sha256 "17ee1df6339c5a6f3addc6e1291c17e8ecc6fb78d8fb973386940115d9b709e8"
+
+    # Include missing headers in `SessionInfo.h`
+    patch do
+      url "https://github.com/facebookexperimental/edencommon/commit/aa34e40bf1d7b37178a6d56e9de8a43777171316.patch?full_index=1"
+      sha256 "f9ad9d2f18a65968cb5f981336a970fd3ad7d1e27a1d6c1976c8de8db9e984e1"
+    end
+  end
 
   bottle do
     sha256                               arm64_sequoia: "48aac8679494b64bf3f8e5f00772b00d871771b780ab50fa064ca2620fd6aecd"
