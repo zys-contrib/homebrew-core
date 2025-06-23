@@ -14,8 +14,8 @@ class BtrfsProgs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "ea074d46c9fd6b3b35240ed9e3ad45026a0eed804941a491bb9245d59b46dc4f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "d6ba4dc9e3f31fe8b913337314c86f491211e2a46c36169e6644df1a68c8843f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "09122ababea7dd9ef230f39a101a04eda2e97aa45b6c1a6f6c5b961863b7e85a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "d764ceb7de324ddf97c68fb19e336116d2af2a762d349229e45c8961147833ce"
   end
 
   depends_on "pkgconf" => :build
