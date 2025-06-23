@@ -1,8 +1,8 @@
 class AwsVault < Formula
   desc "Securely store and access AWS credentials in development environments"
   homepage "https://github.com/ByteNess/aws-vault"
-  url "https://github.com/ByteNess/aws-vault/archive/refs/tags/v7.3.7.tar.gz"
-  sha256 "0c85433ed62ca119c0d3bebdb8ac668345fe041b9871c1b5ee8ea503f4bf3e3a"
+  url "https://github.com/ByteNess/aws-vault/archive/refs/tags/v7.4.0.tar.gz"
+  sha256 "595aa99882f4e577fa68f1d45de76e87362cf5b1582782992734ba82afb706e9"
   license "MIT"
   head "https://github.com/ByteNess/aws-vault.git", branch: "main"
 
@@ -10,8 +10,6 @@ class AwsVault < Formula
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "795b4e0fe692a302583766bae8744837dbeda4798a9e04f4f3a8cc4b2a5ac20d"
