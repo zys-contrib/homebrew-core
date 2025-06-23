@@ -1,8 +1,8 @@
 class Libcec < Formula
   desc "Control devices with TV remote control and HDMI cabling"
   homepage "https://libcec.pulse-eight.com/"
-  url "https://github.com/Pulse-Eight/libcec/archive/refs/tags/libcec-7.1.0.tar.gz"
-  sha256 "7fd60dfd25b0b116c58439bb70158c1d5fd8fd492ad2a1a3b39b826bb50b54f6"
+  url "https://github.com/Pulse-Eight/libcec/archive/refs/tags/libcec-7.1.1.tar.gz"
+  sha256 "7f7da95a4c1e7160d42ca37a3ac80cf6f389b317e14816949e0fa5e2edf4cc64"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -57,6 +57,6 @@ class Libcec < Formula
   end
 
   test do
-    assert_match "libCEC version: #{version}", shell_output("#{bin}/cec-client --info")
+    assert_match "libCEC version: #{version}", shell_output("#{bin}/cec-client --list-devices")
   end
 end
