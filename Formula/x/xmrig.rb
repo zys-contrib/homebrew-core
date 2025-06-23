@@ -1,8 +1,8 @@
 class Xmrig < Formula
   desc "Monero (XMR) CPU miner"
   homepage "https://github.com/xmrig/xmrig"
-  url "https://github.com/xmrig/xmrig/archive/refs/tags/v6.23.0.tar.gz"
-  sha256 "3cced1a97cc2646956c7185932c59253b621603f99c64fc68c4a35c8247815f8"
+  url "https://github.com/xmrig/xmrig/archive/refs/tags/v6.24.0.tar.gz"
+  sha256 "3521c592a18ada781d79c919ea6c1b7e5a8bcfe2ec666789bc55fd88a2aee8d3"
   license "GPL-3.0-or-later"
   head "https://github.com/xmrig/xmrig.git", branch: "dev"
 
@@ -71,7 +71,7 @@ class Xmrig < Formula
     if OS.mac?
       assert_match "#{test_server} DNS error: \"unknown node or service\"", output
     else
-      assert_match "#{test_server} 127.0.0.1 connect error: \"connection refused\"", output
+      assert_match(/#{Regexp.escape(test_server)} (?:::1|127\.0\.0\.1) connect error: "connection refused"/, output)
     end
   end
 end
