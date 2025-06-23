@@ -1,8 +1,8 @@
 class NodeAT20 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v20.19.2/node-v20.19.2.tar.xz"
-  sha256 "4a7ff611d5180f4e420204fa6f22f9f9deb2ac5e98619dd9a4de87edf5b03b6e"
+  url "https://nodejs.org/dist/v20.19.3/node-v20.19.3.tar.xz"
+  sha256 "99be7b9d268d48b93be568a23240398ceacb0782dc7055b9972305c000b0e292"
   license "MIT"
 
   livecheck do
@@ -47,20 +47,6 @@ class NodeAT20 < Formula
     cause <<~EOS
       error: calling a private constructor of class 'v8::internal::(anonymous namespace)::RegExpParserImpl<uint8_t>'
     EOS
-  end
-
-  # Fix build with Xcode 16.3.
-  patch do
-    url "https://github.com/Bo98/node/commit/3b5eb14cad3a493e99f84ca45871bd37570cae3d.patch?full_index=1"
-    sha256 "3a110c30ec63c4e5afbb48f27922a69c40d3939db5a5b6b20d40660f996ae27d"
-  end
-  patch do
-    url "https://github.com/Bo98/node/commit/e2ab76c1aeceaf866b8c5053cf71f199706d621d.patch?full_index=1"
-    sha256 "b306c7cfa910e025b1a23fda1da8f8613310a2d7b5c575d3718529db8d9e7fdd"
-  end
-  patch do
-    url "https://github.com/Bo98/node/commit/a56d782971c30164545e76a97b07ade373a3a565.patch?full_index=1"
-    sha256 "86af038fca81170d41e7c324864cc74fb098dbea6b8d28273b6b50ca53415979"
   end
 
   def install
