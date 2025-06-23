@@ -167,6 +167,7 @@
   "tensorflow": "libtensorflow",
   "tepl": "libgedit-tepl",
   "thors-serializer": "thors-mongo",
+  "todoist": "todoist-cli",
   "todolist": "ultralist",
   "tomee-jax-rs": "tomee-plus",
   "transfig": "fig2dev",
