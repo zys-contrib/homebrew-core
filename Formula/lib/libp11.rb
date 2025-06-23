@@ -1,8 +1,8 @@
 class Libp11 < Formula
   desc "PKCS#11 wrapper library in C"
   homepage "https://github.com/OpenSC/libp11/wiki"
-  url "https://github.com/OpenSC/libp11/releases/download/libp11-0.4.13/libp11-0.4.13.tar.gz"
-  sha256 "d25dd9cff1b623e12d51b6d2c100e26063582d25c9a6f57c99d41f2da9567086"
+  url "https://github.com/OpenSC/libp11/releases/download/libp11-0.4.16/libp11-0.4.16.tar.gz"
+  sha256 "97777640492fa9e5831497e5892e291dfbf39a7b119d9cb6abb3ec8c56d17553"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -36,9 +36,13 @@ class Libp11 < Formula
     enginesdir = Utils.safe_popen_read("pkgconf", "--variable=enginesdir", "libcrypto").chomp
     enginesdir.sub!(openssl.prefix.realpath, prefix)
 
+    modulesdir = Utils.safe_popen_read("pkgconf", "--variable=modulesdir", "libcrypto").chomp
+    modulesdir.sub!(openssl.prefix.realpath, prefix)
+
     system "./bootstrap" if build.head?
     system "./configure", "--disable-silent-rules",
                           "--with-enginesdir=#{enginesdir}",
+                          "--with-modulesdir=#{modulesdir}",
                           *std_configure_args
     system "make", "install"
     pkgshare.install "examples/auth.c"
