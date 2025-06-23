@@ -1,8 +1,8 @@
 class Wangle < Formula
   desc "Modular, composable client/server abstractions framework"
   homepage "https://github.com/facebook/wangle"
-  url "https://github.com/facebook/wangle/archive/refs/tags/v2025.05.26.00.tar.gz"
-  sha256 "885bbe527fc03ea87b642556468ec6050188b81794f7699ce87ddcb68c9b5d0c"
+  url "https://github.com/facebook/wangle/archive/refs/tags/v2025.06.23.00.tar.gz"
+  sha256 "17590983cbb1a79bf21e8b03b34da0c8cd8bea93f0f80b387b136ce636f2ef9e"
   license "Apache-2.0"
   head "https://github.com/facebook/wangle.git", branch: "main"
 
