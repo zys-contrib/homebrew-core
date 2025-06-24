@@ -98,6 +98,10 @@
   "badkeys": {
     "exclude_packages": ["cryptography"]
   },
+  "backgroundremover": {
+    "exclude_packages": ["certifi", "numpy", "torch", "torchvision", "pillow", "scipy", "scikit-image"],
+    "extra_packages": ["imageio"]
+  },
   "bagels": {
     "exclude_packages": ["numpy"]
   },
