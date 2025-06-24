@@ -6,6 +6,11 @@ class Onigmo < Formula
   license "BSD-2-Clause"
   head "https://github.com/k-takata/Onigmo.git", branch: "master"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "7dfc12c6ac3db48e2927137723a4d9ee1cf0b48d3188b142231b87add252e101"
     sha256 cellar: :any,                 arm64_sonoma:  "3e7750a967115b4f15803abf886f850cb8840f42c67749bb4b5c3bb96861273c"
