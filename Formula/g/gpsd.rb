@@ -15,16 +15,13 @@ class Gpsd < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "9a3bb3d5594e1b63686b3d40b42f1d8dedf396b03c952a6a758d74d374c08452"
-    sha256 cellar: :any,                 arm64_sonoma:   "938cf9f4d6bd4ad1ab1ef1f553921dbc6db46810fff2715f25ad8c0aae4a1258"
-    sha256 cellar: :any,                 arm64_ventura:  "12a924778ab1fcc13aff5d84ac712db09bc964f85fc57b7677f1566c5e870008"
-    sha256 cellar: :any,                 arm64_monterey: "7ce33dccf34d5beab1ebd4a98dfd1b3bb284be93a43e367e5bb446258da36144"
-    sha256 cellar: :any,                 sonoma:         "db21b97f74091e71a97e6e0aa09352bc651c6dd95245d408b9ab11c1b4354a07"
-    sha256 cellar: :any,                 ventura:        "2b7ae1f6de349089583d3a426f4240eca86cb98d478ed11a1156f8835664f4d1"
-    sha256 cellar: :any,                 monterey:       "583ff8896e5f9f211c5487dc35cb54b1ccecb16b1b3d466c5ba8112ff90ea0fe"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "fb850dbc722b6e0dbdd8340ec74918b905ae3122da9ff2037754e79f3970671d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "06b4c52b968483ec4a90e103696af37e423555b2c3808ce726feb0a1855f87b8"
+    sha256 cellar: :any,                 arm64_sequoia: "54e49549e87a088ae8fded07a143dbf8cdd016d9b0b7adbba6ac2b56b8bd9827"
+    sha256 cellar: :any,                 arm64_sonoma:  "b167722509389681bbbc08adda95eeddfaa7ea6be024ab60fc2d719212a01c88"
+    sha256 cellar: :any,                 arm64_ventura: "5fd0ddadcb70eecd5489f8edc43cffeb22bf7c66d8fe1427d86fbec7e3e61bb9"
+    sha256 cellar: :any,                 sonoma:        "6b28340a45b296b6d53262302f16f049c1e89d05d63a27c73c7f7f57800fbd86"
+    sha256 cellar: :any,                 ventura:       "579f7f0ede210c94a98e5f3c2316ed24ef39b03eb990606dab320e0fc453852e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2f1e1dc7c86b2b007721d43fff1861914f20532f7f1731c1388655128504fc4d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bae4fededf6c737937b9fd73e7ecde613a6c7ffcdafaa36b879eab89397ce64c"
   end
 
   depends_on "asciidoctor" => :build
