@@ -4,18 +4,18 @@ class Mosh < Formula
   url "https://github.com/mobile-shell/mosh/releases/download/mosh-1.4.0/mosh-1.4.0.tar.gz"
   sha256 "872e4b134e5df29c8933dff12350785054d2fd2839b5ae6b5587b14db1465ddd"
   license "GPL-3.0-or-later"
-  revision 27
+  revision 28
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "d4aa0af31c0309420645ce14b5e1228e7b75e5af15a5ced3dd7e15ba030b3ddc"
-    sha256 cellar: :any,                 arm64_sonoma:  "48aeb25a75fd473537283ae4924c1fa1733414f9f2b53433ebd5a5c8dabcca41"
-    sha256 cellar: :any,                 arm64_ventura: "4d67834901b42ce933206bbc1a46c7c9afff80c547dfad7545d626499da7768c"
-    sha256 cellar: :any,                 sonoma:        "78bc9fa2f01b21dfc8111ef524c139d0bb1305b999650db0d89d5e6608dcc00b"
-    sha256 cellar: :any,                 ventura:       "9ac50b0ab7fa08a4c95f5d8a32294cc2bbf0e1cb0bb4946300e8c890387d0c53"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b24269d0aca0731d271d1c2af41c1a8d9e792efd7cb24fa208df18ec0338dcee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "056c10586c81961324d446365ef61d2d8a4f2f7a84d9ab23e1dd42f611dce7b6"
+    sha256 cellar: :any,                 arm64_sequoia: "755a860faf4f4eb8715bb132abc76a8569b1b266c610fbd7ac4b7fe1ab48a539"
+    sha256 cellar: :any,                 arm64_sonoma:  "1410eac2e92eadf9dcc717f3d4d80d0505b8a32799d40831f6af95f9e0622df4"
+    sha256 cellar: :any,                 arm64_ventura: "3ee966425def3198861ce28cda95106a572b1a9ee9a0fe4b1e7e7fc673f7b6a9"
+    sha256 cellar: :any,                 sonoma:        "9d195badfc9d371c8e3f7e53606a1c8a35d2b28539013927632dae8c7c4619fa"
+    sha256 cellar: :any,                 ventura:       "83cfdc9ce4e3e5dd72284c4525272217e57cde54b11d6c6043bde2fc62ff63c9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2a8a37afa1b8ae7a1f5b3a48859e33f7b93a7529e53780dd50231668bd088fea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4fe1a8fc42c1ae159ccb9219f2c39ce6174c24df3f1f724887f6a7bc40fb321"
   end
 
   head do
@@ -26,7 +26,7 @@ class Mosh < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "protobuf@29"
+  depends_on "protobuf"
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
