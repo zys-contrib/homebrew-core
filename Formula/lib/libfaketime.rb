@@ -1,12 +1,10 @@
 class Libfaketime < Formula
   desc "Report faked system time to programs"
   homepage "https://github.com/wolfcw/libfaketime"
-  url "https://github.com/wolfcw/libfaketime/archive/refs/tags/v0.9.10.tar.gz"
-  sha256 "729ad33b9c750a50d9c68e97b90499680a74afd1568d859c574c0fe56fe7947f"
+  url "https://github.com/wolfcw/libfaketime/archive/refs/tags/v0.9.12.tar.gz"
+  sha256 "4fc32218697c052adcdc5ee395581f2554ca56d086ac817ced2be0d6f1f8a9fa"
   license "GPL-2.0-only"
   head "https://github.com/wolfcw/libfaketime.git", branch: "master"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 arm64_sequoia:  "bfd710155f5264eb161cb1b25858b737bca3981693b1dbbe0cebfc7f75edd1c7"
@@ -31,6 +29,9 @@ class Libfaketime < Formula
     depends_on macos: :sierra
   end
 
+  # upstream bug report, https://github.com/wolfcw/libfaketime/issues/506
+  patch :DATA
+
   def install
     system "make", "PREFIX=#{prefix}", "install"
   end
@@ -49,3 +50,19 @@ class Libfaketime < Formula
     assert_match "1230106542", shell_output("TZ=UTC #{bin}/faketime -f '2008-12-24 08:15:42' ./test").strip
   end
 end
+
+__END__
+diff --git a/src/Makefile.OSX b/src/Makefile.OSX
+index 405c021..dae9880 100644
+--- a/src/Makefile.OSX
++++ b/src/Makefile.OSX
+@@ -72,8 +72,7 @@ LIB_LDFLAGS += -dynamiclib -current_version 0.9.12 -compatibility_version 0.7
+ ARCH := $(shell uname -m)
+
+ ifeq ($(ARCH),arm64)
+-    CFLAGS += -arch arm64e -arch arm64
+-    CFLAGS += -fptrauth-calls -fptrauth-returns
++    CFLAGS += -arch arm64
+ endif
+
+ SONAME = 1
