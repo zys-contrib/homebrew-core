@@ -3,8 +3,8 @@ class Nginx < Formula
   homepage "https://nginx.org/"
   # Use "mainline" releases only (odd minor version number), not "stable"
   # See https://www.nginx.com/blog/nginx-1-12-1-13-released/ for why
-  url "https://nginx.org/download/nginx-1.27.5.tar.gz"
-  sha256 "e96acebb9c2a6db8a000c3dd1b32ecba1b810f0cd586232d4d921e376674dd0e"
+  url "https://nginx.org/download/nginx-1.29.0.tar.gz"
+  sha256 "109754dfe8e5169a7a0cf0db6718e7da2db495753308f933f161e525a579a664"
   license "BSD-2-Clause"
   head "https://github.com/nginx/nginx.git", branch: "master"
 
