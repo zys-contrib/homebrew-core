@@ -1,8 +1,8 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.com/"
-  url "https://github.com/denoland/deno/releases/download/v2.3.3/deno_src.tar.gz"
-  sha256 "1a0f6b294a02d3d43c84ee085f1b6d63452fd3899de7dc80e4c03ea8b9d73801"
+  url "https://github.com/denoland/deno/releases/download/v2.3.7/deno_src.tar.gz"
+  sha256 "6ca9f626931aa88c57d0f124fffac1d5682885e3b8ad34b8b90924757fffb0cf"
   license "MIT"
   head "https://github.com/denoland/deno.git", branch: "main"
 
@@ -40,14 +40,17 @@ class Deno < Formula
   end
 
   def install
-    # Avoid vendored dependencies.
     inreplace "Cargo.toml" do |s|
+      # https://github.com/Homebrew/homebrew-core/pull/227966#issuecomment-3001448018
+      s.gsub!(/^lto = true$/, 'lto = "thin"')
+
+      # Avoid vendored dependencies.
       s.gsub!(/^libffi-sys = "(.+)"$/,
               'libffi-sys = { version = "\\1", features = ["system"] }')
       s.gsub!(/^rusqlite = { version = "(.+)", features = \["unlock_notify", "bundled", "session"/,
               'rusqlite = { version = "\\1", features = ["unlock_notify", "session"')
     end
-    inreplace "resolvers/npm_cache/Cargo.toml",
+    inreplace "libs/npm_cache/Cargo.toml",
               'flate2 = { workspace = true, features = ["zlib-ng-compat"] }',
               "flate2 = { workspace = true }"
 
