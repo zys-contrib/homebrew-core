@@ -3,8 +3,8 @@ class Showcert < Formula
 
   desc "X.509 TLS certificate reader and creator"
   homepage "https://github.com/yaroslaff/showcert"
-  url "https://files.pythonhosted.org/packages/73/3b/c12cf95dee088c8edfa5ae6ccff5866f2e8e179b5c7bb482282a3da967a7/showcert-0.3.3.tar.gz"
-  sha256 "bad2e4dacccc3cc448989249b433fd8e7072a31a53b07d0ea052fea8082bf483"
+  url "https://files.pythonhosted.org/packages/34/dd/896f93fb0787dd7b083d9b743116801418d77907e8988084f98b7f2cf354/showcert-0.4.3.tar.gz"
+  sha256 "005540cede93aaedf2f89261bcc132838b689fbb140fcad8e92c58706762f92c"
   license "MIT"
   head "https://github.com/yaroslaff/showcert.git", branch: "master"
 
@@ -20,6 +20,7 @@ class Showcert < Formula
 
   depends_on "certifi"
   depends_on "cryptography"
+  depends_on "libmagic"
   depends_on "python@3.13"
 
   resource "pem" do
@@ -28,8 +29,13 @@ class Showcert < Formula
   end
 
   resource "pyopenssl" do
-    url "https://files.pythonhosted.org/packages/9f/26/e25b4a374b4639e0c235527bbe31c0524f26eda701d79456a7e1877f4cc5/pyopenssl-25.0.0.tar.gz"
-    sha256 "cd2cef799efa3936bb08e8ccb9433a575722b9dd986023f1cabc4ae64e9dac16"
+    url "https://files.pythonhosted.org/packages/04/8c/cd89ad05804f8e3c17dea8f178c3f40eeab5694c30e0c9f5bcd49f576fc3/pyopenssl-25.1.0.tar.gz"
+    sha256 "8d031884482e0c67ee92bf9a4d8cceb08d92aba7136432ffb0703c5280fc205b"
+  end
+
+  resource "python-magic" do
+    url "https://files.pythonhosted.org/packages/da/db/0b3e28ac047452d079d375ec6798bf76a036a08182dbb39ed38116a49130/python-magic-0.4.27.tar.gz"
+    sha256 "c1ba14b08e4a5f5c31a302b7721239695b2f0f058d125bd5ce1ee36b9d9d3c3b"
   end
 
   def install
