@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/semgrep/semgrep.git",
-      tag:      "v1.126.0",
-      revision: "565749d86742061055c541bfb0660333f9e16bc4"
+      tag:      "v1.127.0",
+      revision: "f079fe859a11490cb57a8106bbf56334b5b8bb39"
   license "LGPL-2.1-only"
   head "https://github.com/semgrep/semgrep.git", branch: "develop"
 
@@ -57,8 +57,8 @@ class Semgrep < Formula
   end
 
   resource "bracex" do
-    url "https://files.pythonhosted.org/packages/d6/6c/57418c4404cd22fe6275b8301ca2b46a8cdaa8157938017a9ae0b3edf363/bracex-2.5.post1.tar.gz"
-    sha256 "12c50952415bfa773d2d9ccb8e79651b8cdb1f31a42f6091b804f6ba2b4a66b6"
+    url "https://files.pythonhosted.org/packages/63/9a/fec38644694abfaaeca2798b58e276a8e61de49e2e37494ace423395febc/bracex-2.6.tar.gz"
+    sha256 "98f1347cd77e22ee8d967a30ad4e310b233f7754dbf31ff3fceb76145ba47dc7"
   end
 
   resource "charset-normalizer" do
@@ -202,8 +202,8 @@ class Semgrep < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/7c/2d/c3338d48ea6cc0feb8446d8e6937e1408088a72a39937982cc6111d17f84/pygments-2.19.1.tar.gz"
-    sha256 "61c16d2a8576dc0649d9f39e089b5f02bcd27fba10d8fb4dcc28173f7a45151f"
+    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
+    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
   end
 
   resource "referencing" do
