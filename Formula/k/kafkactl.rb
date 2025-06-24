@@ -1,8 +1,8 @@
 class Kafkactl < Formula
   desc "CLI for managing Apache Kafka"
   homepage "https://deviceinsight.github.io/kafkactl/"
-  url "https://github.com/deviceinsight/kafkactl/archive/refs/tags/v5.9.0.tar.gz"
-  sha256 "2ff3d87743ca25105154bfcd7047e4eb96c15a70d7e3f7224d3e318ccef468b7"
+  url "https://github.com/deviceinsight/kafkactl/archive/refs/tags/v5.10.0.tar.gz"
+  sha256 "c51ba608949a029151b90185c8977fad4cf24c0b0ea1f41f8b0da9434d252701"
   license "Apache-2.0"
   head "https://github.com/deviceinsight/kafkactl.git", branch: "main"
 
