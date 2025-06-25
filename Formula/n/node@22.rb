@@ -1,8 +1,8 @@
 class NodeAT22 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v22.16.0/node-v22.16.0.tar.xz"
-  sha256 "720894f323e5c1ac24968eb2676660c90730d715cb7f090be71a668662a17c37"
+  url "https://nodejs.org/dist/v22.17.0/node-v22.17.0.tar.xz"
+  sha256 "7a3ef2aedb905ea7926e5209157266e2376a5db619d9ac0cba3c967f6f5db4f9"
   license "MIT"
 
   livecheck do
