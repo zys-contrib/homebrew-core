@@ -1,8 +1,8 @@
-class Assimp < Formula
+class AssimpAT5 < Formula
   desc "Portable library for importing many well-known 3D model formats"
   homepage "https://www.assimp.org/"
-  url "https://github.com/assimp/assimp/archive/refs/tags/v6.0.2.tar.gz"
-  sha256 "d1822d9a19c9205d6e8bc533bf897174ddb360ce504680f294170cc1d6319751"
+  url "https://github.com/assimp/assimp/archive/refs/tags/v5.4.3.tar.gz"
+  sha256 "66dfbaee288f2bc43172440a55d0235dfc7bf885dda6435c038e8000e79582cb"
   # NOTE: BSD-2-Clause is omitted as contrib/Open3DGC/o3dgcArithmeticCodec.c is not used
   license all_of: [
     "BSD-3-Clause",
@@ -12,17 +12,23 @@ class Assimp < Formula
     "Unlicense", # contrib/zip
     "Zlib",      # contrib/unzip
   ]
-  head "https://github.com/assimp/assimp.git", branch: "master"
+
+  livecheck do
+    url :stable
+    regex(/^v?(5(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "6ab85fd16cd1f86fc8ee199e49d4f57d9b23eb0e2b598e32d1450913862506a8"
-    sha256 cellar: :any,                 arm64_sonoma:  "3ce55f76aaeb9b538266dfc81622bf6e33e1d4fdf2aebf69e442369378830a95"
-    sha256 cellar: :any,                 arm64_ventura: "ed951286fbf3dc3362927d2698df086e7da7ed6ae9be2fd83f4fba310431266b"
-    sha256 cellar: :any,                 sonoma:        "1b6514222b86287994281fd61e7d30e5a087ecf143fc3f190afb9fc17048f061"
-    sha256 cellar: :any,                 ventura:       "69f5e3ac41175e81f7431ea19ca6514790ce82107f71a843f739042394d221f5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7c781ef6fdfe87c1074960fd21abfa8e43c6ff35955b15b29a1e0ef0ceaf08f8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e96dbe0de6b786a99551d144173516e4ae104bacb2c20ee0bcabd6af405ef90"
+    sha256 cellar: :any,                 arm64_sequoia: "88b53d2e04bf2557a8b9231ccf1d7924bb55917003fe16872c8f864de930feb4"
+    sha256 cellar: :any,                 arm64_sonoma:  "74157cf837ac90bb9378ba79f75d9cbf8f4a3db379da1dc5f03db3748e2e8a42"
+    sha256 cellar: :any,                 arm64_ventura: "1b1d4f11a3c83bb8a7565c877397c86d4a06c952d3b4b85d8a756ce25516059e"
+    sha256 cellar: :any,                 sonoma:        "72f6ba4406def81da38c77507f259cd9a1f28b8efb14983ce7780007cd951391"
+    sha256 cellar: :any,                 ventura:       "17173cbe629f6dc15c3aecd382391aadeb74abd6c374760ad6143a5c16410138"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1dddf2d65a2c8f08efb3a198cd825952be67dd8785da42725dd50cda9eead96a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "74fb37f50e5dea840d202a0b0cc5c8b5e7589128e5a294e23209ca131277ad43"
   end
+
+  keg_only :versioned_formula
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
