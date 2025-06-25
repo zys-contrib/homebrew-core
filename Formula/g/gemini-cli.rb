@@ -11,6 +11,7 @@ class GeminiCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "bc9cd3d3b48ff2936eef5fad4361ab41659873da9d2b1f03f06bd604d8e85b02"
     sha256 cellar: :any_skip_relocation, sonoma:        "d847e1e47173da79fd069d007e15ac3a10e1107cbc53135e38588e44c6d8e22d"
     sha256 cellar: :any_skip_relocation, ventura:       "d847e1e47173da79fd069d007e15ac3a10e1107cbc53135e38588e44c6d8e22d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bc9cd3d3b48ff2936eef5fad4361ab41659873da9d2b1f03f06bd604d8e85b02"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "bc9cd3d3b48ff2936eef5fad4361ab41659873da9d2b1f03f06bd604d8e85b02"
   end
 
