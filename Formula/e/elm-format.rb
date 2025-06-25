@@ -2,12 +2,10 @@ class ElmFormat < Formula
   desc "Elm source code formatter, inspired by gofmt"
   homepage "https://github.com/avh4/elm-format"
   url "https://github.com/avh4/elm-format.git",
-      tag:      "0.8.7",
-      revision: "b5cca4c26b473dab06e5d73b98148637e4770d45"
+      tag:      "0.8.8",
+      revision: "d07fddc8c0eef412dba07be4ab8768d6abcca796"
   license "BSD-3-Clause"
   head "https://github.com/avh4/elm-format.git", branch: "main"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "39551d3762854b22e3db540e1eb0187484cf50ce30233a70289ae0d6d29e1c27"
@@ -22,10 +20,8 @@ class ElmFormat < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c6b1ec84983f60bd9a7834c03074931a6f7a1c78ac640a4c6b94cbc1a10bb968"
   end
 
-  # Has been using pre-built GHC due to needing specific patch version of GHC
-  deprecate! date: "2024-07-27", because: :does_not_build
-
   depends_on "cabal-install" => :build
+  depends_on "ghc@9.6" => :build
   depends_on "haskell-stack" => :build
   depends_on "hpack" => :build
 
@@ -36,12 +32,6 @@ class ElmFormat < Formula
   end
 
   def install
-    # Currently, dependency constraints require an older `ghc` patch version than available
-    # in Homebrew. Try using Homebrew `ghc` on update. Optionally, consider adding `ghcup`
-    # as a lighter-weight alternative to `haskell-stack` for installing particular ghc version.
-    jobs = ENV.make_jobs
-    ENV.deparallelize { system "stack", "-j#{jobs}", "setup", "9.2.5", "--stack-root", buildpath/".stack" }
-    ENV.prepend_path "PATH", Dir[buildpath/".stack/programs/*/ghc-*/bin"].first
     system "cabal", "v2-update"
 
     # Directly running `cabal v2-install` fails: Invalid file name in tar archive: "avh4-lib-0.0.0.1/../"
