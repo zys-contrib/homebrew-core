@@ -19,16 +19,13 @@ class GhcAT96 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "8d2a22c93cc1fe70b9a7ecf62827821d30fff6d0e28c1d3bc0112c8734f96cbf"
-    sha256 cellar: :any,                 arm64_sonoma:   "892f3e1bc975073cd306ac0b0522befc7456eb2308d3de05a02d399a67ef9c7a"
-    sha256 cellar: :any,                 arm64_ventura:  "c4f29aff74b822d0bdb1564459168cf2cd57e0e9a1573acd8302fcff10e18609"
-    sha256 cellar: :any,                 arm64_monterey: "dd173cc86b8f680233343bba11ac738f9a210a4fcb4ac45590b36bf7941018f4"
-    sha256 cellar: :any,                 sonoma:         "9499925d23e2142feba32048df46024832e41e3b29d5c45ad0c31ea5d1859a8e"
-    sha256 cellar: :any,                 ventura:        "ac8fc3d208583198cdfe21939ab617c221894227ec969c447f955bfc58fa8708"
-    sha256 cellar: :any,                 monterey:       "ef74cf6cd94cb600ae549d4cc9572ee47ec816e7e7f4dc27aa6e3ce1e9517bcb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "384d705bd320ac0a02bd5a68a5b04c734b8eae30faf8b5ff22fe5cba44007e5c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "37e9edf08c38f365c93923036428244f9aa8fb094e44fdb2bf683172a6c81b8b"
+    sha256 cellar: :any,                 arm64_sequoia: "4dcf5e47d790fe743ca3b5c071619ca00630900c269e7bb279ac69b7cf705bb3"
+    sha256 cellar: :any,                 arm64_sonoma:  "846e69dce0f0c5163b0814e9bb3f0f2e0cd0d935095811f0d070e92564e6f2d2"
+    sha256 cellar: :any,                 arm64_ventura: "bb1449611c052107ec0a6c4a9e883d8e5c79ab0116d36dd40074e7b5c918a7b5"
+    sha256 cellar: :any,                 sonoma:        "9d2462a0b1d0b49b90c08c7274f0e55a3fa522e203133aceb3aa2bec264e7e23"
+    sha256 cellar: :any,                 ventura:       "d4f0c1e17358fd3026d406f26fbfb6a26ab3e6c33b76dcca6092965f9fab55f6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "34873088d18d1e13e29d62aeb008fc9cafd657aa57c20be13d92a9d5988c958a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b1a0d894b2236f1cada48a5f48ff3c90b763189b575f2d06d949dd209f5dec5"
   end
 
   keg_only :versioned_formula
