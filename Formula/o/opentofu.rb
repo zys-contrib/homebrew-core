@@ -7,12 +7,12 @@ class Opentofu < Formula
   head "https://github.com/opentofu/opentofu.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7220385bc6aa61a0001ff0702f15512215fe83477962f7c893a211b0c49b33b8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7220385bc6aa61a0001ff0702f15512215fe83477962f7c893a211b0c49b33b8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7220385bc6aa61a0001ff0702f15512215fe83477962f7c893a211b0c49b33b8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3345d20052184661419a37e26f5cad7ba859c9e8d0eee2246f975c9cb8ffe957"
-    sha256 cellar: :any_skip_relocation, ventura:       "3345d20052184661419a37e26f5cad7ba859c9e8d0eee2246f975c9cb8ffe957"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d733c668565619acfdc3e759b401941b0e922bb92ebe126508dbc2587fd562d7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "63944ff48f4910ccc4b92122d5b1a0480c2d1539aee4cddc514e4167a881d3c0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "63944ff48f4910ccc4b92122d5b1a0480c2d1539aee4cddc514e4167a881d3c0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "63944ff48f4910ccc4b92122d5b1a0480c2d1539aee4cddc514e4167a881d3c0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "698da1761efdee61452b1480f977d0785eb2ce4ceb816680e514bf9a8b4dfaa1"
+    sha256 cellar: :any_skip_relocation, ventura:       "698da1761efdee61452b1480f977d0785eb2ce4ceb816680e514bf9a8b4dfaa1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe4fb59e70ec9323ee1264b2b9e7908a020b82fdc966de4c357e67355947b56b"
   end
 
   depends_on "go" => :build
