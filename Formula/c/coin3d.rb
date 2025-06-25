@@ -2,11 +2,10 @@ class Coin3d < Formula
   desc "Open Inventor 2.1 API implementation (Coin)"
   homepage "https://coin3d.github.io/"
   license "BSD-3-Clause"
-  revision 2
 
   stable do
-    url "https://github.com/coin3d/coin/releases/download/v4.0.3/coin-4.0.3-src.tar.gz"
-    sha256 "66e3f381401f98d789154eb00b2996984da95bc401ee69cc77d2a72ed86dfda8"
+    url "https://github.com/coin3d/coin/releases/download/v4.0.4/coin-4.0.4-src.tar.gz"
+    sha256 "80efd056a445050939a265db307d106ac7524105774d4be924a71b0cff23a719"
 
     resource "soqt" do
       url "https://github.com/coin3d/soqt/releases/download/v1.6.3/soqt-1.6.3-src.tar.gz"
@@ -54,6 +53,7 @@ class Coin3d < Formula
   end
 
   def install
+    odie "Remove cmake 4 build patch" if build.stable? && resource("soqt").version > "1.6.3"
     system "cmake", "-S", ".", "-B", "_build",
                     "-DCOIN_BUILD_MAC_FRAMEWORK=OFF",
                     "-DCOIN_BUILD_DOCUMENTATION=ON",
@@ -69,6 +69,7 @@ class Coin3d < Formula
                       "-DSOQT_BUILD_MAC_FRAMEWORK=OFF",
                       "-DSOQT_BUILD_DOCUMENTATION=OFF",
                       "-DSOQT_BUILD_TESTS=OFF",
+                      "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
                       *std_cmake_args(find_framework: "FIRST")
       system "cmake", "--build", "_build"
       system "cmake", "--install", "_build"
