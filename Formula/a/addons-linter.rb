@@ -1,8 +1,8 @@
 class AddonsLinter < Formula
   desc "Firefox Add-ons linter, written in JavaScript"
   homepage "https://github.com/mozilla/addons-linter"
-  url "https://registry.npmjs.org/addons-linter/-/addons-linter-7.15.0.tgz"
-  sha256 "1db441516017f2dc9d5f626211f41e935ba2f21a8a77fbe08e752e7ea1f9e8bb"
+  url "https://registry.npmjs.org/addons-linter/-/addons-linter-7.16.0.tgz"
+  sha256 "0269ac4c5a282653c4320893f554a9351615cfe74943a42e2e0f735724270ca2"
   license "MPL-2.0"
 
   bottle do
