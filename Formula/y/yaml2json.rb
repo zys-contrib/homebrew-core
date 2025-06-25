@@ -12,6 +12,7 @@ class Yaml2json < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "81fdf8b90dfbef0a48912f42db8742d4ee5542d87a3f709504821ba7c4aae7f4"
     sha256 cellar: :any_skip_relocation, sonoma:        "3d2dd72115aaa4fc3e4cc60dc285c2d76f58283ea90241687ff3bd55fafdbe9d"
     sha256 cellar: :any_skip_relocation, ventura:       "3d2dd72115aaa4fc3e4cc60dc285c2d76f58283ea90241687ff3bd55fafdbe9d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d0fb799728cbc565f86a7bf1d30f4abef6d91234237653f3d209ef65c54c68a4"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d1ad585751d061cdf59a0b4722b31fb48c34f92159426cb2e74d313db63d0b1"
   end
 
