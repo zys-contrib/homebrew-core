@@ -7,13 +7,13 @@ class Cpuid < Formula
   head "https://github.com/klauspost/cpuid.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "407aa5d6b2f38800ef7c9163a0b36458accb97585c79216200fbafd66a734c0c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "407aa5d6b2f38800ef7c9163a0b36458accb97585c79216200fbafd66a734c0c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "407aa5d6b2f38800ef7c9163a0b36458accb97585c79216200fbafd66a734c0c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ecfa112b44890d4e7f642b877c481cb42f97bbde314fc3f129a2c013dd897e60"
-    sha256 cellar: :any_skip_relocation, ventura:       "ecfa112b44890d4e7f642b877c481cb42f97bbde314fc3f129a2c013dd897e60"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "08f1cbad37f37822d1bb0ce32758b0ca0b6649fc89ba0328a658a446b2e8acba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ce13ee61313acec4f188de11c6707403489972057906b950aaf19bf5af8c6f6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1372213b08a4965139affeee0157e343805d80adc6ec727ed1feaec5f5370c76"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1372213b08a4965139affeee0157e343805d80adc6ec727ed1feaec5f5370c76"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1372213b08a4965139affeee0157e343805d80adc6ec727ed1feaec5f5370c76"
+    sha256 cellar: :any_skip_relocation, sonoma:        "18c1af9ee43ec37ea032847a7f42dc203a655b792606d708ef205ed8eaa719ef"
+    sha256 cellar: :any_skip_relocation, ventura:       "18c1af9ee43ec37ea032847a7f42dc203a655b792606d708ef205ed8eaa719ef"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e0e528e28e5a99a5d6af40c0510f1a7a8cfb9017124459ceeae8d6e22142a965"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "12c84d9f6d0e4c33bfff7f12e5d189051bcd4164213dd220ee521067e7ad18c1"
   end
 
   depends_on "go" => :build
