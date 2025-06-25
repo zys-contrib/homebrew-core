@@ -1,11 +1,9 @@
 class Libwebm < Formula
   desc "WebM container"
   homepage "https://www.webmproject.org/code/"
-  url "https://github.com/webmproject/libwebm/archive/refs/tags/libwebm-1.0.0.31.tar.gz"
-  sha256 "616cfdca1c869222dc60d5a49d112c1464040390e3876afca4d385347c6ce55e"
+  url "https://github.com/webmproject/libwebm/archive/refs/tags/libwebm-1.0.0.32.tar.gz"
+  sha256 "7fd5e085bda9f8031cf2ad2a1e52d9b7b29cba9c0b96ad2ce794ce89e4249eb8"
   license "BSD-3-Clause"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "49e659cf7620ec30ffecd7654da70d28120cd409ae68d7a48a646d2e57bcba1b"
