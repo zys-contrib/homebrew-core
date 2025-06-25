@@ -6,13 +6,13 @@ class Cdk8s < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "75b158b229fc1d7b0980e5e9e5c1b991df2a453c123be2ec4a06b343e15f62b9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "75b158b229fc1d7b0980e5e9e5c1b991df2a453c123be2ec4a06b343e15f62b9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "75b158b229fc1d7b0980e5e9e5c1b991df2a453c123be2ec4a06b343e15f62b9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e8b213b1b839a8f61d6507655d401f1bdb3526e2679e64fd4336288564bbde48"
-    sha256 cellar: :any_skip_relocation, ventura:       "e8b213b1b839a8f61d6507655d401f1bdb3526e2679e64fd4336288564bbde48"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "75b158b229fc1d7b0980e5e9e5c1b991df2a453c123be2ec4a06b343e15f62b9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75b158b229fc1d7b0980e5e9e5c1b991df2a453c123be2ec4a06b343e15f62b9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3225bdd474ac5f87a54ee4a19faf69e35c513519b0e1aace4fa114e1c2c50a49"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3225bdd474ac5f87a54ee4a19faf69e35c513519b0e1aace4fa114e1c2c50a49"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3225bdd474ac5f87a54ee4a19faf69e35c513519b0e1aace4fa114e1c2c50a49"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cf9e59c14f77abf8f82e7042e61715e81651b407ae603a91f94c8c94aad6eb09"
+    sha256 cellar: :any_skip_relocation, ventura:       "cf9e59c14f77abf8f82e7042e61715e81651b407ae603a91f94c8c94aad6eb09"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3225bdd474ac5f87a54ee4a19faf69e35c513519b0e1aace4fa114e1c2c50a49"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3225bdd474ac5f87a54ee4a19faf69e35c513519b0e1aace4fa114e1c2c50a49"
   end
 
   depends_on "node"
