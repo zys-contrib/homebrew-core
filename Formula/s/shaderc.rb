@@ -4,25 +4,25 @@ class Shaderc < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/google/shaderc/archive/refs/tags/v2025.2.tar.gz"
-    sha256 "3fddc13bbb87411c6f7b8f447e87c1637933450087e70fc21da650041f4e0132"
+    url "https://github.com/google/shaderc/archive/refs/tags/v2025.3.tar.gz"
+    sha256 "a8e4a25e5c2686fd36981e527ed05e451fcfc226bddf350f4e76181371190937"
 
     resource "glslang" do
       # https://github.com/google/shaderc/blob/known-good/known_good.json
       url "https://github.com/KhronosGroup/glslang.git",
-          revision: "8b822ee8ac2c3e52926820f46ad858532a895951"
+          revision: "efd24d75bcbc55620e759f6bf42c45a32abac5f8"
     end
 
     resource "spirv-headers" do
       # https://github.com/google/shaderc/blob/known-good/known_good.json
       url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-          revision: "54a521dd130ae1b2f38fef79b09515702d135bdd"
+          revision: "2a611a970fdbc41ac2e3e328802aed9985352dca"
     end
 
     resource "spirv-tools" do
       # https://github.com/google/shaderc/blob/known-good/known_good.json
       url "https://github.com/KhronosGroup/SPIRV-Tools.git",
-          revision: "f289d047f49fb60488301ec62bafab85573668cc"
+          revision: "33e02568181e3312f49a3cf33df470bf96ef293a"
     end
   end
 
