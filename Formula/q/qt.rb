@@ -27,11 +27,11 @@ class Qt < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:  "861acfe809369d19c8cbc923afa94c62f48784f087a150e09d3522e5eeb15f9e"
-    sha256 cellar: :any, arm64_ventura: "f30408e5e2a56aef97597398e4d552da3286b9fb45ba040e405291584009bea8"
-    sha256 cellar: :any, sonoma:        "1cb92af62ec86c41bd6901428356fc8908ab98706a1f4b1e7791f09fd6cad498"
-    sha256 cellar: :any, ventura:       "3f55e107498966094f5b47f6e729728c7cc97d503f9deed8c59d87ca9f69cfa4"
-    sha256               x86_64_linux:  "0f25abc1c0b90ec910b12b3d5c4db85e77e5f0888a2a8446f2d2dc5c973ede78"
+    sha256 cellar: :any, arm64_sonoma:  "71178e8d39b2d61ecd4077e26997a6ba813d3b0159cdb6e3ca8a1b615d6b1a2f"
+    sha256 cellar: :any, arm64_ventura: "57a2d1d83efa9804b2286df9ff9ff0ea80a058ead20a59f9478951e73876e318"
+    sha256 cellar: :any, sonoma:        "cc1193691023ea31e664b5170685c2fdfec4016de0cefbc18cfe017ed31d7a0a"
+    sha256 cellar: :any, ventura:       "9051e4898c848f50a3919aa026dc082b043ac5e0343d3032e3d25f85d6de3035"
+    sha256               x86_64_linux:  "69b20bb5da2b644a0f96564833a4bdace8701fd40ca2208e7dc5916ecabb0d50"
   end
 
   depends_on "cmake" => [:build, :test]
