@@ -1,8 +1,8 @@
 class GhcAT910 < Formula
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/9.10.1/ghc-9.10.1-src.tar.xz"
-  sha256 "bf386a302d4ee054791ffd51748900f15d71760fd199157922d120cc1f89e2f7"
+  url "https://downloads.haskell.org/~ghc/9.10.2/ghc-9.10.2-src.tar.xz"
+  sha256 "55fd40a005575ac6b33ea928beda81e8c56ffea354b6ac474ee9f9911f23a8de"
   # We build bundled copies of libffi and GMP so GHC inherits the licenses
   license all_of: [
     "BSD-3-Clause",
@@ -11,11 +11,12 @@ class GhcAT910 < Formula
   ]
 
   livecheck do
-    url "https://www.haskell.org/ghc/download.html"
-    regex(/href=.*?download[._-]ghc[._-][^"' >]+?\.html[^>]*?>\s*?v?(9\.10(?:\.\d+)+)\s*?</i)
+    url "https://www.haskell.org/ghc/"
+    regex(/href=.*?download[_-]ghc[_-]v?(9[._]10[._]\d+)\.html/i)
+    strategy :page_match do |page, regex|
+      page.scan(regex).map { |match| match[0].tr("_", ".") }
+    end
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "ec9bf60301efe6176480908497e6bbcf760c8933cb6e7e5f37ebb974511503ad"
@@ -92,12 +93,6 @@ class GhcAT910 < Formula
         sha256 "3724f2aa22f330c5e6605978f3dd9adee4e052866321a8dd222944cd178c3c24"
       end
     end
-  end
-
-  # Backport fix to avoid unnecessary `alex` dependency
-  patch do
-    url "https://gitlab.haskell.org/ghc/ghc/-/commit/aba2c9d4728262cd9a2d711eded9050ac131c6c1.diff"
-    sha256 "152cd2711a7e103bbf0526dc62e51b437e6c60e26149f2cd50ccafaa057316ce"
   end
 
   def install
