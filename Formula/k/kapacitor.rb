@@ -1,40 +1,11 @@
 class Kapacitor < Formula
   desc "Open source time series data processor"
   homepage "https://github.com/influxdata/kapacitor"
+  url "https://github.com/influxdata/kapacitor.git",
+      tag:      "v1.8.0",
+      revision: "c5848b64d04a1dc4039611491891dd06872ef348"
   license "MIT"
   head "https://github.com/influxdata/kapacitor.git", branch: "master"
-
-  stable do
-    url "https://github.com/influxdata/kapacitor.git",
-        tag:      "v1.7.7",
-        revision: "f59b0b1f0c0681f37a7aa62d79600009d2f168c8"
-
-    # TODO: Remove when release uses flux >= 0.195.0 to get following fix for rust >= 1.78
-    # Ref: https://github.com/influxdata/flux/commit/68c831c40b396f0274f6a9f97d77707c39970b02
-    resource "flux" do
-      url "https://github.com/influxdata/flux/archive/refs/tags/v0.194.5.tar.gz"
-      sha256 "85229c86d307fdecccc7d940902fb83bfbd7cff7a308ace831e2487d36a6a8ca"
-
-      # patch to fix build with rust 1.83, upstream pr ref, https://github.com/influxdata/flux/pull/5516
-      patch do
-        url "https://github.com/influxdata/flux/commit/08b6cb784759242fd1455f1d28e653194745c0c6.patch?full_index=1"
-        sha256 "3c40b88897c1bd34c70f277e13320148cbee44b8ac7b8029be6bf4f541965302"
-      end
-
-      # go1.22 patch for flux 0.194.5
-      patch do
-        url "https://raw.githubusercontent.com/Homebrew/formula-patches/4928e7c7ac070ca64e2c62393c1e7ae95db7889f/kapacitor/flux-0.194.5-go1.22.patch"
-        sha256 "3290b34f688edad2dc10a4abd88ea2ee8821cd547ee99325fbbbe4652ad62bea"
-      end
-    end
-
-    # build patch to upgrade flux so that it can be built with rust 1.72.0+
-    # upstream PR ref, https://github.com/influxdata/kapacitor/pull/2811
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/c004d4600a284d62ba74741ffb60f0474403478e/kapacitor/1.7.7.patch"
-      sha256 "c70370136bb4b32112157ce4cc9748a0287a6d9dc92e6651711baa75eb5514be"
-    end
-  end
 
   livecheck do
     url :stable
@@ -57,25 +28,17 @@ class Kapacitor < Formula
   # NOTE: The version here is specified in the go.mod of kapacitor.
   # If you're upgrading to a newer kapacitor version, check to see if this needs upgraded too.
   resource "pkg-config-wrapper" do
-    url "https://github.com/influxdata/pkg-config/archive/refs/tags/v0.2.12.tar.gz"
-    sha256 "23b2ed6a2f04d42906f5a8c28c8d681d03d47a1c32435b5df008adac5b935f1a"
+    url "https://github.com/influxdata/pkg-config/archive/refs/tags/v0.3.0.tar.gz"
+    sha256 "769deabe12733224eaebbfff3b5a9d69491b0158bdf58bbbbc7089326d33a9c8"
+  end
+
+  # build patch for 1.8.0 release
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/2ce7d3fffb94533cc1940dfc0391806007b1644f/kapacitor/1.8.0.patch"
+    sha256 "1be60924e908504afb52bdefbddbcba65fb2812b63f430918406f68ad0d5e941"
   end
 
   def install
-    if build.stable?
-      # Workaround to skip dead_code lint. RUSTFLAGS workarounds didn't work.
-      flux_module = "github.com/influxdata/flux"
-      flux_version = File.read("go.mod")[/#{flux_module} v(\d+(?:\.\d+)+)/, 1]
-      odie "Check if `flux` resource can be removed!" if flux_version.blank? || Version.new(flux_version) >= "0.195"
-      (buildpath/"vendored_flux").install resource("flux")
-      inreplace "vendored_flux/libflux/flux-core/src/lib.rs", "#![allow(\n", "\\0    dead_code,\n"
-      (buildpath/"go.work").write <<~GOWORK
-        go 1.22
-        use .
-        replace #{flux_module} => ./vendored_flux
-      GOWORK
-    end
-
     resource("pkg-config-wrapper").stage do
       system "go", "build", *std_go_args, "-o", buildpath/"bootstrap/pkg-config"
     end
