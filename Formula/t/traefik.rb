@@ -1,18 +1,18 @@
 class Traefik < Formula
   desc "Modern reverse proxy"
   homepage "https://traefik.io/"
-  url "https://github.com/traefik/traefik/releases/download/v3.4.2/traefik-v3.4.2.src.tar.gz"
-  sha256 "a30b7a70a7a7cfca4c87ebd73fe7d3726c83f84047ac3ee997e7d4ca42446de6"
+  url "https://github.com/traefik/traefik/releases/download/v3.4.3/traefik-v3.4.3.src.tar.gz"
+  sha256 "c901e670ce82b733978392cd48951c0770b68b9865e68f02966d17325b9ab7e4"
   license "MIT"
   head "https://github.com/traefik/traefik.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9573e666c32cbeb19833ec4e29af0901b49cba3d253622383afeacb478792dcd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9573e666c32cbeb19833ec4e29af0901b49cba3d253622383afeacb478792dcd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9573e666c32cbeb19833ec4e29af0901b49cba3d253622383afeacb478792dcd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fde2149cd9ff0fc2521b78fac4f377a006f97992ef33734e7dd56d419bbebcc8"
-    sha256 cellar: :any_skip_relocation, ventura:       "fde2149cd9ff0fc2521b78fac4f377a006f97992ef33734e7dd56d419bbebcc8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a2f478206e3e285eabee798fc92dcb9d6927cbb6410a97fff97df95e462f2c0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2d90ff9dccb773fa5fcf82f95b6fe4ca5714427b08715597a57735f151ca91ac"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2d90ff9dccb773fa5fcf82f95b6fe4ca5714427b08715597a57735f151ca91ac"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2d90ff9dccb773fa5fcf82f95b6fe4ca5714427b08715597a57735f151ca91ac"
+    sha256 cellar: :any_skip_relocation, sonoma:        "21697aecb02e618c7ff3b7dda8bd21ac0741bf025721c0c1814426879e3bb6ba"
+    sha256 cellar: :any_skip_relocation, ventura:       "21697aecb02e618c7ff3b7dda8bd21ac0741bf025721c0c1814426879e3bb6ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a49f4d03d3706ff1caf314076b07087f7a856cf88f1f0cd8bf3a9e0f681e2e2f"
   end
 
   depends_on "go" => :build
