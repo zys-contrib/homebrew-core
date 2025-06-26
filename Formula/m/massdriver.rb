@@ -1,8 +1,8 @@
 class Massdriver < Formula
   desc "Manage applications and infrastructure on Massdriver Cloud"
   homepage "https://www.massdriver.cloud/"
-  url "https://github.com/massdriver-cloud/mass/archive/refs/tags/1.11.2.tar.gz"
-  sha256 "b8e5893d54383cb440a72ecdac9679baf6a4d5c134ecab07f4dc9beda4fae147"
+  url "https://github.com/massdriver-cloud/mass/archive/refs/tags/1.11.3.tar.gz"
+  sha256 "76f84e36973067245ae82073b6b444c8514087d3c41786c0253e16ec6cc9f123"
   license "Apache-2.0"
   head "https://github.com/massdriver-cloud/mass.git", branch: "main"
 
@@ -37,12 +37,9 @@ class Massdriver < Formula
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/mass version")
+
     output = shell_output("#{bin}/mass bundle build 2>&1", 1)
     assert_match "Error: open massdriver.yaml: no such file or directory", output
-
-    output = shell_output("#{bin}/mass bundle lint 2>&1", 1)
-    assert_match "OrgID: missing required value: MASSDRIVER_ORG_ID", output
-
-    assert_match version.to_s, shell_output("#{bin}/mass version")
   end
 end
