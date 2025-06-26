@@ -7,13 +7,13 @@ class PixiPack < Formula
   head "https://github.com/quantco/pixi-pack.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5724d325024529c15335b958513027f4db6beef6fd695d2739c810486aa6ca09"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e70f6a14cb794e7c46a4ce2e16307c31aefed228a98fc7a82e44930cf0859d31"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6ed378899bbb28634cf931917dcf099927530410ab3929b596f40537049c3a4a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "36cce1afa0a4e588c56249b83f6e03324f2ff7a32f6a139b6d0423220e45088e"
-    sha256 cellar: :any_skip_relocation, ventura:       "d195fede86de50f0d7c69339e90b324748a01f2bd95aa2a2c4def81470827523"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9d20b651f4304f97df4e068fb4c90ee56b3cd975ed4955086d25ed28acdb4384"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2ec9d80701d3abdb0d47ebe8ce996cb77c7cc96159b5de5c12a55ca54438070"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "834c04062ce32eb7f89a6ca6b121822d56e32b7871434cec05e8116ab2b3cae4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2e07c3d3dc051a6b8b9d63c0e88c5d8b962f94e8501d613158d00874e9d1d27d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7bb22dd8ec26a6582060a5f093d2d7a0da6c0d502ce25997bd49f1157a1c615a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b8b366f202b2bdd99b5cb62b6bc931cfd5294ea37d2968f05c8860dc5a0f8633"
+    sha256 cellar: :any_skip_relocation, ventura:       "90e1dd960cacc3786283d3b79ed381b4732e45e741583d73e1b35267c13658b6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a557cadf6884cac72e30c5c5353c9aba5b79ad1e76c52d319f7ed9e6afe33ae5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c500859e059e015e4ea23e07a33eaf88badbb3df79cf23f44c70d9e9eb19a6c9"
   end
 
   depends_on "cmake" => :build
