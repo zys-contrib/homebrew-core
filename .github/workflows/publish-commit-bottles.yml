@@ -172,7 +172,11 @@ jobs:
             requires_merge=false
           fi
 
-          if [[ "$branch" = "master" ]]
+          if [[ "$branch" = "main" ]]
+          then
+            branch="$head_repo_owner/main"
+            remote_branch="main"
+          elif [[ "$branch" = "master" ]]
           then
             branch="$head_repo_owner/master"
             remote_branch="master"
@@ -267,7 +271,7 @@ jobs:
       !fromJson(needs.check.outputs.replace)
     runs-on: ${{inputs.large_runner && 'homebrew-large-bottle-upload' || 'ubuntu-latest'}}
     container:
-      image: ghcr.io/homebrew/ubuntu22.04:master
+      image: ghcr.io/homebrew/ubuntu22.04:main
       volumes:
         - /mnt:/mnt
     permissions:

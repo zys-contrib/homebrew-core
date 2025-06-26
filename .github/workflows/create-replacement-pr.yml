@@ -53,7 +53,7 @@ jobs:
   create:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/homebrew/ubuntu22.04:master
+      image: ghcr.io/homebrew/ubuntu22.04:main
     permissions:
       contents: read
       pull-requests: write # for `post-comment`, `gh api`, `gh pr edit`
@@ -132,7 +132,7 @@ jobs:
       - name: Checkout replacement PR branch
         working-directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
         env:
-          START_POINT: ${{ inputs.autosquash && 'origin/master' || 'HEAD' }}
+          START_POINT: ${{ inputs.autosquash && 'origin/main' || 'HEAD' }}
         run: |
           if git ls-remote --exit-code --heads origin "$REPLACEMENT_BRANCH"
           then

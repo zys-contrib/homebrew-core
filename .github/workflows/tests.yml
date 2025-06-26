@@ -43,8 +43,7 @@ jobs:
     runs-on: ubuntu-latest
     continue-on-error: ${{ matrix.stable }}
     container:
-      # TODO: switch to main when we're pushing those images
-      image: ghcr.io/homebrew/ubuntu22.04:${{ matrix.stable && 'latest' || 'master'}}
+      image: ghcr.io/homebrew/ubuntu22.04:${{ matrix.stable && 'latest' || 'main'}}
     env:
       HOMEBREW_SIMULATE_MACOS_ON_LINUX: 1
     steps:
@@ -70,8 +69,7 @@ jobs:
     if: github.repository_owner == 'Homebrew' && github.event_name != 'push'
     runs-on: ubuntu-latest
     container:
-      # TODO: switch to main when we're pushing those images
-      image: ghcr.io/homebrew/ubuntu22.04:master
+      image: ghcr.io/homebrew/ubuntu22.04:main
     outputs:
       testing_formulae: ${{ steps.formulae-detect.outputs.testing_formulae }}
       added_formulae: ${{ steps.formulae-detect.outputs.added_formulae }}
@@ -185,8 +183,7 @@ jobs:
       !fromJson(needs.setup_tests.outputs.syntax-only)
     runs-on: ubuntu-latest
     container:
-      # TODO: switch to main when we're pushing those images
-      image: ghcr.io/homebrew/ubuntu22.04:master
+      image: ghcr.io/homebrew/ubuntu22.04:main
     outputs:
       runners: ${{steps.determine-runners.outputs.runners}}
       runners_present: ${{steps.determine-runners.outputs.runners_present}}
@@ -314,8 +311,7 @@ jobs:
       fromJson(needs.setup_dep_tests.outputs.test-dependents)
     runs-on: ubuntu-latest
     container:
-      # TODO: switch to main when we're pushing those images
-      image: ghcr.io/homebrew/ubuntu22.04:master
+      image: ghcr.io/homebrew/ubuntu22.04:main
     outputs:
       runners: ${{steps.determine-dependent-runners.outputs.runners}}
       runners_present: ${{steps.determine-dependent-runners.outputs.runners_present}}

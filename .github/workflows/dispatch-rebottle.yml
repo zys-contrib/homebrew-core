@@ -60,7 +60,7 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/homebrew/ubuntu22.04:master
+      image: ghcr.io/homebrew/ubuntu22.04:main
     outputs:
       runners: ${{steps.determine-runners.outputs.runners}}
     steps:
@@ -138,7 +138,7 @@ jobs:
     needs: bottle
     if: inputs.upload
     container:
-      image: ghcr.io/homebrew/ubuntu22.04:master
+      image: ghcr.io/homebrew/ubuntu22.04:main
     env:
       HOMEBREW_SIMULATE_MACOS_ON_LINUX: 1
       GH_REPO: ${{github.repository}}
@@ -180,7 +180,7 @@ jobs:
 
       - name: Checkout branch for bottle commit
         working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
-        run: git checkout -b "$BOTTLE_BRANCH" origin/master
+        run: git checkout -b "$BOTTLE_BRANCH" origin/HEAD
 
       - name: Upload bottles to GitHub Packages
         id: upload
