@@ -9,13 +9,13 @@ class Ldeep < Formula
   head "https://github.com/franc-pentest/ldeep.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "82bf16581a7e37876280738dbc31a2e17d697d05078b65aff8b7b5d6d0c8c871"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "83461409b70bf0a9152c2fb620d8c7779febb0315304ceeb0d745242adfab8ad"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1dcb56e2d8d6ebb2a983fdebfaf591a47c3f3f0647cb94ec30d87c2bd1fb0cac"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a559b26b2f5ac8fab7ebc490754ddb7d03f1760815128ac407f7a463f802d1c7"
-    sha256 cellar: :any_skip_relocation, ventura:       "bd7a6866236560c1c0fac00466ce22dd655f50087c1bca9b1fefca7c32397972"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "88cdcf3d796d293dad800ea38741a7ed0bece5a53e4ff89e81911dd6115c27cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d833e14e6074206f1aa205241c59e8b77fafa45fd675883dd832ea8ea523e6ad"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "60180b5bf0a264dc195b31eea8d81260fa5c46c05995a08bc5a5ef699f3d023c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0976a1294a56d208c4d49c79efc0cf65aab95acd463a5f975046912ab41855be"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "05bb105c20842f1be2997b2490384fd83904f2775b2826411d27b02f00b20d88"
+    sha256 cellar: :any_skip_relocation, sonoma:        "173deb1b219daf6356b947b6900234bd5bb995e64bed099b15719542510b2b4f"
+    sha256 cellar: :any_skip_relocation, ventura:       "7c6e6f2fb256842a3e45768f6577775ac50459ca8c238bbddb5e525a3dc58bef"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "827b4bd6690bbdd349d2ea28ec8e650cf2dbefee97cdc12c4edbc5a44994467a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3fc9f8202d6c82da2caef62c42db71f01eb5531e6fa532ffbd8c64a0ec3979ef"
   end
 
   depends_on "cryptography"
