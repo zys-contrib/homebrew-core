@@ -1,8 +1,8 @@
 class Dish < Formula
   desc "Lightweight monitoring service that efficiently checks socket connections"
   homepage "https://github.com/thevxn/dish"
-  url "https://github.com/thevxn/dish/archive/refs/tags/v1.11.0.tar.gz"
-  sha256 "52981fda7ad890e7c028c11dc656f11ce2e3842735f48b3d173220ea41a3b458"
+  url "https://github.com/thevxn/dish/archive/refs/tags/v1.11.2.tar.gz"
+  sha256 "aacfc4d3520c1f899fb78d0c841ad41a47fd7b37d99e95f8b5a598db5453b64c"
   license "MIT"
   head "https://github.com/thevxn/dish.git", branch: "master"
 
@@ -22,7 +22,7 @@ class Dish < Formula
   end
 
   test do
-    ouput = shell_output("#{bin}/dish https://example.com/:instance 2>&1")
+    ouput = shell_output("#{bin}/dish https://example.com/:instance 2>&1", 3)
     assert_match "error loading socket list: failed to fetch sockets from remote source", ouput
   end
 end
