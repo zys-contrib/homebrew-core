@@ -9,13 +9,13 @@ class CyclonedxPython < Formula
   head "https://github.com/CycloneDX/cyclonedx-python.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "207bc5a3afa9ede34792825e9e5e0804b2d4f5ddcc1ce91df087edd87648c27a"
-    sha256 cellar: :any,                 arm64_sonoma:  "fe19b0b8809615f6e5a3c318992d326e440b6115fcc6c4922306873f55734b98"
-    sha256 cellar: :any,                 arm64_ventura: "c3f219cd7b18cada9994055590c49767f75fc8932fd57d5e312e7f0e7300ab1c"
-    sha256 cellar: :any,                 sonoma:        "d2e9e72dcc36a618823be8e687379277305c8c8629766dcb61331f9c90b38170"
-    sha256 cellar: :any,                 ventura:       "ad3569ee277cf642f66a26b6200a72d8c2268675f7f2fab371e13b5a69bf1d61"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a0f9f5d14e014409d650d5467c01eb754f30a8f08749de4a9785392a2cfd1fad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14989decb820fef2e8eb9d59ce44a79b80bc3b9481e8c2b6fd2bdbf4984eb564"
+    sha256 cellar: :any,                 arm64_sequoia: "fa0fb12f8f2ba7936cb304b9a4b0d15ab0f9079e5ffc971ff35a72ed605c2aca"
+    sha256 cellar: :any,                 arm64_sonoma:  "3750d6ba4c420ac2657d8fda3ca8a2da25a14f837233ece5dae8eb99f74a7d46"
+    sha256 cellar: :any,                 arm64_ventura: "767dbbf3670ab3c78d66843e8c39a179da96c1cb9ef9d5fb4b54e16b9e0f5b9b"
+    sha256 cellar: :any,                 sonoma:        "353e00659c7c878298b8a1ce6906c625e7aedf07d1131ec95fa352cd7b3fb4d3"
+    sha256 cellar: :any,                 ventura:       "a0f02d549ff211ac6c9138ae438f3d5c57ea5ee4e63fbf00baa554c6390a4d9f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "de6eaf3c66bf268a6b12664c5d590162d362acc166ab57b85dfcde15b374756f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "adc9f82415f458424289170e51aebcff4a29bde65032470f37c976f4e2bf162d"
   end
 
   depends_on "rust" => :build # for rpds-py
