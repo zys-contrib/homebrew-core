@@ -14,7 +14,7 @@ class Basex < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "0682571302879f8041fa70fda9e44cbdc6d785bedc1f1d69a8a6da5c3884a2c8"
+    sha256 cellar: :any_skip_relocation, all: "05607e52e85895c35964198defc61f665b99d0174f74c28dc9d00b25a6ad4de7"
   end
 
   depends_on "openjdk"
