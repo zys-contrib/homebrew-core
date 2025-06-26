@@ -30,8 +30,7 @@ jobs:
     if: github.repository_owner == 'Homebrew'
     runs-on: ubuntu-latest
     container:
-      # TODO: switch to main when we're pushing those images
-      image: ghcr.io/homebrew/ubuntu22.04:master
+      image: ghcr.io/homebrew/ubuntu22.04:main
     env:
       REMOVAL_BRANCH: remove-disabled-packages
     permissions:
@@ -57,7 +56,7 @@ jobs:
           signing_key: ${{ secrets.BREWTESTBOT_SSH_SIGNING_KEY }}
 
       - name: Checkout removal branch
-        run: git checkout -b "$REMOVAL_BRANCH" origin/master
+        run: git checkout -b "$REMOVAL_BRANCH" origin/HEAD
         working-directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
 
       - name: Remove disabled packages

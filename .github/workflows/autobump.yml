@@ -28,8 +28,7 @@ jobs:
     if: github.repository_owner == 'Homebrew'
     runs-on: ubuntu-latest
     container:
-      # TODO: switch to main when we're pushing those images
-      image: ghcr.io/homebrew/ubuntu22.04:master
+      image: ghcr.io/homebrew/ubuntu22.04:main
     env:
       GNUPGHOME: /tmp/gnupghome
     steps:
