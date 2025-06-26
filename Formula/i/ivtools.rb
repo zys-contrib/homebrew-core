@@ -4,7 +4,7 @@ class Ivtools < Formula
   url "https://github.com/vectaport/ivtools/archive/refs/tags/ivtools-2.1.1.tar.gz"
   sha256 "4fa680b9d0fd2af610e9012258e150249d9a8abbc3b1f65eb17d01c959142cfc"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
     sha256 arm64_sequoia: "8e490b72b8f0d4ab14b666c5a0a5c1e7fb0a1ef009f16e68a287cdbe6baabc5e"
