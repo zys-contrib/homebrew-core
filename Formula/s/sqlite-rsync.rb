@@ -12,6 +12,15 @@ class SqliteRsync < Formula
 
   no_autobump! because: :incompatible_version_format
 
+  bottle do
+    sha256                               arm64_sequoia: "36a923d7889f38166fb2b250b1693a7d3c6f5a030dea68bd080e915d55639bac"
+    sha256                               arm64_sonoma:  "b99b5af9b65feeaf2f4dec7ee96dbdbf9a2ad1fa6693fa90272b4b90435dc863"
+    sha256                               arm64_ventura: "c1397c18bfa41c56a36cbf8c33d5d2b4a8d87b920b39f57bec8a76b165dd87f0"
+    sha256 cellar: :any,                 sonoma:        "3584542d90962671d5b6bc711ef9f23163d67b2947f3f9fad725a155347f1dab"
+    sha256 cellar: :any,                 ventura:       "4a1c13e4637a8fcd6ef032c538daf1301a8c7a403e90c8606c4bb6789f6d0ccc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e7718677ad793f8dc3d5809cfd5498d978f3e56f33acf2e8e1cfed4a66c5bcd"
+  end
+
   uses_from_macos "tcl-tk" => :build
   uses_from_macos "sqlite" => :test
 
