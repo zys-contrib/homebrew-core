@@ -12,13 +12,13 @@ class Joern < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ff018940e4454e365f659f080089e55a981a5919f3f24322363866f8f083ca87"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ff018940e4454e365f659f080089e55a981a5919f3f24322363866f8f083ca87"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ff018940e4454e365f659f080089e55a981a5919f3f24322363866f8f083ca87"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8530e24f243e90b62dda97fc82d23a752a3650fdf032431e18ae9f96a467b47d"
-    sha256 cellar: :any_skip_relocation, ventura:       "5b00d473ac9299385b41bce7686fdd9766bcd6a24a666834e01c0385daa96fa1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a27bc60be497d1d51585b5f1e0715e4dd7783601c8e0b0913b7c6cf8f8d8f4d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f38b4cb3c57899a4e30250bc6fd4ff933553d350041444758ff4a59ae0ecfca8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a8049644c6b11f1e6b199fa127d817c8707aba0b9fef86bd78c737331ff6aa71"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a8049644c6b11f1e6b199fa127d817c8707aba0b9fef86bd78c737331ff6aa71"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a8049644c6b11f1e6b199fa127d817c8707aba0b9fef86bd78c737331ff6aa71"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8df227ff04d141efee03c76389c89ae176fbfe9be25775045c5d4c00f7cff049"
+    sha256 cellar: :any_skip_relocation, ventura:       "93787589c5aff716079ff192e5140ec736e58772dada0b924b854bab6c290b59"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "56113b53fc5b82add585b9a4808fc53595731df491967fb39ed829b5f2e94954"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "950ceabad1bf4cec168ec9a072b8f40bdf6672eaac1e35f54f3532f1c2daa33a"
   end
 
   depends_on "sbt" => :build
