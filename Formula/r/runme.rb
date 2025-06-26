@@ -9,12 +9,12 @@ class Runme < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c5a0d542668b2c118cb4de07bb19f89a7e38f9a2537fc800ed6994ec050d04c7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c5a0d542668b2c118cb4de07bb19f89a7e38f9a2537fc800ed6994ec050d04c7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c5a0d542668b2c118cb4de07bb19f89a7e38f9a2537fc800ed6994ec050d04c7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "59d2373552223c4140dbd12858fd1923a444af0baee01dba24a9ade35956a2c6"
-    sha256 cellar: :any_skip_relocation, ventura:       "59d2373552223c4140dbd12858fd1923a444af0baee01dba24a9ade35956a2c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9ae874f606452464ab4c482218901a231024c73d2c31dc73696d28bef8bbdc24"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "739c2ab7487eda1bf77256e97247c2e95d7e41c773ff0716c12a7919f0909207"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "739c2ab7487eda1bf77256e97247c2e95d7e41c773ff0716c12a7919f0909207"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "739c2ab7487eda1bf77256e97247c2e95d7e41c773ff0716c12a7919f0909207"
+    sha256 cellar: :any_skip_relocation, sonoma:        "354c19bd2e50af6cafc4d5662db8abc9829fec9c6c5c4607e0cc24da7f14d3e0"
+    sha256 cellar: :any_skip_relocation, ventura:       "354c19bd2e50af6cafc4d5662db8abc9829fec9c6c5c4607e0cc24da7f14d3e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8701c62de93683ee75f661f33edce685cd88e29e77f868dc8ac1ccaf96607e38"
   end
 
   depends_on "go" => :build
