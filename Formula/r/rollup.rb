@@ -1,8 +1,8 @@
 class Rollup < Formula
   desc "Next-generation ES module bundler"
   homepage "https://rollupjs.org/"
-  url "https://registry.npmjs.org/rollup/-/rollup-4.44.0.tgz"
-  sha256 "80bc159c0cd9dc82436b89ab7501bccf947d0ba048677933fa020b7f7a0b5aa1"
+  url "https://registry.npmjs.org/rollup/-/rollup-4.44.1.tgz"
+  sha256 "20a63906ba831de394bbc6b588047e50d161360592da6237d576d63fd0576fce"
   license all_of: ["ISC", "MIT"]
 
   bottle do
