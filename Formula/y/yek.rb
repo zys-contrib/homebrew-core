@@ -17,6 +17,7 @@ class Yek < Formula
     sha256 cellar: :any,                 arm64_ventura: "a44f0bd71899bbb2bd95d3c1cf07e72b4a511c861e7bef2a1883e572df2c0f32"
     sha256 cellar: :any,                 sonoma:        "1627a4d75dd780a1ecf0c2f756327102ef247c30b612aa931e4067684c4a97af"
     sha256 cellar: :any,                 ventura:       "1117b2d2b0d74e8c3dd4214e5dda6ced03090ccea62d54d214d376aca945fa96"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cdbafc81a9301d1bd455ae773111f8cbf43715b0341e6b310e53b2b56ba5c41e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a63bf23710982ff18db2e129a2001c7447007d24ca9b30be4a26de2c0b83f16"
   end
 
