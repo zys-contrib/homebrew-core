@@ -3,12 +3,10 @@ class Ldeep < Formula
 
   desc "LDAP enumeration utility"
   homepage "https://github.com/franc-pentest/ldeep"
-  url "https://files.pythonhosted.org/packages/e3/92/2914cb11ae0a1ee1aca4c6e7c5036c3ce83d0b20613ba13e9519e00cecdb/ldeep-1.0.86.tar.gz"
-  sha256 "4baeea7d1bcaa29867214c47992b2108c5ad0bb7cd09f82ca1c9270d538ae1f7"
+  url "https://files.pythonhosted.org/packages/28/4d/54d97255db812fc2a4ba2f166a1468ae6e8c17e2c29ee9ec70d6611fca6c/ldeep-1.0.87.tar.gz"
+  sha256 "b9349b8883fa6257c70ae75af9851340cad2ef40216231c02bd0ea7f88921eff"
   license "MIT"
   head "https://github.com/franc-pentest/ldeep.git", branch: "master"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "82bf16581a7e37876280738dbc31a2e17d697d05078b65aff8b7b5d6d0c8c871"
@@ -66,13 +64,13 @@ class Ldeep < Formula
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/44/e6/099310419df5ada522ff34ffc2f1a48a11b37fc6a76f51a6854c182dbd3e/pycryptodome-3.22.0.tar.gz"
-    sha256 "fd7ab568b3ad7b77c908d7c3f7e167ec5a8f035c64ff74f10d47a4edd043d723"
+    url "https://files.pythonhosted.org/packages/8e/a6/8452177684d5e906854776276ddd34eca30d1b1e15aa1ee9cefc289a33f5/pycryptodome-3.23.0.tar.gz"
+    sha256 "447700a657182d60338bab09fdb27518f8856aecd80ae4c6bdddb67ff5da44ef"
   end
 
   resource "pycryptodomex" do
-    url "https://files.pythonhosted.org/packages/ba/d5/861a7daada160fcf6b0393fb741eeb0d0910b039ad7f0cd56c39afdd4a20/pycryptodomex-3.22.0.tar.gz"
-    sha256 "a1da61bacc22f93a91cbe690e3eb2022a03ab4123690ab16c46abb693a9df63d"
+    url "https://files.pythonhosted.org/packages/c9/85/e24bf90972a30b0fcd16c73009add1d7d7cd9140c2498a68252028899e41/pycryptodomex-3.23.0.tar.gz"
+    sha256 "71909758f010c82bc99b0abf4ea12012c98962fbf0583c2164f8b84533c2e4da"
   end
 
   resource "six" do
