@@ -7,6 +7,15 @@ class Backgroundremover < Formula
   sha256 "c4ce35da0194138c115017dba9f5dae38b7e2bfcf15a413ef04d8ce01e66e214"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "3c3344a80840fb89ed313ddf247e865a32922e34137acafc918792807457a740"
+    sha256 cellar: :any,                 arm64_sonoma:  "dff4df0e525717eed85839cbb76d9a7482f1abbfd187bfcb312af25667251da8"
+    sha256 cellar: :any,                 arm64_ventura: "2c5ce32042f136651e413031dc111a61674d7c16b97593ca8e092e9839f6f145"
+    sha256 cellar: :any,                 sonoma:        "9434600455f3ca1f1b7f93186998af183ce022e2f3e1a117806c8cbf9fe14376"
+    sha256 cellar: :any,                 ventura:       "55933bba8006cbd23f0281e01edef94f4041d1482fb01edfd2f1818d580f67c0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e294011c35e322a030140c359ca81289508994bc5b2ab8a99f61e9e86dc99e02"
+  end
+
   depends_on "certifi"
   depends_on "ffmpeg"
   depends_on "llvm@16" # LLVM 20 PR: https://github.com/numba/llvmlite/pull/1092
