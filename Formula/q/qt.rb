@@ -24,11 +24,11 @@ class Qt < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:  "71178e8d39b2d61ecd4077e26997a6ba813d3b0159cdb6e3ca8a1b615d6b1a2f"
-    sha256 cellar: :any, arm64_ventura: "57a2d1d83efa9804b2286df9ff9ff0ea80a058ead20a59f9478951e73876e318"
-    sha256 cellar: :any, sonoma:        "cc1193691023ea31e664b5170685c2fdfec4016de0cefbc18cfe017ed31d7a0a"
-    sha256 cellar: :any, ventura:       "9051e4898c848f50a3919aa026dc082b043ac5e0343d3032e3d25f85d6de3035"
-    sha256               x86_64_linux:  "69b20bb5da2b644a0f96564833a4bdace8701fd40ca2208e7dc5916ecabb0d50"
+    sha256 cellar: :any, arm64_sonoma:  "1cf02761bf4f637e566b41fbb98fdc569ebf813ebd20fc5ab47178758728194c"
+    sha256 cellar: :any, arm64_ventura: "63597d1fc6c6637bf094bd81f5653ed4738d7ff9e6e2bb64890627b7ccd7e61e"
+    sha256 cellar: :any, sonoma:        "119fe4df5bc1b88b1282bc26545094ea1a6bfe8679765c795d05943922e279e6"
+    sha256 cellar: :any, ventura:       "965a804ac6a3dba6efbe0639602005b8cdc622517eac7d16ccbe81cbfe839ce8"
+    sha256               x86_64_linux:  "d6b6ebda449e8066ec1ae3ee61074925d2b74edade6d9b77d3caa46f6eeb76aa"
   end
 
   depends_on "cmake" => [:build, :test]
