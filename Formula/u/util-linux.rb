@@ -12,6 +12,7 @@ class UtilLinux < Formula
     "LGPL-2.1-or-later",
     :public_domain,
   ]
+  revision 1
 
   # The directory listing where the `stable` archive is found uses major/minor
   # version directories, where it's necessary to check inside a directory to
@@ -67,6 +68,12 @@ class UtilLinux < Formula
   patch do
     url "https://github.com/util-linux/util-linux/commit/45f943a4b36f59814cf5a735e4975f2252afac26.patch?full_index=1"
     sha256 "b372a7578ff397787f37e1aa1c03c8299c9b3e3f7ab8620c4af68c93ab2103b5"
+  end
+
+  # fix bash completion, upstream pr ref, https://github.com/util-linux/util-linux/pull/3627
+  patch do
+    url "https://github.com/util-linux/util-linux/commit/565eb6370c76721bbd0d7fa292d9315a6856f627.patch?full_index=1"
+    sha256 "3945234bcfbf4d9126e92b4f808029971ab26330618da53671941ba1a52d8427"
   end
 
   def install
