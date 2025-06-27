@@ -7,12 +7,12 @@ class Sqlboiler < Formula
   head "https://github.com/volatiletech/sqlboiler.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9b4add434e7c891fa931251afed3a07c682f5fd25e1f87b744f3a2e851e5c2af"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9b4add434e7c891fa931251afed3a07c682f5fd25e1f87b744f3a2e851e5c2af"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9b4add434e7c891fa931251afed3a07c682f5fd25e1f87b744f3a2e851e5c2af"
-    sha256 cellar: :any_skip_relocation, sonoma:        "76ca857d4f6e7247dded84268526b81f06e95b2d51c8146ea832d2f90bd3efb2"
-    sha256 cellar: :any_skip_relocation, ventura:       "76ca857d4f6e7247dded84268526b81f06e95b2d51c8146ea832d2f90bd3efb2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c776177db9bc32682c923be3f363fcbb99129799e9f518088322ce14458b078d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "24bf4847e512fc0c4987ffb7aa9731270eb83642f874cceac6e3163be7ac7da5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "24bf4847e512fc0c4987ffb7aa9731270eb83642f874cceac6e3163be7ac7da5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "24bf4847e512fc0c4987ffb7aa9731270eb83642f874cceac6e3163be7ac7da5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cd3b13555a393652a4f08d29c23239f57677db9f1ee7d451107ee660ce4c1aa7"
+    sha256 cellar: :any_skip_relocation, ventura:       "cd3b13555a393652a4f08d29c23239f57677db9f1ee7d451107ee660ce4c1aa7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0d778d654efc38ee84e8f54d3a75a2286993a13c0ea8a5b28d160defa6367cb"
   end
 
   depends_on "go" => :build
