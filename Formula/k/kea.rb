@@ -1,10 +1,11 @@
 class Kea < Formula
   desc "DHCP server"
   homepage "https://www.isc.org/kea/"
-  url "https://ftp.isc.org/isc/kea/2.6.3/kea-2.6.3.tar.gz"
-  mirror "https://dl.cloudsmith.io/public/isc/kea-2-6/raw/versions/2.6.3/kea-2.6.3.tar.gz"
-  sha256 "00241a5955ffd3d215a2c098c4527f9d7f4b203188b276f9a36250dd3d9dd612"
+  url "https://ftp.isc.org/isc/kea/3.0.0/kea-3.0.0.tar.xz"
+  mirror "https://dl.cloudsmith.io/public/isc/kea-3-0/raw/versions/3.0.0/kea-3.0.0.tar.xz"
+  sha256 "bf963d1e10951d8c570c6042afccf27c709d45e03813bd2639d7bb1cfc4fee76"
   license "MPL-2.0"
+  head "https://gitlab.isc.org/isc-projects/kea.git", branch: "master"
 
   # NOTE: the livecheck block is a best guess at excluding development versions.
   #       Check https://www.isc.org/download/#Kea to make sure we're using a stable version.
@@ -26,30 +27,27 @@ class Kea < Formula
     sha256 x86_64_linux:  "c9d151d10c0ebd376294c91e4f5b353217d3226d9c711633cfcd23198b8d603b"
   end
 
-  head do
-    url "https://gitlab.isc.org/isc-projects/kea.git", branch: "master"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "bison" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkgconf" => :build
+  depends_on "python@3.13" => :build
   depends_on "boost"
   depends_on "log4cplus"
   depends_on "openssl@3"
 
   def install
-    # Workaround to build with Boost 1.87.0+
-    ENV.append "CXXFLAGS", "-std=gnu++14"
+    # the build system looks for `sudo` to run some commands, but we don't want to use it
+    inreplace "meson.build",
+              "SUDO = find_program('sudo', required: false)",
+              "SUDO = find_program('', required: false)"
 
-    system "autoreconf", "--force", "--install", "--verbose" if build.head?
-    system "./configure", "--disable-silent-rules",
-                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
-                          "--sysconfdir=#{etc}",
-                          "--localstatedir=#{var}",
-                          *std_configure_args
-    system "make", "install"
+    system "meson", "setup", "build", "-Dcpp_std=c++20", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
+
+    # Remove the meson-info directory as it contains shim references
+    rm_r(pkgshare/"meson-info")
   end
 
   test do
