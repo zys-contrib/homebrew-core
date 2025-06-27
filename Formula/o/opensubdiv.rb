@@ -1,16 +1,14 @@
 class Opensubdiv < Formula
   desc "Open-source subdivision surface library"
   homepage "https://graphics.pixar.com/opensubdiv/docs/intro.html"
-  url "https://github.com/PixarAnimationStudios/OpenSubdiv/archive/refs/tags/v3_6_0.tar.gz"
-  sha256 "bebfd61ab6657a4f4ff27845fb66a167d00395783bfbd253254d87447ed1d879"
+  url "https://github.com/PixarAnimationStudios/OpenSubdiv/archive/refs/tags/v3_6_1.tar.gz"
+  sha256 "e9d99a480d80e999667643747c76eb0138d36c418fc154fd71b4bd65be103d52"
   license "Apache-2.0"
 
   livecheck do
     url :stable
     regex(/^v?(\d+(?:[._]\d+)+)$/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "82514e22222203cd7f1311d3e327cade6c43276a8824f86438fafe8bc14b8b33"
