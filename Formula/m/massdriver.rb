@@ -15,12 +15,12 @@ class Massdriver < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3f6cddd55b5f57c582fa5ca59cae6e1711489f202393728bba86d5fd20886f91"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3f6cddd55b5f57c582fa5ca59cae6e1711489f202393728bba86d5fd20886f91"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3f6cddd55b5f57c582fa5ca59cae6e1711489f202393728bba86d5fd20886f91"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b07c4bdddec6358a033d6055595ae71f0384afb7423cb640749b8df532152aee"
-    sha256 cellar: :any_skip_relocation, ventura:       "b07c4bdddec6358a033d6055595ae71f0384afb7423cb640749b8df532152aee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "59dd5b4d01f8f6e880dac588873672ba85c2a213021f53ab07301c0b025a8a16"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cc4133c6adf8311e60b7dc5aa744b944519d954358d1d4b5cd994c6f0b603bc3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cc4133c6adf8311e60b7dc5aa744b944519d954358d1d4b5cd994c6f0b603bc3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "cc4133c6adf8311e60b7dc5aa744b944519d954358d1d4b5cd994c6f0b603bc3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f04dd55a0bbdfd11a3526c805dbfc67b42993fa13aab473233b475b7f8718f9b"
+    sha256 cellar: :any_skip_relocation, ventura:       "f04dd55a0bbdfd11a3526c805dbfc67b42993fa13aab473233b475b7f8718f9b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3272565a05a36934dbc03c540afb9e71d74634d3d0570622791232954d092799"
   end
 
   depends_on "go" => :build
