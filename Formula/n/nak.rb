@@ -1,19 +1,10 @@
 class Nak < Formula
   desc "CLI for doing all things nostr"
   homepage "https://github.com/fiatjaf/nak"
+  url "https://github.com/fiatjaf/nak/archive/refs/tags/v0.14.4.tar.gz"
+  sha256 "50e8d8fee42548d95fbf1663baf5b8a7b56fe232ed3242da050acce6d522b01a"
   license "Unlicense"
   head "https://github.com/fiatjaf/nak.git", branch: "master"
-
-  stable do
-    url "https://github.com/fiatjaf/nak/archive/refs/tags/v0.14.3.tar.gz"
-    sha256 "cfc0fb5899aec2815669c00bd66a13e1f3be31469807bb89261ad3a0f125b6c1"
-
-    # go.sum patch, upstream pr ref, https://github.com/fiatjaf/nak/pull/70
-    patch do
-      url "https://github.com/fiatjaf/nak/commit/35ea2582d814ee2d4855fd27a2789c26f1ea2186.patch?full_index=1"
-      sha256 "32ce06fede5d111003c3fc73ea742b55574bab1462b5fcd9459cd282b9415195"
-    end
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d251de9a637a5934ae6cd19a91fe99aa763b24c677329a8b8f28224a0e8c5ab8"
