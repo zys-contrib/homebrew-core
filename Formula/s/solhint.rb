@@ -6,13 +6,13 @@ class Solhint < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8838c345b0300720adcae400fd4c0cffb0e6845de7fa615230901e86131e9f6c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8838c345b0300720adcae400fd4c0cffb0e6845de7fa615230901e86131e9f6c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8838c345b0300720adcae400fd4c0cffb0e6845de7fa615230901e86131e9f6c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1008a9f0bf0241dc5077bfb864f543f348e530bd15f92fe80f52a42442190c63"
-    sha256 cellar: :any_skip_relocation, ventura:       "1008a9f0bf0241dc5077bfb864f543f348e530bd15f92fe80f52a42442190c63"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8838c345b0300720adcae400fd4c0cffb0e6845de7fa615230901e86131e9f6c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8838c345b0300720adcae400fd4c0cffb0e6845de7fa615230901e86131e9f6c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2987fd70977d03e84b35845ae46281790b938238b5a5825576921d85c7c4e20c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2987fd70977d03e84b35845ae46281790b938238b5a5825576921d85c7c4e20c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2987fd70977d03e84b35845ae46281790b938238b5a5825576921d85c7c4e20c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "94d352d0814961a6b566747f53a9b1f570729ccece05242bd6708a24d943a27e"
+    sha256 cellar: :any_skip_relocation, ventura:       "94d352d0814961a6b566747f53a9b1f570729ccece05242bd6708a24d943a27e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2987fd70977d03e84b35845ae46281790b938238b5a5825576921d85c7c4e20c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2987fd70977d03e84b35845ae46281790b938238b5a5825576921d85c7c4e20c"
   end
 
   depends_on "node"
