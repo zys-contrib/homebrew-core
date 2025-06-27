@@ -1,11 +1,14 @@
 class CargoFuzz < Formula
   desc "Command-line helpers for fuzzing"
   homepage "https://rust-fuzz.github.io/book/cargo-fuzz.html"
-  url "https://github.com/rust-fuzz/cargo-fuzz/archive/refs/tags/0.12.0.tar.gz"
-  sha256 "d7c5a4589b8b5db3d49113e733553c286ed8b50800cbdb327b71a1c1f7c648f0"
+  url "https://github.com/rust-fuzz/cargo-fuzz/archive/refs/tags/0.13.1.tar.gz"
+  sha256 "3dae1ab57e738c1059635eb824062e4de79474080612f60a0ec0decf455d9e65"
   license all_of: ["Apache-2.0", "MIT"]
 
-  no_autobump! because: :requires_manual_review
+  livecheck do
+    url :stable
+    strategy :github_releases
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a235fde06fab9e783557067a97c7703cdcbe6e8cbca04202c59552807b10aed7"
