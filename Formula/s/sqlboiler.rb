@@ -1,8 +1,8 @@
 class Sqlboiler < Formula
   desc "Generate a Go ORM tailored to your database schema"
   homepage "https://github.com/volatiletech/sqlboiler"
-  url "https://github.com/volatiletech/sqlboiler/archive/refs/tags/v4.19.2.tar.gz"
-  sha256 "27320df592ae8b143861baf4a93c0a5e142c1fdf61db62feeb98efcaeac8aa40"
+  url "https://github.com/volatiletech/sqlboiler/archive/refs/tags/v4.19.5.tar.gz"
+  sha256 "fae160e36637c5d0c57db53bafc11439cf61b02dc30656277d7e90c546b04a4d"
   license "BSD-3-Clause"
   head "https://github.com/volatiletech/sqlboiler.git", branch: "master"
 
@@ -16,12 +16,6 @@ class Sqlboiler < Formula
   end
 
   depends_on "go" => :build
-
-  # version patch, upstream pr ref, https://github.com/aarondl/sqlboiler/pull/1454
-  patch do
-    url "https://github.com/aarondl/sqlboiler/commit/6a39f792d9e8ee838697a63284a4bf999d02440d.patch?full_index=1"
-    sha256 "c8f816926066ad16ed9cfd87f20be230b9751686b0519fe088d04011ede246b8"
-  end
 
   def install
     %w[mssql mysql psql sqlite3].each do |driver|
