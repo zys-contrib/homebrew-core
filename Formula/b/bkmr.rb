@@ -7,13 +7,13 @@ class Bkmr < Formula
   head "https://github.com/sysid/bkmr.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e1778e1fe94b041203e86798c1341ce38d9a74eab6a9447ab783330f62f800ad"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c866e567ecfc5452d8cebc4494ad0ddaca7d754545f706477c46ab95afd2e81c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c84da01f0b56a2b8afa0923d43631f2e5d6ad965357579272877b0a53a6d9ada"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fe0d73db2df7927f055c149b167ef803bce02515f65c3b2d8c824359ab4c8b16"
-    sha256 cellar: :any_skip_relocation, ventura:       "a4c631580a023e44aa85e0613462a615efb799cf14887117697d3fe46a36367a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "06b472ffd80c417e66a40a0eb9c606b02ebeb868cc9706ae66ec5bcaa180158d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef55f6c724947ed133a613aebc598bc4c3727ac30d2cc7884366560315c4535b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "132533c9508f64e7902fa9bbb28f9ffbe248b635872f782a50df6daa109f3ebb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ab54422770e5d1fb2b29483984b9ef67f651334dd818fab4b25548cb56d7d192"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "88c3b0240a82d7acd311b610ffd53d8e3adaf9745ff51cc111b296d4b8904d49"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bd3c7561f75b0844c9daa9950b9adb3af4c70d8042f557db23f2afeffec46940"
+    sha256 cellar: :any_skip_relocation, ventura:       "0ebd3cef2208d6d7cc492ed310cf401e2fd2d78aa3bdab2492cffdce6d7b3f78"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "69e2bdd1a79792d1486c95741ef0c283900798c76d0f60cabd524fa1f483b741"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a869e1451ef3345809cf6cd5633271fa48c458ad236317efccfa37d06d55bf13"
   end
 
   depends_on "rust" => :build
