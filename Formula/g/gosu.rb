@@ -1,8 +1,8 @@
 class Gosu < Formula
   desc "Pragmatic language for the JVM"
   homepage "https://gosu-lang.github.io/"
-  url "https://github.com/gosu-lang/gosu-lang/archive/refs/tags/v1.18.5.tar.gz"
-  sha256 "d3996d30fb3084190ace32f8a30ee6343c4d74e4e74f13078c24d03d2f4695df"
+  url "https://github.com/gosu-lang/gosu-lang/archive/refs/tags/v1.18.6.tar.gz"
+  sha256 "22e756ece97b9139f04d75dd19e61e13d923a8b777e8f457606a32e25c2e8447"
   license "Apache-2.0"
   head "https://github.com/gosu-lang/gosu-lang.git", branch: "master"
 
