@@ -1,8 +1,8 @@
 class Marked < Formula
   desc "Markdown parser and compiler built for speed"
   homepage "https://marked.js.org/"
-  url "https://registry.npmjs.org/marked/-/marked-15.0.12.tgz"
-  sha256 "39a847a896af15b2846f927da55d444619ea55a55c236e10333056474b793aaa"
+  url "https://registry.npmjs.org/marked/-/marked-16.0.0.tgz"
+  sha256 "193178e097580a49075ff92722bdbd8b411d1a22d257db2ba4e1082bf4cc7171"
   license "MIT"
 
   bottle do
