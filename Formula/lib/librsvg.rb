@@ -46,7 +46,7 @@ class Librsvg < Formula
 
   def install
     # Set `RPATH` since `cargo-c` doesn't seem to.
-    ENV.append "RUSTFLAGS", "--codegen link-args=-Wl,-rpath,#{lib}" if OS.mac?
+    ENV.append "RUSTFLAGS", "--codegen link-args=-Wl,-rpath,#{rpath}" if OS.mac?
 
     # disable updating gdk-pixbuf cache, we will do this manually in post_install
     # https://github.com/Homebrew/homebrew/issues/40833
