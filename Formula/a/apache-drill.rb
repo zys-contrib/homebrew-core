@@ -12,8 +12,7 @@ class ApacheDrill < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "1fdc04dff9efe56387a375149ae2d30249bf790dd6a821f3410439b92bc51dd0"
+    sha256 cellar: :any_skip_relocation, all: "8822e3447afdecf6c393810d92f67814473e04f5bee2839e150b3e0ad0194c08"
   end
 
   depends_on "openjdk@21"
