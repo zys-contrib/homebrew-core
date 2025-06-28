@@ -1,8 +1,8 @@
 class GnomeOnlineAccounts < Formula
   desc "Single sign-on framework for GNOME"
   homepage "https://gitlab.gnome.org/GNOME/gnome-online-accounts"
-  url "https://download.gnome.org/sources/gnome-online-accounts/3.54/gnome-online-accounts-3.54.3.tar.xz"
-  sha256 "bcf655dd1ddc22bc25793b6840da19f5cad7ba0b7227ff969ed9c252f036aac5"
+  url "https://download.gnome.org/sources/gnome-online-accounts/3.54/gnome-online-accounts-3.54.4.tar.xz"
+  sha256 "55739943e747dcb4885ea607a4c2767d8002f71295e1affea62ea36f6d1cf593"
   license "LGPL-2.0-or-later"
   head "https://gitlab.gnome.org/GNOME/gnome-online-accounts.git", branch: "master"
 
