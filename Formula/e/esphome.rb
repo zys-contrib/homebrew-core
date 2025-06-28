@@ -3,8 +3,8 @@ class Esphome < Formula
 
   desc "Make creating custom firmwares for ESP32/ESP8266 super easy"
   homepage "https://github.com/esphome/esphome"
-  url "https://files.pythonhosted.org/packages/e0/13/e4fbc5c54e2228fe40447f0109e0394cb76c779bf188cc93066739c4b348/esphome-2025.6.1.tar.gz"
-  sha256 "4dd4a6126f4c54f0bcf1face7a7851db0eae3f4f292c64311185aa5f9617ad6c"
+  url "https://files.pythonhosted.org/packages/78/3e/47440f91d0a9deaffdff435c13aa96335f0a87985d68c5c547e770a5eeff/esphome-2025.6.2.tar.gz"
+  sha256 "be2b93ba7495f6774f24d23fde0c0e53c6f0c9c3bb941237f8dfd563a809b765"
   license "MIT"
 
   bottle do
@@ -54,8 +54,8 @@ class Esphome < Formula
   end
 
   resource "bitarray" do
-    url "https://files.pythonhosted.org/packages/b8/0d/15826c7c2d49a4518a1b24b0d432f1ecad2e0b68168f942058b5de498498/bitarray-3.4.2.tar.gz"
-    sha256 "78ed2b911aabede3a31e3329b1de8abdc8104bd5e0545184ddbd9c7f668f4059"
+    url "https://files.pythonhosted.org/packages/02/36/eef91e03e44be4b96a613333acfc0c636af2f3f3033b17e08e2052b649c5/bitarray-3.4.3.tar.gz"
+    sha256 "dddfb2bf086b66aec1c0110dc46642b7161f587a6441cfe74da9e323975f62f0"
   end
 
   resource "bitstring" do
