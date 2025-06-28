@@ -2,8 +2,8 @@ class Yutu < Formula
   desc "Fully functional CLI for YouTube"
   homepage "https://github.com/eat-pray-ai/yutu"
   url "https://github.com/eat-pray-ai/yutu.git",
-      tag:      "v0.9.8",
-      revision: "9c6e73e0ab60f427587295b9360ce32e09451a4b"
+      tag:      "v0.9.9",
+      revision: "3bbf6c1312ec30663b6a45d23397ec06022d1c4e"
   license "MIT"
   head "https://github.com/eat-pray-ai/yutu.git", branch: "main"
 
