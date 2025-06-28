@@ -11,12 +11,12 @@ class OpenaiWhisper < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "fb20c184addee014fbd43a8035592e76c148b5ea8ce30e22fd5b1f17ca38b7aa"
-    sha256 cellar: :any,                 arm64_sonoma:  "2ff5f9e031d71cdc3b66795bfadb17c67f9ad75466e695ad601dde1a60dce069"
-    sha256 cellar: :any,                 arm64_ventura: "175aba1ee80e67f54dae13ef88f265a53cce12e0acf3c43353a780cf11979573"
-    sha256 cellar: :any,                 sonoma:        "60a4054c514839aade340a6f9e394c57f1f6d43e8f85bad84aa775c2aa5d49a3"
-    sha256 cellar: :any,                 ventura:       "3b78fc5f446614ae7367a8c8204da6f3af00501437381e40306c904ad1dcad88"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d1b019e05f4ec4d9a1cab322adc279ec2d89d07b32e0fa48b906902a3eaeb2c6"
+    sha256 cellar: :any,                 arm64_sequoia: "5ddbd99e57d4b6d19776eb845a391f8931bbb5e33388fb3bf6e729187e34bc0c"
+    sha256 cellar: :any,                 arm64_sonoma:  "9a4150879ebc0737f996fa9db9f01f6754297ea33062fc620bc9c3e329bb9437"
+    sha256 cellar: :any,                 arm64_ventura: "e83c8ed541c46dcf5c6d4f3b5af8dcead2737336ea2d56d8d70c289cbdc2b794"
+    sha256 cellar: :any,                 sonoma:        "2affb4484990c8b5cb1d8a26eaa1eff042f767d07df3608e462aeffe1303ad33"
+    sha256 cellar: :any,                 ventura:       "2a2a57ad2865ddae3533923c430b49e48bfac19b38ca21964c46f294e8e571e1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "11f8ae38e585df14c4aa677b49377d397d4d0acce45e0719277c611cfe68e9f6"
   end
 
   depends_on "pkgconf" => :build
