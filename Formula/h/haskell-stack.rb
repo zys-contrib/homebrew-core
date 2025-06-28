@@ -1,8 +1,8 @@
 class HaskellStack < Formula
   desc "Cross-platform program for developing Haskell projects"
   homepage "https://haskellstack.org/"
-  url "https://github.com/commercialhaskell/stack/archive/refs/tags/v3.5.1.tar.gz"
-  sha256 "00de60eaefdba1aa289ed409a9cabe8d63f9f6d554018456ab7f78531b2c3629"
+  url "https://github.com/commercialhaskell/stack/archive/refs/tags/v3.7.1.tar.gz"
+  sha256 "e2ce0d053566634a426ba1916592dfcefe48bdebbfe6a0da07e23a79c0ed7759"
   license "BSD-3-Clause"
   head "https://github.com/commercialhaskell/stack.git", branch: "master"
 
