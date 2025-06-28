@@ -8,13 +8,13 @@ class Gupnp < Formula
   license "LGPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "0d73be784e10b682d081fa15b4779f54cf372468c0ae538d9d1468a135ca460b"
-    sha256 cellar: :any, arm64_sonoma:  "c2e208114785c8a6891e62c0372c90a44879f1f03551cf7ea0948acf39aca197"
-    sha256 cellar: :any, arm64_ventura: "daf4ba3e00e3c0931a340c6dd4259840deeb0ca477d3f055a48ed517ddf14a25"
-    sha256 cellar: :any, sonoma:        "666d7700b2ad4fb6ef4811186eb2b82fce1029e990bb7fecfec1f680c72eb08e"
-    sha256 cellar: :any, ventura:       "d73e698c784354e7dcefedda8057a17d3fe4d5274ffc0ce96cce07b441639a12"
-    sha256               arm64_linux:   "5c354c24487b881facf052d72ca33238ed108d8e599ed53f57d5e3c75005c046"
-    sha256               x86_64_linux:  "6f3b4dbadddd74af18147095bf99055d590bfe0ffce1eca0a4cce2aaf261abb1"
+    sha256 cellar: :any, arm64_sequoia: "30d6c15e0e67e5f4bfbbffbe5c51376955d296985ee96114f2abbf0316dd04aa"
+    sha256 cellar: :any, arm64_sonoma:  "1830346216a09586177fc3a496373fb8010334893553e0f337885bf18f796c23"
+    sha256 cellar: :any, arm64_ventura: "f046d7600a8bb320134a022c9f3e21ce5435890a1e5a634dad970fb3467548a6"
+    sha256 cellar: :any, sonoma:        "76f7a83431dbe7d15b2fa5996a23e5781344e5d62284005631373b6513217c05"
+    sha256 cellar: :any, ventura:       "c6f43169fffb45b8934f1b88848453e6612704612b24d08eb7a2d3c5d2054264"
+    sha256               arm64_linux:   "af6ffd8565531bfe5989e206e91a4546dad7991304ec7f46600b7f971ea0bd75"
+    sha256               x86_64_linux:  "81e328bd58cc0d5e6d6797134d64c5abe64bbb58829eb337d08f625d6bf65c87"
   end
 
   depends_on "docbook-xsl" => :build
