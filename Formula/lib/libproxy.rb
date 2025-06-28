@@ -1,8 +1,8 @@
 class Libproxy < Formula
   desc "Library that provides automatic proxy configuration management"
   homepage "https://libproxy.github.io/libproxy/"
-  url "https://github.com/libproxy/libproxy/archive/refs/tags/0.5.9.tar.gz"
-  sha256 "a1976c3ac4affedc17e6d40cf78c9d8eca6751520ea3cbbec1a8850f7ded1565"
+  url "https://github.com/libproxy/libproxy/archive/refs/tags/0.5.10.tar.gz"
+  sha256 "84734a0b89c95f4834fd55c26b362be2fb846445383e37f5209691694ad2b5de"
   license "LGPL-2.1-or-later"
   head "https://github.com/libproxy/libproxy.git", branch: "master"
 
