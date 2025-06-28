@@ -9,8 +9,8 @@ class Passt < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "08c25216f4c1b793524315ff3d907193a17dd2707ea48bc0e5e70662f0351532"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "5c6577f1b09a611eb23462d8ee50f93a134859891727526f8f02225896a43968"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "a439660d96b724e32d7a5b7667626e62bb8c7953bff90ccfd814f9bfa1039e31"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "3b872ada46732e09f763c16fc7f530893230c335a86b9a68d87c9dd17d490e3d"
   end
 
   depends_on :linux
