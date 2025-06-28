@@ -1,11 +1,9 @@
 class Celero < Formula
   desc "C++ Benchmark Authoring Library/Framework"
   homepage "https://github.com/DigitalInBlue/Celero"
-  url "https://github.com/DigitalInBlue/Celero/archive/refs/tags/v2.9.0.tar.gz"
-  sha256 "d59df84696e0dd58022d2c42837362c06eba6d1e29bac61f7b3143bc73d779e5"
+  url "https://github.com/DigitalInBlue/Celero/archive/refs/tags/v2.9.1.tar.gz"
+  sha256 "c857d1fa7b20943bcec78ae043686cf77c9447d72537d8d2ba142531bfdc8fad"
   license "Apache-2.0"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "8df764c6550e49e740ac10d19e1dcfa18708fac66695b00ffeb724eaf2d798d4"
