@@ -8,8 +8,6 @@ class Btcli < Formula
   license "MIT"
   head "https://github.com/opentensor/btcli.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "71376fd5a31e327bb9cd0fb850227f5165ee538c5e0202c586a7d355dfaceed6"
     sha256 cellar: :any,                 arm64_sonoma:  "50936c7015adcfd89eede72b9263f877c43ecf4a2139abf0f3d233257a1fa915"
@@ -20,22 +18,13 @@ class Btcli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "006417ed09432cda377671224b090d002c2553ed0588bb0d5f8d2ea7f79b9760"
   end
 
-  depends_on "cmake" => :build # for Levenshtein
-  depends_on "maturin" => :build
-  depends_on "pkgconf" => :build
-  depends_on "rust" => :build
+  depends_on "rust" => :build # for bittensor-wallet
 
   depends_on "certifi"
-  depends_on "cffi"
-  depends_on "cryptography"
   depends_on "libyaml"
   depends_on "numpy"
   depends_on "openssl@3"
-  depends_on "pycparser"
   depends_on "python@3.13"
-  depends_on "six"
-
-  uses_from_macos "libffi"
 
   resource "aiohappyeyeballs" do
     url "https://files.pythonhosted.org/packages/26/30/f84a107a9c4331c14b2b586036f40965c128aa4fee4dda5d3d51cb14ad54/aiohappyeyeballs-2.6.1.tar.gz"
@@ -143,8 +132,8 @@ class Btcli < Formula
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/5c/43/2d90c414d9efc4587d6e7cebae9f2c2d8001bcb4f89ed514ae837e9dcbe6/multidict-6.5.1.tar.gz"
-    sha256 "a835ea8103f4723915d7d621529c80ef48db48ae0c818afcabe0f95aa1febc3a"
+    url "https://files.pythonhosted.org/packages/aa/6d/84d6dbf9a855c09504bdffd4a2c82c6b82cc7b4d69101b64491873967d88/multidict-6.6.0.tar.gz"
+    sha256 "460b213769cb8691b5ba2f12e53522acd95eb5b2602497d4d7e64069a61e5941"
   end
 
   resource "narwhals" do
@@ -207,11 +196,6 @@ class Btcli < Formula
     sha256 "99a2cdbfccdcaf22bd86b86da55a730a2855514ad2309faef4a4a93ac6cbeb8d"
   end
 
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
-    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
-  end
-
   resource "shellingham" do
     url "https://files.pythonhosted.org/packages/58/15/8b3609fd3830ef7b27b655beb4b4e9c62313a4e8da8c676e142cc210d58e/shellingham-1.5.4.tar.gz"
     sha256 "8dbca0739d487e5bd35ab3ca4b36e11c4078f3a234bfce294b0a0291363404de"
@@ -263,14 +247,17 @@ class Btcli < Formula
   end
 
   def install
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
     # required to declare scalecodec's version, issue opened at https://github.com/JAMdotTech/py-scale-codec/issues/130
     ENV["TRAVIS_TAG"] = resource("scalecodec").version.to_s
+    virtualenv_install_with_resources
+
     # `shellingham` auto-detection doesn't work in Homebrew CI build environment so
-    # defer installation to allow `typer` to use argument as shell for completions
+    # disable it to allow `typer` to use argument as shell for completions
     # Ref: https://typer.tiangolo.com/features/#user-friendly-cli-apps
-    venv = virtualenv_install_with_resources start_with: ["setuptools", "wheel", "toml"], without: "shellingham"
+    ENV["_TYPER_COMPLETE_TEST_DISABLE_SHELL_DETECTION"] = "1"
     generate_completions_from_executable(bin/"btcli", "--show-completion")
-    venv.pip_install resource("shellingham")
   end
 
   test do
