@@ -81,10 +81,8 @@ class Backgroundremover < Formula
   end
 
   resource "llvmlite" do
-    # Fetch from Git hash for compatibility with the new version of `numba` below.
-    # Use git checkout to avoid .gitattributes causing checksum changes and unknown version info
-    url "https://github.com/numba/llvmlite.git",
-        revision: "ca123c3ae2a6f7db865661ae509862277ec5d692"
+    url "https://files.pythonhosted.org/packages/89/6a/95a3d3610d5c75293d5dbbb2a76480d5d4eeba641557b69fe90af6c5b84e/llvmlite-0.44.0.tar.gz"
+    sha256 "07667d66a5d150abed9157ab6c0b9393c9356f229784a4385c02f99e94fc94d4"
   end
 
   resource "more-itertools" do
@@ -98,10 +96,11 @@ class Backgroundremover < Formula
   end
 
   resource "numba" do
-    # Fetch from Git hash for numpy 2.1 and python 3.13 compatibility.
-    # Use git checkout to avoid .gitattributes causing checksum changes and unknown version info
-    url "https://github.com/numba/numba.git",
-        revision: "391511bcb0b97af8d311cd276a46030774bc30b7"
+    url "https://files.pythonhosted.org/packages/1c/a0/e21f57604304aa03ebb8e098429222722ad99176a4f979d34af1d1ee80da/numba-0.61.2.tar.gz"
+    sha256 "8750ee147940a6637b80ecf7f95062185ad8726c8c28a2295b8ec1160a196f7d"
+
+    # Support numpy 2.3, upstream issue, https://github.com/numba/numba/issues/10105
+    patch :DATA
   end
 
   resource "proglog" do
@@ -169,3 +168,32 @@ class Backgroundremover < Formula
     assert_path_exists testpath/"output.png"
   end
 end
+
+__END__
+diff --git a/numba/__init__.py b/numba/__init__.py
+index ab1081d..44fe64a 100644
+--- a/numba/__init__.py
++++ b/numba/__init__.py
+@@ -39,8 +39,8 @@ def _ensure_critical_deps():
+                f"{numpy_version[0]}.{numpy_version[1]}.")
+         raise ImportError(msg)
+
+-    if numpy_version > (2, 2):
+-        msg = (f"Numba needs NumPy 2.2 or less. Got NumPy "
++    if numpy_version > (2, 3):
++        msg = (f"Numba needs NumPy 2.3 or less. Got NumPy "
+                f"{numpy_version[0]}.{numpy_version[1]}.")
+         raise ImportError(msg)
+
+diff --git a/setup.py b/setup.py
+index d40c84c..3d407c1 100644
+--- a/setup.py
++++ b/setup.py
+@@ -23,7 +23,7 @@ min_python_version = "3.10"
+ max_python_version = "3.14"  # exclusive
+ min_numpy_build_version = "2.0.0rc1"
+ min_numpy_run_version = "1.24"
+-max_numpy_run_version = "2.3"
++max_numpy_run_version = "2.4"
+ min_llvmlite_version = "0.44.0dev0"
+ max_llvmlite_version = "0.45"
