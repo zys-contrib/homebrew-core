@@ -1,8 +1,8 @@
 class Prog8 < Formula
   desc "Compiled programming language targeting the 8-bit 6502 CPU family"
   homepage "https://prog8.readthedocs.io"
-  url "https://github.com/irmen/prog8/archive/refs/tags/v11.3.2.tar.gz"
-  sha256 "39612423f6afe025fbd24baeaee2f5d61399ae85b186118bfdd609ca7f85b157"
+  url "https://github.com/irmen/prog8/archive/refs/tags/v11.4.tar.gz"
+  sha256 "66ef870eb20aba9287918c597f5237b7a1d0e448a602f34cbe8c4d90ceb0611f"
   license "GPL-3.0-only"
 
   bottle do
