@@ -42,7 +42,7 @@ class Tt < Formula
     bin.install "tt"
     (etc/"tarantool").install "package/tt.yaml.default" => "tt.yaml"
 
-    generate_completions_from_executable(bin/"tt", "completion", shells: [:bash, :zsh])
+    generate_completions_from_executable(bin/"tt", "completion")
   end
 
   test do
