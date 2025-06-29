@@ -1,8 +1,8 @@
 class Sk < Formula
   desc "Fuzzy Finder in rust!"
   homepage "https://github.com/skim-rs/skim"
-  url "https://github.com/skim-rs/skim/archive/refs/tags/v0.20.1.tar.gz"
-  sha256 "cf3d5e11e972e3ca77869876a0900c1eeade7df594f70f4853ca9a0520caea3b"
+  url "https://github.com/skim-rs/skim/archive/refs/tags/v0.20.2.tar.gz"
+  sha256 "e0fee383c015777eb7aea1e5ed932b06dee6da990583c665ecf1389600e2789a"
   license "MIT"
   head "https://github.com/skim-rs/skim.git", branch: "master"
 
@@ -21,13 +21,11 @@ class Sk < Formula
   def install
     system "cargo", "install", *std_cargo_args(path: "skim")
 
-    pkgshare.install "install"
+    generate_completions_from_executable(bin/"sk", "--shell")
     bash_completion.install "shell/key-bindings.bash"
-    bash_completion.install "shell/completion.bash"
     fish_completion.install "shell/key-bindings.fish" => "skim.fish"
     zsh_completion.install "shell/key-bindings.zsh"
-    zsh_completion.install "shell/completion.zsh"
-    man1.install "man/man1/sk.1", "man/man1/sk-tmux.1"
+    man1.install buildpath.glob("man/man1/*.1")
     bin.install "bin/sk-tmux"
   end
 
