@@ -63,6 +63,7 @@ class Pulseaudio < Formula
 
     # Default `tdb` database isn't available in Homebrew
     args = %W[
+      --sysconfdir=#{etc}
       -Ddatabase=simple
       -Ddoxygen=false
       -Dman=true
@@ -89,6 +90,14 @@ class Pulseaudio < Formula
     system "meson", "setup", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
+
+    # Don't hardcode Cellar references in configuration files
+    inreplace etc.glob("pulse/*"), prefix, opt_prefix, audit_result: false
+
+    # Create the `default.pa.d` directory to avoid error messages like
+    # https://github.com/Homebrew/homebrew-core/issues/224722
+    (etc/"pulse/default.pa.d").mkpath
+    touch etc/"pulse/default.pa.d/.keepme"
   end
 
   service do
