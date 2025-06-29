@@ -3,10 +3,9 @@ class Gdtoolkit < Formula
 
   desc "Independent set of GDScript tools - parser, linter, formatter, and more"
   homepage "https://github.com/Scony/godot-gdscript-toolkit"
-  url "https://files.pythonhosted.org/packages/5e/71/0563b7f812c4db67ead1d47cf6710c3e9c6e1a7d505321240efc7638c08b/gdtoolkit-4.3.3.tar.gz"
-  sha256 "f17089c3e33d0053ab229a637a9faabc0fb8ebb07412fe719ed00b2e66adc343"
+  url "https://files.pythonhosted.org/packages/8f/8c/ec8eb8e8264fedcfc1f30374b56083b917dd187a9e2452d38cabac69f515/gdtoolkit-4.3.4.tar.gz"
+  sha256 "42f8d528829a081809c8492c5936729b9fafca640fc46026ae98299fe0d3a93a"
   license "MIT"
-  revision 1
   head "https://github.com/Scony/godot-gdscript-toolkit.git", branch: "master"
 
   bottle do
@@ -58,8 +57,8 @@ class Gdtoolkit < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
-    sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
+    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
   resource "six" do
