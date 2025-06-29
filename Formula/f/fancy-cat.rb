@@ -4,7 +4,7 @@ class FancyCat < Formula
   url "https://github.com/freref/fancy-cat/archive/refs/tags/v0.4.0.tar.gz"
   sha256 "bce101d5eb009ec9057f7b87f6ad767ee96238abcee8854a9db7febd0229a2bf"
   license "AGPL-3.0-or-later"
-  revision 5
+  revision 6
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "c50dc8dd4c720dfcb0f1704f279dba43e6f09b0bb9b8168c7f6f8ccfabc2a7b1"
@@ -18,6 +18,12 @@ class FancyCat < Formula
 
   depends_on "zig" => :build
   depends_on "mupdf"
+
+  # Upstream fix for hash mismatch of dependencies
+  patch do
+    url "https://github.com/freref/fancy-cat/commit/c16075f5c5760a40f5b9d855dc6fe4ab5c91f2b2.patch?full_index=1"
+    sha256 "8f4540ff942c5175df6d87bbe8c70312634a0f5237d3970e1ea5e7a9e55eba12"
+  end
 
   def install
     # Fix illegal instruction errors when using bottles on older CPUs.
