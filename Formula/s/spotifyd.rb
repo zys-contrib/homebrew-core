@@ -12,16 +12,13 @@ class Spotifyd < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "dd6598774377cc653a1e34568c6afff11509e3fac350dc0084532ad1eaad97ec"
-    sha256 cellar: :any,                 arm64_sonoma:   "a2305bcd95c814f04cf6bef9d9c01a2cd1b6ab1c3f0c9e2dc1cb6ee85f468556"
-    sha256 cellar: :any,                 arm64_ventura:  "3237a0154b6fddbf87eaea3b4460c8a992b72217899637d479a31f2bcd7ba53e"
-    sha256 cellar: :any,                 arm64_monterey: "25689c32e31f1b2990ffb54fe34ba61856951b8c81d09bea1a4cc4d02d8c6fd9"
-    sha256 cellar: :any,                 sonoma:         "7f9e21a27e9b6af17a131d62c23758ba6e7649c9a8ef38bd51b63d7e76dbcbff"
-    sha256 cellar: :any,                 ventura:        "af948d2987f9c1f31f7217981ab42a62356b51c6793dc4091005795a917845fb"
-    sha256 cellar: :any,                 monterey:       "00d7a5bfb6a4b4cb59e52b6d154e7268b576ed255df3ac199eceed6e7f84ff26"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "09f476e955bcf684bc49ff03e92a67d8b49b59ce54f5a38869dd54af83292492"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4baab23fe6181c526b89960d0fb9db63bafea067a4ac9c6f5ac6af658267eea9"
+    sha256 cellar: :any,                 arm64_sequoia: "a20d1e237ffc6f0fbe07af9641538c6059dff78030d3cdb537de1cc3a98c9abb"
+    sha256 cellar: :any,                 arm64_sonoma:  "be5c9b8b6af3ef7eb0df00b4a1f0a46ba1016765eb97c32acf6f4881a9b1f72b"
+    sha256 cellar: :any,                 arm64_ventura: "73e2515bec6b526ba93e57f45f90f856e3e32995748d7a31cfdda5b7046df583"
+    sha256 cellar: :any,                 sonoma:        "853d77550839adae8fc9eb82bb0ec83e0fe423236b07a55fa7bca1d7e21de49a"
+    sha256 cellar: :any,                 ventura:       "a4d68c08d9ab1e2206ccfe702f4074f70da3fbf5f0c52c69dd5e97595d91e7ac"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5286bb74874e724b27e03a9d23a618d644ed799bf10d930b2ed5a0298f4ad9ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e667512a473240c05c0dc7f66bcde0258f511324a7b9fc07864089ab6ce3d399"
   end
 
   depends_on "pkgconf" => :build
