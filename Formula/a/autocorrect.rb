@@ -6,7 +6,7 @@ class Autocorrect < Formula
   license "MIT"
   head "https://github.com/huacnlee/autocorrect.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :bumped_by_upstream
 
   bottle do
     rebuild 1
