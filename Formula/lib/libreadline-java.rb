@@ -1,11 +1,14 @@
 class LibreadlineJava < Formula
   desc "Port of GNU readline for Java"
   homepage "https://github.com/aclemons/java-readline"
-  url "https://github.com/aclemons/java-readline/releases/download/v0.8.3/libreadline-java-0.8.3-src.tar.gz"
-  sha256 "57d46274b9fd18bfc5fc8b3ab751e963386144629bcfd6c66b4fae04bbf8c89f"
+  url "https://github.com/aclemons/java-readline/releases/download/v0.8.4/libreadline-java-0.8.4-src.tar.gz"
+  sha256 "8767f1e5ba01c5bece9401871b318e9a28607d199a14def7a7bcb495059c2958"
   license "LGPL-2.1-or-later"
 
-  no_autobump! because: :requires_manual_review
+  livecheck do
+    url :stable
+    regex(/^[vR]?_?(\d+(?:[._-]\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "69be2c1c7e2604d6c01ef986fd8f1107976d4e1cec7784eaf971d7e2e69cb301"
