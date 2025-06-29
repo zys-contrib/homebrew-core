@@ -1,10 +1,9 @@
 class ClangUml < Formula
   desc "Customizable automatic UML diagram generator for C++ based on Clang"
   homepage "https://github.com/bkryza/clang-uml"
-  url "https://github.com/bkryza/clang-uml/archive/refs/tags/0.6.1.tar.gz"
-  sha256 "a64c3cae87a282be207e4c5faf47534dca21b06cb6f463bb7b04de979dccf17e"
+  url "https://github.com/bkryza/clang-uml/archive/refs/tags/0.6.2.tar.gz"
+  sha256 "004540c328699f81abebceb33a4661b548ab3a5f74096da2c025b9971b2b17ff"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/bkryza/clang-uml.git", branch: "master"
 
   bottle do
