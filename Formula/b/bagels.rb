@@ -8,13 +8,13 @@ class Bagels < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2dc3a6c56b413a408467a7d53802b19bab97103b17942df37d1e68c6ec8d6a88"
-    sha256 cellar: :any,                 arm64_sonoma:  "62fbf7c321f1d42c539aba88f1eb081e7a16dc42fc4861b098efaad9e1e83371"
-    sha256 cellar: :any,                 arm64_ventura: "a1068402d8ff67ef499f5ddd76f3ef3c5708a4c8b915d0f97cca8cbd17071313"
-    sha256 cellar: :any,                 sonoma:        "8dc4b9dbacafcdede200e697bc7db9ab05ab2cee133b886d33cc96334053b055"
-    sha256 cellar: :any,                 ventura:       "c9fb3eaa056d2742589a69b6ec9b8a6e1e82b7d023e010e6147b3ecde390b1c8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4c0e6415c91a75a059762c4e000fe739d94731b05a72ee5d98b38864d7ec8629"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4165088e08bfbcf2d802987b65c5d3e2c5f5eab08086c8c8f94bc1ebf22f1acf"
+    sha256 cellar: :any,                 arm64_sequoia: "f5dfce83466bb56be4115ca1d04d50b000b8e31259428dc3a421b8427c54a5a6"
+    sha256 cellar: :any,                 arm64_sonoma:  "03a06f962589e8a5f7c5450d1668f2890ca8b1f25723e9afd0c760b0a346802a"
+    sha256 cellar: :any,                 arm64_ventura: "1b320f861fd4c34f2a3017db4dcb9875e5a16a29488691e23cfae5441420ad49"
+    sha256 cellar: :any,                 sonoma:        "1547d1f6b00037996a7f1a78cb7ecabdb0adde6c425b0dc0e4c4afe08e93d7bb"
+    sha256 cellar: :any,                 ventura:       "2934ec9e1cdcb8db62f66a32fc6b13cbf3c1c89ef6d15f3466b2d78349eb93d2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "925daaee202213f2655da9ee847f6514959567a9d53aae3f42e46bc4550eb9f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "df7577e47ce222d02f5ca8248e39eb646958992497cac7f4e3acbfb19f1fac3f"
   end
 
   depends_on "rust" => :build # for pydantic_core
