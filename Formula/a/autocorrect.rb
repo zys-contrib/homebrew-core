@@ -20,9 +20,6 @@ class Autocorrect < Formula
 
   depends_on "rust" => :build
 
-  # build patch for console 0.16 crate
-  patch :DATA
-
   def install
     system "cargo", "install", *std_cargo_args(path: "autocorrect-cli")
   end
@@ -35,17 +32,3 @@ class Autocorrect < Formula
     assert_match version.to_s, shell_output("#{bin}/autocorrect --version")
   end
 end
-
-__END__
-diff --git a/autocorrect-cli/Cargo.toml b/autocorrect-cli/Cargo.toml
-index d72daf7..9c51524 100644
---- a/autocorrect-cli/Cargo.toml
-+++ b/autocorrect-cli/Cargo.toml
-@@ -48,6 +48,7 @@ self_update = { version = "0.30.0", features = [
-     "rustls",
- ], default-features = false, optional = true }
- sudo = { version = "0.5", optional = true }
-+console = { version = "0.16", features = ["std"], default-features = false }
-
- [features]
- default = ["update"]
