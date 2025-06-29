@@ -1,8 +1,8 @@
 class Gssdp < Formula
   desc "GUPnP library for resource discovery and announcement over SSDP"
   homepage "https://wiki.gnome.org/GUPnP/"
-  url "https://download.gnome.org/sources/gssdp/1.6/gssdp-1.6.3.tar.xz"
-  sha256 "2fedb5afdb22cf14d5498a39a773ca89788a250fcf70118783df821e1f3f3446"
+  url "https://download.gnome.org/sources/gssdp/1.6/gssdp-1.6.4.tar.xz"
+  sha256 "ff97fdfb7f561d3e6813b4f6a2145259e7c2eff43cc0e63f3fd031d0b6266032"
   license "LGPL-2.1-or-later"
 
   no_autobump! because: :requires_manual_review
