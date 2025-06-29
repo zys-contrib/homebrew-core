@@ -1,8 +1,8 @@
 class Spectra < Formula
   desc "Header-only C++ library for large scale eigenvalue problems"
   homepage "https://spectralib.org"
-  url "https://github.com/yixuan/spectra/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "d29671e3d1b8036728933cadfddb05668a3cd6133331e91fc4535a9b85bedc79"
+  url "https://github.com/yixuan/spectra/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "fdfccacba1c77d9b4ffefae7258c760c99e3c8a2823ca87ea5b11a50d297a73b"
   license "MPL-2.0"
   head "https://github.com/yixuan/spectra.git", branch: "master"
 
