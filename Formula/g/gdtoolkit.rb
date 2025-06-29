@@ -7,8 +7,7 @@ class Gdtoolkit < Formula
   sha256 "f17089c3e33d0053ab229a637a9faabc0fb8ebb07412fe719ed00b2e66adc343"
   license "MIT"
   revision 1
-
-  no_autobump! because: :requires_manual_review
+  head "https://github.com/Scony/godot-gdscript-toolkit.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "bf4f396f05200cb9b9acc892694f4bf4e5969420d21c1efa6d0509c5707854d2"
@@ -69,7 +68,7 @@ class Gdtoolkit < Formula
   end
 
   def install
-    virtualenv_install_with_resources start_with: "setuptools"
+    virtualenv_install_with_resources
   end
 
   test do
