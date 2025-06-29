@@ -21,9 +21,10 @@ class SignalCli < Formula
   uses_from_macos "llvm" => :build # For `libclang`, used by `boring-sys` crate
   uses_from_macos "zip" => :build
 
-  on_linux do
-    depends_on arch: :x86_64 # `:libsignal-cli:test` failure, https://github.com/AsamK/signal-cli/issues/1787
-  end
+  # FIXME: Uncomment below when https://github.com/Homebrew/brew/issues/19838 is resolved
+  # FIXME: on_linux do
+  # FIXME:  depends_on arch: :x86_64 # `:libsignal-cli:test` failure, https://github.com/AsamK/signal-cli/issues/1787
+  # FIXME: end
 
   # https://github.com/AsamK/signal-cli/wiki/Provide-native-lib-for-libsignal#determine-the-required-libsignal-client-version
   # To check the version of `libsignal-client`, run:
