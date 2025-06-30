@@ -1,8 +1,8 @@
 class Rgbds < Formula
   desc "Rednex GameBoy Development System"
   homepage "https://rgbds.gbdev.io"
-  url "https://github.com/gbdev/rgbds/archive/refs/tags/v0.9.2.tar.gz"
-  sha256 "ccba03909a9fd2067969134ef04c4165c1acffac5cd45899405214f9abd4157d"
+  url "https://github.com/gbdev/rgbds/archive/refs/tags/v0.9.3.tar.gz"
+  sha256 "e4db822494e438f4a3619a0043280fec5a16596ac1dc7756e7c8bf1c57ab0376"
   license "MIT"
   head "https://github.com/gbdev/rgbds.git", branch: "master"
 
