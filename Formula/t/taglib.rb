@@ -1,8 +1,8 @@
 class Taglib < Formula
   desc "Audio metadata library"
   homepage "https://taglib.org/"
-  url "https://taglib.github.io/releases/taglib-2.1.tar.gz"
-  sha256 "95b788b39eaebab41f7e6d1c1d05ceee01a5d1225e4b6d11ed8976e96ba90b0c"
+  url "https://taglib.github.io/releases/taglib-2.1.1.tar.gz"
+  sha256 "3716d31f7c83cbf17b67c8cf44dd82b2a2f17e6780472287a16823e70305ddba"
   license all_of: ["LGPL-2.1-only", "MPL-1.1"]
   head "https://github.com/taglib/taglib.git", branch: "master"
 
