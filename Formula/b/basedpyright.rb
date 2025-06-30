@@ -6,13 +6,13 @@ class Basedpyright < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "41f2cfb259721f6d825a5bdd4c0af11aa9e865497ea17046a286af1972775412"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "41f2cfb259721f6d825a5bdd4c0af11aa9e865497ea17046a286af1972775412"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "41f2cfb259721f6d825a5bdd4c0af11aa9e865497ea17046a286af1972775412"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8e10d442928a4943cb2ac83aa9456960daefd09f04f6776dc00fde08c0cdae11"
-    sha256 cellar: :any_skip_relocation, ventura:       "8e10d442928a4943cb2ac83aa9456960daefd09f04f6776dc00fde08c0cdae11"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "41f2cfb259721f6d825a5bdd4c0af11aa9e865497ea17046a286af1972775412"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "41f2cfb259721f6d825a5bdd4c0af11aa9e865497ea17046a286af1972775412"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ec396bea5f2e0c1d8cd69b19047511bb19272399a145993c949cbf82d843d66b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ec396bea5f2e0c1d8cd69b19047511bb19272399a145993c949cbf82d843d66b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ec396bea5f2e0c1d8cd69b19047511bb19272399a145993c949cbf82d843d66b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9d0c2fd0d61a1ca5bc774530f74c338e180090314850e19c8ad2cef1fea5aeb1"
+    sha256 cellar: :any_skip_relocation, ventura:       "9d0c2fd0d61a1ca5bc774530f74c338e180090314850e19c8ad2cef1fea5aeb1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ec396bea5f2e0c1d8cd69b19047511bb19272399a145993c949cbf82d843d66b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec396bea5f2e0c1d8cd69b19047511bb19272399a145993c949cbf82d843d66b"
   end
 
   depends_on "node"
