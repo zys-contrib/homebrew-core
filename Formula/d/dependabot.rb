@@ -1,18 +1,18 @@
 class Dependabot < Formula
   desc "Tool for testing and debugging Dependabot update jobs"
   homepage "https://github.com/dependabot/cli"
-  url "https://github.com/dependabot/cli/archive/refs/tags/v1.64.0.tar.gz"
-  sha256 "c6dc6564636b01ab90e24315e37213253d43d5f91fc960e2d66791d29641730c"
+  url "https://github.com/dependabot/cli/archive/refs/tags/v1.67.1.tar.gz"
+  sha256 "d5ea07080038dcd569c8bf0992933398230b3fbf545d440a627c6d3fdc697b4d"
   license "MIT"
   head "https://github.com/dependabot/cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d470f7876372b442525a124b8d9ce8338ac87279f54158254922f1b3fb7fd565"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d470f7876372b442525a124b8d9ce8338ac87279f54158254922f1b3fb7fd565"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d470f7876372b442525a124b8d9ce8338ac87279f54158254922f1b3fb7fd565"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f2d8666b05c47322491b85689ba5d287f2a29a900fdc2a45e0eda16fe26842a5"
-    sha256 cellar: :any_skip_relocation, ventura:       "f2d8666b05c47322491b85689ba5d287f2a29a900fdc2a45e0eda16fe26842a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20b74ba6cb04275a3e0201be2bc38657b5121686943caab84afafba57466a574"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "903c28f2991765922a0c0d33002565b499e206ab5dfa0b7b75302d19bf5cb2bb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "903c28f2991765922a0c0d33002565b499e206ab5dfa0b7b75302d19bf5cb2bb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "903c28f2991765922a0c0d33002565b499e206ab5dfa0b7b75302d19bf5cb2bb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "808154d0cf97f032c146f342fd3734753b8b90a9fd4dbdafcbf41690f427250e"
+    sha256 cellar: :any_skip_relocation, ventura:       "808154d0cf97f032c146f342fd3734753b8b90a9fd4dbdafcbf41690f427250e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b318329155ade65fd3372ed07fe118c178d7e05fde64b63074fb85ae6bd0697e"
   end
 
   depends_on "go" => :build

@@ -2,8 +2,8 @@ class Ollama < Formula
   desc "Create, run, and share large language models (LLMs)"
   homepage "https://ollama.com/"
   url "https://github.com/ollama/ollama.git",
-      tag:      "v0.7.0",
-      revision: "bd68d3ae50c67ba46ee94a584fa6d0386e4b8522"
+      tag:      "v0.9.3",
+      revision: "ba04902670cd5945ded682c1c9de2220475b9c38"
   license "MIT"
   head "https://github.com/ollama/ollama.git", branch: "main"
 
@@ -16,13 +16,13 @@ class Ollama < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b12511e015536d79ba3a5b4c4f7eb0d00e595fe0ca6b993d9c2f6c648127504d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6b86e85c211c50aef0592246496264b9faed72f86f5ca6f1e46ccbbba0737c7e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b0bcd6c503926548d11f194539d2f2b7d11223b62b8a5261c5f45d41a38e2fb5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b742ebcc4cfbf9b068d31478946f2dd29f344da12284de47ef6437f2fe70b77f"
-    sha256 cellar: :any_skip_relocation, ventura:       "18424fccbc163c861f4da1ed533264c43da7485691e47e0aa99f377c075c1a38"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "dbde55fd77e661b659863c334c49ed30fb78e2077307834996f12f7e7194764f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "701dc173be8b285a7df844d277fca713631787fba0fbd84af4e68b0c7cfed349"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c97602bce14cab2190118ace8f00953e872088828bc2c1ae31d006f167ec202b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e291600d4fa244567927e1cfb0a7e71f877d123ae2ef39edb9adfa7f4b19dba4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3c0a14b9db43840b35fcdc7b2353bb58342ac18e709a1672d43a02f3b8033b7f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "815497f077bca9893cbfe781bfe9f5b1d7e3b6c806b10a5b0ba24ae5ae0a2028"
+    sha256 cellar: :any_skip_relocation, ventura:       "ef2200218710dfcd2f4f6ecaac428e318b54d6e835be9eac70336569b9dea14a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2e4363a17529067110a6fa0d5e482f6a8b968e3adec20a6e94e30f0a24485527"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d02cfad4e1a3e7ac8e34731cb0ca2fba3c16e85b1daca2ae9e42c63a0f40d6cb"
   end
 
   depends_on "cmake" => :build
@@ -50,6 +50,8 @@ class Ollama < Formula
     working_dir var
     log_path var/"log/ollama.log"
     error_log_path var/"log/ollama.log"
+    environment_variables OLLAMA_FLASH_ATTENTION: "1",
+                          OLLAMA_KV_CACHE_TYPE:   "q8_0"
   end
 
   test do
