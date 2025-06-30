@@ -1,12 +1,10 @@
 class QalculateQt < Formula
   desc "Multi-purpose desktop calculator"
   homepage "https://qalculate.github.io/"
-  url "https://github.com/Qalculate/qalculate-qt/releases/download/v5.5.1/qalculate-qt-5.5.1.tar.gz"
-  sha256 "2d01841f7a7703417c6c251bcd6bcda81db0bf7d5c32827b7a8b396d572af843"
+  url "https://github.com/Qalculate/qalculate-qt/releases/download/v5.6.0/qalculate-qt-5.6.0.tar.gz"
+  sha256 "9255bb18f96cb305a9d087ef2129ffa76fa4e906e5638d4b83a918a623cdd82e"
   license "GPL-2.0-or-later"
   head "https://github.com/Qalculate/qalculate-qt.git", branch: "main"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:  "b06ff9fe513cb5cf5001cd191b09c8c216b4ecc0fcb72811758e7887cc5504cc"
