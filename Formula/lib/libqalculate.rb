@@ -1,11 +1,9 @@
 class Libqalculate < Formula
   desc "Library for Qalculate! program"
   homepage "https://qalculate.github.io/"
-  url "https://github.com/Qalculate/libqalculate/releases/download/v5.5.2/libqalculate-5.5.2.tar.gz"
-  sha256 "fc14d4527dccfc9189684b9fcd64d78aa67ae5383012c66e1596b2531f5daef1"
+  url "https://github.com/Qalculate/libqalculate/releases/download/v5.6.0/libqalculate-5.6.0.tar.gz"
+  sha256 "2d44130954f327e595af74d0d035f450b560e7997eceb9af16503456d5196f39"
   license "GPL-2.0-or-later"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256                               arm64_sonoma:  "3eda9b1f7607de60bf38b405285ead9593f2c94eba85fa8b7fdb90919899c771"
