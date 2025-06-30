@@ -1,10 +1,9 @@
 class Colmap < Formula
   desc "Structure-from-Motion and Multi-View Stereo"
   homepage "https://colmap.github.io/"
-  url "https://github.com/colmap/colmap/archive/refs/tags/3.11.1.tar.gz"
-  sha256 "d2c20729ab5b1198e17725b720128f304f4cfae5c0a8c20d75c0e9c5bdee5860"
+  url "https://github.com/colmap/colmap/archive/refs/tags/3.12.0.tar.gz"
+  sha256 "98aae3fbed984940a9d6f7ea93ca063c3f4eee3b4f6fff3bf6bdbf003efecfcb"
   license "BSD-3-Clause"
-  revision 2
 
   bottle do
     sha256 cellar: :any, arm64_sequoia: "a10d84ff5e6e26782f2043ea71657f741f6ad2a84870b15126d52dd75216fab8"
@@ -20,6 +19,7 @@ class Colmap < Formula
   depends_on "ceres-solver"
   depends_on "cgal"
   depends_on "eigen"
+  depends_on "faiss"
   depends_on "flann"
   depends_on "freeimage"
   depends_on "gflags"
@@ -50,6 +50,7 @@ class Colmap < Formula
     args = %w[
       -DCUDA_ENABLED=OFF
       -DFETCH_POSELIB=OFF
+      -DFETCH_FAISS=OFF
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
