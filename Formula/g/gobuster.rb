@@ -1,12 +1,10 @@
 class Gobuster < Formula
   desc "Directory/file & DNS busting tool written in Go"
   homepage "https://github.com/OJ/gobuster"
-  url "https://github.com/OJ/gobuster/archive/refs/tags/v3.6.0.tar.gz"
-  sha256 "509b16ca713de02f8fcdc7b33d97e7e18b687bb99634dde076be38297d4b401b"
+  url "https://github.com/OJ/gobuster/archive/refs/tags/v3.7.0.tar.gz"
+  sha256 "893f1979b453d655880c19552e1f894110a661a4057a58e95a4d7505bf6d7fa8"
   license "Apache-2.0"
   head "https://github.com/OJ/gobuster.git", branch: "master"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "da882bae38256fa273b80071e504340c008df9fce87ddd80fb9a6f00b20c00bd"
@@ -25,8 +23,6 @@ class Gobuster < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
-
-    generate_completions_from_executable(bin/"gobuster", "completion")
   end
 
   test do
@@ -41,6 +37,6 @@ class Gobuster < Formula
     output = shell_output("#{bin}/gobuster dir -u https://buffered.io -w words.txt 2>&1")
     assert_match "Finished", output
 
-    assert_match version.major_minor.to_s, shell_output(bin/"gobuster version")
+    assert_match version.major_minor.to_s, shell_output(bin/"gobuster --version")
   end
 end
