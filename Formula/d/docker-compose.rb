@@ -1,8 +1,8 @@
 class DockerCompose < Formula
   desc "Isolated development environments using Docker"
   homepage "https://docs.docker.com/compose/"
-  url "https://github.com/docker/compose/archive/refs/tags/v2.37.3.tar.gz"
-  sha256 "b5b21d1886f41cdefe6f4f089503047b60c3f66322b7130636b54f5ccf374441"
+  url "https://github.com/docker/compose/archive/refs/tags/v2.38.0.tar.gz"
+  sha256 "4652699ab383b11ea570d9b3387820333263796fc77c66240194dc52d67b7e50"
   license "Apache-2.0"
   head "https://github.com/docker/compose.git", branch: "main"
 
@@ -15,12 +15,12 @@ class DockerCompose < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0ad79e70ad2b2a8aad8dfe8a8722e7c68fe58c013186052c51b23f0dfc9fc782"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bd8db594aa93d68785ba7be5b90b3052543d66cce83e4f4acaf34349afdc469b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "979d9caa0b3ee4a421207e236c759da8450e2aec47b06ef47e0643ee088a0306"
-    sha256 cellar: :any_skip_relocation, sonoma:        "479bc1f480bb19a622c198b9fd880d5696f950cbb4538eb01c8996653091aee8"
-    sha256 cellar: :any_skip_relocation, ventura:       "9f453e24c5b38743604b7c6d403f8f89af261ce2acd0791b03b95fbce66d1710"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "02077f8dd442c610713fa293c714d4dff93b1cbfc80329364a2476849fb8cbed"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f8e9db630dd557042ff86b10c4ce90e8b127efdbc578e413b331715c9ca70a6e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0cf316e3b53b9d6853c3a0b57f2f01ef2bea566cd98b3f3f56d311c786c1c175"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5dd09ebb60d02f7026abfb9daa942a4220712a525463d141b1634fb658c377ee"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5c055d01100d854cf493ec96404da655de98f70306c0fc5306cf261482ab1013"
+    sha256 cellar: :any_skip_relocation, ventura:       "f8abd8bf5049fad243c4d9e6143e8b71625da18924ea2a4f08b2beb8b6e5db19"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "19991c655b795b17ffb91f527519962ff8705831f23846eda32bf04027f229cd"
   end
 
   depends_on "go" => :build
