@@ -1,8 +1,8 @@
 class Dprint < Formula
   desc "Pluggable and configurable code formatting platform written in Rust"
   homepage "https://dprint.dev/"
-  url "https://github.com/dprint/dprint/archive/refs/tags/0.50.0.tar.gz"
-  sha256 "28a9538c293a1cbe2af8241d687c44309dd1aa1c514c6a937ef3c25699dce4ea"
+  url "https://github.com/dprint/dprint/archive/refs/tags/0.50.1.tar.gz"
+  sha256 "85197a9469fe479fc278e77e87ede6eeb55b7d42d0a530e8b828f3ab9b213358"
   license "MIT"
   head "https://github.com/dprint/dprint.git", branch: "main"
 
@@ -16,11 +16,20 @@ class Dprint < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "80f9512b0ba9365009f00e66fd0dacd276afa2a8ffbd265a050b8e7098d2aa83"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
+  depends_on "xz" # required for lzma support
+
+  # update deps, upstream pr ref, https://github.com/dprint/dprint/pull/1003
+  patch do
+    url "https://github.com/dprint/dprint/commit/bb6ddc6034f73adb188fb2c40aa34d0c6a7ec6de.patch?full_index=1"
+    sha256 "ea54bc0c12dbd3057a0c95d4c922fd35459f338112c14eb8dc4fe96eb742a733"
+  end
 
   def install
-    system "cargo", "install", *std_cargo_args(path: "crates/dprint")
+    ENV.append "RUSTFLAGS", "-C link-arg=-Wl,-undefined,dynamic_lookup" if OS.mac?
 
+    system "cargo", "install", *std_cargo_args(path: "crates/dprint")
     generate_completions_from_executable(bin/"dprint", "completions")
   end
 
