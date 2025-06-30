@@ -1,12 +1,10 @@
 class Oslo < Formula
   desc "CLI tool for the OpenSLO spec"
   homepage "https://openslo.com/"
-  url "https://github.com/OpenSLO/oslo/archive/refs/tags/v0.12.0.tar.gz"
-  sha256 "d76baf57820b896a648b720e387bb6f8c6137bc05f888a3b1e0e2029827cd607"
+  url "https://github.com/OpenSLO/oslo/archive/refs/tags/v0.13.0.tar.gz"
+  sha256 "8e3c501103cbfb0d9980a6ea023def0bdef2fe111a8aec3b106302669d452ec2"
   license "Apache-2.0"
   head "https://github.com/openslo/oslo.git", branch: "main"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a5977795384029ca047af4c7226a66c98907587e183469462a0f6c8ecb46e659"
@@ -27,14 +25,14 @@ class Oslo < Formula
 
     generate_completions_from_executable(bin/"oslo", "completion")
 
-    pkgshare.install "examples"
+    pkgshare.install "test"
   end
 
   test do
-    test_file = pkgshare/"examples/definitions/slo.yaml"
-    assert_match "Valid!", shell_output("#{bin}/oslo validate -f #{test_file}")
+    test_file = pkgshare/"test/inputs/validate/unknown-field.yaml"
+    assert_match "json: unknown field", shell_output("#{bin}/oslo validate -f #{test_file} 2>&1", 1)
 
-    output = shell_output("#{bin}/oslo convert -f #{test_file} -o nobl9 2>&1", 1)
-    assert_match "the convert command is only supported for apiVersion 'openslo/v1'", output
+    output = shell_output("#{bin}/oslo fmt -f #{pkgshare}/test/inputs/fmt/service.yaml")
+    assert_equal File.read(pkgshare/"test/outputs/fmt/service.yaml"), output
   end
 end
