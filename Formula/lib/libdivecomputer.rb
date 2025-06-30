@@ -1,8 +1,8 @@
 class Libdivecomputer < Formula
   desc "Library for communication with various dive computers"
   homepage "https://www.libdivecomputer.org/"
-  url "https://www.libdivecomputer.org/releases/libdivecomputer-0.8.0.tar.gz"
-  sha256 "275ecce7923644ed581faab9dcb4f1a69ad251bceb0721c4e5f85fb631617a0e"
+  url "https://www.libdivecomputer.org/releases/libdivecomputer-0.9.0.tar.gz"
+  sha256 "a7b80b9083a2113a43280ee7b51d48d66ea5a779fc3fee57df7c451da0251c65"
   license "LGPL-2.1-or-later"
   head "https://github.com/libdivecomputer/libdivecomputer.git", branch: "master"
 
@@ -10,8 +10,6 @@ class Libdivecomputer < Formula
     url "https://www.libdivecomputer.org/releases/"
     regex(/href=.*?libdivecomputer[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "2d1fcffb41e208dda7721558578c6c6f212d758b9782449ce1f800d89e05c1cb"
@@ -41,6 +39,7 @@ class Libdivecomputer < Formula
 
   test do
     (testpath/"test.c").write <<~C
+      #include <stdio.h> // for NULL macro
       #include <libdivecomputer/context.h>
       #include <libdivecomputer/descriptor.h>
       #include <libdivecomputer/iterator.h>
