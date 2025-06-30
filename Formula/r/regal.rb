@@ -7,12 +7,12 @@ class Regal < Formula
   head "https://github.com/StyraInc/regal.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "44088fc914e1c05ef95ef3ebd7ac23383788826b435829b702af62b3f7abb034"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "07bd8c1b100cbb0120b13a049c3090d9d18b9ed3ac9abe1b22ecf7180faffd48"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2a1593521e8a842e9366b4cce7621e148caf1d0d1a0b09031530850ddd98e717"
-    sha256 cellar: :any_skip_relocation, sonoma:        "387176bd1e6e81bdc70aea92fbd394c3af2133374ebc549428aaacdf7e12de1b"
-    sha256 cellar: :any_skip_relocation, ventura:       "4aef271ea38608a5ad454f4be7306586468108ab91f53755341468b781ed137e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "56abfb2d4870d59e92639b7e08096302972ab07b5700ff4703e47c8471ba1a43"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1f40d066d1136c4d555a369539dea11d26aea644fcb4945c574a912dae21c18e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7ccc4c6641614266df53c10718324cb6f0e9aee100652652f45b00096ed9fe4e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "364e05f0f042b4d3a7122f252d8baf7450b43465e82b86b90ee33b065e5db03c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "14a97802a0d7bdf4db8d51809862fbf94d3b7913e7fc83c1597c98db960be75a"
+    sha256 cellar: :any_skip_relocation, ventura:       "a9f85edb7fa257198528cea76c25a56c943103e66c3fc74a64836410e81c344d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2368598797cecad6b2cac96f5681cfbda868e89109eb557fdfdf6255f586a5e5"
   end
 
   depends_on "go" => :build
