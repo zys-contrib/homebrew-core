@@ -1,12 +1,10 @@
 class Perbase < Formula
   desc "Fast and correct perbase BAM/CRAM analysis"
   homepage "https://github.com/sstadick/perbase"
-  url "https://github.com/sstadick/perbase/archive/refs/tags/v0.10.2.tar.gz"
-  sha256 "c4e1a7409d6bb3b0b252fa5efa7781b806897bd2c6cddef62b9abf9c0d7b8a40"
+  url "https://github.com/sstadick/perbase/archive/refs/tags/v0.10.3.tar.gz"
+  sha256 "15fb5ac4ef4c7eae39292d0eb5fbfb5e5f8cd8fb0e88dab8983f856720a7e72d"
   license "MIT"
   head "https://github.com/sstadick/perbase.git", branch: "master"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7e10cf0a82a532a75ceefcbbbd3f57966848dfc051b17adb69ef89331cc3caad"
