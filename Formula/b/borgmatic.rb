@@ -3,10 +3,9 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://files.pythonhosted.org/packages/86/8c/0a80f219d9ca4c70cf345489b55a9c3e5c859c4d7bc99675ac1bc09eadb7/borgmatic-2.0.6.tar.gz"
-  sha256 "cb102d0fbb0a3a8d2fa04f01bdf2f41c6b273f42f6b1cd5fd1481704db7f6905"
+  url "https://files.pythonhosted.org/packages/14/5a/db4f743b29fe9b7446c06575a0f5c26b55b6ca7aa04eaf905bd3dfc3fad4/borgmatic-2.0.7.tar.gz"
+  sha256 "1ee9ca5d5b83193747f82cc841bb64374a11328710ee0561e8c7fa2fbc258406"
   license "GPL-3.0-or-later"
-  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "f07e9807fe6d8cf01274987bf5f99cdc591379e6bd9d3819629ca4fb8f6d5a67"
