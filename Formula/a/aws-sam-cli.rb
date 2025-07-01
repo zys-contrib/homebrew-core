@@ -3,18 +3,18 @@ class AwsSamCli < Formula
 
   desc "CLI tool to build, test, debug, and deploy Serverless applications using AWS SAM"
   homepage "https://aws.amazon.com/serverless/sam/"
-  url "https://files.pythonhosted.org/packages/54/21/ff88a982c782b2065f7828edb36378d316cbe9531370bf6b3ac92225346c/aws_sam_cli-1.141.0.tar.gz"
-  sha256 "57e102ba5b184d350b89f41dcbe28d7e1fea3acf2f66266106fc1291836c2247"
+  url "https://files.pythonhosted.org/packages/a5/99/cb21b7c36e59d61ea6a672064dda320f9cd9a3e8ff3444468a66212324cf/aws_sam_cli-1.142.0.tar.gz"
+  sha256 "3f3bb148abdf8fa7c97be48dc12f0451db7c23476efb02f4b96bdcce7b4398df"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4b4c7b7a10d34297cbb7af6afbfd2ec3843639117fb2703f8cd681385de44ef1"
-    sha256 cellar: :any,                 arm64_sonoma:  "e4be42df8e8275c37c84c96e7674e2914a0554c5e5aedee0765a414b675f7674"
-    sha256 cellar: :any,                 arm64_ventura: "7aa9cf8377ae488f3b3935afbc98d4285fbb92eb1f65535e2e1e3d9ea8bb4ec1"
-    sha256 cellar: :any,                 sonoma:        "be1ef5b80d258c0929fb21da6610b1df381b6fb27ef5c79c56fd795f08b0adb7"
-    sha256 cellar: :any,                 ventura:       "4c0b332a394a18a6cd9d4da62a524c2ab0895b88ce11ad4133afb3e312b3925b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1a75250c0389fa6ce21fed4847ee535b6a00d22c5ef7738f0e914159f007b77b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac2f7c6e2a54157c3c10e42379df5e464182b7e9c7ee1e2ca0edced59e91e201"
+    sha256 cellar: :any,                 arm64_sequoia: "2fd961fc88968d86d6166974d221fdec9944660549d9c2dcfd374325ad8e2665"
+    sha256 cellar: :any,                 arm64_sonoma:  "9cf44057c45a32002fe321b9045c7ae506bcfb39e296d70891a007c1f61f4813"
+    sha256 cellar: :any,                 arm64_ventura: "a5c85bd3d0acbc193ec51fb15b7ff6caa3dd1f69bca2bc354434e48bcc51ba8d"
+    sha256 cellar: :any,                 sonoma:        "6283fbecc231488f67d1b67a96888a25db438575ae50ee91c1382a773cf6e9da"
+    sha256 cellar: :any,                 ventura:       "8817ed565e47bf75119a095d7c83b16bf00b37e4982fd16e9d1aafee98780bb8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8cd22cb10f7dba43eaa146953bc78ac355f6c83340c3fbf67761817d77c635b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6299739306bbe62d307bf5935b9f7c195e46a9101a400f9101a668b6fb4fc88f"
   end
 
   depends_on "pkgconf" => :build
@@ -42,8 +42,8 @@ class AwsSamCli < Formula
   end
 
   resource "aws-lambda-builders" do
-    url "https://files.pythonhosted.org/packages/d0/dc/8272ad7a2db5676eb1b1e2c9c12afa79f29bf315ccc85bfb22dcdbf04562/aws_lambda_builders-1.54.0.tar.gz"
-    sha256 "c74353b6f4dfda981f3b01aa1e39180a492cbd323852122b6f6451faeb4d15f0"
+    url "https://files.pythonhosted.org/packages/a7/7c/67f11af10a96e71e2a131be879a5e2e1385793627d242be11a8fea4c81c5/aws_lambda_builders-1.55.0.tar.gz"
+    sha256 "4749446c5e54a75f5af7e835236f6c7ec6a0e51abcbc1e5cdbf7282529b56be2"
   end
 
   resource "aws-sam-translator" do
@@ -62,23 +62,23 @@ class AwsSamCli < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/2f/3b/f421b30e32c33ce63f0de3b32ea12954039a4595c693db4ea4900babe742/boto3-1.38.41.tar.gz"
-    sha256 "c6710fc533c8e1f5d1f025c74ffe1222c3659094cd51c076ec50c201a54c8f22"
+    url "https://files.pythonhosted.org/packages/40/87/539247f913632566877bba0673129c09b4dcf65f1c26e3452a713558c188/boto3-1.39.0.tar.gz"
+    sha256 "52a9f07fb9fa60ec6a2be07cd1586a97d8adae2be750121d4c032349cd113221"
   end
 
   resource "boto3-stubs" do
-    url "https://files.pythonhosted.org/packages/9d/53/7dea202567586e14ea17ef386b6d7368e6730639c436fb471a368f56c0f1/boto3_stubs-1.38.39.tar.gz"
-    sha256 "a6066470f97da5810afeaa6d30028c4b198c9364c94180dc764597224321ae10"
+    url "https://files.pythonhosted.org/packages/0e/c6/b042b91c40e6e70760d6b63fe391e198bd939b7630e1c5b809b635a601ae/boto3_stubs-1.38.46.tar.gz"
+    sha256 "526789fc1f4a6f89f372424dc9a4109296f6bd18afab1abf5d281a94f5cfb770"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/98/46/cb33f5a0b00086a97c4eebbc4e0211fe85d66d45e53a9545b33805f25b31/botocore-1.38.41.tar.gz"
-    sha256 "98e3fed636ebb519320c4b2d078db6fa6099b052b4bb9b5c66632a5a7fe72507"
+    url "https://files.pythonhosted.org/packages/56/97/c34be91a7cd625b913430199c2fe8b8718753b3c4a697ecfb587d89ec499/botocore-1.39.0.tar.gz"
+    sha256 "2b8701e529a80241b989d83262a629d0d91fbd7a06ded63ecc1c9d529a383d57"
   end
 
   resource "botocore-stubs" do
-    url "https://files.pythonhosted.org/packages/b2/df/9bf9f6346daf1cbcb736a12417efe025ed63d72a015799f4e8f26a823b93/botocore_stubs-1.38.30.tar.gz"
-    sha256 "291d7bf39a316c00a8a55b7255489b02c0cea1a343482e7784e8d1e235bae995"
+    url "https://files.pythonhosted.org/packages/05/45/27cabc7c3022dcb12de5098cc646b374065f5e72fae13600ff1756f365ee/botocore_stubs-1.38.46.tar.gz"
+    sha256 "a04e69766ab8bae338911c1897492f88d05cd489cd75f06e6eb4f135f9da8c7b"
   end
 
   resource "cfn-lint" do
@@ -112,8 +112,8 @@ class AwsSamCli < Formula
   end
 
   resource "dateparser" do
-    url "https://files.pythonhosted.org/packages/bd/3f/d3207a05f5b6a78c66d86631e60bfba5af163738a599a5b9aa2c2737a09e/dateparser-1.2.1.tar.gz"
-    sha256 "7e4919aeb48481dbfc01ac9683c8e20bfe95bb715a38c1e9f6af889f4f30ccc3"
+    url "https://files.pythonhosted.org/packages/a9/30/064144f0df1749e7bb5faaa7f52b007d7c2d08ec08fed8411aba87207f68/dateparser-1.2.2.tar.gz"
+    sha256 "986316f17cb8cdc23ea8ce563027c5ef12fc725b6fb1d137c14ca08777c5ecf7"
   end
 
   resource "docker" do
@@ -217,8 +217,8 @@ class AwsSamCli < Formula
   end
 
   resource "mypy-boto3-s3" do
-    url "https://files.pythonhosted.org/packages/66/a7/cc2a5b095401b4d937ece53819ab9323572a82a6bbdc5a699b815fabe76b/mypy_boto3_s3-1.38.39.tar.gz"
-    sha256 "b272d1c9b359017ea7c5d79b4610ba93e91f557ad01da0d6e302bd7b7804f73b"
+    url "https://files.pythonhosted.org/packages/43/48/cbef3d4518010c9053a447e5cbbfdb364870ca18ce3c8596c232226260da/mypy_boto3_s3-1.38.44.tar.gz"
+    sha256 "eacf15c9164e56ecb86a76152adb414cf8f7f22b46cd80a843f6b7ef41a1cd8f"
   end
 
   resource "mypy-boto3-schemas" do
@@ -272,8 +272,8 @@ class AwsSamCli < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/7c/2d/c3338d48ea6cc0feb8446d8e6937e1408088a72a39937982cc6111d17f84/pygments-2.19.1.tar.gz"
-    sha256 "61c16d2a8576dc0649d9f39e089b5f02bcd27fba10d8fb4dcc28173f7a45151f"
+    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
+    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
   end
 
   resource "pyopenssl" do
@@ -367,8 +367,8 @@ class AwsSamCli < Formula
   end
 
   resource "types-awscrt" do
-    url "https://files.pythonhosted.org/packages/36/6c/583522cfb3c330e92e726af517a91c13247e555e021791a60f1b03c6ff16/types_awscrt-0.27.2.tar.gz"
-    sha256 "acd04f57119eb15626ab0ba9157fc24672421de56e7bd7b9f61681fedee44e91"
+    url "https://files.pythonhosted.org/packages/94/95/02564024f8668feab6733a2c491005b5281b048b3d0573510622cbcd9fd4/types_awscrt-0.27.4.tar.gz"
+    sha256 "c019ba91a097e8a31d6948f6176ede1312963f41cdcacf82482ac877cbbcf390"
   end
 
   resource "types-python-dateutil" do
