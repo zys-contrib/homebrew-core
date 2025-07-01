@@ -7,12 +7,12 @@ class Fdroidcl < Formula
   head "https://github.com/Hoverth/fdroidcl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "43a2344ed4ad381157a0af5757f64b57f888184fa3c30aa44cf009bf00e0567d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "43a2344ed4ad381157a0af5757f64b57f888184fa3c30aa44cf009bf00e0567d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "43a2344ed4ad381157a0af5757f64b57f888184fa3c30aa44cf009bf00e0567d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "505ecb1a25b1532e4c4f164e4be67e64ce66380de9502dbeda2ff258bd7676da"
-    sha256 cellar: :any_skip_relocation, ventura:       "505ecb1a25b1532e4c4f164e4be67e64ce66380de9502dbeda2ff258bd7676da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf6a450e3b732548bbe89f23bda6494acbf4bba8b33736de9698193830e39b97"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a59042086a507fe60f17c0460f85ac81bc0e9ad650738e0b8c4c12879dcdd5a6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a59042086a507fe60f17c0460f85ac81bc0e9ad650738e0b8c4c12879dcdd5a6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a59042086a507fe60f17c0460f85ac81bc0e9ad650738e0b8c4c12879dcdd5a6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8bfd91ccb97abe616d4fd3d32ccb498cf79a1787b9700860609de72b4f93c4a5"
+    sha256 cellar: :any_skip_relocation, ventura:       "8bfd91ccb97abe616d4fd3d32ccb498cf79a1787b9700860609de72b4f93c4a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "77a94907960dcab6c2bcdc0b7e5b6364eb6e221cb52bf3aabb7fbdcc1a5bc93d"
   end
 
   depends_on "go" => :build
