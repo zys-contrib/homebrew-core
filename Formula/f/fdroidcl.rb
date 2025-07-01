@@ -1,8 +1,8 @@
 class Fdroidcl < Formula
   desc "F-Droid desktop client"
   homepage "https://github.com/Hoverth/fdroidcl"
-  url "https://github.com/Hoverth/fdroidcl/archive/refs/tags/v0.8.0.tar.gz"
-  sha256 "917bd9e33ec895ef7de5e82e08d36a36bdf82dc9fd810520cc657be2d8d44106"
+  url "https://github.com/Hoverth/fdroidcl/archive/refs/tags/v0.8.1.tar.gz"
+  sha256 "934881b18ce13a7deb246321678eabd3f81284cae61ff4d18bde6c7c4217584a"
   license "BSD-3-Clause"
   head "https://github.com/Hoverth/fdroidcl.git", branch: "master"
 
@@ -25,22 +25,42 @@ class Fdroidcl < Formula
     assert_match "f-droid.org/repo", shell_output("#{bin}/fdroidcl update")
 
     list = <<~EOS
+      App Store & Updater
+      Browser
+      Calendar & Agenda
+      Cloud Storage & File Sync
       Connectivity
+      DNS & Hosts
       Development
+      Email
+      File Encryption & Vault
+      File Transfer
       Games
       Graphics
       Internet
+      Keyboard & IME
+      Local Media Player
+      Messaging
       Money
       Multimedia
       Navigation
+      News
+      Online Media Player
+      Password & 2FA
       Phone & SMS
+      Podcast
       Reading
       Science & Education
       Security
+      Social Network
       Sports & Health
       System
       Theming
       Time
+      VPN & Proxy
+      Voice & Video Chat
+      Wallet
+      Weather
       Writing
     EOS
     assert_equal list, shell_output("#{bin}/fdroidcl list categories")
