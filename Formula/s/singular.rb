@@ -1,10 +1,10 @@
 class Singular < Formula
   desc "Computer algebra system for polynomial computations"
   homepage "https://www.singular.uni-kl.de/"
-  url "https://www.singular.uni-kl.de/ftp/pub/Math/Singular/SOURCES/4-4-1/singular-4.4.1.tar.gz"
-  sha256 "6a4fbaaed05b89c35bff3b1c5e124344a088097f81affe129c9ae619b282b49b"
+  url "https://www.singular.uni-kl.de/ftp/pub/Math/Singular/SOURCES/4-4-1/singular-4.4.1p2.tar.gz"
+  version "4.4.1p2"
+  sha256 "7096f9f8d7bcc8e43be4a9521fb54cf685abf4ec14bd0870aa6a820cbd4648aa"
   license "GPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url "https://www.singular.uni-kl.de/ftp/pub/Math/Singular/SOURCES/"
@@ -59,17 +59,6 @@ class Singular < Formula
   depends_on "ntl"
   depends_on "python@3.13"
   depends_on "readline"
-
-  # flint 3.3.0 patch
-  patch do
-    url "https://github.com/Singular/Singular/commit/05f5116e13c8a4f5f820c78c35944dd6d197d442.patch?full_index=1"
-    sha256 "20d4472a394fbb6559fdf07113b6a4693aa225e8ac484df72c3badbcd405c318"
-  end
-
-  patch do
-    url "https://github.com/Singular/Singular/commit/0e31611aaae70e6f1bc31eac51aa597f564e5bc8.patch?full_index=1"
-    sha256 "d34bbc5ac118ccad59a5e956db19ed871425960a987bf90436f627c917f8de7d"
-  end
 
   def install
     system "./autogen.sh" if build.head?
