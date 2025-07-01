@@ -1,19 +1,19 @@
 class ParallelDiskUsage < Formula
   desc "Highly parallelized, blazing fast directory tree analyzer"
   homepage "https://github.com/KSXGitHub/parallel-disk-usage"
-  url "https://github.com/KSXGitHub/parallel-disk-usage/archive/refs/tags/0.13.0.tar.gz"
-  sha256 "e370d8a40fbd9b1b0050d7f7497a288947ba528384803b14c1727f0ef999b2b9"
+  url "https://github.com/KSXGitHub/parallel-disk-usage/archive/refs/tags/0.13.1.tar.gz"
+  sha256 "9f22e20764a434b3cb39a8f92b7e11bea851cca99077e15de165a8a25342cde6"
   license "Apache-2.0"
   head "https://github.com/KSXGitHub/parallel-disk-usage.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e17a8fff7e894998250e1bedeacd2a3b7a6254ab2bc36418267191b4d9633d2c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f3bd23a3013d6c254b883098b0d9c77a692fabb063955086f8843170aff713ff"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "155ddbddee3f23e3acf1a5794c4a57b00b1108e3039d5e450e0736ff6f52d58e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "de0bdf4751b6d7db30273c58371e06022aa13c2d222bc0e93a5fae2e4e655331"
-    sha256 cellar: :any_skip_relocation, ventura:       "eae9b27b7b4a8306e8a3cb4b523351386996efd730a7b071356f1113b5751aa5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2f8c72a5b073d02ea494d5ea19b4541c39cf66f5cf4b3e5b2e8bd278f6140dd5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0794dbfb5e47cc8f1e626432f5ca5822cab6f4f15179e2ff1c460a936713939b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bb45d1cb3873aeef446fe1660474a7b6de315806487b4d6fa17aaec1ded2af6c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "25d6a8293d85d0b6870b3197c1f457d698cbdaec80d40d8ff55a711978492973"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0e235c9e9b7872939e546fb910c1f587d07fdd6e98b4bba89a2c5146269cfa98"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e9bd3d9d2a3f9d8851b789c38ce3369c95d92b8aa5c77de66c514671593bbd31"
+    sha256 cellar: :any_skip_relocation, ventura:       "4468c0f43d1d2c99a5d812a19be7f69994694643a2363fb62c4e5f53ba3d9997"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "24dc2cf8166678deca7f92fdcc4e045dfcb459d56a72bee8de474ab771118a01"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e707d710f71fcd370fdf304ba919b8362d815f3fc642b1327041337f9fdb2e0"
   end
 
   depends_on "rust" => :build
