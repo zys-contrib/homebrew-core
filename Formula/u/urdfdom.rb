@@ -1,8 +1,8 @@
 class Urdfdom < Formula
   desc "Unified Robot Description Format (URDF) parser"
   homepage "https://wiki.ros.org/urdf/"
-  url "https://github.com/ros/urdfdom/archive/refs/tags/5.0.0.tar.gz"
-  sha256 "31ce32c68312df5c344c5b5a5d4337ca5068aa405634bd2c5ec43be4486b831b"
+  url "https://github.com/ros/urdfdom/archive/refs/tags/5.0.1.tar.gz"
+  sha256 "1f610c9acd8319b9cf74ec1b1311a90c6021daa0bed23315dc714af618eaec87"
   license "BSD-3-Clause"
 
   # Upstream uses Git tags (e.g. `1.0.0`) to indicate a new version. They
@@ -28,6 +28,12 @@ class Urdfdom < Formula
   depends_on "console_bridge"
   depends_on "tinyxml2"
   depends_on "urdfdom_headers"
+
+  # Support urdfdom_headers 2.0, upstream pr ref, https://github.com/ros/urdfdom/pull/221
+  patch do
+    url "https://github.com/ros/urdfdom/commit/9c5b7561612a3250f632b500ac97251ba98ece13.patch?full_index=1"
+    sha256 "6c671176ab0938f81027beb6626e970e8239ecc846328661a11452dc9762bc12"
+  end
 
   def install
     ENV.cxx11
