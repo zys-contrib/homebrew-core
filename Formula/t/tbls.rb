@@ -1,19 +1,19 @@
 class Tbls < Formula
   desc "CI-Friendly tool to document a database"
   homepage "https://github.com/k1LoW/tbls"
-  url "https://github.com/k1LoW/tbls/archive/refs/tags/v1.86.0.tar.gz"
-  sha256 "61219118f58c4f123c09c3715ba27ee86c208b3f9d3d7ebdc3597f058401f829"
+  url "https://github.com/k1LoW/tbls/archive/refs/tags/v1.86.1.tar.gz"
+  sha256 "82d5dbab4000c18754f928b48d328a151a9bb3bbb85d8b6a8c5dfcfdd0d51fd3"
   license "MIT"
   head "https://github.com/k1LoW/tbls.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bc907df8d66784438311fee91889182a449f20de50a05425bdd6ffe57e65f75a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ef6ce7199718da3f90b5ea968b8dd18012710e207cf490305fcff792d81c3aa1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f2ab5b3a415d0d35fd68acdcb8c5a7da2c4b483aec44a37aaa1e7fd76d85bcee"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2f41c7c544e12ee2d72183c9915a0711b8c166a42fdeddbc934915e4aad94ab8"
-    sha256 cellar: :any_skip_relocation, ventura:       "eff0159157639759f6d33ac3a16d424ef737c82bad7c3de61dae3962177740c7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3dd7178f119eccc94f18fed401a0f916be8e2d4ec38fc015630704db8284c3f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "46080924843380130d0df4d3465fec6a962ae328e40a3388641afe8f052e1f52"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "48c01c437f02dfd029525151dedf2d2135ed1ac97b9a0fc7c0102eb27e8ecc81"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2d695d9c4bc6a8e2b3cb5d039a4474f0439c43929ba276a368d8c4b3321f2342"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8d25ef103bde30954c76ee7407e34cbf3e66787cdbf6b28632cd669ba124d16e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c15185eea6e6222f14d99cc4465aa14a47c4c00d5a343b459b4002e240cf560e"
+    sha256 cellar: :any_skip_relocation, ventura:       "73eb1c17328485d41d3d0fec00447e81bc807c8950f44a0c01caa1b43c57f628"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "35f26a20529d9227b05b540a0446cacee166564fdd21812632be80d5738c3de2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1297d498283357ec454546c0f7ada3d51153dc58da77006b4ca6e4b4380b46c9"
   end
 
   depends_on "go" => :build
