@@ -14,7 +14,7 @@ class UrdfdomHeaders < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "99db8197b364ac4ed1adf8d48e245c2f08d714f205e033b8b5bf0987ede639ce"
+    sha256 cellar: :any_skip_relocation, all: "80c4b6d49d0ad60ef20d34de3e6be2c5ff0087eff03dfe322732b052cbd92f5b"
   end
 
   depends_on "cmake" => :build
