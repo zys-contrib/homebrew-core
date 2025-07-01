@@ -6,13 +6,13 @@ class AwsAmplify < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "489dbddaaaa5293c2fc43c1e8f367aec51630d4979f8e9f1557a868a336398dd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "489dbddaaaa5293c2fc43c1e8f367aec51630d4979f8e9f1557a868a336398dd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "489dbddaaaa5293c2fc43c1e8f367aec51630d4979f8e9f1557a868a336398dd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1120ac36e1da8e1521001928f952de2da94dfbf66ea059df558f6be80df9556f"
-    sha256 cellar: :any_skip_relocation, ventura:       "1120ac36e1da8e1521001928f952de2da94dfbf66ea059df558f6be80df9556f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "489dbddaaaa5293c2fc43c1e8f367aec51630d4979f8e9f1557a868a336398dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14ac446d69172e164ece46c26cdf0ea866e0d1c2e57991e4aee0e3157776e4de"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "26d899ba91a0f6b99213827e6e317367693cae9d57b65db697ecf06b8b6619c9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "26d899ba91a0f6b99213827e6e317367693cae9d57b65db697ecf06b8b6619c9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "26d899ba91a0f6b99213827e6e317367693cae9d57b65db697ecf06b8b6619c9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "064687b55885ff2fe6caa2efc25e127a09d4d36a9f9c98d411d9013b27cad73f"
+    sha256 cellar: :any_skip_relocation, ventura:       "064687b55885ff2fe6caa2efc25e127a09d4d36a9f9c98d411d9013b27cad73f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "26d899ba91a0f6b99213827e6e317367693cae9d57b65db697ecf06b8b6619c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a16be6775ab478fbe3dc806f0fd3e62f2b7f82355974d267253814fdee03ed32"
   end
 
   depends_on "node"
