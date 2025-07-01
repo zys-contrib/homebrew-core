@@ -14,13 +14,13 @@ class Urdfdom < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2ee777c8a0e4e3230790d549ae85b001fdb570bc43ae5e4344e012b6e9b29505"
-    sha256 cellar: :any,                 arm64_sonoma:  "00fa20fc9a6eaeb50d88d5f760a037e672d55ababe644e70eb3d14c61a9f98c1"
-    sha256 cellar: :any,                 arm64_ventura: "746ad363e1f35643ba0008b695ce493b8e35af0b78528698b14d9d3ffeebf593"
-    sha256 cellar: :any,                 sonoma:        "28547a88558e5b2ec2862227dcdb95ed5eeabf2b66123ad4f7f80c6f8f3c2f67"
-    sha256 cellar: :any,                 ventura:       "1d33ef4ff5c0c26164d365187990bbd0de0160958c33b2b9831ba8382f301713"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9923916cb7e92243fb829f6675fcad95fb57fbb43452551ec38809305b1d5154"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0676acc9256763cd404e5563c69526ea9894f07417ff64d4247964fa993ec99e"
+    sha256 cellar: :any,                 arm64_sequoia: "cd4a8fdda41fc71917d00cffb081ec3446a3bd2019f0650a2320213d4ce291a6"
+    sha256 cellar: :any,                 arm64_sonoma:  "c07c6ceda1aaa046ced881402af6b8464b68d894558e905d1763882ce4c14908"
+    sha256 cellar: :any,                 arm64_ventura: "135da4ada83322c2e8fd0fef17111950e41b4c80408d73343356d0c5d7a357b2"
+    sha256 cellar: :any,                 sonoma:        "c60e9daa0bcfd7b048823ce2c97933291dd58bd576e1f951b2be722a1699f7ee"
+    sha256 cellar: :any,                 ventura:       "33c07de87ca188ad24a22d597b15a00ac1dd7095b2a6283f211b03b3e2951763"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d3a23a236200d3a8a831d6151c4c8528705a925a807f9e4a2eb751477a27b2d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "263fcbbdbaa7cf4d2b9f0188aeb12659bf9e06910ec9a11479bf8ea5a2d3d12b"
   end
 
   depends_on "cmake" => :build
