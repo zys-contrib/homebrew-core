@@ -6,11 +6,11 @@ class QalculateGtk < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_sonoma:  "6c39d6caced24fc7ba6961fe555175467fda6fe25ee2101c3dfd899cb9c591c3"
-    sha256 arm64_ventura: "9a1c8e13ef2dc561a1f136468738ba34a668fa68593ed8ad69f0262b5de30529"
-    sha256 sonoma:        "074c2652d0fda500db768d049a99bdf5d37397315e03a0097bcd0ebc1307e59d"
-    sha256 ventura:       "3215ef935dbcc30f7ba4285116b25bdcf8e428c3978eff2bd78f7c6ffc09e762"
-    sha256 x86_64_linux:  "df4d889c9daa8452784656dc945bcbfa0b41f1f25a71d7ac1f6dbc7696f04d24"
+    sha256 arm64_sonoma:  "58f7dd41979bfa92d9786078ded460e464f4ef114402bdbf3d88cd7bf61526ef"
+    sha256 arm64_ventura: "f3555784ba0f2aa5209d12331cf08a305b44fe063c09ad6b08810a44cc450886"
+    sha256 sonoma:        "7e6e9984b07084ff042b743ee93d4b87bf3cefafaba20a1afa586167eb544575"
+    sha256 ventura:       "d1dc50584c3e9d1baca9b5ec16b08f97a2c2551a47debbdd3e6d37a171131c25"
+    sha256 x86_64_linux:  "c844f4e4ffa683ae2c26a10f65d9f18dcc9cfa7fc5fa2e1ecec867d335c8e9d6"
   end
 
   depends_on "gettext" => :build
