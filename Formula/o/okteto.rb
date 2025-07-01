@@ -1,8 +1,8 @@
 class Okteto < Formula
   desc "Build better apps by developing and testing code directly in Kubernetes"
   homepage "https://okteto.com"
-  url "https://github.com/okteto/okteto/archive/refs/tags/3.8.0.tar.gz"
-  sha256 "829a671c01ac735924916e3192591790821d46e4cfa972654859a8eced9de56c"
+  url "https://github.com/okteto/okteto/archive/refs/tags/3.9.0.tar.gz"
+  sha256 "b8baa40cb4dea271dd146a31a9b0fdedc40bc74b6f89521fdace48585da3e687"
   license "Apache-2.0"
   head "https://github.com/okteto/okteto.git", branch: "master"
 
