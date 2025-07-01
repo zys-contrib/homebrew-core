@@ -1,8 +1,8 @@
 class Hsd < Formula
   desc "Handshake Daemon & Full Node"
   homepage "https://handshake.org"
-  url "https://github.com/handshake-org/hsd/archive/refs/tags/v7.0.1.tar.gz"
-  sha256 "b00b4250ccb56e42a0075263564bdc9a41b536d903b20af6cb2e87ca9a0e99a6"
+  url "https://github.com/handshake-org/hsd/archive/refs/tags/v8.0.0.tar.gz"
+  sha256 "1de0ebbbac6ca35d62353227176c7377203a82efbc27fdf08ad23dedb481ee28"
   license "MIT"
 
   livecheck do
