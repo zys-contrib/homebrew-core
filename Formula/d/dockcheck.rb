@@ -7,7 +7,7 @@ class Dockcheck < Formula
   head "https://github.com/mag37/dockcheck.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "2e97e5124048c31afc7fda841805e2add4c0c2769b51e2b9c5534f2c6ea96206"
+    sha256 cellar: :any_skip_relocation, all: "246e6f694ea7a248a17e7113228674d6e96f2910761e82c0b25037d3c83c43dc"
   end
 
   depends_on "jq"
