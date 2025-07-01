@@ -1,8 +1,8 @@
 class SpirvLlvmTranslator < Formula
   desc "Tool and a library for bi-directional translation between SPIR-V and LLVM IR"
   homepage "https://github.com/KhronosGroup/SPIRV-LLVM-Translator"
-  url "https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/refs/tags/v20.1.3.tar.gz"
-  sha256 "8e953931a09b0a4c2a77ddc8f1df4783571d8ffca9546150346c401573866062"
+  url "https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/refs/tags/v20.1.4.tar.gz"
+  sha256 "f6c414f9384c8f68775d9461e55e7c492f01759f5a1754f30dad4cbfb049c7d7"
   license "Apache-2.0" => { with: "LLVM-exception" }
 
   bottle do
