@@ -12,14 +12,14 @@ class OpensslAT3 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "7bbac0e84510570ec550deee1dce185569917378411263a9d1329ae395f52d70"
-    sha256 arm64_sonoma:  "3bb3709fe0c67077cb54af5436442e81288804647ba513b34413c5163b43f9b8"
-    sha256 arm64_ventura: "e74364d568abea9347f89f356bf437e3146deaf5c4cf31c72b4ab4521700df50"
-    sha256 sequoia:       "15431f4b9cf582e4b9b5d638057c8ed1db23fd166e425d66bcca0d36aa2ab585"
-    sha256 sonoma:        "0c5f237b38048abfe7fe045f709d334f235e3dfe39853f7877dd248f5c7670fe"
-    sha256 ventura:       "75baf6311dd7c014d765a11805b49b890af1be7d98c0f29c9870bf1ada112547"
-    sha256 arm64_linux:   "9e4199643ddb0220c637e8830a6c34fab3b9a9a06abb9f44da516b4f26cdd681"
-    sha256 x86_64_linux:  "178ae44b213319b0aa9e6d7b41772705099f50bd6b5de4ba1e6ae526e25af37a"
+    sha256 arm64_sequoia: "e14a37b55eb218aff8024cd9dedb2c2884f0405e2803ce5b0f9995bbbce972d3"
+    sha256 arm64_sonoma:  "0e718dcb35235253edc6d88115f7c0039d738c7c38771659fec44bd466d23393"
+    sha256 arm64_ventura: "fadc8218dd25ea6f2aaa2677be200368ece98bc603191232309f0467175bb1cc"
+    sha256 sequoia:       "752c0242eaad67ab63c47448f113c0953c3aae9084d6e7e1cc0faf14f1601924"
+    sha256 sonoma:        "d24d7d9fb7da4fd40a184cb9e3fe74e4d9b4fd1b1f4e4a0f972124e8bce8fcd3"
+    sha256 ventura:       "f3946faa1c7324a8b9862f006593a1d584ae75fed125458ad143d6b8bcc8ff28"
+    sha256 arm64_linux:   "cfa202682d2480db4549e0b1ac4c3a54b910996441eda29da5e035cc1a98c5d4"
+    sha256 x86_64_linux:  "5736259135f916214319c80cbbd5c0da0d36aade805bbd804c86aff6c0b4ecb8"
   end
 
   depends_on "ca-certificates"
