@@ -23,8 +23,6 @@ class Legba < Formula
   depends_on "samba"
 
   def install
-    # Support cmake 4, remove after https://github.com/evilsocket/legba/pull/72
-    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
     # Ensure that the `openssl` crate picks up the intended library.
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
