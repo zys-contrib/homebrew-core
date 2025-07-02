@@ -1,8 +1,8 @@
 class KosliCli < Formula
   desc "CLI for managing Kosli"
   homepage "https://docs.kosli.com/client_reference/"
-  url "https://github.com/kosli-dev/cli/archive/refs/tags/v2.11.15.tar.gz"
-  sha256 "a4ee1b204aa7213db28143944f014ac45cc1f75e7578a81e89ef509c2042729a"
+  url "https://github.com/kosli-dev/cli/archive/refs/tags/v2.11.16.tar.gz"
+  sha256 "e5d1fffc37feb9243c6d29fa2e9c9d910522c0d546d52204773cb27ee5d5115c"
   license "MIT"
   head "https://github.com/kosli-dev/cli.git", branch: "main"
 
@@ -10,8 +10,6 @@ class KosliCli < Formula
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "67f4b68715bda0101d061a07d0e68f926b6a9f4acbc1366cfb863faabe6add69"
