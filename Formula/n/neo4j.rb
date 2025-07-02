@@ -12,7 +12,7 @@ class Neo4j < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "13b2e6e54ec4ec8ed1413e1edf5a5546e9cee812228b44cf0a24c70668b4b6d7"
+    sha256 cellar: :any_skip_relocation, all: "27a4ba942f00f360c363e718419ba7afd3e7de4a9096b4d84457cc7bef870848"
   end
 
   depends_on "cypher-shell"
