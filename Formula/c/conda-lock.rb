@@ -3,10 +3,9 @@ class CondaLock < Formula
 
   desc "Lightweight lockfile for conda environments"
   homepage "https://github.com/conda/conda-lock"
-  url "https://files.pythonhosted.org/packages/f4/f6/6fe5e9cfe57e9c12bf2a724f6fcc8775afbc164c88f35224a3714ac79518/conda_lock-3.0.3.tar.gz"
-  sha256 "00d0771a08414759551b6a3a1e5a2ea47bcec21736047e346da90c29124d3928"
+  url "https://files.pythonhosted.org/packages/92/f9/f69356267a3ba56adb3ab531cb797990d32938532eaeb8097a09d4f8f681/conda_lock-3.0.4.tar.gz"
+  sha256 "7ba6f8067834b3aae8662ed6316c5f15def431f129ddf423f7957c6181523db6"
   license "MIT"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "a0248f317a28f782e6a22af718d18ef4e19e373c3075e8b90c9e2786a421aa1f"
@@ -126,8 +125,8 @@ class CondaLock < Formula
   end
 
   resource "jaraco-functools" do
-    url "https://files.pythonhosted.org/packages/ab/23/9894b3df5d0a6eb44611c36aec777823fc2e07740dabbd0b810e19594013/jaraco_functools-4.1.0.tar.gz"
-    sha256 "70f7e0e2ae076498e212562325e805204fc092d7b4c17e0e86c959e249701a9d"
+    url "https://files.pythonhosted.org/packages/49/1c/831faaaa0f090b711c355c6d8b2abf277c72133aab472b6932b03322294c/jaraco_functools-4.2.1.tar.gz"
+    sha256 "be634abfccabce56fa3053f8c7ebe37b682683a4ee7793670ced17bab0087353"
   end
 
   resource "jeepney" do
@@ -268,11 +267,6 @@ class CondaLock < Formula
   resource "virtualenv" do
     url "https://files.pythonhosted.org/packages/56/2c/444f465fb2c65f40c3a104fd0c495184c4f2336d65baf398e3c75d72ea94/virtualenv-20.31.2.tar.gz"
     sha256 "e10c0a9d02835e592521be48b332b6caee6887f332c111aa79a09b9e79efc2af"
-  end
-
-  resource "xattr" do
-    url "https://files.pythonhosted.org/packages/62/bf/8b98081f9f8fd56d67b9478ff1e0f8c337cde08bcb92f0d592f0a7958983/xattr-1.1.4.tar.gz"
-    sha256 "b7b02ecb2270da5b7e7deaeea8f8b528c17368401c2b9d5f63e91f545b45d372"
   end
 
   resource "zstandard" do
