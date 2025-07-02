@@ -18,6 +18,7 @@ class Aerc < Formula
 
   depends_on "go" => :build
   depends_on "scdoc" => :build
+  depends_on "notmuch"
 
   def install
     system "make", "PREFIX=#{prefix}", "VERSION=#{version}"
@@ -25,6 +26,7 @@ class Aerc < Formula
   end
 
   test do
-    system bin/"aerc", "-v"
+    output = shell_output("#{bin}/aerc -v")
+    assert_match(/aerc #{version} \+notmuch\.*/, output)
   end
 end
