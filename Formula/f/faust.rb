@@ -1,10 +1,9 @@
 class Faust < Formula
   desc "Functional programming language for real time signal processing"
   homepage "https://faust.grame.fr"
-  url "https://github.com/grame-cncm/faust/releases/download/2.79.3/faust-2.79.3.tar.gz"
-  sha256 "ca2171cb136f135960be10fee2c1728304865a5d5190e9a03cace88b4936c558"
+  url "https://github.com/grame-cncm/faust/releases/download/2.81.2/faust-2.81.2.tar.gz"
+  sha256 "c91afe17cc01f1f75e4928dc2d2971dd83b37d10be991dda7e8b94ffab1f1ac9"
   license "GPL-2.0-or-later"
-  revision 1
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
   # labeled as "pre-release" on GitHub before the version is released, so it's
