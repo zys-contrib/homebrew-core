@@ -8,13 +8,13 @@ class CondaLock < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a0248f317a28f782e6a22af718d18ef4e19e373c3075e8b90c9e2786a421aa1f"
-    sha256 cellar: :any,                 arm64_sonoma:  "d743d9ec131e5e3be7a3fe0b575eaf9727b2e33ddad11359f980287af61fb284"
-    sha256 cellar: :any,                 arm64_ventura: "6e03697fae43586290a4eb22ee134179ec140538c2214226cc647506e1902d63"
-    sha256 cellar: :any,                 sonoma:        "08465169f2a86e27b211dfd6fa712b5ba1c216214a25f9c8e738bae05d3bcd9a"
-    sha256 cellar: :any,                 ventura:       "15c4670114bd0e9fe6659a1970fb75e3bed0d9cb884e70268b37cc6a693d91d6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "24a97834f35acc9909c7fe00c2bad337eb93744d1b4c4eda88ad986a8e832346"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "882b9246aa1af9daa8f1a66df5888b8e7d84fa914b7f2aaaa645a5c017189862"
+    sha256 cellar: :any,                 arm64_sequoia: "f51af4ce76132853cdbb636c977be2b581983a33cea5254c9caceff59440612f"
+    sha256 cellar: :any,                 arm64_sonoma:  "84cd572834730eaddc9d3eeef5a8151e83e27071e59d70314907d1ae77c86e8c"
+    sha256 cellar: :any,                 arm64_ventura: "4f08edb6a04dc4ce34a109a9b00c57d4f8dcc66e7b0da42338abc75121d59f38"
+    sha256 cellar: :any,                 sonoma:        "17783878da24e3a6febddc829de59b029d21b00b2cbaf617ff238c133186bcca"
+    sha256 cellar: :any,                 ventura:       "086e861abc20a1711655a59efd009bf11519234d8083b0bbfaad34ec03f860aa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b72e91b2c77c56fbd2ad338a50f6a55ddfa1c6fe1e8d85acd77626806fe2b6ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3824e0a777bc8937b64e0fbdae6141f47935bd2bb9cb6197c15a0c5f7923e8da"
   end
 
   depends_on "rust" => :build # for pydantic
