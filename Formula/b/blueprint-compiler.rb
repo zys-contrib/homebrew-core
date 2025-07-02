@@ -2,12 +2,10 @@ class BlueprintCompiler < Formula
   desc "Markup language and compiler for GTK 4 user interfaces"
   homepage "https://gnome.pages.gitlab.gnome.org/blueprint-compiler/"
   url "https://gitlab.gnome.org/GNOME/blueprint-compiler.git",
-      tag:      "v0.16.0",
-      revision: "04ef0944db56ab01307a29aaa7303df6067cb3c0"
+      tag:      "v0.18.0",
+      revision: "07c9c9df9cd1b6b4454ecba21ee58211e9144a4b"
   license "LGPL-3.0-or-later"
   head "https://gitlab.gnome.org/GNOME/blueprint-compiler.git", branch: "main"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "934e915f724789737e2aff49d9607966366342257941e1f44ee5d03c358d331a"
