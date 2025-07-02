@@ -1,27 +1,15 @@
 class Beast < Formula
   desc "Bayesian Evolutionary Analysis Sampling Trees"
   homepage "https://beast.community/"
+  url "https://github.com/beast-dev/beast-mcmc/archive/refs/tags/v10.5.0.tar.gz"
+  sha256 "6287ebbe85e65e44f421b7e9ec3fd17d9a736ff909dfa3b4ab6b1b1fd361b52b"
   license "LGPL-2.1-or-later"
-  revision 1
   head "https://github.com/beast-dev/beast-mcmc.git", branch: "master"
-
-  stable do
-    url "https://github.com/beast-dev/beast-mcmc/archive/refs/tags/v1.10.4.tar.gz"
-    sha256 "6e28e2df680364867e088acd181877a5d6a1d664f70abc6eccc2ce3a34f3c54a"
-
-    # Backport support for building on newer OpenJDK
-    patch do
-      url "https://github.com/beast-dev/beast-mcmc/commit/3b91c1d391daf350c92f84c5900b58ff72a889af.patch?full_index=1"
-      sha256 "64511255b4cd3339ad9be5a6b1cb98283cb279cab5a60913b9a1619433b702f7"
-    end
-  end
 
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 2
@@ -41,7 +29,7 @@ class Beast < Formula
   def install
     ENV["JAVA_HOME"] = Language::Java.java_home
     system "ant", "linux"
-    libexec.install Dir["release/Linux/BEASTv*/*"]
+    libexec.install Dir["release/Linux/BEAST_X_v*/*"]
     pkgshare.install_symlink libexec/"examples"
     bin.install Dir[libexec/"bin/*"]
 
