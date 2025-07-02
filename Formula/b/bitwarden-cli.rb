@@ -4,6 +4,7 @@ class BitwardenCli < Formula
   url "https://github.com/bitwarden/clients/archive/refs/tags/cli-v2025.6.1.tar.gz"
   sha256 "73d620b95e3554ed980a582f36e5f8a62d7a5839841179281470bc2b973ad96c"
   license "GPL-3.0-only"
+  head "https://github.com/bitwarden/clients.git", branch: "main"
 
   livecheck do
     url :stable
@@ -23,46 +24,28 @@ class BitwardenCli < Formula
   depends_on "node"
 
   def install
-    system "npm", "ci", "--ignore-scripts"
-
     # Fix to build error with xcode 16.3 for `argon2`
     # Issue ref:
     # - https://github.com/bitwarden/clients/issues/15000
     # - https://github.com/ranisalt/node-argon2/issues/448
-    inreplace "package.json", '"argon2": "0.41.1"', '"argon2": "0.43.0"'
-    inreplace "apps/cli/package.json", '"argon2": "0.41.1"', '"argon2": "0.43.0"'
+    inreplace ["package.json", "apps/cli/package.json"], '"argon2": "0.41.1"', '"argon2": "0.43.0"'
 
-    # Fix to Error: Cannot find module 'semver'
-    # PR ref: https://github.com/bitwarden/clients/pull/15005
-    system "npm", "install", "semver", "argon2", *std_npm_args
-
+    system "npm", "install", *std_npm_args(prefix: false), "--ignore-scripts"
     cd buildpath/"apps/cli" do
       # The `oss` build of Bitwarden is a GPL backed build
       system "npm", "run", "build:oss:prod", "--ignore-scripts"
-      cd "./build" do
-        # Fix to Error: Cannot find module 'semver'
-        # PR ref: https://github.com/bitwarden/clients/pull/15005
-        system "npm", "install", "semver", "argon2", *std_npm_args
-        bin.install_symlink Dir[libexec/"bin/*"]
-      end
+      system "npm", "install", *std_npm_args
     end
+    bin.install_symlink libexec.glob("bin/*")
 
     # Remove incompatible pre-built `argon2` binaries
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
-    base = (libexec/"lib/node_modules")
+    node_modules = libexec/"lib/node_modules/@bitwarden/cli/node_modules"
+    node_modules.glob("argon2/prebuilds/linux-*/argon2*.musl.node").map(&:unlink)
+    (node_modules/"argon2/prebuilds").each_child { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
 
-    universals = "{@microsoft/signalr/node_modules/utf-8-validate,bufferutil,utf-8-validate}"
-    universal_archs = "{darwin-x64+arm64,linux-x64}"
-    base.glob("@bitwarden/clients/node_modules/#{universals}/prebuilds/#{universal_archs}/*.node").each(&:unlink)
-
-    prebuilds = "{,@bitwarden/cli/node_modules/,@bitwarden/clients/node_modules/}"
-    base.glob("#{prebuilds}argon2/prebuilds") do |path|
-      path.glob("**/*.node").each(&:unlink)
-      path.children.each { |dir| rm_r(dir) if dir.directory? && dir.basename.to_s != "#{os}-#{arch}" }
-    end
-
-    generate_completions_from_executable(bin/"bw", "completion", shells: [:zsh], shell_parameter_format: :arg)
+    generate_completions_from_executable(bin/"bw", "completion", "--shell", shells: [:zsh])
   end
 
   test do
