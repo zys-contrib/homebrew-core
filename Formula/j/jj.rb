@@ -1,8 +1,8 @@
 class Jj < Formula
   desc "Git-compatible distributed version control system"
   homepage "https://github.com/jj-vcs/jj"
-  url "https://github.com/jj-vcs/jj/archive/refs/tags/v0.30.0.tar.gz"
-  sha256 "86f8df1e4e76c6a4bcdb728fa74876bacf931641157d16f6e93ebeb5bac0151c"
+  url "https://github.com/jj-vcs/jj/archive/refs/tags/v0.31.0.tar.gz"
+  sha256 "ff40515de7a5adac267c64c0163b38990a74a71bb7612a898832c812a81070b2"
   license "Apache-2.0"
   head "https://github.com/jj-vcs/jj.git", branch: "main"
 
@@ -26,8 +26,6 @@ class Jj < Formula
   end
 
   test do
-    require "utils/linkage"
-
     touch testpath/"README.md"
     system bin/"jj", "git", "init"
     system bin/"jj", "describe", "-m", "initial commit"
