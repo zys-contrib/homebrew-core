@@ -11,6 +11,15 @@ class Turso < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "adf17a27a75e91f3cee9810e0cc85df0d5c3ea1032769db1b45f7fbb74223be1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b3abae2e50975c53a3a5b1bcf9399c83f59b60e6f1219e89d796db7a6b331588"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "cf206b169bc8e29a9a528eddf20023f0e98d71dfa1dfac79ceb82f0676811e88"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fd6791981bdeaa67724ba9ceb2262b14f6ad1d828f232ebc734f1f3dd37b24e6"
+    sha256 cellar: :any_skip_relocation, ventura:       "cd5c5925aa23b1f594bff07bc6b38729dfcf1ec074a23e2ff56d8ee7d82fa528"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d1e057d64a70bb50d64fe5e512c87d3fe0207a95a86e8b0700d7ad4528dea30b"
+  end
+
   depends_on "rust" => :build
   uses_from_macos "sqlite" => :test
 
