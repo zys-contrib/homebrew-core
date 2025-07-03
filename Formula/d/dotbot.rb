@@ -3,8 +3,8 @@ class Dotbot < Formula
 
   desc "Tool that bootstraps your dotfiles"
   homepage "https://github.com/anishathalye/dotbot"
-  url "https://files.pythonhosted.org/packages/3d/64/753a02c8cd7451b7427b8639ed1defc7a3f0c4ab16f91b1676c8339007c7/dotbot-1.22.0.tar.gz"
-  sha256 "9927ccee53483b84fd3035593e470bdf313b3e77787e67663fdff7098786e6d9"
+  url "https://files.pythonhosted.org/packages/9b/ca/b3ed58bef83a0e25a913b7f77794aa848ad2d7b976c452488b5fe268086b/dotbot-1.23.0.tar.gz"
+  sha256 "909c1b7875c00f5d11d61797e4f1885c4d7a1b4db2290b262a71a0457913a5c6"
   license "MIT"
 
   bottle do
@@ -36,7 +36,7 @@ class Dotbot < Formula
         - .brew/test
     YAML
 
-    output = shell_output("#{bin}/dotbot -c #{testpath}/install.conf.yaml")
+    output = shell_output("#{bin}/dotbot --verbose -c #{testpath}/install.conf.yaml")
     assert_match "All tasks executed successfully", output
     assert_path_exists testpath/"brew"
     assert_path_exists testpath/".brew/test"
