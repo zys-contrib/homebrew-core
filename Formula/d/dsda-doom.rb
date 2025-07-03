@@ -4,6 +4,7 @@ class DsdaDoom < Formula
   url "https://github.com/kraflab/dsda-doom/archive/refs/tags/v0.29.3.tar.gz"
   sha256 "9b9218d26055d2e2a3b830913cfe52f56b2a6dd4a16720634f0bc5dbe560fb84"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/kraflab/dsda-doom.git", branch: "master"
 
   livecheck do
@@ -23,8 +24,8 @@ class DsdaDoom < Formula
 
   depends_on "cmake" => :build
 
-  depends_on "dumb"
   depends_on "fluid-synth"
+  depends_on "libopenmpt"
   depends_on "libvorbis"
   depends_on "libzip"
   depends_on "mad"
@@ -52,9 +53,9 @@ class DsdaDoom < Formula
     system "cmake", "-S", "prboom2", "-B", "build",
                     "-DDOOMWADDIR=#{doomwaddir(HOMEBREW_PREFIX)}",
                     "-DDSDAPWADDIR=#{libexec}",
-                    "-DWITH_DUMB=OM",
                     "-DWITH_FLUIDSYNTH=ON",
                     "-DWITH_IMAGE=ON",
+                    "-DWITH_LIBOPENMPT=ON",
                     "-DWITH_MAD=ON",
                     "-DWITH_PORTMIDI=ON",
                     "-DWITH_VORBISFILE=ON",
