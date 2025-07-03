@@ -104,6 +104,7 @@
   "libsasl2": "cyrus-sasl",
   "libtorch": "pytorch",
   "libxml++3": "libxml++@3",
+  "limbo": "turso",
   "llama": "walk",
   "mat": "mat2",
   "minizip2": "minizip-ng",
