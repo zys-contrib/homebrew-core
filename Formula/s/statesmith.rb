@@ -6,12 +6,12 @@ class Statesmith < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "86f698f5d2d76c8eb1f778e499ea4e557a6279992bdb974311b1231853fef6de"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7542a876bf8a924ce082cc0de8a1f7fe5e6b3c9660340a6cf7cd0d446371bdeb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "eff01365f5cca9d476f49b3833ff71be77bbcd16e7b57795a3410f806af8be26"
-    sha256 cellar: :any_skip_relocation, ventura:       "e18105ffcabae10501200f28a10b641afca02bb924b75ea22d1e44faf2474cca"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0f0d47885851de435d1ec58e52e5c7493ab5fcc1158bc973ebdb9119c68f17aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "43fb000e7287ae4ae3b6fe53a88024f7d81ec1d35955975fb7ce01997f241ca7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "51a2b7d29a819b61412f6e61375be281913b70969124bc1b38e556d99f99a7e4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4067416e009ceca48dadfa14747ed906c8aebf9f5830fbc0f2d9cd0cf5596734"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "388d77f0ca4451a2f8a7a7745475bb379a653e11eb7ef59fa10b540c924d1e5a"
+    sha256 cellar: :any_skip_relocation, ventura:       "d5801e45af1dec109276a130a924a83ab3c3d22af8ab650432267e4e3ea574f8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "96bdc03ac76d9856ebfffb850efb386f01b7b638b93797aa68db7c881e077b43"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2490c6fbc709c4e303a0db64b6fc9d2a50db753116e8434dd6a333e610872c6"
   end
 
   depends_on "dotnet"
