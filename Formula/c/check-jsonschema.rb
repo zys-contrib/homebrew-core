@@ -3,8 +3,8 @@ class CheckJsonschema < Formula
 
   desc "JSON Schema CLI"
   homepage "https://github.com/python-jsonschema/check-jsonschema"
-  url "https://files.pythonhosted.org/packages/a1/89/0fd8397eb84bdf50ffbbfb1aeea6d21ce8c4eebef435b4ef14d05899f686/check_jsonschema-0.33.1.tar.gz"
-  sha256 "69ec6c1fcf3f7b6bd27dbff27959203eeca0b8f2ef0bb5cdb00ceb63312932ce"
+  url "https://files.pythonhosted.org/packages/b0/01/b71c19a199d731663b752cf6a50c4c557bd2ebec539f0b6da7d3f3e21126/check_jsonschema-0.33.2.tar.gz"
+  sha256 "20cf97e0a32be7f3652c009ce3538443196677a903b72b3b4cb522fb54ee4588"
   license "Apache-2.0"
   head "https://github.com/python-jsonschema/check-jsonschema.git", branch: "main"
 
@@ -103,8 +103,8 @@ class CheckJsonschema < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/8c/a6/60184b7fc00dd3ca80ac635dd5b8577d444c57e8e8742cecabfacb829921/rpds_py-0.25.1.tar.gz"
-    sha256 "8960b6dac09b62dac26e75d7e2c4a22efb835d827a7278c34f72b2b84fa160e3"
+    url "https://files.pythonhosted.org/packages/a5/aa/4456d84bbb54adc6a916fb10c9b374f78ac840337644e4a5eda229c81275/rpds_py-0.26.0.tar.gz"
+    sha256 "20dae58a859b0906f0685642e591056f1e787f3a8b39c8e8749a45dc7d26bdb0"
   end
 
   resource "ruamel-yaml" do
