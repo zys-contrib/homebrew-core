@@ -4,6 +4,7 @@ class DsdaDoom < Formula
   url "https://github.com/kraflab/dsda-doom/archive/refs/tags/v0.29.3.tar.gz"
   sha256 "9b9218d26055d2e2a3b830913cfe52f56b2a6dd4a16720634f0bc5dbe560fb84"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/kraflab/dsda-doom.git", branch: "master"
 
   livecheck do
@@ -12,19 +13,19 @@ class DsdaDoom < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "6e9a8f28b867e056a8b9601ea493bf8193c0afd57db799e7a53507c51cc26d18"
-    sha256 arm64_sonoma:  "6285d027051ac300047c50ba814ac87d8e29f1e8b688ded6791cd03fe0cb2ebc"
-    sha256 arm64_ventura: "9705f52a1c33473b19ea113819887823d04b48bf3518684ec51a28006bd77da5"
-    sha256 sonoma:        "e87d54a8d5bb3336aa0275c8b2103efef53b785bf8f9750a2e532072f113be0c"
-    sha256 ventura:       "303f91af41fc76ff132871962ea50fa00b355bb0dc0d61e985e71ce24c73da11"
-    sha256 arm64_linux:   "57ae0d2b5a22b813aa4af16f4ecb1530b3f8b713dfca30d251aaf996e06f6271"
-    sha256 x86_64_linux:  "af966d4173390da68aaccb607379675b027ebd462e02fd13ec44db535b2d002b"
+    sha256 arm64_sequoia: "a055e107d33729ce1251c9d4dddab9ec29c4df7e62e96875da12d8405ed669fd"
+    sha256 arm64_sonoma:  "f39be35e19a405dfb4f2d19959cc937f64f9d8f7df14ba877ae5e30b0032991b"
+    sha256 arm64_ventura: "891630b837903ceff3bb20177bca6ead60f6d488f5200062e02a2c93b57466d1"
+    sha256 sonoma:        "45485a08e04fcdb05c0c2786431ea68a494032db0b85a494c59a389317a3f03e"
+    sha256 ventura:       "e9a0cd7a8aad28b0c20c588e82b0517ecf84d8b910a96f4b4e5f88bec6efc4fb"
+    sha256 arm64_linux:   "9b892f7df0a302c769bc55e2314d6920ba8d5c9932abffdebde0c25cfc8e27c9"
+    sha256 x86_64_linux:  "ee6294b5d234e411f001f709e963a008dd39a15586295283610337be1b8e1f8f"
   end
 
   depends_on "cmake" => :build
 
-  depends_on "dumb"
   depends_on "fluid-synth"
+  depends_on "libopenmpt"
   depends_on "libvorbis"
   depends_on "libzip"
   depends_on "mad"
@@ -52,9 +53,9 @@ class DsdaDoom < Formula
     system "cmake", "-S", "prboom2", "-B", "build",
                     "-DDOOMWADDIR=#{doomwaddir(HOMEBREW_PREFIX)}",
                     "-DDSDAPWADDIR=#{libexec}",
-                    "-DWITH_DUMB=OM",
                     "-DWITH_FLUIDSYNTH=ON",
                     "-DWITH_IMAGE=ON",
+                    "-DWITH_LIBOPENMPT=ON",
                     "-DWITH_MAD=ON",
                     "-DWITH_PORTMIDI=ON",
                     "-DWITH_VORBISFILE=ON",
