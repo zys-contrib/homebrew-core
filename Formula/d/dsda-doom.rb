@@ -12,13 +12,13 @@ class DsdaDoom < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "6a367777f6c777f7dba7736363f9e29071b99d9ef08d81541b793246fcb3e5b0"
-    sha256 arm64_sonoma:  "c6750ccaebc6cbc544694435784739cb912c8342eb237d36434b847cb4328a24"
-    sha256 arm64_ventura: "ac9062632042cf0e7091d2e2774b0ec55f6f1e1379ebdc1688e6ea4f57e1c4ba"
-    sha256 sonoma:        "96c0d3b07a26ad050ac8455fb4b23bc90d53eaebdae5b483c114d55e8fabe2c6"
-    sha256 ventura:       "7d764812e4607579d77ee0ae2dbd4c4f8fdfd47d6d9709cc685b99b768c4cc6b"
-    sha256 arm64_linux:   "c249c1c6021ff328a3eb89a2a12c66d0f8d6f5ad9574ee13d03fc465ced438a9"
-    sha256 x86_64_linux:  "fc130906d9fc84220c81559bb06c01a63ddc07f4d9fb8bddeb2ed2d2a5df9572"
+    sha256 arm64_sequoia: "6e9a8f28b867e056a8b9601ea493bf8193c0afd57db799e7a53507c51cc26d18"
+    sha256 arm64_sonoma:  "6285d027051ac300047c50ba814ac87d8e29f1e8b688ded6791cd03fe0cb2ebc"
+    sha256 arm64_ventura: "9705f52a1c33473b19ea113819887823d04b48bf3518684ec51a28006bd77da5"
+    sha256 sonoma:        "e87d54a8d5bb3336aa0275c8b2103efef53b785bf8f9750a2e532072f113be0c"
+    sha256 ventura:       "303f91af41fc76ff132871962ea50fa00b355bb0dc0d61e985e71ce24c73da11"
+    sha256 arm64_linux:   "57ae0d2b5a22b813aa4af16f4ecb1530b3f8b713dfca30d251aaf996e06f6271"
+    sha256 x86_64_linux:  "af966d4173390da68aaccb607379675b027ebd462e02fd13ec44db535b2d002b"
   end
 
   depends_on "cmake" => :build
