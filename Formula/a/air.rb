@@ -11,6 +11,7 @@ class Air < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "aa9e723148a45dcc3c566241d4dbba0e504a9ad0506dd7fc022b7f2bda64073c"
     sha256 cellar: :any_skip_relocation, sonoma:        "550dec31a71701f7a342dba827b5672f216d8a87a9bd1143e492afaaf5638892"
     sha256 cellar: :any_skip_relocation, ventura:       "68de0b88299a6ca355cb1ec8103e20c043da1f954ae4b19f0c914794ec1c6b26"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "424eb95cbea40473e47489dc73e6fb78478e34a412c57150485cd709162fd69a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d6d8c17739084e5fbb7aaf278adead841d7a66f8ca47b75f8bdd35b1a549755"
   end
 
