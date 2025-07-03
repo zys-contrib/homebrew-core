@@ -1,8 +1,8 @@
 class SwaggerCodegen < Formula
   desc "Generate clients, server stubs, and docs from an OpenAPI spec"
   homepage "https://swagger.io/tools/swagger-codegen/"
-  url "https://github.com/swagger-api/swagger-codegen/archive/refs/tags/v3.0.70.tar.gz"
-  sha256 "d7e13130abe3405d847a2cdb6f2a67d4bef6c157f159b9da1aefbc988d523319"
+  url "https://github.com/swagger-api/swagger-codegen/archive/refs/tags/v3.0.71.tar.gz"
+  sha256 "679818d2ddbca25b6c3de895d5124260e4eb0d187d2694cf6a5c7c411e14a797"
   license "Apache-2.0"
   head "https://github.com/swagger-api/swagger-codegen.git", branch: "master"
 
@@ -18,9 +18,6 @@ class SwaggerCodegen < Formula
 
   depends_on "maven" => :build
   depends_on "openjdk"
-
-  # patch swagger-codegen-generators version, upstream issue, https://github.com/swagger-api/swagger-codegen/issues/12573
-  patch :DATA
 
   def install
     # Need to set JAVA_HOME manually since maven overrides 1.8 with 1.7+
@@ -49,44 +46,3 @@ class SwaggerCodegen < Formula
     assert_includes File.read(testpath/"index.html"), "<h1>Simple API</h1>"
   end
 end
-
-__END__
-diff --git a/pom.docker.xml b/pom.docker.xml
-index f893961..aa9fbf6 100644
---- a/pom.docker.xml
-+++ b/pom.docker.xml
-@@ -1107,7 +1107,7 @@
-     </dependencyManagement>
-     <properties>
-         <maven.compiler.release>8</maven.compiler.release>
--        <swagger-codegen-generators-version>1.0.58-SNAPSHOT</swagger-codegen-generators-version>
-+        <swagger-codegen-generators-version>1.0.57</swagger-codegen-generators-version>
-         <swagger-core-version>2.2.28</swagger-core-version>
-         <swagger-core-version-v1>1.6.15</swagger-core-version-v1>
-         <swagger-parser-version>2.1.25</swagger-parser-version>
-diff --git a/pom.xml b/pom.xml
-index b46c57d..6690405 100644
---- a/pom.xml
-+++ b/pom.xml
-@@ -1208,7 +1208,7 @@
-     </dependencyManagement>
-     <properties>
-         <maven.compiler.release>8</maven.compiler.release>
--        <swagger-codegen-generators-version>1.0.58-SNAPSHOT</swagger-codegen-generators-version>
-+        <swagger-codegen-generators-version>1.0.57</swagger-codegen-generators-version>
-         <swagger-core-version>2.2.28</swagger-core-version>
-         <swagger-core-version-v1>1.6.15</swagger-core-version-v1>
-         <swagger-parser-version>2.1.25</swagger-parser-version>
-diff --git a/samples/meta-codegen/pom.xml b/samples/meta-codegen/pom.xml
-index a0074a4..480530c 100644
---- a/samples/meta-codegen/pom.xml
-+++ b/samples/meta-codegen/pom.xml
-@@ -121,7 +121,7 @@
-     <properties>
-         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-         <swagger-codegen-version>3.0.70</swagger-codegen-version>
--        <swagger-codegen-generators-version>1.0.58-SNAPSHOT</swagger-codegen-generators-version>
-+        <swagger-codegen-generators-version>1.0.57</swagger-codegen-generators-version>
-         <maven-plugin-version>1.0.0</maven-plugin-version>
-         <junit-version>4.13.2</junit-version>
-         <build-helper-maven-plugin>3.0.0</build-helper-maven-plugin>
