@@ -1,8 +1,8 @@
 class Statesmith < Formula
   desc "State machine code generation tool suitable for bare metal, embedded and more"
   homepage "https://github.com/StateSmith/StateSmith"
-  url "https://github.com/StateSmith/StateSmith/archive/refs/tags/cli-v0.18.2.tar.gz"
-  sha256 "f6823b7734b431bd567a59258549b3a77662d1b561dc33093ea503f904be25ce"
+  url "https://github.com/StateSmith/StateSmith/archive/refs/tags/cli-v0.18.3.tar.gz"
+  sha256 "8f7d72d6d5624ab60617ec668ac617e10842ddb559013e49d345174ea5f0a4ad"
   license "Apache-2.0"
 
   bottle do
