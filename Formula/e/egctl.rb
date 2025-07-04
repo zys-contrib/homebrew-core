@@ -1,8 +1,8 @@
 class Egctl < Formula
   desc "Command-line utility for operating Envoy Gateway"
   homepage "https://gateway.envoyproxy.io/"
-  url "https://github.com/envoyproxy/gateway/archive/refs/tags/v1.4.1.tar.gz"
-  sha256 "325564511cbbd90ba3a674feaa88218c6f178323153a8921c5b4786441585cdb"
+  url "https://github.com/envoyproxy/gateway/archive/refs/tags/v1.4.2.tar.gz"
+  sha256 "5c8d2df2246a62f5314bebac3b95f07e3e0d77887201dfe44b5da0c553d9fbe3"
   license "Apache-2.0"
   head "https://github.com/envoyproxy/gateway.git", branch: "main"
 
