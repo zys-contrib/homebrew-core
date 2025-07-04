@@ -1,8 +1,8 @@
 class Unxip < Formula
   desc "Fast Xcode unarchiver"
   homepage "https://github.com/saagarjha/unxip"
-  url "https://github.com/saagarjha/unxip/archive/refs/tags/v3.1.tar.gz"
-  sha256 "d76cabf3c0c057d87fd910ab0de5d9a1108b037f7e7406802f40885d80d49295"
+  url "https://github.com/saagarjha/unxip/archive/refs/tags/v3.2.tar.gz"
+  sha256 "6ce48aa06d1fe06352f2937912cb43c7cd93c0a8066222af35d29d6d08130788"
   license "LGPL-3.0-only"
   head "https://github.com/saagarjha/unxip.git", branch: "main"
 
