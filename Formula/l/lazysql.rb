@@ -1,8 +1,8 @@
 class Lazysql < Formula
   desc "Cross-platform TUI database management tool"
   homepage "https://github.com/jorgerojas26/lazysql"
-  url "https://github.com/jorgerojas26/lazysql/archive/refs/tags/v0.3.7.tar.gz"
-  sha256 "de14848d91db3bd70dac399030fd7f5053b8fd6479d2b15fdafcda03ff136724"
+  url "https://github.com/jorgerojas26/lazysql/archive/refs/tags/v0.3.8.tar.gz"
+  sha256 "9601618df5aad0d4e94ebb963df77336f17490000dcceb6b70f899ee0abb66c1"
   license "MIT"
   head "https://github.com/jorgerojas26/lazysql.git", branch: "main"
 
