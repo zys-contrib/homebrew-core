@@ -1,8 +1,8 @@
 class Repomix < Formula
   desc "Pack repository contents into a single AI-friendly file"
   homepage "https://github.com/yamadashy/repomix"
-  url "https://registry.npmjs.org/repomix/-/repomix-1.0.0.tgz"
-  sha256 "07f6e6b38208d1174ae52f2e070032676c937ccf73871c356676a56a37830103"
+  url "https://registry.npmjs.org/repomix/-/repomix-1.1.0.tgz"
+  sha256 "0dec3f94e8b0f50de2f0162ac4fac3c8b086aa49070324ad71698a8d1a95199e"
   license "MIT"
 
   bottle do
