@@ -50,7 +50,7 @@ class Zeromq < Formula
     # https://github.com/Homebrew/homebrew-core/pull/35940#issuecomment-454177261
 
     system "./autogen.sh" if build.head?
-    system "./configure", "--with-libsodium", *std_configure_args
+    system "./configure", "--with-libsodium", "--enable-drafts", *std_configure_args
     system "make"
     system "make", "install"
   end
