@@ -1,8 +1,8 @@
 class Mx < Formula
   desc "Command-line tool used for the development of Graal projects"
   homepage "https://github.com/graalvm/mx"
-  url "https://github.com/graalvm/mx/archive/refs/tags/7.58.3.tar.gz"
-  sha256 "3406ef6ef74a1bf0d26ea3421123b31acba2f7f6fdb96e0d9c3ce166f333258f"
+  url "https://github.com/graalvm/mx/archive/refs/tags/7.58.4.tar.gz"
+  sha256 "3b36b0e590a94859c9e17d798dfcd04e8ce01cd6b18465a22484ee3ad1c5f6c3"
   license "GPL-2.0-only"
 
   livecheck do
