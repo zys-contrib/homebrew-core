@@ -773,6 +773,9 @@
     "extra_packages": ["pyyaml"],
     "exclude_packages": ["numpy"]
   },
+  "pytr": {
+    "exclude_packages": ["certifi"]
+  },
   "rasterio": {
     "exclude_packages": ["certifi", "numpy"]
   },
