@@ -11,7 +11,7 @@ class Gradle < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "11970c2e53f6ee9814c0c612b46ab4f586fb5fa4c1b6c9c9447e736ba82764ce"
+    sha256 cellar: :any_skip_relocation, all: "c17d226eaddf29b9044dac1365a2ebca2a4190ecf832420ace73e49f04749e1c"
   end
 
   # https://github.com/gradle/gradle/blob/master/platforms/documentation/docs/src/docs/userguide/releases/compatibility.adoc
