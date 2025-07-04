@@ -7,6 +7,15 @@ class Pytr < Formula
   sha256 "d01337a50df274e0c79bf439758150019ef3f0160ce654b2d91e558c4b2d6c1b"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "31afc781e248f309cd5278a0a362c4458c76bebd5e335c80f1d6f2fade196535"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8a10fcd59f4840123de34c8d896e47bf040d9eff2c7104df248feaa9b63110ce"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "263e062abca6db0886e68590a41dc0f96f28236fd13b7098d2f072ffd505a9b5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a13baa233dd3f906c1f00d7563e0c4b9f88091aebc2396622cab2fdc7a284284"
+    sha256 cellar: :any_skip_relocation, ventura:       "66e8967be851d07bbe3285cb1de65b37dc5245753a0d2d557799291741719b1d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d255c967339be6f91383e0aa87dfab98fe1aae346eaea107de329a560a83e623"
+  end
+
   depends_on "certifi"
   depends_on "python@3.13"
 
