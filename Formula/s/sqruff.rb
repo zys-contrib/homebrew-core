@@ -1,8 +1,8 @@
 class Sqruff < Formula
   desc "Fast SQL formatter/linter"
   homepage "https://github.com/quarylabs/sqruff"
-  url "https://github.com/quarylabs/sqruff/archive/refs/tags/v0.27.0.tar.gz"
-  sha256 "eca6f294ed6f8f9f59c992a4e5803dd7a18430959cc3647f117c21ffcf969810"
+  url "https://github.com/quarylabs/sqruff/archive/refs/tags/v0.28.0.tar.gz"
+  sha256 "ef2b61edb1555ee41a4db4cc6669b4b8e3918aa212dee9fcc82c14f7b296e39b"
   license "Apache-2.0"
   head "https://github.com/quarylabs/sqruff.git", branch: "main"
 
