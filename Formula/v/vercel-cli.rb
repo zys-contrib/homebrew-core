@@ -1,8 +1,8 @@
 class VercelCli < Formula
   desc "Command-line interface for Vercel"
   homepage "https://vercel.com/home"
-  url "https://registry.npmjs.org/vercel/-/vercel-44.2.11.tgz"
-  sha256 "9e2724d2e843589fbfdcd476639e6a19927a7d31fb8f9ab4b164134f4544d045"
+  url "https://registry.npmjs.org/vercel/-/vercel-44.2.12.tgz"
+  sha256 "bd45c3b089aca82823627cebe5ed553230bc39f87ceb12017f74c5ca8f942c84"
   license "Apache-2.0"
 
   bottle do
