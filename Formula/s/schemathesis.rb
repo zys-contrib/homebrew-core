@@ -3,8 +3,8 @@ class Schemathesis < Formula
 
   desc "Testing tool for web applications with specs"
   homepage "https://schemathesis.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/9d/10/789e950712687e2a4476d9145ec445363770b576caaeac045663a53d869e/schemathesis-4.0.4.tar.gz"
-  sha256 "bcec63b6a80212ffb010405065dd1654ddd0a34f68285afb82bd1348db49921f"
+  url "https://files.pythonhosted.org/packages/a5/5a/42bacbb63ead50ce3530c99f02f63486b8d257ad3a27db6715025b7d1ee6/schemathesis-4.0.5.tar.gz"
+  sha256 "c5a80cacdf8dc5c240f77b317d281bf8d30c9b08f9f804c69cbbeca24775bf04"
   license "MIT"
 
   bottle do
@@ -90,8 +90,8 @@ class Schemathesis < Formula
   end
 
   resource "hypothesis" do
-    url "https://files.pythonhosted.org/packages/bf/7a/d7191a2486aa8e809befb264f3b9b455d13bcc170d5a3e30b1eb9c013926/hypothesis-6.135.22.tar.gz"
-    sha256 "6c78c1186f8169232021ab9df909d0b11cefc5fff11d3aa8499dd8bd0e6664bf"
+    url "https://files.pythonhosted.org/packages/cf/ae/f846b67ce9fc80cf51cece6b7adaa3fe2de4251242d142e241ce5d4aa26f/hypothesis-6.135.24.tar.gz"
+    sha256 "e301aeb2691ec0a1f62bfc405eaa966055d603e328cd854c1ed59e1728e35ab6"
   end
 
   resource "hypothesis-graphql" do
@@ -260,8 +260,8 @@ class Schemathesis < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/d1/bc/51647cd02527e87d05cb083ccc402f93e441606ff1f01739a62c8ad09ba5/typing_extensions-4.14.0.tar.gz"
-    sha256 "8676b788e32f02ab42d9e7c61324048ae4c6d844a399eebace3d4979d75ceef4"
+    url "https://files.pythonhosted.org/packages/98/5a/da40306b885cc8c09109dc2e1abd358d5684b1425678151cdaed4731c822/typing_extensions-4.14.1.tar.gz"
+    sha256 "38b39f4aeeab64884ce9f74c94263ef78f3c22467c8724005483154c26648d36"
   end
 
   resource "uri-template" do
