@@ -1,17 +1,14 @@
 class Djvulibre < Formula
   desc "DjVu viewer"
   homepage "https://djvu.sourceforge.net/"
-  url "https://downloads.sourceforge.net/djvu/djvulibre-3.5.28.tar.gz"
-  sha256 "fcd009ea7654fde5a83600eb80757bd3a76998e47d13c66b54c8db849f8f2edc"
+  url "https://downloads.sourceforge.net/djvu/djvulibre-3.5.29.tar.gz"
+  sha256 "d3b4b03ae2bdca8516a36ef6eb27b777f0528c9eda26745d9962824a3fdfeccf"
   license "GPL-2.0-or-later"
-  revision 2
 
   livecheck do
     url :stable
     regex(%r{url=.*?/djvulibre[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 arm64_sequoia:  "251aeb1ba6581281a3742cac327422498cc251097f79c56e4b262a4a32f178b3"
