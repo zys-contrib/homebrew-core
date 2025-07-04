@@ -7,12 +7,12 @@ class Ghorg < Formula
   head "https://github.com/gabrie30/ghorg.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1847efbc8e869a565fd5d3b0a79b92163d79cda6645244b357bf34f31067fd4b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1847efbc8e869a565fd5d3b0a79b92163d79cda6645244b357bf34f31067fd4b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1847efbc8e869a565fd5d3b0a79b92163d79cda6645244b357bf34f31067fd4b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fc3676fb1b2e08d58ed58ef49a47bb319b507cbfcb2b0dfb4d513891c478d4cf"
-    sha256 cellar: :any_skip_relocation, ventura:       "fc3676fb1b2e08d58ed58ef49a47bb319b507cbfcb2b0dfb4d513891c478d4cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa42bbbec84962ee9e3fab7cc98c6624d9163e7deb74de79a9d59fbc432d535f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c9dd0158523958867d1f79c97579dce7dc0d2a516d0fbaba7679193a8129cd90"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c9dd0158523958867d1f79c97579dce7dc0d2a516d0fbaba7679193a8129cd90"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c9dd0158523958867d1f79c97579dce7dc0d2a516d0fbaba7679193a8129cd90"
+    sha256 cellar: :any_skip_relocation, sonoma:        "24a3dac90895e2558f98edd48904bb1f5235422c9bdc0d53cc33b12b9958d083"
+    sha256 cellar: :any_skip_relocation, ventura:       "24a3dac90895e2558f98edd48904bb1f5235422c9bdc0d53cc33b12b9958d083"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a122b0ff7685b4e768aa247778b7236be7d6f6ee704f6088ef165afa85edb04"
   end
 
   depends_on "go" => :build
