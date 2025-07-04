@@ -9,13 +9,13 @@ class Glances < Formula
   revision 5
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "ce57cbf56f260c30e3254a2226c7fba443495d05ff1ea84249977f7fdd53e7c4"
-    sha256 cellar: :any,                 arm64_sonoma:  "740e906e8842eed363fff78e6963754f3c7bdecbc6a82647ddaa732c68e84d79"
-    sha256 cellar: :any,                 arm64_ventura: "f646b48968b54d10b96c8c167aad39d326a64ca57a40bca29c27513cd7f745bd"
-    sha256 cellar: :any,                 sonoma:        "9bc854ecab8456cf671cc64c7b0818a9503b5a6795d73d7227a63324f8ae3173"
-    sha256 cellar: :any,                 ventura:       "b200be9047565c161846c16d91d4bdde61d2bd4ac791ca8712a8ba494dc1f4b0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fdeca40836e9d315bdf4875db9df188d1ea7b223f56090139baf1fa0023129d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da8113201c35e362603863a488d626ac7fc353da37567809eb94792a5bdebd19"
+    sha256 cellar: :any,                 arm64_sequoia: "894dd7cb770ddaa089c165c47435012f89994cb5bfe02a7f166775c2435be659"
+    sha256 cellar: :any,                 arm64_sonoma:  "eaf4f89fe1a05a43608137cf7ff74ead5d126fbf9c3908ecab147424550e5838"
+    sha256 cellar: :any,                 arm64_ventura: "4229127849b934862ef02e4ae88c2be8c9152123416f619f4154c285f035fc20"
+    sha256 cellar: :any,                 sonoma:        "76dc3b9aef89a91de4d0899bea9a43f8e28efa187bc7c357d4a1772fbdc519c2"
+    sha256 cellar: :any,                 ventura:       "a452242056001fa6c13b150970d7976665fe81db56841a27399c4edb4efca57e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "31d47b51b206b1faa160f8ecbbf462b371b037f55463896edc10afece0da0698"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dda017d665b0aad257237117d04b17dc5e00d86faec29d363800a0e73e834f09"
   end
 
   depends_on "cmake" => :build # for pyzmq
