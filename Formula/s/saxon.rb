@@ -20,7 +20,7 @@ class Saxon < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "9c4034c95793e5201c494a6f5306081c90488558205742949d2dea530ff74660"
+    sha256 cellar: :any_skip_relocation, all: "52b46e48018fc8f9837456bf22e740bb5c1372c481465f15198e7c196b1e0017"
   end
 
   depends_on "openjdk"
