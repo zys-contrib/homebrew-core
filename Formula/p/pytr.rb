@@ -13,6 +13,7 @@ class Pytr < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "263e062abca6db0886e68590a41dc0f96f28236fd13b7098d2f072ffd505a9b5"
     sha256 cellar: :any_skip_relocation, sonoma:        "a13baa233dd3f906c1f00d7563e0c4b9f88091aebc2396622cab2fdc7a284284"
     sha256 cellar: :any_skip_relocation, ventura:       "66e8967be851d07bbe3285cb1de65b37dc5245753a0d2d557799291741719b1d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cefef89c6f62db9619330cb70aea3ae772e9b3f1e701bd477d7735d352eb9cec"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d255c967339be6f91383e0aa87dfab98fe1aae346eaea107de329a560a83e623"
   end
 
