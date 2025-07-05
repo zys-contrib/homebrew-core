@@ -11,6 +11,7 @@ class Ffmate < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "cfcda9104196a1fdf12099eb2ea3d7acf98bc6f817623fcc69c80dbcb73ff106"
     sha256 cellar: :any_skip_relocation, sonoma:        "6de50bb039379cba499e9729c4f16d9890e7aa1644f51c405fddb6a80611c127"
     sha256 cellar: :any_skip_relocation, ventura:       "8b504482819f7219dcb0ed35438308b5e5588ccb0ea84f806584eb1ac2461b8f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e443c03bdbd2a9ef7e3b2fc9c4d6204075c074b6de60d5d304aaa434dd549294"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "456d7c6fd91a203abd1dbbae09caf7c64c2d457f7a15724536f3d6f85cf02232"
   end
 
