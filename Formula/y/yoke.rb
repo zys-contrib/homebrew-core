@@ -3,19 +3,19 @@ class Yoke < Formula
   homepage "https://yokecd.github.io/docs/"
   # We use a git checkout since the build relies on tags for the version
   url "https://github.com/yokecd/yoke.git",
-      tag:      "v0.12.8",
-      revision: "d5b9b81a0bc1edcfc725d31614b53b99e9d12989"
+      tag:      "v0.15.0",
+      revision: "ac95630ca2e3d61a2385f247a406faa66afbc5fc"
   license "MIT"
   head "https://github.com/yokecd/yoke.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7d8e7ed3c8e5bdb197bf17848cb3711e1ff74ae2a27615e1512d9b61b08be45d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "db801821ffcc62e70471c153f3aabf2c9c7556fbc380b51ad4b9c44ca15c6f7a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7f96c32da090fad1768bff575938088b0593646656f5bf3ebd94a2526bff08da"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a07785aa1b97f8845653a637de1fad4b74d395f27a994376c4b967500ca8c980"
-    sha256 cellar: :any_skip_relocation, ventura:       "873a58497bfb8c07f3312bd87c618a5349cd701000c750c7fcac12afc4c0ff55"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "25388a65ff7ca84fa3557f770171d23e5acaaa9ec06e3abde84a33d4e2b6eb2f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8681c03832dfb030664bc1a189fbdab13523601b52c350b4acf501c8fcb209b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "36c90dd1e624f1311eb863eeddff55f1dfaf60a3b842ade682eea88236c20abe"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6a74f6466df05eef2dfd6002066c6a694e89d2c9fa1b2a896440dadaf2007eab"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "72257de02d4c7d9519d79f5a284dfb9e6fc0c0a0a017b610d388c6505735b454"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ff3334764f352be2db197300eb3c413f70c87faf32a4061414277a85ef021ce9"
+    sha256 cellar: :any_skip_relocation, ventura:       "c2d348f1d483c174df6331b482e7bd92409d28883888d0bed57be93244a07716"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4f37779c2b6c6995a2173c1cf255207ee50c52b6df481642e970a074403d173a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "09a7cc1f8b5f83d8f08f5d8b88fd4a611b9406d4fde955c06cb265be72c6f5c3"
   end
 
   depends_on "go" => :build

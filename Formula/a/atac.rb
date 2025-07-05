@@ -1,19 +1,19 @@
 class Atac < Formula
   desc "Simple API client (Postman-like) in your terminal"
   homepage "https://atac.julien-cpsn.com/"
-  url "https://github.com/Julien-cpsn/ATAC/archive/refs/tags/v0.20.0.tar.gz"
-  sha256 "2f1b7cb1eae7aac4e5fd39a9d87eeb27d3c3167695c9e4af1dae3906172d0f57"
+  url "https://github.com/Julien-cpsn/ATAC/archive/refs/tags/v0.20.2.tar.gz"
+  sha256 "d2f8163a8df224c7dd07e5aa2db6c000938102fe5b637e583e2a123a731c1ea5"
   license "MIT"
   head "https://github.com/Julien-cpsn/ATAC.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "59bc7fab0781c4deb73356174db8a139394f2b5cfec0bb5b3a039b901885f224"
-    sha256 cellar: :any,                 arm64_sonoma:  "9e69fed7b6b3752986523b6dbf31f2f3ca4e377881a682ed28147fa5c72a3217"
-    sha256 cellar: :any,                 arm64_ventura: "7436aceca7891c5f421e2b7c0619038a2248fbdd237f3a77feea08df246b364b"
-    sha256 cellar: :any,                 sonoma:        "8f1fd657ca6c5ebfaa02b1dca032cc049a930b8b390811721976ba051ccd88ee"
-    sha256 cellar: :any,                 ventura:       "9e69a9fdfd01701af363a43715e1e2431746064f9f07feae807fc957d19018c9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9e0653d5ad931c62d9a7dbe6419f68446e29b2e7481d1e782afd06b635b6e15f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e5c8ad00161a566c3fcc3d7fb40460c430147324e874b313c4c1091226ee055c"
+    sha256 cellar: :any,                 arm64_sequoia: "e737c4c00bf8ffba6c530c72621102b9653dfce857b7dd2cb14c1ea5817a3724"
+    sha256 cellar: :any,                 arm64_sonoma:  "7541ee353b11df848ccf8f43f75dc1bda53d4ff8643aa00dc715e40f089198ad"
+    sha256 cellar: :any,                 arm64_ventura: "92000dfb088d67ada800262ae6af2ba24eacd72974b9bb962650453b4f794f01"
+    sha256 cellar: :any,                 sonoma:        "dd3e472045a1be0d034b9ad6183ae9887bcf766d873695a947ac7f96820bfaaf"
+    sha256 cellar: :any,                 ventura:       "63532ef5bd19e50d3d4dcb987a53b6cbc8b846ec25e5567145674d2fed98ef96"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c1382e745564f69ef678cfe6d546b49123c46dfe45839aab2ebc6b383501d403"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a747db706a32341404be11a517168bdce345bd6bd5834e7b43137af94d8dcc83"
   end
 
   depends_on "pkgconf" => :build

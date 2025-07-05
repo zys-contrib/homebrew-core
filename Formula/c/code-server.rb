@@ -1,26 +1,25 @@
 class CodeServer < Formula
   desc "Access VS Code through the browser"
   homepage "https://github.com/coder/code-server"
-  url "https://registry.npmjs.org/code-server/-/code-server-4.100.2.tgz"
-  sha256 "869f21594fb63ef255b7c53ecafc4f5bcf973f8d1897829b6246341ad926f7d3"
+  url "https://registry.npmjs.org/code-server/-/code-server-4.101.2.tgz"
+  sha256 "6f53a281ac4c2db0ea61f7f48d82e80312e5627342838b26a6127f81267b8aca"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6e8fe656adf763150a5900ec863e041e3d9cee4b4132f4a485dc27ccc3d720f8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "03f1b17800fa23541788c0a4b2b564ed900f7c8ba8eb8a764e312442d10ffd55"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5234907d787f9631965e9d0d003bdafb0b613b6e4949a8658852524f09bdbc21"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f8b55e21a44a88bc6e2ef923ea2eca68d2abfd24d4b946980bed9567ef024e2d"
-    sha256 cellar: :any_skip_relocation, ventura:       "08fbb86ce75941f8a3818ab55039a79f9948ffdae6d788c40388517c644ef09c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "601cffb081453ffec004d5797e208eb882c9e176c1e5cc6a5d9effb28d9c849e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "320a3e07e323e30ff7abeadf933fe3577e8aed1a5f6f9c3d1a3e823ba64f68e7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "87b17837fb2372caff6dc213558c18a54559d87d075ccfbfda507a418966cff6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "446b5b3a59f639aba664c835bedbd045d5d68fbe83dc90f198aba8a8c1642494"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "60dce0b3eba2d8d185269c39db158a75ce94601aaedb4d0fc95369f3ba94a6ec"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a37a468ec4c86b2b400dda15140e3c6909d2d4c5ad98c47c54163203e5811256"
+    sha256 cellar: :any_skip_relocation, ventura:       "29c209f66546f99ac44381fd04e97a44eaf4dd2f0fba2d377f0ecbd4b755e845"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "88a4a8a6b5c3947425e218c23bd17d6d082a8463028e342b5db1a5535ce46267"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "848b70ca5e2c43b76e896d8548eb7626710ed0ec3ae7918d58ba5b2c05f413f4"
   end
 
-  depends_on "node@20"
-
+  depends_on "pkgconf" => :build
+  depends_on "node@22"
   uses_from_macos "python" => :build
 
   on_linux do
-    depends_on "pkgconf" => :build
     depends_on "krb5"
     depends_on "libsecret"
     depends_on "libx11"

@@ -1,18 +1,18 @@
 class GitTown < Formula
   desc "High-level command-line interface for Git"
   homepage "https://www.git-town.com/"
-  url "https://github.com/git-town/git-town/archive/refs/tags/v20.2.0.tar.gz"
-  sha256 "7bd994ce74b9db33a00ea2e55dbdcbc5eb11a74e8845e4b95b9588105a4af4fd"
+  url "https://github.com/git-town/git-town/archive/refs/tags/v21.2.0.tar.gz"
+  sha256 "e4193ec5d8a7f9e7ca22e12938ecab81e1d6a61a89eafc698e8b514204db7068"
   license "MIT"
   head "https://github.com/git-town/git-town.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "127fe76c2773942ded97c46ec5285bb60dea631cbd825eff2b71766c0c552390"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "127fe76c2773942ded97c46ec5285bb60dea631cbd825eff2b71766c0c552390"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "127fe76c2773942ded97c46ec5285bb60dea631cbd825eff2b71766c0c552390"
-    sha256 cellar: :any_skip_relocation, sonoma:        "79f8eef2e287c62cc2ed7c9fb0ccb6f3ee8ef5d1eaee6c79e7a23007e4c7fe38"
-    sha256 cellar: :any_skip_relocation, ventura:       "79f8eef2e287c62cc2ed7c9fb0ccb6f3ee8ef5d1eaee6c79e7a23007e4c7fe38"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1228a541af84f3a1a4d048a2b5af00fac0ee8d916d000178531665222bec357d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1ac53c2b57809516d79635f4a0f93a8aaf5636cbba510587a121d65dba647ef5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1ac53c2b57809516d79635f4a0f93a8aaf5636cbba510587a121d65dba647ef5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1ac53c2b57809516d79635f4a0f93a8aaf5636cbba510587a121d65dba647ef5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3763b95321afeff90b3991d74f24c0425b8886462833fd27463576d7332f5ec7"
+    sha256 cellar: :any_skip_relocation, ventura:       "3763b95321afeff90b3991d74f24c0425b8886462833fd27463576d7332f5ec7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "71d43eb431367565ca602f41c2162de3052d7d62667dd3f4a842b861884bb860"
   end
 
   depends_on "go" => :build
